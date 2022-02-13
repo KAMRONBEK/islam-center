@@ -1,0 +1,13 @@
+current directory: /Users/mirjalol/Documents/Islam/islam_centre/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext/json
+/Users/MacBookAir/.rvm/rubies/ruby-2.7.4/bin/ruby -I /Users/MacBookAir/.rvm/rubies/ruby-2.7.4/lib/ruby/2.7.0 -r ./siteconf20220209-63033-1riufuh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mirjalol/Documents/Islam/islam_centre/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/mirjalol/Documents/Islam/islam_centre/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/mirjalol/Documents/Islam/islam_centre/vendor/bundle/ruby/2.7.0/gems/json-2.6.1/ext/json
+make "DESTDIR=" install
