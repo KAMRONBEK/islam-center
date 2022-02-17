@@ -2,7 +2,7 @@ const colors = {
   black: '#000',
   white: 'rgba(255, 255, 255, 1)',
   green: 'rgba(39, 177, 127, 1)',
-  gray: '#A5B4CB',
+  gray: 'rgba(143, 143, 143, 1)',
   layout: '#F7F8F2',
   primary: '#F6E69E',
   purple: '#725BFE',

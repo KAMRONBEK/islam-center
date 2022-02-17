@@ -1,10 +1,4 @@
-import {
-  Text,
-  View,
-  ImageBackground,
-  KeyboardAvoidingView,
-  TouchbleOpacity,
-} from 'react-native';
+import {Text, View, ImageBackground, KeyboardAvoidingView} from 'react-native';
 import React from 'react';
 import {style} from './style';
 import {ArrowLeft, ArrowRight, Pattern} from '../../assets/icons/icon';

@@ -1,4 +1,4 @@
-import {Text, View, ImageBackground} from 'react-native';
+import {Text, View, ImageBackground, Image} from 'react-native';
 import React from 'react';
 import {style} from './style';
 import {windowWidth, windowHeight, isIOS} from '../../constants/size';
@@ -22,7 +22,10 @@ const Intro = () => {
         style={style.introBG}>
         <View style={style.inner}>
           <View style={style.topBox}>
-            <Text style={style.appLogo}>LOGO</Text>
+            <Image
+              // style={style.tinyLogo}
+              source={require('../../assets/images/Gerb.png')}
+            />
           </View>
 
           <View style={style.bottomBox}>
@@ -36,7 +39,7 @@ const Intro = () => {
                 height: 65,
               }}
               //@ts-ignore
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.navigate('Home')}
               text="Авторизоваться"
               textStyles={{
                 color: '#000',

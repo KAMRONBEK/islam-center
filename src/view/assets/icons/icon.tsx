@@ -2330,3 +2330,299 @@ export function DetailsIcon({
     </Svg>
   );
 }
+
+export function DetailsHomeIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 27 29" fill="none" {...props}>
+      <Path
+        d="M13.982.83a.965.965 0 00-.684-.293.94.94 0 00-.684.293L1.022 12.796a.999.999 0 00-.282.706v13.96c0 .265.102.519.283.706a.951.951 0 00.683.292H10.4a.95.95 0 00.683-.292c.182-.187.283-.44.283-.705v-7.978h3.864v7.978c0 .264.102.518.283.705a.95.95 0 00.684.292h8.694a.95.95 0 00.683-.292c.18-.187.283-.44.283-.705v-13.96a1.026 1.026 0 00-.282-.707l-2.616-2.698V3.53c0-.264-.102-.518-.283-.705a.951.951 0 00-.683-.292H20.06a.951.951 0 00-.684.292c-.18.187-.282.44-.282.705v2.58L13.982.83zM2.672 26.465v-12.55L13.298 2.946l10.627 10.969v12.55h-6.762v-7.977c0-.264-.102-.518-.284-.705a.95.95 0 00-.683-.292H10.4a.951.951 0 00-.683.292c-.18.187-.283.44-.283.705v7.977H2.672z"
+        fill={fillColor}
+        stroke={fillColor}
+        strokeWidth={0.5}
+      />
+    </Svg>
+  );
+}
+
+export function DetailsNotificationIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 26 28" fill="none" {...props}>
+      <Path
+        d="M10.627 2.483c.207-.495.561-.92 1.018-1.218a2.828 2.828 0 011.547-.458c.551 0 1.09.16 1.547.458.457.299.811.723 1.018 1.218a9.706 9.706 0 015.137 3.364 9.211 9.211 0 011.983 5.695v6.301l2.534 3.687a1.314 1.314 0 01-.44 1.895c-.215.125-.46.191-.711.191h-6.274a4.66 4.66 0 01-1.623 2.879 4.933 4.933 0 01-3.171 1.146 4.933 4.933 0 01-3.17-1.146 4.66 4.66 0 01-1.624-2.879H2.124c-.25 0-.496-.066-.711-.19a1.36 1.36 0 01-.51-.519 1.308 1.308 0 01.07-1.377l2.534-3.687v-6.301c0-4.325 3.016-7.97 7.12-9.059zm.609 21.133c.143.393.407.733.758.973.35.24.77.37 1.199.37.429 0 .848-.13 1.198-.37s.616-.58.759-.973h-3.916.002zm1.956-18.782a7.029 7.029 0 00-4.891 1.965 6.606 6.606 0 00-2.027 4.743v6.708c0 .265-.08.524-.232.744L4.71 20.933h16.963l-1.332-1.939a1.312 1.312 0 01-.232-.744v-6.708a6.606 6.606 0 00-2.026-4.743 7.029 7.029 0 00-4.891-1.965z"
+        stroke={colors.white}
+        fill={colors.black}
+        strokeWidth={0.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsLikeIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 32 29" fill="none" {...props}>
+      <Path
+        d="M23.04.987c-2.647 0-5.188 1.233-6.847 3.18-1.658-1.947-4.2-3.18-6.847-3.18-4.687 0-8.37 3.683-8.37 8.37 0 5.751 5.174 10.438 13.01 17.56l2.207 1.993L18.4 26.9c7.836-7.106 13.01-11.793 13.01-17.545 0-4.686-3.683-8.369-8.37-8.369zM16.346 24.65l-.152.152-.152-.152C8.798 18.091 4.02 13.754 4.02 9.356c0-3.043 2.282-5.326 5.326-5.326 2.343 0 4.626 1.507 5.432 3.592h2.846c.79-2.085 3.073-3.592 5.417-3.592 3.043 0 5.326 2.283 5.326 5.326 0 4.398-4.778 8.735-12.022 15.293z"
+        stroke={colors.white}
+        fill={colors.black}
+        strokeWidth={0.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsBooksIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 27 25" fill="none" {...props}>
+      <Path
+        d="M1.5 4.448s1.75-2.71 5.836-2.71c4.085 0 5.835 2.71 5.835 2.71v18.967s-1.75-1.355-5.835-1.355S1.5 23.415 1.5 23.415V4.448z"
+        stroke={colors.black}
+        fill={colors.white}
+        strokeWidth={2.1}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M13.17 4.448s1.75-2.71 5.836-2.71c4.084 0 5.835 2.71 5.835 2.71v18.967s-1.75-1.355-5.835-1.355-5.836 1.355-5.836 1.355V4.448z"
+        stroke={colors.black}
+        fill={colors.white}
+        strokeWidth={2.1}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsTursIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 26 26" fill="none" {...props}>
+      <Path
+        d="M8.685 3.994L5.287 2.861A2.483 2.483 0 002.02 5.217v14.63a2.483 2.483 0 001.698 2.357l4.967 1.655c.509.17 1.06.17 1.569 0l5.88-1.96c.51-.169 1.06-.169 1.57 0l3.397 1.133a2.483 2.483 0 003.268-2.358V6.045a2.484 2.484 0 00-1.697-2.356l-4.967-1.655c-.51-.17-1.06-.17-1.57 0l-5.882 1.959c-.51.17-1.06.17-1.57 0l.002.001z"
+        stroke={colors.black}
+        fill={colors.white}
+        strokeWidth={1.9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M9.469 4.255V24.12M16.92 1.772v19.866"
+        stroke={colors.black}
+        fill={colors.white}
+        strokeWidth={1.9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsBlogsIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 27 27" fill="none" {...props}>
+      <Path
+        d="M19.135 5.082h4.25c.375 0 .736.154 1.002.428.265.273.414.644.414 1.03v16.042a2.96 2.96 0 01-.83 2.063 2.793 2.793 0 01-2.003.854 2.793 2.793 0 01-2.003-.854 2.96 2.96 0 01-.83-2.063V3.624c0-.387-.15-.758-.415-1.031a1.396 1.396 0 00-1.002-.427H3.551c-.375 0-.736.153-1.001.427a1.48 1.48 0 00-.415 1.031v17.5c0 1.16.448 2.273 1.245 3.094a4.19 4.19 0 003.005 1.281h15.583M7.8 7.999h5.667M7.8 13.832h5.667M7.8 19.666h5.667"
+        stroke={colors.black}
+        fill={colors.white}
+        strokeWidth={1.9}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsForumIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 32 33" fill="none" {...props}>
+      <Path
+        d="M20.344 5.833v9.334H7.647l-1.51 1.56V5.833h14.207zm1.292-2.666H4.844c-.71 0-1.291.6-1.291 1.333v18.667l5.166-5.334h12.917c.71 0 1.292-.6 1.292-1.333v-12c0-.733-.582-1.333-1.292-1.333zM28.094 8.5h-2.583v12H8.72v2.667c0 .733.582 1.333 1.292 1.333H24.22l5.167 5.333v-20c0-.733-.581-1.333-1.292-1.333z"
+        stroke={colors.white}
+        fill={colors.black}
+        strokeWidth={0.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function DetailsSignOutIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 21 26" fill="none" {...props}>
+      <Path
+        d="M0 12.87a1.278 1.278 0 001.278 1.277h9.7l-2.94 2.927a1.278 1.278 0 000 1.814 1.276 1.276 0 001.815 0l5.112-5.112c.116-.121.207-.264.268-.421.128-.311.128-.66 0-.972-.06-.156-.152-.3-.268-.421L9.853 6.85a1.283 1.283 0 10-1.815 1.815l2.94 2.926h-9.7A1.278 1.278 0 000 12.87zM16.613.09H3.833A3.834 3.834 0 000 3.923v3.834a1.278 1.278 0 102.556 0V3.923a1.278 1.278 0 011.278-1.277h12.78a1.278 1.278 0 011.277 1.277v17.892a1.278 1.278 0 01-1.278 1.278H3.833a1.278 1.278 0 01-1.277-1.278V17.98a1.278 1.278 0 10-2.556 0v3.834a3.834 3.834 0 003.834 3.834h12.78a3.834 3.834 0 003.833-3.834V3.923A3.834 3.834 0 0016.613.09z"
+        stroke={colors.white}
+        fill={colors.black}
+        strokeWidth={0.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function Facebook({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 35 34" fill="none" {...props}>
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M.621 17.095c0 8.452 6.139 15.48 14.167 16.905V21.722h-4.25V17h4.25v-3.778c0-4.25 2.738-6.61 6.611-6.61 1.227 0 2.55.188 3.777.376v4.345h-2.172c-2.078 0-2.55 1.039-2.55 2.362V17h4.534l-.755 4.722h-3.779V34c8.029-1.425 14.167-8.452 14.167-16.905 0-9.402-7.65-17.095-17-17.095s-17 7.692-17 17.095z"
+        fill="#000"
+      />
+    </Svg>
+  );
+}
+
+export function Telegramm({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg
+      width={34}
+      height={29}
+      viewBox="0 0 34 29"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M33.527 2.64l-4.98 24.61c-.376 1.736-1.355 2.168-2.748 1.35l-7.588-5.859-3.661 3.69c-.405.426-.744.78-1.525.78l.545-8.097L27.634 5.798c.611-.571-.134-.888-.95-.317L9.297 16.953l-7.485-2.455c-1.628-.532-1.657-1.706.34-2.525L31.427.154c1.355-.532 2.541.317 2.099 2.487v-.002z"
+        fill="#000"
+      />
+    </Svg>
+  );
+}
+
+export function Instagram({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg
+      width={36}
+      height={36}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.605.807C12.472.72 13.067.702 17.821.702c4.755 0 5.35.02 7.215.105 1.865.084 3.138.382 4.252.813a8.611 8.611 0 013.1 2.02 8.55 8.55 0 012.017 3.099c.433 1.114.729 2.387.815 4.248.086 1.87.105 2.465.105 7.218 0 4.755-.021 5.35-.105 7.216-.085 1.862-.382 3.135-.815 4.249a8.586 8.586 0 01-2.018 3.1 8.581 8.581 0 01-3.1 2.018c-1.113.433-2.386.73-4.248.815-1.868.086-2.463.105-7.218.105-4.754 0-5.35-.02-7.216-.105-1.861-.084-3.134-.382-4.248-.815a8.587 8.587 0 01-3.101-2.017 8.58 8.58 0 01-2.02-3.1c-.43-1.114-.727-2.387-.813-4.248-.086-1.87-.105-2.465-.105-7.218 0-4.754.021-5.35.105-7.214.085-1.865.382-3.138.813-4.252a8.586 8.586 0 012.021-3.1A8.58 8.58 0 016.355 1.62C7.47 1.189 8.742.893 10.604.807h.001zm14.29 3.15c-1.846-.084-2.4-.101-7.073-.101-4.674 0-5.228.017-7.073.101-1.708.078-2.634.363-3.251.604-.816.318-1.4.695-2.013 1.308A5.43 5.43 0 004.177 7.88c-.24.618-.525 1.544-.603 3.251-.084 1.846-.102 2.4-.102 7.073s.018 5.227.102 7.073c.078 1.707.363 2.633.603 3.25.28.76.727 1.449 1.308 2.014a5.433 5.433 0 002.013 1.307c.617.24 1.543.526 3.25.604 1.846.084 2.399.101 7.074.101 4.674 0 5.227-.017 7.072-.101 1.708-.078 2.634-.363 3.251-.604.816-.318 1.4-.695 2.013-1.308a5.433 5.433 0 001.308-2.012c.24-.618.525-1.544.603-3.251.084-1.846.102-2.4.102-7.073s-.018-5.227-.102-7.073c-.078-1.707-.363-2.633-.603-3.25-.318-.817-.695-1.4-1.308-2.013a5.43 5.43 0 00-2.013-1.308c-.617-.24-1.543-.526-3.25-.604zm-9.31 19.644a5.838 5.838 0 006.366-9.525 5.838 5.838 0 00-9.905 3.273 5.839 5.839 0 003.54 6.252zM11.46 11.843a8.996 8.996 0 1112.723 12.723A8.996 8.996 0 0111.46 11.843zm17.353-1.295a2.126 2.126 0 00-.66-3.519 2.127 2.127 0 10.66 3.52z"
+        fill="#000"
+      />
+    </Svg>
+  );
+}
+
+export function CoruselArrowLeft({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 11 18" fill="none" {...props}>
+      <Path
+        d="M10.019 3.19l-5.742 5.8 5.742 5.801-1.148 2.32-8.039-8.12L8.871.87l1.148 2.32z"
+        fill="#000"
+      />
+    </Svg>
+  );
+}
+
+export function CoruselArrowRight({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 10 18" fill="none" {...props}>
+      <Path
+        d="M.598 14.896l5.742-5.8L.598 3.294 1.747.975l8.038 8.12-8.038 8.12-1.149-2.32z"
+        fill="#000"
+      />
+    </Svg>
+  );
+}
+
+export function Saveg({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
+  return (
+    <Svg
+      width={17}
+      height={24}
+      viewBox="0 0 17 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+      <Path
+        d="M.5 2.988l.001 20.15 7.876-8.507L17 23.14V2.988A2.66 2.66 0 0014.341.355l-.097.001h.005H3.251L3.16.355A2.658 2.658 0 00.501 2.987H.5z"
+        fill="#fff"
+      />
+    </Svg>
+  );
+}

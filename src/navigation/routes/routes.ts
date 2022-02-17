@@ -3,4 +3,8 @@ export enum Routes {
   Login = 'Login',
   Welcome = 'Welcome',
   Home = 'Home',
+  Details = 'Details',
+  News = 'News',
+  Museum= 'Museum',
+  Centre = 'Centre',
 }

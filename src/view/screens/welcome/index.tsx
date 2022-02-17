@@ -23,7 +23,7 @@ const Welcome = () => {
       //@ts-ignore
       navigation.navigate(Routes.Home);
     } else null;
-    console.warn(code);
+    // console.warn(code);
   };
 
   return (

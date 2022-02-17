@@ -7,6 +7,10 @@ import Intro from '../view/screens/intro';
 import Login from '../view/screens/login';
 import Welcome from '../view/screens/welcome';
 import Home from '../view/screens/home/inde';
+import Details from '../view/screens/Details';
+import News from '../view/screens/News';
+import Museum from '../view/screens/Museum';
+import Centre from '../view/screens/Centre';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +26,10 @@ const AppNavigator = () => {
         <Stack.Screen component={Login} name={Routes.Login} />
         <Stack.Screen component={Welcome} name={Routes.Welcome} />
         <Stack.Screen component={Home} name={Routes.Home} />
+        <Stack.Screen component={Details} name={Routes.Details} />
+        <Stack.Screen component={News} name={Routes.News} />
+        <Stack.Screen component={Museum} name={Routes.Museum} />
+        <Stack.Screen component={Centre} name={Routes.Centre} />
         {/* <Stack.Screen component={} name={} /> */}
       </Stack.Navigator>
     </NavigationContainer>
