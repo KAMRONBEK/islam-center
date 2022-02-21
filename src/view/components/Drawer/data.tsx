@@ -2,7 +2,7 @@ import React from 'react';
 import {
   DetailsHomeIcon,
   DetailsLikeIcon,
-  DetailsNotificationIcon,
+  NotificationIcon,
   DetailsBooksIcon,
   DetailsTursIcon,
   DetailsBlogsIcon,
@@ -18,7 +18,7 @@ export const DrawerDATA = [
     title: 'Главная',
   },
   {
-    icon: <DetailsNotificationIcon size={30} />,
+    icon: <NotificationIcon size={30} />,
     title: 'Уведомления',
   },
   {
