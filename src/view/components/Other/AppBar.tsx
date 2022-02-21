@@ -329,12 +329,7 @@ export function HeaderApp({
           </Text>
         }
 
-        {notificatAndDetailsIcons && 
-          <View style={{flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: 75, marginLeft: -20,}}>
-            {notificationIcon && 
+        {notificationIcon && 
               <TouchableOpacity onPress={onPressNotification} style={{
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -345,16 +340,33 @@ export function HeaderApp({
               }}>
                   <NotificationIcon size={20} color={notificationColor}/>
               </TouchableOpacity>
-            }
-
-            {detailsIcon && 
-                <TouchableOpacity onPress={onPressDetailsIcon}>
-                  <DetailsIcon size={20} color={detailsColor}/>
-                </TouchableOpacity>
-            }
-          </View>
         }
 
+        {notificatAndDetailsIcons && 
+          <View style={{flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: 75, marginLeft: -20,}}>
+            {/* {notificationIcon &&  */}
+              <TouchableOpacity onPress={onPressNotification} style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#F0F0F0',
+                borderRadius: 2,
+                width: 30,
+                height: 30,
+              }}>
+                  <NotificationIcon size={20} color={colors.black}/>
+              </TouchableOpacity>
+            {/* } */}
+
+                <TouchableOpacity onPress={onPressDetailsIcon}>
+                  <DetailsIcon size={20} color={colors.black}/>
+                </TouchableOpacity>
+          
+          </View>
+        }
+        
         {saveIcon && 
             <TouchableOpacity onPress={onPressSaveIcon}>
               <Saveg size={20} color={saveColor}/>

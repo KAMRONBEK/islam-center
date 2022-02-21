@@ -25,10 +25,6 @@ const Home = () => {
          containerStyle={style.containerStyle}
          logoIcon={true}
          notificatAndDetailsIcons={true}
-         notificationIcon={true}
-         notificationColor={colors.black}
-         detailsIcon={true}
-         detailsColor={colors.black}
          //@ts-ignore
          onPressDetailsIcon={() => navigation.navigate('Details')}
          headingText={true}
