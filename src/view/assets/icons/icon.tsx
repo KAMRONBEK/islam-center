@@ -2225,7 +2225,7 @@ export function ArrowLeft({color, active, size, style, fillColor}: IconProps) {
     <Svg viewBox="0 0 26 18" fill="none" {...props}>
       <Path
         d="M8.828 17.945l1.484-1.462-6.295-6.2 21.307.43-.23-2.804-21.077.308 6.295-6.2L8.828.555 0 9.25l8.828 8.695z"
-        fill={fillColor}
+        fill={color}
       />
     </Svg>
   );
@@ -2351,7 +2351,7 @@ export function DetailsHomeIcon({
   );
 }
 
-export function DetailsNotificationIcon({
+export function NotificationIcon({
   color,
   active,
   size,
