@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
 
   loginBG: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
 
@@ -28,9 +28,11 @@ export const style = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     // backgroundColor: '#fff',
-    width: windowWidth / 1,
+    width: windowWidth / 2 + 60,
     height: isIOS ? windowHeight / 8 - 25 : windowHeight / 8 - 50,
     paddingHorizontal: 30,
+    // borderWidth: 1,
+    // borderColor: '#fff',
   },
 
   titleStyle: {

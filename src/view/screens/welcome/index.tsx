@@ -1,11 +1,11 @@
 import {Text, View, ImageBackground, KeyboardAvoidingView} from 'react-native';
 import React from 'react';
 import {style} from './style';
-import {ArrowLeft, ArrowRight, Pattern} from '../../assets/icons/icon';
+import {ArrowRight, Pattern} from '../../assets/icons/icon';
 import Button from '../../components/Button/button';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
-import {AppBarBackTo} from '../../components/Other/AppBar';
+import {HeaderApp} from '../../components/Other/AppBar';
 import {useNavigation} from '@react-navigation/native';
 import MaskInput from 'react-native-mask-input';
 
@@ -35,15 +35,15 @@ const Welcome = () => {
           source={intro_bg}
           resizeMode="cover"
           style={style.loginBG}>
-          <AppBarBackTo
+          <HeaderApp 
             containerStyle={style.containerStyle}
-            Icon={ArrowLeft}
+            leftArrowIcon={true}
+            colorLeftArrow={colors.white}
             //@ts-ignore
-            onPressBackAction={() => navigation.navigate('Login')}
-            icon={colors.white}
-            hintTitle="Подтверждение"
-            titleStyle={style.titleStyle}
-            nextActionTitle="     "
+            onPressLeftArrow={() => navigation.navigate('Login')}
+            headingText={true}
+            headingTitle="Подтверждение"
+            headingTextStyle={style.titleStyle}
           />
           <View style={style.inner}>
             <View style={style.bgIcon}>

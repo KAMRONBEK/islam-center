@@ -1,7 +1,7 @@
 import {Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {style} from './style';
-import {AppBarDetails} from '../../components/Other/AppBar';
+import {HeaderApp} from '../../components/Other/AppBar';
 import {colors} from '../../theme';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../navigation/routes/routes';
@@ -21,18 +21,19 @@ const Home = () => {
   return (
     <ScrollView style={style.container}>
       <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 15}}></View>
-      <AppBarDetails
-        containerStyle={style.containerStyle}
-        nextActionStyle={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: 70,
-        }}
-        hintTitle="Главная"
-        titleStyle={style.titleStyle}
-        //@ts-ignore
-        onPressDetails={() => navigation.navigate('Details')}
+      <HeaderApp
+         containerStyle={style.containerStyle}
+         logoIcon={true}
+         notificatAndDetailsIcons={true}
+         notificationIcon={true}
+         notificationColor={colors.black}
+         detailsIcon={true}
+         detailsColor={colors.black}
+         //@ts-ignore
+         onPressDetailsIcon={() => navigation.navigate('Details')}
+         headingText={true}
+         headingTitle="Главная"
+         headingTextStyle={style.titleStyle}
       />
       <View style={style.bookShopCorusel}>
         <SwiperFlatList
