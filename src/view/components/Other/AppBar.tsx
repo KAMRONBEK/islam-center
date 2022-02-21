@@ -1,5 +1,4 @@
 import React from 'react';
-import {Appbar} from 'react-native-paper';
 import {
   StyleSheet,
   Text,
@@ -9,9 +8,11 @@ import {
   Image,
 } from 'react-native';
 import {
+  ArrowLeft,
   DetailsIcon,
-  DetailsNotificationIcon,
+  NotificationIcon,
   IconProps,
+  Saveg,
 } from '../../assets/icons/icon';
 import {colors} from '../../theme';
 
@@ -137,6 +138,7 @@ export interface AddAppBarDetailsProps {
   onPressBackAction?: () => void;
   onPressDetails?: () => void;
   onPress?: () => void;
+  detailsIcon?:any
 }
 
 export interface PressableAddAppBarDetailsProps
@@ -166,7 +168,7 @@ export function AppBarDetails({
   onPressIcon,
   onPressBackAction,
   onPressIconRight,
-  onPressDetails,
+  onPressDetails,detailsIcon
 }: AddAppBarDetailsProps) {
   let props = {
     titleStyle,
@@ -185,6 +187,7 @@ export function AppBarDetails({
     onPressBackAction,
     onPressIconRight,
     onPressDetails,
+    detailsIcon
   };
   return (
     <View style={containerStyle}>
@@ -210,15 +213,154 @@ export function AppBarDetails({
               width: 30,
               height: 30,
             }}>
-            <DetailsNotificationIcon size={20} />
+            <NotificationIcon size={20} />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onPressDetails}>
+       {detailsIcon &&
+          <TouchableOpacity onPress={onPressDetails}>
           <DetailsIcon color="#000" size={20} />
         </TouchableOpacity>
+       }
       </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
+
+
+
+export interface HeaderAppProps {
+  containerStyle?: any;
+  leftArrowIcon?: any;
+  colorLeftArrow?: any;
+  logoIcon?: any;
+  headingText?: any;
+  headingTextStyle?: any;
+  headingTitle?: any;
+  notificatAndDetailsIcons?: any;
+  notificationIcon?: any;
+  notificationColor?: any;
+  detailsIcon?: any;
+  detailsColor?: any;
+  saveIcon?:any;
+  saveColor?: any;
+  onPress?: () => void;
+  onPressLeftArrow?:() => void;
+  onPressNotification?: () => void;
+  onPressDetailsIcon?: () => void;
+  onPressSaveIcon: () => void;
+}
+
+export interface PressableHeaderAppProps
+  extends React.ComponentProps<any> {
+  onPress: ((event: GestureResponderEvent) => void) | undefined;
+}
+
+export let PressableHeaderAppProps = ({
+  onPress,
+}: PressableAddAppBarDetailsProps) => {
+  return <TouchableOpacity onPress={onPress}></TouchableOpacity>;
+};
+
+export function HeaderApp({
+  containerStyle,
+  leftArrowIcon,
+  colorLeftArrow,
+  logoIcon,
+  headingText,
+  headingTextStyle,
+  headingTitle,
+  notificatAndDetailsIcons,
+  notificationIcon,
+  notificationColor,
+  detailsIcon,
+  detailsColor,
+  saveIcon,
+  saveColor,
+  onPressLeftArrow,
+  onPressNotification,
+  onPressDetailsIcon,
+  onPressSaveIcon,
+  
+}: HeaderAppProps) {
+  let props = {
+    containerStyle,
+    leftArrowIcon,
+    colorLeftArrow,
+    logoIcon,
+    headingText,
+    headingTextStyle,
+    headingTitle,
+    notificatAndDetailsIcons,
+    notificationIcon,
+    notificationColor,
+    detailsIcon,
+    detailsColor,
+    saveIcon,
+    saveColor,
+    onPressLeftArrow,
+    onPressNotification,
+    onPressDetailsIcon,
+    onPressSaveIcon,
+  };
+  return (
+    <View style={containerStyle}>
+
+        {leftArrowIcon && 
+          <TouchableOpacity onPress={onPressLeftArrow}>
+              <ArrowLeft size={20} color={colorLeftArrow}/>
+          </TouchableOpacity>
+        } 
+
+        {logoIcon && 
+            <View>
+                <Image
+                  source={require('../../assets/images/Logo.png')}
+                  resizeMode="cover"
+                  style={{width: 55, height: 55}}
+                />
+            </View>
+        }
+
+        {headingText &&
+          <Text style={headingTextStyle}>
+              {headingTitle}
+          </Text>
+        }
+
+        {notificatAndDetailsIcons && 
+          <View style={{flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: 75, marginLeft: -20,}}>
+            {notificationIcon && 
+              <TouchableOpacity onPress={onPressNotification} style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#F0F0F0',
+                borderRadius: 2,
+                width: 30,
+                height: 30,
+              }}>
+                  <NotificationIcon size={20} color={notificationColor}/>
+              </TouchableOpacity>
+            }
+
+            {detailsIcon && 
+                <TouchableOpacity onPress={onPressDetailsIcon}>
+                  <DetailsIcon size={20} color={detailsColor}/>
+                </TouchableOpacity>
+            }
+          </View>
+        }
+
+        {saveIcon && 
+            <TouchableOpacity onPress={onPressSaveIcon}>
+              <Saveg size={20} color={saveColor}/>
+            </TouchableOpacity>
+        }
+
+    </View>
+  );
+}
