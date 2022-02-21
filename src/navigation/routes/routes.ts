@@ -7,4 +7,6 @@ export enum Routes {
   News = 'News',
   Museum= 'Museum',
   Centre = 'Centre',
+  Tour = 'Tour',
+  TourPages = 'TourPages',
 }
