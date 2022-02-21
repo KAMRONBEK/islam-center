@@ -11,6 +11,7 @@ import Details from '../view/screens/Details';
 import News from '../view/screens/News';
 import Museum from '../view/screens/Museum';
 import Centre from '../view/screens/Centre';
+import TourPages from '../view/screens/Tour/Pages';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,11 @@ const AppNavigator = () => {
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={Museum} name={Routes.Museum} />
         <Stack.Screen component={Centre} name={Routes.Centre} />
+        {/* <Stack.Screen component={Tour} name={Routes.Tour} /> */}
+        <Stack.Screen component={TourPages} name={Routes.TourPages} />
         {/* <Stack.Screen component={} name={} /> */}
+        {/* <Stack.Screen component={} name={} /> */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );
