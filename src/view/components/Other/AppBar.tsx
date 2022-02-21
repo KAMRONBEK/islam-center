@@ -230,7 +230,7 @@ export function AppBarDetails({
 
 
 
-export interface HeaderAppProps {
+export interface AppHeaderProps {
   containerStyle?: any;
   leftArrowIcon?: any;
   colorLeftArrow?: any;
@@ -252,18 +252,18 @@ export interface HeaderAppProps {
   onPressSaveIcon: () => void;
 }
 
-export interface PressableHeaderAppProps
+export interface PressableAppHeaderProps
   extends React.ComponentProps<any> {
   onPress: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-export let PressableHeaderAppProps = ({
+export let PressableAppHeaderProps = ({
   onPress,
 }: PressableAddAppBarDetailsProps) => {
   return <TouchableOpacity onPress={onPress}></TouchableOpacity>;
 };
 
-export function HeaderApp({
+export function AppHeader({
   containerStyle,
   leftArrowIcon,
   colorLeftArrow,
@@ -283,7 +283,7 @@ export function HeaderApp({
   onPressDetailsIcon,
   onPressSaveIcon,
   
-}: HeaderAppProps) {
+}: AppHeaderProps) {
   let props = {
     containerStyle,
     leftArrowIcon,

@@ -5,7 +5,7 @@ import {ArrowRight, Pattern} from '../../assets/icons/icon';
 import Button from '../../components/Button/button';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
-import {HeaderApp} from '../../components/Other/AppBar';
+import {AppHeader} from '../../components/Other/AppBar';
 import {useNavigation} from '@react-navigation/native';
 import MaskInput from 'react-native-mask-input';
 
@@ -35,7 +35,7 @@ const Login = () => {
           source={intro_bg}
           resizeMode="cover"
           style={style.loginBG}>
-          <HeaderApp
+          <AppHeader
             containerStyle={style.containerStyle}
             leftArrowIcon={true}
             colorLeftArrow={colors.white}

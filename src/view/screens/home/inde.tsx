@@ -1,7 +1,7 @@
 import {Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {style} from './style';
-import {HeaderApp} from '../../components/Other/AppBar';
+import {AppHeader} from '../../components/Other/AppBar';
 import {colors} from '../../theme';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../navigation/routes/routes';
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <ScrollView style={style.container}>
       <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 15}}></View>
-      <HeaderApp
+      <AppHeader
          containerStyle={style.containerStyle}
          logoIcon={true}
          notificatAndDetailsIcons={true}
