@@ -39,7 +39,7 @@ const Intro = () => {
                 height: 65,
               }}
               //@ts-ignore
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.navigate('BottomNavigator')}
               text="Авторизоваться"
               textStyles={{
                 color: '#000',

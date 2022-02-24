@@ -26,18 +26,14 @@ export const style = StyleSheet.create({
 
   bookShopCorusel: {
     width: '100%',
-    height: windowHeight / 3 - 10,
+    // height: windowHeight / 2 - 40,
     paddingHorizontal: 20,
     marginTop: 30,
-    // flexDirection: 'column',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4.19,
-    elevation: 2,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // borderWidth: 1,
+    // borderColor: '#000',
   },
 
   childSlide: {
@@ -54,7 +50,7 @@ export const style = StyleSheet.create({
   bookShopCoruselBtn: {
     height: 40,
     width: windowWidth / 1,
-    marginVertical: 120,
+    // marginVertical: 170,
     paddingHorizontal: 8,
     position: 'absolute',
     flexDirection: 'row',
@@ -70,7 +66,18 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
+    borderWidth: 0.1,
+    // borderColor: '#000',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4.19,
+    elevation: 2,
   },
+
   right: {
     width: 30,
     height: 30,
@@ -79,7 +86,102 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
+    borderWidth: 0.1,
+    // borderColor: '#000',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4.19,
+    elevation: 2,
   },
+
+
+  shopCoruselContainer: {
+    flexDirection: 'column',
+    // width: '100%',
+    width: windowWidth / 1 - 40,
+    // height: windowHeight / 2 - 40,
+    paddingVertical: 25,
+    paddingHorizontal: 25,
+    borderRadius: 5,
+    // borderColor: '#000',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4.19,
+    elevation: 2,
+  },
+
+  shopContent: {
+    flexDirection: 'row',
+    paddingHorizontal: 0,
+  },
+
+  shopContentText: {
+    justifyContent: 'center',
+    width: '50%',
+    // borderWidth: 1,
+    paddingVertical: 15,
+    paddingHorizontal: 5,
+  },
+
+  shopHintTextStyle: {
+    fontSize: 21,
+    fontWeight: '700',
+    lineHeight: 30,
+    paddingVertical: 10,
+  },
+
+  shopTitleStyle: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: colors.lingthGray,
+  },
+
+  shopDescription: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    // paddingVertical: 10,
+    paddingTop: 25,
+    // borderWidth: 1,
+    // borderColor: '#000',
+    width: '100%',
+  },
+
+  shopPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    algnItems: 'center',
+    paddingTop: 45,
+    // paddingVertical: 20,
+  },
+
+  shopLabel: {
+    fontSize: 18,
+    fontWeight: '400',
+    color: colors.lingthGray,
+  },
+
+  shopPriceStyle: {
+    fontSize: 25,
+    fontWeight: '600',
+    color: colors.black,
+    paddingHorizontal: 5,
+  },
+
+  shopCurrencyStyle: {
+    fontSize: 25,
+    fontWeight: '600',
+    color: colors.black,
+    // paddingHorizontal: 5,
+  },
+
 
   cardContainer: {
     justifyContent: 'center',
@@ -105,34 +207,99 @@ export const style = StyleSheet.create({
 
   newsText: {
     fontSize: 35,
+    color: colors.black,
     fontWeight: '700',
   },
 
   newsCorusel: {
     width: '100%',
-    height: windowHeight / 2 - 10,
+    // height: windowHeight / 2 + 50,
     paddingHorizontal: 20,
-    marginBottom: 50,
+    marginBottom: isIOS ? 160 : 140,
     flexDirection: 'column',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4.19,
-    elevation: 2,
+    justifyContent: 'center',
+    // borderWidth: 1,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 4.19,
+    // elevation: 4,
   },
 
   newsCoruselBtn: {
     height: 40,
     width: windowWidth / 1,
-    marginVertical: 185,
+    // marginVertical: 200,
     paddingHorizontal: 8,
     position: 'absolute',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+
+  newsCoruselContainer: {
+    flexDirection: 'column',
+    // width: '100%',
+    width: windowWidth / 1 - 40,
+    // height: windowHeight / 2 + 50,
+    // paddingVertical: 40,
+    // paddingHorizontal: 25,
+    borderRadius: 5,
+  },
+
+  newsImage: {
+    width: windowWidth / 1 - 40,
+    // height: '50%',
+    paddingHorizontal: 0,
+  },
+
+  
+  newsDescription: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    // borderWidth: 1,
+    // borderColor: '#000',
+    width: '100%',
+  },
+
+  newsHintTextStyle: {
+    fontSize: 20,
+    fontWeight: '700',
+    lineHeight: 28,
+    paddingVertical: 10,
+  },
+
+  newsLabel: {
+    fontSize: 18,
+    fontWeight: '400',
+    color: colors.lingthGray,
+    paddingVertical: 10,
+  },
+
+  newsPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    algnItems: 'center',
+    paddingTop: 35,
+    paddingBottom: 15,
+    paddingHorizontal: 5,
+    // borderWidth: 1,
+  },
+
+  newsStatusIconStyle: {
+    paddingHorizontal: 5,
+  },
+
+  newsCurrencyStyle: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: colors.lingthGray,
+    // paddingHorizontal: 5,
   },
 });

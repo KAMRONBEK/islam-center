@@ -6,12 +6,15 @@ import {Routes} from './routes/routes';
 import Intro from '../view/screens/intro';
 import Login from '../view/screens/login';
 import Welcome from '../view/screens/welcome';
-import Home from '../view/screens/home/inde';
+import Home from '../view/screens/home';
 import Details from '../view/screens/Details';
 import News from '../view/screens/News';
 import Museum from '../view/screens/Museum';
 import Centre from '../view/screens/Centre';
 import TourPages from '../view/screens/Tour/Pages';
+import BottomNavigator from '../view/controller/BottomNavigator';
+import Tour from '../view/screens/Tour';
+import Favorites from '../view/screens/Favorites';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,13 +30,14 @@ const AppNavigator = () => {
         <Stack.Screen component={Login} name={Routes.Login} />
         <Stack.Screen component={Welcome} name={Routes.Welcome} />
         <Stack.Screen component={Home} name={Routes.Home} />
+        <Stack.Screen component={BottomNavigator} name={Routes.BottomNavigator} />
+        <Stack.Screen component={Favorites} name={Routes.Favorites} />
         <Stack.Screen component={Details} name={Routes.Details} />
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={Museum} name={Routes.Museum} />
         <Stack.Screen component={Centre} name={Routes.Centre} />
-        {/* <Stack.Screen component={Tour} name={Routes.Tour} /> */}
+        <Stack.Screen component={Tour} name={Routes.Tour} />
         <Stack.Screen component={TourPages} name={Routes.TourPages} />
-        {/* <Stack.Screen component={} name={} /> */}
         {/* <Stack.Screen component={} name={} /> */}
 
       </Stack.Navigator>

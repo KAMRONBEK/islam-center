@@ -42,13 +42,6 @@ const DrawerItem = ({onPress}: DrawerItemProps) => {
           </TouchableOpacity>
         );
       })}
-      {/* {Icon === undefined ? null : (
-        //@ts-ignore
-        <Icon size={30} color={icon} fillColor={icon} />
-      )}
-      <Text>{text}</Text> */}
-      {/* </View> */}
-      {/* </TouchableOpacity> */}
     </View>
   );
 };

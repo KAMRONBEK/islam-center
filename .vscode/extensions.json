@@ -1,3 +1,6 @@
 {
-  "recommendations": ["milobo.react-native-styled-component-snippets"]
+  "recommendations": [
+    "milobo.react-native-styled-component-snippets",
+    "styled-components.vscode-styled-components"
+  ]
 }

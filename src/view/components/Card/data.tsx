@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image} from 'react-native';
-import {DetailsLikeIcon} from '../../assets/icons/icon';
+// import {LikeIcon} from '../../assets/icons/icon';
 
 export const CardDATA = [
   {
@@ -24,7 +24,7 @@ export const CardDATA = [
           width: '100%',
           height: '100%',
           borderTopRightRadius: 5,
-          borderLeftRightRadius: 5,
+          borderTopLeftRadius: 5,
         }}
       />
     ),

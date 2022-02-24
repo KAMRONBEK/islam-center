@@ -27,7 +27,6 @@
 		48B8B6E2CF0646BCA3CB22AB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E55E3E8FE334EC8B6E3E6B3 /* OpenSans-Italic.ttf */; };
 		49701FAC45DF4A5F8AF63754 /* OpenSans_SemiCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B038F86ACC24C4DB5882380 /* OpenSans_SemiCondensed-BoldItalic.ttf */; };
 		5E94B9F540C24AD99E1DD506 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F85887C5BB694C9CA2FD6107 /* OpenSans-Light.ttf */; };
-		67E98B4C39D5D8508554FF45 /* libPods-islam_centre-islam_centreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC2CFC17BF600A3AFD475DB /* libPods-islam_centre-islam_centreTests.a */; };
 		686C4A4D627E42619A553883 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B72B29DDE94227B2311797 /* OpenSans-Medium.ttf */; };
 		7AC526D998D84896BE56D4A4 /* OpenSans_SemiCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2470C8F3974977A4D47657 /* OpenSans_SemiCondensed-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -50,6 +49,7 @@
 		E40ABC168A7A42A78C6FF6EC /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 325071F75374463089258FF3 /* OpenSans-SemiBoldItalic.ttf */; };
 		EFD2E9E6F6484B539BB33666 /* OpenSans_Condensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B779445895BD45158A3E27E7 /* OpenSans_Condensed-Italic.ttf */; };
 		F5806AE666F44D30961D4DD6 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C25A3A2A1049498CBF9E67 /* OpenSans-ExtraBold.ttf */; };
+		F60C6B87159EB7D7ABD2810C /* libPods-islam_centre-islam_centreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D002D5655C0821DC29614 /* libPods-islam_centre-islam_centreTests.a */; };
 		F904580646204B44A1046600 /* OpenSans_Condensed-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91D62C0E4CBA43E48A195F71 /* OpenSans_Condensed-MediumItalic.ttf */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +77,6 @@
 		1E55E3E8FE334EC8B6E3E6B3 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../src/view/assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		2336F8D1858D4463B00D7A84 /* OpenSans_Condensed-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-LightItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		2B26FB39E43A49569A126863 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		2BC2CFC17BF600A3AFD475DB /* libPods-islam_centre-islam_centreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-islam_centre-islam_centreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D281E06508F4838B6EC3322 /* OpenSans_Condensed-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-Bold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Bold.ttf"; sourceTree = "<group>"; };
 		2E6334515F6A4FD79F3103E1 /* OpenSans_Condensed-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-Regular.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Regular.ttf"; sourceTree = "<group>"; };
 		325071F75374463089258FF3 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -85,36 +84,37 @@
 		40CEE5A6B0E04698B0E9DFBA /* OpenSans_Condensed-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-ExtraBold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-ExtraBold.ttf"; sourceTree = "<group>"; };
 		43277B1B327046D4898E95FC /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-BoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		46C35BA2E8BB46F7871556C7 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic-VariableFont_wdth,wght.ttf"; path = "../src/view/assets/fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
-		478C2080253C82005C498F86 /* Pods-islam_centre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre.release.xcconfig"; path = "Target Support Files/Pods-islam_centre/Pods-islam_centre.release.xcconfig"; sourceTree = "<group>"; };
 		4A16866EBE434B4F8545D797 /* OpenSans_SemiCondensed-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-LightItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		4BC8E700C90248EC8F14E3DC /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		62A711F29E2543B7B059A536 /* OpenSans_SemiCondensed-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-Light.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Light.ttf"; sourceTree = "<group>"; };
 		6B038F86ACC24C4DB5882380 /* OpenSans_SemiCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-BoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
 		720B274E5D7A4962AEC505D9 /* OpenSans_Condensed-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-Light.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Light.ttf"; sourceTree = "<group>"; };
-		7B622AFF4520A96553ABE0CB /* Pods-islam_centre-islam_centreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre-islam_centreTests.debug.xcconfig"; path = "Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B0AC333FC3A0EB93C17877C /* Pods-islam_centre-islam_centreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre-islam_centreTests.release.xcconfig"; path = "Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BE89AD47BC74419840BE4BC /* OpenSans-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-VariableFont_wdth,wght.ttf"; path = "../src/view/assets/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		8016575ADCE242B2AD79A6EB /* OpenSans_SemiCondensed-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-Bold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = islam_centre/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		899878FD9F6E46FDAAB5BF78 /* OpenSans_SemiCondensed-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-Medium.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Medium.ttf"; sourceTree = "<group>"; };
 		8A6DDEBF4E594CECABFC9FB7 /* OpenSans_Condensed-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-SemiBold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		8B8D002D5655C0821DC29614 /* libPods-islam_centre-islam_centreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-islam_centre-islam_centreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F402854FE4253A6E94CEA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		91D62C0E4CBA43E48A195F71 /* OpenSans_Condensed-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-MediumItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-MediumItalic.ttf"; sourceTree = "<group>"; };
+		91D9BDB8D1E76618099F4C89 /* Pods-islam_centre-islam_centreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre-islam_centreTests.debug.xcconfig"; path = "Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		92526D8A837D4EF5B9EC27FE /* OpenSans_Condensed-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-ExtraBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		929C828206B24690AC75B7C2 /* OpenSans_SemiCondensed-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-Italic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Italic.ttf"; sourceTree = "<group>"; };
 		92CDD4848F4F45BF8870E6F5 /* OpenSans-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-MediumItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-MediumItalic.ttf"; sourceTree = "<group>"; };
-		95A82C5623A4AB72E2E69D34 /* Pods-islam_centre-islam_centreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre-islam_centreTests.release.xcconfig"; path = "Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests.release.xcconfig"; sourceTree = "<group>"; };
-		A31F92D5C2C8F1A3111BFEC4 /* libPods-islam_centre.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-islam_centre.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47AEF1337504A82B13B0165 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		A4C8677E4DD004BDBBB92980 /* Pods-islam_centre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre.debug.xcconfig"; path = "Target Support Files/Pods-islam_centre/Pods-islam_centre.debug.xcconfig"; sourceTree = "<group>"; };
 		AB2470C8F3974977A4D47657 /* OpenSans_SemiCondensed-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-Regular.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		B2677432142C4BDEA6751101 /* OpenSans_Condensed-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-Medium.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Medium.ttf"; sourceTree = "<group>"; };
 		B3C25A3A2A1049498CBF9E67 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		B779445895BD45158A3E27E7 /* OpenSans_Condensed-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-Italic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-Italic.ttf"; sourceTree = "<group>"; };
-		C04C209B7C2A54C4DE72F8BC /* Pods-islam_centre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre.debug.xcconfig"; path = "Target Support Files/Pods-islam_centre/Pods-islam_centre.debug.xcconfig"; sourceTree = "<group>"; };
+		B9FCABD6507135AE999488A0 /* libPods-islam_centre.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-islam_centre.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DCCAE5A2044C788A62B052 /* OpenSans_SemiCondensed-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-MediumItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-MediumItalic.ttf"; sourceTree = "<group>"; };
 		C1313C2E23AA4AEFBAAB8209 /* OpenSans_Condensed-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-BoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C720792F583F46C998D7FC3C /* OpenSans_SemiCondensed-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-ExtraBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		E92198B15E464C119E8001CC /* OpenSans_Condensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_Condensed-SemiBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_Condensed/OpenSans_Condensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F1EAE0C2D7F06490F0DD96BF /* Pods-islam_centre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-islam_centre.release.xcconfig"; path = "Target Support Files/Pods-islam_centre/Pods-islam_centre.release.xcconfig"; sourceTree = "<group>"; };
 		F4D3DA7DD22D45E2906B7583 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F85887C5BB694C9CA2FD6107 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans/OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		F965B8B7E3144AA282E4EC8C /* OpenSans_SemiCondensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans_SemiCondensed-SemiBoldItalic.ttf"; path = "../src/view/assets/fonts/Open_Sans/static/OpenSans_SemiCondensed/OpenSans_SemiCondensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E98B4C39D5D8508554FF45 /* libPods-islam_centre-islam_centreTests.a in Frameworks */,
+				F60C6B87159EB7D7ABD2810C /* libPods-islam_centre-islam_centreTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				A31F92D5C2C8F1A3111BFEC4 /* libPods-islam_centre.a */,
-				2BC2CFC17BF600A3AFD475DB /* libPods-islam_centre-islam_centreTests.a */,
+				B9FCABD6507135AE999488A0 /* libPods-islam_centre.a */,
+				8B8D002D5655C0821DC29614 /* libPods-islam_centre-islam_centreTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,10 +183,10 @@
 		43C47DEE19CCBF9B5FC98874 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C04C209B7C2A54C4DE72F8BC /* Pods-islam_centre.debug.xcconfig */,
-				478C2080253C82005C498F86 /* Pods-islam_centre.release.xcconfig */,
-				7B622AFF4520A96553ABE0CB /* Pods-islam_centre-islam_centreTests.debug.xcconfig */,
-				95A82C5623A4AB72E2E69D34 /* Pods-islam_centre-islam_centreTests.release.xcconfig */,
+				A4C8677E4DD004BDBBB92980 /* Pods-islam_centre.debug.xcconfig */,
+				F1EAE0C2D7F06490F0DD96BF /* Pods-islam_centre.release.xcconfig */,
+				91D9BDB8D1E76618099F4C89 /* Pods-islam_centre-islam_centreTests.debug.xcconfig */,
+				7B0AC333FC3A0EB93C17877C /* Pods-islam_centre-islam_centreTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -275,12 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "islam_centreTests" */;
 			buildPhases = (
-				12A5851675547D53EBF329A2 /* [CP] Check Pods Manifest.lock */,
+				309489E7E62AEED39547F7A5 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				8D26977CD3783695AED0F0C3 /* [CP] Embed Pods Frameworks */,
-				BAB7C6CA9B63146B9178458D /* [CP] Copy Pods Resources */,
+				8F83C989452DD9BDE94C78D8 /* [CP] Embed Pods Frameworks */,
+				180597DA686843500B93E076 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,14 +296,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "islam_centre" */;
 			buildPhases = (
-				222EFE1F708D3BF4EC486D60 /* [CP] Check Pods Manifest.lock */,
+				CD1240DFE88DDEB7783F9F77 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				76EA557DB5E481F50D2FFDAE /* [CP] Embed Pods Frameworks */,
-				C0307EDF183069E5AAECFA13 /* [CP] Copy Pods Resources */,
+				50C2BAEB64C8602093B81CC7 /* [CP] Embed Pods Frameworks */,
+				A7EBA467BFC6C505EECBA303 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -422,7 +422,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		12A5851675547D53EBF329A2 /* [CP] Check Pods Manifest.lock */ = {
+		180597DA686843500B93E076 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		309489E7E62AEED39547F7A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,7 +461,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		222EFE1F708D3BF4EC486D60 /* [CP] Check Pods Manifest.lock */ = {
+		50C2BAEB64C8602093B81CC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F83C989452DD9BDE94C78D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7EBA467BFC6C505EECBA303 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD1240DFE88DDEB7783F9F77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -464,74 +532,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76EA557DB5E481F50D2FFDAE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D26977CD3783695AED0F0C3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAB7C6CA9B63146B9178458D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre-islam_centreTests/Pods-islam_centre-islam_centreTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0307EDF183069E5AAECFA13 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-islam_centre/Pods-islam_centre-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -586,7 +586,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B622AFF4520A96553ABE0CB /* Pods-islam_centre-islam_centreTests.debug.xcconfig */;
+			baseConfigurationReference = 91D9BDB8D1E76618099F4C89 /* Pods-islam_centre-islam_centreTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -613,7 +613,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95A82C5623A4AB72E2E69D34 /* Pods-islam_centre-islam_centreTests.release.xcconfig */;
+			baseConfigurationReference = 7B0AC333FC3A0EB93C17877C /* Pods-islam_centre-islam_centreTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -637,7 +637,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C04C209B7C2A54C4DE72F8BC /* Pods-islam_centre.debug.xcconfig */;
+			baseConfigurationReference = A4C8677E4DD004BDBBB92980 /* Pods-islam_centre.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -663,7 +663,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 478C2080253C82005C498F86 /* Pods-islam_centre.release.xcconfig */;
+			baseConfigurationReference = F1EAE0C2D7F06490F0DD96BF /* Pods-islam_centre.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

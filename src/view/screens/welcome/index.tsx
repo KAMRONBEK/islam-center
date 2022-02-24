@@ -21,7 +21,7 @@ const Welcome = () => {
   let onSubmitCode = () => {
     if (code.length >= 4) {
       //@ts-ignore
-      navigation.navigate(Routes.Home);
+      navigation.navigate(Routes.BottomNavigator);
     } else null;
     // console.warn(code);
   };

@@ -9,8 +9,8 @@ import React from 'react';
 import {style} from './style';
 import {MuseumDATA} from './data';
 import {isIOS} from '../../constants/size';
-import {AppBarBackTo} from '../../components/Other/AppBar';
-import {ArrowLeft, Saveg} from '../../assets/icons/icon';
+// import {AppBarBackTo} from '../../components/Other/AppBar';
+import {ArrowLeft, SavegIcon} from '../../assets/icons/icon';
 import {colors} from '../../theme';
 
 const Museum = () => {
@@ -20,12 +20,12 @@ const Museum = () => {
       {MuseumDATA.map((e, i) => {
         return (
           //   <TouchableOpacity>
-          <View style={[style.contentContainer]}>
+          <View style={[style.contentContainer]} key={i.toString()}>
             <ImageBackground
               source={e.icon}
               resizeMode="cover"
               style={style.museumBG}>
-              <AppBarBackTo
+              {/* <AppBarBackTo
                 containerStyle={style.containerStyle}
                 Icon={ArrowLeft}
                 //@ts-ignore
@@ -34,9 +34,9 @@ const Museum = () => {
                 hintTitle=""
                 titleStyle={style.titleStyle}
                 //   rightIcon={SaveIcon}
-                IconRight={Saveg}
+                IconRight={SavegIcon}
                 iconRight={colors.white}
-              />
+              /> */}
               <View style={style.iconContainer}>
                 {/* {e.icon} */}
                 <Text style={style.titleText}>{e.titleOne}</Text>

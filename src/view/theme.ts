@@ -1,7 +1,7 @@
 const colors = {
   black: '#000',
   white: 'rgba(255, 255, 255, 1)',
-  green: 'rgba(39, 177, 127, 1)',
+  green: '#5EB495',
   gray: 'rgba(143, 143, 143, 1)',
   layout: '#F7F8F2',
   primary: '#F6E69E',
@@ -12,7 +12,7 @@ const colors = {
   darkGray: '#7C8DA6',
   lengthBlack: '#111111',
   lingthYellow: '#E1FC52',
-  lingthGray: '#939393',
+  lingthGray: '#BBBBBB',
   lingthBlack: '#262626',
 };
 

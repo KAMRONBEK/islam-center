@@ -32,7 +32,7 @@ const Card = ({onPress, cardStyle}: CardProps) => {
     <View style={styles.card}>
       {CardDATA.map((e, i) => {
         return (
-          <TouchableOpacity onPress={onPress}>
+          <TouchableOpacity onPress={onPress} key={i.toString()}>
             <View style={[styles.container, cardStyle]}>
               <View style={styles.iconContainer}>{e.icon}</View>
               <View style={styles.textContainer}>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
-    height: windowHeight / 2 - 10,
+    // height: windowHeight / 2 - 10,
     flexDirection: 'column',
     borderRadius: 5,
     backgroundColor: '#fff',
@@ -74,12 +74,12 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    height: '50%',
+    height: 220,
     borderRadius: 5,
   },
 
   textContainer: {
-    height: '50%',
+    // height: '50%',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     borderRadius: 5,
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     color: colors.lingthGray,
-    paddingTop: 25,
+    // paddingTop: 25,
+    paddingVertical: isIOS ? 20 : 20,
   },
 });

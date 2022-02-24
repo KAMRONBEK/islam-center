@@ -1,31 +1,47 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {StyleSheet, Image, Text, View} from 'react-native';
-import {router} from '../routes/routes';
-import {Colors} from '../Stylus/colors';
-import Home from '../pages/Views/Home';
-import Statics from '../pages/Views/Statics';
-import Routines from '../pages/Views/Routines';
-import Setting from '../pages/Views/SettingViews/Setting';
+import {colors} from '../theme';
+import {isIOS, windowHeight} from '../constants/size';
+import {Routes} from '../../navigation/routes/routes';
+import Details from '../screens/Details';
+import Museum from '../screens/Museum';
+import News from '../screens/News';
 import {
+  BookIcon,
+  FavoriteIcon,
   HomeIcon,
-  RoutinesIcon,
-  SettingIcon,
-  StaticsIcon,
-} from '../assets/Svg/icons';
-import {windowHeight} from '../Stylus/size';
+  MuseumIcon,
+  ProfileIcon,
+} from '../assets/icons/icon';
+import Home from '../screens/home/index';
+import TourPages from '../screens/Tour/Pages';
+import Centre from '../screens/Centre';
+import Favorites from '../screens/Favorites';
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
   return (
     <Tab.Navigator
+      initialRouteName={Routes.Home}
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
           bottom: 0,
-          height: windowHeight / 8 - 10,
+          height: isIOS ? windowHeight / 8 : windowHeight / 8,
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.3,
+          shadowRadius: 2.19,
+
+          elevation: 3,
         },
       }}>
       <Tab.Screen
@@ -36,25 +52,62 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: 8,
+                top: isIOS ? 2 : 2,
               }}>
-              <HomeIcon IconColor={focused ? Colors.orange : Colors.grey} />
-              <Text
-                style={{
-                  color: focused ? Colors.orange : Colors.grey,
-                  fontSize: 12,
-                  fontWeight: '500',
-                  marginTop: 5.78,
-                  marginBottom: 20,
-                }}>
-                Home
-              </Text>
+              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8,}}></View> */}
+              <FavoriteIcon
+                size={35}
+                fillColor={focused ? colors.black : colors.lingthGray}
+              />
             </View>
           ),
         }}
-        name={router.HOME}
+        name={Routes.Favorites}
+        component={Favorites}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarIcon: ({focused}) => (
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: isIOS ? 2 : 2,
+              }}>
+              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
+              <BookIcon
+                size={35}
+                fillColor={focused ? colors.black : colors.lingthGray}
+              />
+            </View>
+          ),
+        }}
+        name={Routes.Museum}
+        component={Museum}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarIcon: ({focused}) => (
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: isIOS ? 2 : 2,
+              }}>
+              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
+              <HomeIcon
+                size={35}
+                fillColor={focused ? colors.black : colors.lingthGray}
+              />
+            </View>
+          ),
+        }}
+        name={Routes.Home}
         component={Home}
       />
+
       <Tab.Screen
         options={{
           headerShown: false,
@@ -63,24 +116,18 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: 8,
+                top: isIOS ? 2 : 2,
               }}>
-              <StaticsIcon IconColor={focused ? Colors.orange : Colors.grey} />
-              <Text
-                style={{
-                  color: focused ? Colors.orange : Colors.grey,
-                  fontSize: 12,
-                  fontWeight: '500',
-                  marginTop: 5.78,
-                  marginBottom: 20,
-                }}>
-                Statics
-              </Text>
+              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
+              <MuseumIcon
+                size={35}
+                fillColor={focused ? colors.black : colors.lingthGray}
+              />
             </View>
           ),
         }}
-        name={router.STATICS}
-        component={Statics}
+        name={Routes.Details}
+        component={Details}
       />
       <Tab.Screen
         options={{
@@ -90,47 +137,18 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: 8,
+                top: isIOS ? 2 : 2,
               }}>
-              <RoutinesIcon IconColor={focused ? Colors.orange : Colors.grey} />
-              <Text
-                style={{
-                  color: focused ? Colors.orange : Colors.grey,
-                  fontSize: 12,
-                  fontWeight: '500',
-                  marginTop: 5.78,
-                  marginBottom: 20,
-                }}>
-                Routines
-              </Text>
+              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
+              <ProfileIcon
+                size={35}
+                fillColor={focused ? colors.black : colors.lingthGray}
+              />
             </View>
           ),
         }}
-        name={router.ROUTINES}
-        component={Routines}
-      />
-      <Tab.Screen
-        options={{
-          headerShown: false,
-          tabBarIcon: ({focused}) => (
-            <View
-              style={{alignItems: 'center', justifyContent: 'center', top: 8}}>
-              <SettingIcon IconColor={focused ? Colors.orange : Colors.grey} />
-              <Text
-                style={{
-                  color: focused ? Colors.orange : Colors.grey,
-                  fontSize: 12,
-                  fontWeight: '500',
-                  marginTop: 5.78,
-                  marginBottom: 20,
-                }}>
-                Setting
-              </Text>
-            </View>
-          ),
-        }}
-        name={router.SETTING}
-        component={Setting}
+        name={Routes.Tour}
+        component={TourPages}
       />
     </Tab.Navigator>
   );

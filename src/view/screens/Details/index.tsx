@@ -17,6 +17,9 @@ import {isIOS} from '../../constants/size';
 import {useNavigation} from '@react-navigation/native';
 
 const Details = () => {
+
+
+
   let navigation = useNavigation();
 
   const [open, setOpen] = useState(false);
