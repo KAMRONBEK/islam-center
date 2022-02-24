@@ -18,6 +18,7 @@ import Home from '../screens/home/index';
 import TourPages from '../screens/Tour/Pages';
 import Centre from '../screens/Centre';
 import Favorites from '../screens/Favorites';
+import Library from '../screens/Library';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,9 +31,10 @@ const BottomNavigator = () => {
         tabBarStyle: {
           position: 'absolute',
           bottom: 0,
-          height: isIOS ? windowHeight / 8 : windowHeight / 8,
+          height: isIOS ? windowHeight / 8 - 10 : windowHeight / 8 - 20,
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
+          borderWidth: 0.1,
           shadowColor: '#000',
           shadowOffset: {
             width: 0,
@@ -41,7 +43,7 @@ const BottomNavigator = () => {
           shadowOpacity: 0.3,
           shadowRadius: 2.19,
 
-          elevation: 3,
+          elevation: 0.1,
         },
       }}>
       <Tab.Screen
@@ -52,11 +54,11 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: isIOS ? 2 : 2,
+                top: isIOS ? 4 : 0,
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8,}}></View> */}
               <FavoriteIcon
-                size={35}
+                size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
               />
             </View>
@@ -73,18 +75,18 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: isIOS ? 2 : 2,
+                top: isIOS ? 4 : 0,
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
               <BookIcon
-                size={35}
+                size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
               />
             </View>
           ),
         }}
-        name={Routes.Museum}
-        component={Museum}
+        name={Routes.Library}
+        component={Library}
       />
       <Tab.Screen
         options={{
@@ -94,11 +96,11 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: isIOS ? 2 : 2,
+                top: isIOS ? 4 : 0,
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
               <HomeIcon
-                size={35}
+                size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
               />
             </View>
@@ -116,11 +118,11 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: isIOS ? 2 : 2,
+                top: isIOS ? 4 : 0,
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
               <MuseumIcon
-                size={35}
+                size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
               />
             </View>
@@ -137,11 +139,11 @@ const BottomNavigator = () => {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: isIOS ? 2 : 2,
+                top: isIOS ? 4 : 0,
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
               <ProfileIcon
-                size={35}
+                size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
               />
             </View>

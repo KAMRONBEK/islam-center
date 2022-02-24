@@ -4,6 +4,7 @@ export enum Routes {
   Welcome = 'Welcome',
   Home = 'Home',
   Favorites = 'Favorites',
+  Library = 'Library',
   Details = 'Details',
   News = 'News',
   Museum= 'Museum',

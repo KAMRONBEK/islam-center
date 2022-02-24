@@ -2319,11 +2319,11 @@ export function DetailsIcon({
 }: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg viewBox="0 0 23 19" fill="none" {...props}>
+    <Svg viewBox="0 0 16 16" fill="none" {...props}>
       <Path
-        d="M21.166 2.25H1.833m19.333 14.5H1.833h19.333zm0-7.25h-9.667 9.667z"
+        d="M3.873 15H15m0-7H1m14-7H8.85"
         stroke={color}
-        strokeWidth={3}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -2340,12 +2340,12 @@ export function NotificationIcon({
 }: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg viewBox="0 0 26 28" fill="none" {...props}>
+    <Svg viewBox="0 0 16 16" fill="none" {...props}>
       <Path
-        d="M10.627 2.483c.207-.495.561-.92 1.018-1.218a2.828 2.828 0 011.547-.458c.551 0 1.09.16 1.547.458.457.299.811.723 1.018 1.218a9.706 9.706 0 015.137 3.364 9.211 9.211 0 011.983 5.695v6.301l2.534 3.687a1.314 1.314 0 01-.44 1.895c-.215.125-.46.191-.711.191h-6.274a4.66 4.66 0 01-1.623 2.879 4.933 4.933 0 01-3.171 1.146 4.933 4.933 0 01-3.17-1.146 4.66 4.66 0 01-1.624-2.879H2.124c-.25 0-.496-.066-.711-.19a1.36 1.36 0 01-.51-.519 1.308 1.308 0 01.07-1.377l2.534-3.687v-6.301c0-4.325 3.016-7.97 7.12-9.059zm.609 21.133c.143.393.407.733.758.973.35.24.77.37 1.199.37.429 0 .848-.13 1.198-.37s.616-.58.759-.973h-3.916.002zm1.956-18.782a7.029 7.029 0 00-4.891 1.965 6.606 6.606 0 00-2.027 4.743v6.708c0 .265-.08.524-.232.744L4.71 20.933h16.963l-1.332-1.939a1.312 1.312 0 01-.232-.744v-6.708a6.606 6.606 0 00-2.026-4.743 7.029 7.029 0 00-4.891-1.965z"
-        stroke={colors.white}
+        d="M2.426 5.38l.713.233-.713-.232zM6.28 2.014l-.195-.724.195.724zM2.384 5.51l-.713-.232.713.232zm-.18 3.165l.734-.151-.734.15zm.02.102l-.734.15.735-.15zm.444 3.468l.126-.74-.126.74zm.344.058l.125-.74-.125.74zm9.977 0l-.126-.74.126.74zm.343-.059l.125.74-.125-.74zm.447-3.487l.735.151-.735-.15zm.023-.108l-.735-.151.735.15zm-.163-3.117l-.715.225.715-.225zm-.058-.186l.715-.225-.715.225zM9.836 2.018l.199-.723-.2.723zm4.094 6.994l-.317.68.317-.68zm-11.84-.01l-.31-.682.31.683zM8.75 1a.75.75 0 00-1.5 0h1.5zm-1.5.781a.75.75 0 101.5 0h-1.5zm-2.042 10.81l.07-.746-.895-.084.078.896.747-.066zm5.583 0l.748.066.078-.896-.896.084.07.746zm-.084.447l.72.212-.72-.212zm-.077.26l-.719-.213.72.212zm-1.973 1.637l.147.736-.147-.736zm-1.314 0l-.147.736.147-.736zM5.37 13.297l-.72.212.72-.212zm-.077-.26l.72-.211-.72.212zM3.14 5.614c.425-1.306 1.659-2.423 3.338-2.876l-.391-1.448c-2.07.559-3.763 1.983-4.373 3.86l1.426.464zm-.042.128l.042-.128-1.426-.464-.042.129 1.426.463zm-.159 2.783a5.421 5.421 0 01.16-2.783L1.67 5.278a6.921 6.921 0 00-.202 3.548l1.47-.302zm.021.102l-.02-.102-1.47.302.02.102 1.47-.302zm-1.209 1.91c0-.305.206-.648.65-.85L1.78 8.32C.926 8.708.25 9.516.25 10.536h1.5zm1.044.969c-.707-.12-1.044-.596-1.044-.97H.25c0 1.286 1.059 2.24 2.293 2.449l.251-1.479zm.343.058l-.343-.058-.251 1.479.343.058.251-1.479zm9.726 0c-3.21.545-6.517.545-9.726 0l-.251 1.48c3.375.572 6.853.572 10.228 0l-.251-1.48zm.343-.058l-.343.058.251 1.48.343-.06-.25-1.478zm1.044-.97c0 .374-.337.85-1.044.97l.251 1.479c1.234-.21 2.293-1.163 2.293-2.448h-1.5zm-.637-.844c.435.204.637.543.637.845h1.5c0-1.01-.662-1.812-1.504-2.204l-.633 1.36zm-.546-1.193l-.022.108 1.47.302.021-.108-1.469-.302zm-.143-2.741c.282.896.33 1.83.143 2.74l1.47.303a6.937 6.937 0 00-.183-3.494l-1.43.45zm-.059-.185l.059.185 1.43-.45-.058-.186-1.43.45zM9.637 2.74c1.642.452 2.824 1.547 3.228 2.83l1.431-.45c-.584-1.854-2.22-3.265-4.261-3.826L9.637 2.74zm-3.16-.004a6.078 6.078 0 013.16.004l.398-1.446a7.578 7.578 0 00-3.95-.006l.392 1.448zm7.77 5.595a.516.516 0 01.267.576l-1.47-.302c-.108.53.233.93.569 1.085l.633-1.359zM1.49 8.928a.543.543 0 01.29-.608l.62 1.365c.329-.149.666-.54.56-1.059l-1.47.302zM7.25 1v.781h1.5V1h-1.5zM5.139 13.338c1.901.178 3.82.178 5.722 0l-.14-1.493c-1.808.17-3.634.17-5.443 0l-.14 1.493zm6.287-.088c.057-.194.095-.393.113-.593l-1.495-.13c-.008.1-.027.2-.057.299l1.44.424zm-.076.26l.076-.26-1.439-.424-.076.259 1.439.424zm-2.546 2.16c1.189-.236 2.212-1.03 2.546-2.16l-1.439-.425c-.146.494-.645.964-1.4 1.115l.293 1.47zm-1.608 0a4.12 4.12 0 001.608 0L8.51 14.2a2.624 2.624 0 01-1.02 0l-.294 1.47zM4.65 13.51c.334 1.13 1.357 1.924 2.546 2.16l.294-1.47c-.756-.15-1.255-.621-1.401-1.115l-1.439.424zm-.076-.26l.076.26 1.439-.425-.076-.26-1.44.425zm-.113-.593c.018.2.056.399.113.593l1.439-.424c-.03-.1-.049-.2-.057-.3l-1.495.13z"
+        stroke={colors.black}
         fill={fillColor}
-        strokeWidth={0.6}
+        strokeWidth={0.1}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -2362,12 +2362,11 @@ export function FavoriteIcon({
 }: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, style};
   return (
-    <Svg 
+    <Svg
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+      {...props}>
       <Path
         d="M27.002 24.722v-16.5c0-3.182-2.924-5.921-6.985-6.542a39.965 39.965 0 00-12.03 0c-4.06.62-6.985 3.36-6.985 6.543v16.499c0 1.93 2.725 3.132 4.892 2.156l5.919-2.664c1.352-.608 3.026-.608 4.378 0l5.919 2.665c2.167.975 4.892-.227 4.892-2.157z"
         stroke={fillColor}
@@ -2379,14 +2378,8 @@ export function FavoriteIcon({
   );
 }
 
-export function BookIcon({
-  color,
-  active,
-  size,
-  style,
-  fillColor,
-}: IconProps) {
-  let props = {stroke: fillColor, height: size, width: size,};
+export function BookIcon({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size};
   return (
     <Svg viewBox="0 0 27 25" fill="none" {...props}>
       <Path
@@ -2409,13 +2402,7 @@ export function BookIcon({
   );
 }
 
-export function TourIcon({
-  color,
-  active,
-  size,
-  style,
-  fillColor,
-}: IconProps) {
+export function TourIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
     <Svg viewBox="0 0 26 26" fill="none" {...props}>
@@ -2439,13 +2426,7 @@ export function TourIcon({
   );
 }
 
-export function BlogIcon({
-  color,
-  active,
-  size,
-  style,
-  fillColor,
-}: IconProps) {
+export function BlogIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
     <Svg viewBox="0 0 27 27" fill="none" {...props}>
@@ -2461,13 +2442,7 @@ export function BlogIcon({
   );
 }
 
-export function ForumIcon({
-  color,
-  active,
-  size,
-  style,
-  fillColor,
-}: IconProps) {
+export function ForumIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
     <Svg viewBox="0 0 32 33" fill="none" {...props}>
@@ -2505,7 +2480,13 @@ export function SignOutIcon({
   );
 }
 
-export function FacebookIcon({color, active, size, style, fillColor}: IconProps) {
+export function FacebookIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
     <Svg viewBox="0 0 35 34" fill="none" {...props}>
@@ -2519,7 +2500,13 @@ export function FacebookIcon({color, active, size, style, fillColor}: IconProps)
   );
 }
 
-export function TelegrammIcon({color, active, size, style, fillColor}: IconProps) {
+export function TelegrammIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
     <Svg
@@ -2537,10 +2524,16 @@ export function TelegrammIcon({color, active, size, style, fillColor}: IconProps
   );
 }
 
-export function InstagramIcon({color, active, size, style, fillColor}: IconProps) {
+export function InstagramIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg 
+    <Svg
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -2594,7 +2587,7 @@ export function CoruselArrowRight({
 export function SavegIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg 
+    <Svg
       viewBox="0 0 17 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -2607,15 +2600,10 @@ export function SavegIcon({color, active, size, style, fillColor}: IconProps) {
   );
 }
 
-
 export function ClockIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg 
-      viewBox="0 0 25 25"
-      fill="none"
-      {...props}
-    >
+    <Svg viewBox="0 0 25 25" fill="none" {...props}>
       <Path
         d="M12.656 2.876c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.41 0-8-3.588-8-8 0-4.41 3.59-8 8-8 4.411 0 8 3.59 8 8 0 4.412-3.589 8-8 8z"
         fill="#878787"
@@ -2629,14 +2617,13 @@ export function ClockIcon({color, active, size, style, fillColor}: IconProps) {
 }
 
 export function HomeIcon({color, active, size, style, fillColor}: IconProps) {
-  let props = { height: size, width: size, fill: fillColor};
+  let props = {height: size, width: size, fill: fillColor};
   return (
-    <Svg 
+    <Svg
       viewBox="0 0 29 29"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+      {...props}>
       <Path
         d="M25.532 10.93a1 1 0 10-2 0h2zm-21.06 0a1 1 0 10-2 0h2zm13.16 15.872l-.23-.974.23.974zm-7.26 0l.23-.974-.23.974zm7.715-22.668l-.71.705.71-.705zm8.205 9.683a1 1 0 001.42-1.41l-1.42 1.41zM9.916 4.134l.71.705-.71-.705zM.292 12.407a1 1 0 001.42 1.41l-1.42-1.41zm10.414 10.947l-.982-.185.982.185zm.028-.149l.983.185-.983-.185zm6.536 0l-.983.185.983-.185zm.028.149l.982-.184-.982.184zm-.419 3.223l-.903-.43.903.43zm-1.072-.075a1 1 0 001.806.86l-1.806-.86zm-4.682.075l-.903.43.903-.43zm-.734.784a1 1 0 101.806-.859l-1.806.86zm2.688-6.72l-.267-.963.267.964zm1.846 0l.267-.963-.267.964zm8.607-9.711v7.104h2V10.93h-2zm-19.06 7.104V10.93h-2v7.104h2zm12.93 7.794a14.786 14.786 0 01-6.8 0l-.46 1.947c2.539.6 5.181.6 7.72 0l-.46-1.947zm-6.8 0c-3.587-.847-6.13-4.072-6.13-7.794h-2c0 4.64 3.172 8.678 7.67 9.74l.46-1.946zm7.26 1.947c4.498-1.063 7.67-5.1 7.67-9.74h-2c0 3.721-2.543 6.946-6.13 7.793l.46 1.947zm-.484-22.936l8.914 8.978 1.42-1.41-8.915-8.978-1.42 1.41zm-8.171-1.41L.292 12.407l1.42 1.41 8.914-8.978-1.42-1.41zm9.59 0c-.943-.95-1.72-1.735-2.416-2.27-.72-.553-1.472-.934-2.379-.934v2c.29 0 .617.103 1.16.52.565.434 1.233 1.104 2.216 2.094l1.42-1.41zm-8.17 1.41c.982-.99 1.65-1.66 2.215-2.094.542-.417.87-.52 1.16-.52v-2c-.907 0-1.659.381-2.379.934-.696.535-1.473 1.32-2.416 2.27l1.42 1.41zm1.062 18.7l.028-.15-1.966-.368-.027.148 1.965.37zm4.598-.15l.028.15 1.965-.37-.027-.148-1.966.369zm-.311 2.759l-.169.354 1.806.86.169-.355-1.806-.86zm-5.754.86l.169.354 1.806-.86-.17-.354-1.805.86zm6.093-3.47a4.25 4.25 0 01-.339 2.61l1.806.86a6.25 6.25 0 00.498-3.838l-1.965.368zm-6.591-.369a6.25 6.25 0 00.498 3.838l1.806-.86a4.25 4.25 0 01-.339-2.609l-1.965-.369zm3.622-1.564c.43-.119.882-.119 1.312 0l.534-1.927a4.452 4.452 0 00-2.38 0l.534 1.927zm4.907 1.416a4.285 4.285 0 00-3.06-3.343l-.535 1.927a2.285 2.285 0 011.629 1.785l1.966-.37zm-6.536.369a2.285 2.285 0 011.63-1.785l-.535-1.927a4.285 4.285 0 00-3.06 3.343l1.965.369z"
         fill={fillColor}
@@ -2646,52 +2633,53 @@ export function HomeIcon({color, active, size, style, fillColor}: IconProps) {
 }
 
 export function MuseumIcon({color, active, size, style, fillColor}: IconProps) {
-  let props = { height: size, width: size, stroke: fillColor};
+  let props = {height: size, width: size, stroke: fillColor};
   return (
-    <Svg 
-    viewBox="0 0 37 36"
-    fill="none"
-    {...props}
-  >
-    <Path
-      d="M2.34 33.87h32.25"
-      stroke={fillColor}
-      strokeWidth={3}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <Path
-      d="M5.563 5.138l12.9-3.519 12.9 3.519v4.544h-25.8V5.138z"
-      stroke={fillColor}
-      // stroke="#9E9E9E"
-      strokeWidth={3}
-      strokeLinejoin="round"
-    />
-    <Path
-      d="M7.18 9.682v19.35M12.82 9.682v19.35M18.465 9.682v19.35M24.11 9.682v19.35M29.75 9.682v19.35"
-      stroke={fillColor}
-      strokeWidth={3}
-      strokeLinecap="round"
-    />
-    <Path
-      d="M4.758 29.032H32.17v4.837H4.758v-4.837z"
-      stroke={fillColor}
-      strokeWidth={3}
-      strokeLinejoin="round"
-    />
-  </Svg>
+    <Svg viewBox="0 0 37 36" fill="none" {...props}>
+      <Path
+        d="M2.34 33.87h32.25"
+        stroke={fillColor}
+        strokeWidth={3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M5.563 5.138l12.9-3.519 12.9 3.519v4.544h-25.8V5.138z"
+        stroke={fillColor}
+        // stroke="#9E9E9E"
+        strokeWidth={3}
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M7.18 9.682v19.35M12.82 9.682v19.35M18.465 9.682v19.35M24.11 9.682v19.35M29.75 9.682v19.35"
+        stroke={fillColor}
+        strokeWidth={3}
+        strokeLinecap="round"
+      />
+      <Path
+        d="M4.758 29.032H32.17v4.837H4.758v-4.837z"
+        stroke={fillColor}
+        strokeWidth={3}
+        strokeLinejoin="round"
+      />
+    </Svg>
   );
 }
 
-export function ProfileIcon({color, active, size, style, fillColor}: IconProps) {
-  let props = { height: size, width: size, };
+export function ProfileIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {height: size, width: size};
   return (
-    <Svg 
+    <Svg
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+      {...props}>
       <Path
         d="M1.002 24.497c0-3.486 3.152-6.455 7.436-7.004l.386-.05c3.43-.44 6.926-.44 10.356 0l.386.05c4.284.55 7.436 3.518 7.436 7.004 0 1.506-1.52 2.728-3.395 2.728H4.397c-1.875 0-3.395-1.222-3.395-2.728zM21.585 6.912c0 3.141-3.395 5.688-7.583 5.688-4.188 0-7.583-2.547-7.583-5.688 0-3.141 3.395-5.687 7.583-5.687 4.188 0 7.583 2.546 7.583 5.687z"
         stroke={fillColor}
@@ -2702,32 +2690,57 @@ export function ProfileIcon({color, active, size, style, fillColor}: IconProps) 
 }
 
 export function LikeSave({color, active, size, style, fillColor}: IconProps) {
-  let props = { height: size, width: size, fill: fillColor};
+  let props = {height: size, width: size, fill: fillColor};
   return (
-    <Svg 
-      viewBox="0 0 21 19"
-      fill="none" 
-      {...props}
-    >
+    <Svg viewBox="0 0 21 19" fill="none" {...props}>
       <Path
         d="M10.738 18.729l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"
+        fill={fillColor}
+        stroke={color}
+        strokeWidth={2}
+      />
+    </Svg>
+  );
+}
+
+export function LocationIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 10 14" fill="none" {...props}>
+      <Path
+        d="M5 .623a4.953 4.953 0 00-3.534 1.498A5.17 5.17 0 000 5.73a5.127 5.127 0 001.007 3.063s.137.184.159.21L5 13.623l3.836-4.621.157-.208a5.17 5.17 0 00-.46-6.672A4.953 4.953 0 005 .622zm0 6.964c-.36 0-.711-.109-1.01-.313a1.85 1.85 0 01-.67-.833 1.894 1.894 0 01-.103-1.073c.07-.36.243-.691.497-.951.255-.26.579-.437.931-.508a1.783 1.783 0 011.05.105c.333.141.617.379.817.684a1.886 1.886 0 01-.227 2.345c-.34.348-.803.544-1.285.544z"
         fill={fillColor}
       />
     </Svg>
   );
 }
 
-export function LocationIcon({color, active, size, style, fillColor}: IconProps) {
-  let props = { height: size, width: size, fill: fillColor};
+export function MyBookIcon({color, active, size, style, fillColor}: IconProps) {
+  let props = {height: size, width: size, fill: fillColor};
   return (
-    <Svg 
-      viewBox="0 0 10 14"
-      fill="none" 
-      {...props}
-    >
+    <Svg viewBox="0 0 70 70" fill="none" {...props}>
+      <Path d="M19.445 10.111h35v3.014h-35v-3.014z" fill="#12BD80" />
       <Path
-        d="M5 .623a4.953 4.953 0 00-3.534 1.498A5.17 5.17 0 000 5.73a5.127 5.127 0 001.007 3.063s.137.184.159.21L5 13.623l3.836-4.621.157-.208a5.17 5.17 0 00-.46-6.672A4.953 4.953 0 005 .622zm0 6.964c-.36 0-.711-.109-1.01-.313a1.85 1.85 0 01-.67-.833 1.894 1.894 0 01-.103-1.073c.07-.36.243-.691.497-.951.255-.26.579-.437.931-.508a1.783 1.783 0 011.05.105c.333.141.617.379.817.684a1.886 1.886 0 01-.227 2.345c-.34.348-.803.544-1.285.544z"
-        fill={fillColor}
+        d="M56.389 15.555H19.172a3.674 3.674 0 01-3.617-3.889 3.889 3.889 0 013.617-3.888h37.217a1.944 1.944 0 100-3.89H19.172a7.778 7.778 0 00-7.506 7.778 8.013 8.013 0 000 .953 1.938 1.938 0 000 .467v45.247a7.778 7.778 0 007.506 7.778h37.217a1.944 1.944 0 001.944-1.945v-46.53a2.08 2.08 0 00-1.944-2.08zm-1.945 46.667H19.172a3.889 3.889 0 01-3.617-3.889V18.57a7.058 7.058 0 003.617.875h35.272v42.778z"
+        fill="#12BD80"
+      />
+    </Svg>
+  );
+}
+
+export function SearchIcon({color, active, size, style, fillColor}: IconProps) {
+  let props = {height: size, width: size, fill: fillColor};
+  return (
+    <Svg viewBox="0 0 25 25" fill="none" {...props}>
+      <Path
+        d="M10.84 18.373a7.951 7.951 0 004.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396a7.952 7.952 0 001.689-4.898c0-4.41-3.59-8-8-8-4.411 0-8 3.589-8 8s3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6c-3.31 0-6-2.691-6-6s2.69-6 6-6z"
+        fill="#000"
       />
     </Svg>
   );

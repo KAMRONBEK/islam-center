@@ -39,6 +39,19 @@ export const style = StyleSheet.create({
     zIndex: -1,
   },
 
+  toglleBtn: {
+    // borderWidth: 1,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4.19,
+    elevation: 6,
+  },
+
   library: {
     width: windowWidth / 2 - 40,
     height: 134,
@@ -47,15 +60,6 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    // borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4.19,
-    elevation: 4,
   },
 
   libraryText: {
@@ -73,15 +77,6 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    // borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4.19,
-    elevation: 4,
   },
 
   toursText: {
@@ -96,7 +91,7 @@ export const style = StyleSheet.create({
     paddingHorizontal: 20,
     // marginVertical: 30,
     marginBottom: 130,
-  }, 
+  },
 
   card: {
     height: 150,
@@ -116,7 +111,7 @@ export const style = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 4.19,
-    elevation: 4,
+    elevation: 2,
   },
 
   libraryItemImage: {

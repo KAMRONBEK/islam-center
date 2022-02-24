@@ -115,7 +115,7 @@ export const style = StyleSheet.create({
     },
     shadowOpacity: 0.1,
     shadowRadius: 4.19,
-    elevation: 2,
+    // elevation: 0.1,
   },
 
   shopContent: {
@@ -134,6 +134,7 @@ export const style = StyleSheet.create({
   shopHintTextStyle: {
     fontSize: 21,
     fontWeight: '700',
+    color: colors.black,
     lineHeight: 30,
     paddingVertical: 10,
   },
@@ -271,6 +272,7 @@ export const style = StyleSheet.create({
   newsHintTextStyle: {
     fontSize: 20,
     fontWeight: '700',
+    color: colors.black,
     lineHeight: 28,
     paddingVertical: 10,
   },

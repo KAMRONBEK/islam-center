@@ -15,6 +15,7 @@ import TourPages from '../view/screens/Tour/Pages';
 import BottomNavigator from '../view/controller/BottomNavigator';
 import Tour from '../view/screens/Tour';
 import Favorites from '../view/screens/Favorites';
+import Library from '../view/screens/Library';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ const AppNavigator = () => {
         <Stack.Screen component={Home} name={Routes.Home} />
         <Stack.Screen component={BottomNavigator} name={Routes.BottomNavigator} />
         <Stack.Screen component={Favorites} name={Routes.Favorites} />
+        <Stack.Screen component={Library} name={Routes.Library} />
         <Stack.Screen component={Details} name={Routes.Details} />
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={Museum} name={Routes.Museum} />

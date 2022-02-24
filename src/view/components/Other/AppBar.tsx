@@ -131,17 +131,17 @@ export function AppHeader({
 
         {notificatAndDetailsIcons && 
           <View style={{flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
           alignItems: 'center',
           width: 75, marginLeft: -20,}}>
             {/* {notificationIcon &&  */}
               <TouchableOpacity onPress={onPressNotification} style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: '#F0F0F0',
-                borderRadius: 2,
-                width: 30,
-                height: 30,
+                // backgroundColor: '#F0F0F0',
+                // borderRadius: 2,
+                // width: 30,
+                // height: 30,
               }}>
                   <NotificationIcon size={20} fillColor={colors.black}/>
               </TouchableOpacity>

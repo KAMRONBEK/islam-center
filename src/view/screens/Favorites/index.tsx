@@ -10,10 +10,7 @@ import React, {useState} from 'react';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {AppHeader} from '../../components/Other/AppBar';
 import {style} from './style';
-import {
-  BookIcon,
-  TourIcon,
-} from '../../assets/icons/icon';
+import {BookIcon, TourIcon} from '../../assets/icons/icon';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '../../theme';
@@ -43,7 +40,8 @@ const Favorites = () => {
         <TouchableOpacity
           onPress={() => {
             setActive(true);
-          }}>
+          }}
+          style={style.toglleBtn}>
           <View style={[style.library]}>
             <BookIcon
               size={50}
@@ -62,7 +60,7 @@ const Favorites = () => {
         <TouchableOpacity
           onPress={() => {
             setActive(false);
-          }}>
+          }} style={style.toglleBtn}>
           <View style={[style.tours]}>
             <TourIcon
               size={50}
