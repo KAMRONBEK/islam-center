@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
@@ -23,7 +24,7 @@ const Favorites = () => {
   const [activeLike, setActiveLike] = useState(false);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={style.container}>
+    <View showsVerticalScrollIndicator={false} style={style.container}>
       <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 15}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
@@ -60,7 +61,8 @@ const Favorites = () => {
         <TouchableOpacity
           onPress={() => {
             setActive(false);
-          }} style={style.toglleBtn}>
+          }}
+          style={style.toglleBtn}>
           <View style={[style.tours]}>
             <TourIcon
               size={50}
@@ -77,11 +79,17 @@ const Favorites = () => {
         </TouchableOpacity>
       </View>
       {active ? (
-        <View style={style.cardContainer}>
-          {FavoritesLibraryDATA.map((e, i) => {
-            return (
-              <View style={style.card} key={i.toString()}>
-                {e.image}
+        <FlatList
+          data={FavoritesLibraryDATA}
+          numColumns={1}
+          // keyExtractor={(item) => item.id}
+          renderItem={e => (
+            <View style={style.cardContainer}>
+              <View
+                style={style.card}
+                // key={i.toString()}
+              >
+                {e.item.image}
 
                 <View style={style.cardContent}>
                   <View
@@ -94,74 +102,81 @@ const Favorites = () => {
                       paddingVertical: 6,
                     }}>
                     <View style={style.titleContainer}>
-                      <Text style={style.label}>{e.label}</Text>
-                      <Text style={style.title}>{e.title}</Text>
+                      <Text style={style.label}>{e.item.label}</Text>
+                      <Text style={style.title}>{e.item.title}</Text>
                     </View>
                     <TouchableOpacity onPress={() => setActiveLike(true)}>
-                      {e.iconLike}
+                      {e.item.iconLike}
                     </TouchableOpacity>
                   </View>
                   <View style={style.priceContainer}>
-                    <Text style={style.price}>{e.price}</Text>
-                    <Text style={style.currency}>{e.currency}</Text>
+                    <Text style={style.price}>{e.item.price}</Text>
+                    <Text style={style.currency}>{e.item.currency}</Text>
                   </View>
                 </View>
               </View>
-            );
-          })}
-        </View>
+            </View>
+          )}
+        />
       ) : (
-        <View style={style.cardContainer}>
-          {FavoritesTourDATA.map((e, i) => {
-            return (
-              <View style={style.card} key={i.toString()}>
-                {e.image}
-                <View style={style.cardContent}>
+        <FlatList
+          data={FavoritesTourDATA}
+          numColumns={1}
+          // keyExtractor={(item) => item.id}
+          renderItem={e => (
+            <View style={style.cardContainer}>
                   <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                      width: windowWidth / 2 - 10,
-                      // borderWidth: 1,
-                      paddingVertical: 6,
-                    }}>
-                    <View style={style.titleContainer}>
-                      <Text style={style.label}>{e.label}</Text>
+                     style={style.card} 
+                    //  key={i.toString()}
+                     >
+                    {e.item.image}
+                    <View style={style.cardContent}>
                       <View
                         style={{
                           flexDirection: 'row',
-                          justifyContent: 'flex-start',
-                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          alignItems: 'flex-start',
+                          width: windowWidth / 2 - 10,
+                          // borderWidth: 1,
+                          paddingVertical: 6,
                         }}>
-                        {e.locationIcon}
-                        <Text style={style.tourTitle}>{e.title}</Text>
+                        <View style={style.titleContainer}>
+                          <Text style={style.label}>{e.item.label}</Text>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              justifyContent: 'flex-start',
+                              alignItems: 'center',
+                            }}>
+                            {e.item.locationIcon}
+                            <Text style={style.tourTitle}>{e.item.title}</Text>
+                          </View>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              justifyContent: 'flex-start',
+                              alignItems: 'center',
+                            }}>
+                            {e.item.dateIcon}
+                            <Text style={style.tourTitle}>{e.item.date}</Text>
+                          </View>
+                        </View>
+                        <TouchableOpacity onPress={() => setActiveLike(true)}>
+                          {e.item.iconLike}
+                        </TouchableOpacity>
                       </View>
-                      <View
-                        style={{
-                          flexDirection: 'row',
-                          justifyContent: 'flex-start',
-                          alignItems: 'center',
-                        }}>
-                        {e.dateIcon}
-                        <Text style={style.tourTitle}>{e.date}</Text>
+                      <View style={style.priceContainer}>
+                        <Text style={style.price}>{e.item.price}</Text>
+                        <Text style={style.currency}>{e.item.currency}</Text>
                       </View>
                     </View>
-                    <TouchableOpacity onPress={() => setActiveLike(true)}>
-                      {e.iconLike}
-                    </TouchableOpacity>
                   </View>
-                  <View style={style.priceContainer}>
-                    <Text style={style.price}>{e.price}</Text>
-                    <Text style={style.currency}>{e.currency}</Text>
-                  </View>
-                </View>
-              </View>
-            );
-          })}
-        </View>
+            </View>
+          )}
+        />
       )}
-    </ScrollView>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View>
+    </View>
   );
 };
 

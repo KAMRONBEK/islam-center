@@ -14,7 +14,7 @@ import {
   MuseumIcon,
   ProfileIcon,
 } from '../assets/icons/icon';
-import Home from '../screens/home/index';
+import Home from '../screens/Home/index';
 import TourPages from '../screens/Tour/Pages';
 import Centre from '../screens/Centre';
 import Favorites from '../screens/Favorites';

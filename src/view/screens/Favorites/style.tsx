@@ -90,7 +90,7 @@ export const style = StyleSheet.create({
     // backgroundColor: '#000',
     paddingHorizontal: 20,
     // marginVertical: 30,
-    marginBottom: 130,
+    // marginBottom: 130,
   },
 
   card: {
