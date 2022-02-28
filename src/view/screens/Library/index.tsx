@@ -16,8 +16,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '../../theme';
 import {MyBookIcon, SearchIcon} from '../../assets/icons/icon';
 import {LibraryDATA} from './data';
-import { useNavigation } from '@react-navigation/native';
-import { Routes } from '../../../navigation/routes/routes';
+import {useNavigation} from '@react-navigation/native';
+import {Routes} from '../../../navigation/routes/routes';
 
 const Library = () => {
   let navigation = useNavigation();
@@ -43,7 +43,10 @@ const Library = () => {
         headingTextStyle={style.titleStyle}
       />
       <View style={style.myBooksBtn}>
-        <TouchableOpacity style={style.btn}>
+        <TouchableOpacity
+          style={style.btn}
+          //@ts-ignore
+          onPress={() => navigation.navigate(Routes.MyBooks)}>
           <MyBookIcon size={65} />
           <Text style={style.myBooksText}>Мои книги</Text>
         </TouchableOpacity>
@@ -55,40 +58,55 @@ const Library = () => {
           // value={number}
           // inlineImageRight={SearchIcon}
           placeholder="Текст"
-          placeholderTextColor={colors.black}
+          placeholderTextColor={colors.gray}
           keyboardType="default"
         />
         <TouchableOpacity>
           <SearchIcon size={25} />
         </TouchableOpacity>
       </View>
-
       <FlatList
         data={LibraryDATA}
         numColumns={2}
         // extraData={selectedId}
         // keyExtractor={(item) => item.id}
-        renderItem={e => (
-          <View style={style.productContainer}>
-            <View style={style.Product}>
-              <View style={style.productIconContainer}>
-                <TouchableOpacity
-                  //@ts-ignore
-                  onPress={() => navigation.navigate(Routes.LibraryProduct)}>
-                  {e.item.image}
-                </TouchableOpacity>
-                <TouchableOpacity style={style.btnLike}>
-                  {e.item.iconLike}
-                </TouchableOpacity>
-              </View>
-              <View style={style.productItem}>
-                <Text style={style.productName}>{e.item.label}</Text>
-                <Text style={style.productTitle}>{e.item.title}</Text>
-                <Text style={style.productPrice}>{e.item.price}</Text>
+        renderItem={({item, index}) => {
+          // console.log({index});
+          return (
+            <View
+              style={[
+                style.productContainer,
+                (index + 1) % 2 == 0
+                  ? {
+                      marginTop: 0,
+                    }
+                  : {top: -50},
+              ]}>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  height: isIOS ? 40 : 40,
+                }}></View>
+              <View style={style.Product}>
+                <View style={style.productIconContainer}>
+                  <TouchableOpacity
+                    //@ts-ignore
+                    onPress={() => navigation.navigate(Routes.LibraryProduct)}>
+                    {item.image}
+                  </TouchableOpacity>
+                  <TouchableOpacity style={style.btnLike}>
+                    {item.iconLike}
+                  </TouchableOpacity>
+                </View>
+                <View style={style.productItem}>
+                  <Text style={style.productName}>{item.label}</Text>
+                  <Text style={style.productTitle}>{item.title}</Text>
+                  <Text style={style.productPrice}>{item.price}</Text>
+                </View>
               </View>
             </View>
-          </View>
-        )}
+          );
+        }}
       />
       <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View>
     </View>

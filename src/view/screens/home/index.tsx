@@ -53,7 +53,8 @@ const Home = () => {
             // data={shop}
             style={{
               borderRadius: 5,
-              borderWidth: 0.2,
+              // backgroundColor: colors.black,
+              borderWidth: isIOS ? 0.1 : 0.2,
             }}
             // renderItem={({item}) => (
             //   <View style={[style.childSlide, {backgroundColor: item}]}>
@@ -136,7 +137,7 @@ const Home = () => {
             data={news}
             style={{
               borderRadius: 5,
-              borderWidth: 0.1,
+              borderWidth: isIOS ? 0.1 : 0.2,
             }}
             // renderItem={({item}) => (
             //   <View style={[style.childSlide, {backgroundColor: item}]}>

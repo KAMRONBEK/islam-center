@@ -98,9 +98,9 @@ export const style = StyleSheet.create({
     elevation: 2,
   },
 
-
   shopCoruselContainer: {
     flexDirection: 'column',
+    backgroundColor: colors.white,
     // width: '100%',
     width: windowWidth / 1 - 40,
     // height: windowHeight / 2 - 40,
@@ -108,14 +108,14 @@ export const style = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 5,
     // borderColor: '#000',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4.19,
-    // elevation: 0.1,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 4.19,
+    // elevation: 3,
   },
 
   shopContent: {
@@ -182,7 +182,6 @@ export const style = StyleSheet.create({
     color: colors.black,
     // paddingHorizontal: 5,
   },
-
 
   cardContainer: {
     justifyContent: 'center',
@@ -258,7 +257,6 @@ export const style = StyleSheet.create({
     paddingHorizontal: 0,
   },
 
-  
   newsDescription: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
