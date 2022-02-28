@@ -5,8 +5,6 @@ import {colors} from '../theme';
 import {isIOS, windowHeight} from '../constants/size';
 import {Routes} from '../../navigation/routes/routes';
 import Details from '../screens/Details';
-import Museum from '../screens/Museum';
-import News from '../screens/News';
 import {
   BookIcon,
   FavoriteIcon,
@@ -15,10 +13,9 @@ import {
   ProfileIcon,
 } from '../assets/icons/icon';
 import Home from '../screens/Home/index';
-import TourPages from '../screens/Tour/Pages';
-import Centre from '../screens/Centre';
 import Favorites from '../screens/Favorites';
-import Library from '../screens/Library';
+import UserProfile from '../screens/UserProfile';
+import LibraryStack from '../screens/Library/navigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -85,8 +82,8 @@ const BottomNavigator = () => {
             </View>
           ),
         }}
-        name={Routes.Library}
-        component={Library}
+        name={Routes.LibraryStack}
+        component={LibraryStack}
       />
       <Tab.Screen
         options={{
@@ -149,8 +146,8 @@ const BottomNavigator = () => {
             </View>
           ),
         }}
-        name={Routes.Tour}
-        component={TourPages}
+        name={Routes.UserProfile}
+        component={UserProfile}
       />
     </Tab.Navigator>
   );

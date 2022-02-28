@@ -24,14 +24,17 @@ const Favorites = () => {
   const [activeLike, setActiveLike] = useState(false);
 
   return (
-    <View showsVerticalScrollIndicator={false} style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 15}}></View>
+    <View style={style.container}>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
         logoIcon={true}
         notificatAndDetailsIcons={true}
+        notificationColor={colors.black}
+        detailsColor={colors.black}
+        detailsIcon={true}
         //@ts-ignore
-        onPressDetailsIcon={() => navigation.navigate('Details')}
+        // onPressDetailsIcon={() => navigation.navigate('Details')}
         headingText={true}
         headingTitle="Избранное"
         headingTextStyle={style.titleStyle}

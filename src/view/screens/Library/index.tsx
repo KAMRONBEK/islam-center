@@ -16,20 +16,26 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '../../theme';
 import {MyBookIcon, SearchIcon} from '../../assets/icons/icon';
 import {LibraryDATA} from './data';
+import { useNavigation } from '@react-navigation/native';
+import { Routes } from '../../../navigation/routes/routes';
 
 const Library = () => {
+  let navigation = useNavigation();
   const Tab = createBottomTabNavigator();
 
   const [active, setActive] = useState(true);
   const [activeLike, setActiveLike] = useState(false);
 
   return (
-    <View showsVerticalScrollIndicator={false} style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 15}}></View>
+    <View style={style.container}>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
         logoIcon={true}
         notificatAndDetailsIcons={true}
+        notificationColor={colors.black}
+        detailsColor={colors.black}
+        detailsIcon={true}
         //@ts-ignore
         onPressDetailsIcon={() => navigation.navigate('Details')}
         headingText={true}
@@ -60,12 +66,17 @@ const Library = () => {
       <FlatList
         data={LibraryDATA}
         numColumns={2}
+        // extraData={selectedId}
+        // keyExtractor={(item) => item.id}
         renderItem={e => (
           <View style={style.productContainer}>
-            {/* return ( */}
             <View style={style.Product}>
               <View style={style.productIconContainer}>
-                {e.item.image}
+                <TouchableOpacity
+                  //@ts-ignore
+                  onPress={() => navigation.navigate(Routes.LibraryProduct)}>
+                  {e.item.image}
+                </TouchableOpacity>
                 <TouchableOpacity style={style.btnLike}>
                   {e.item.iconLike}
                 </TouchableOpacity>
@@ -76,11 +87,8 @@ const Library = () => {
                 <Text style={style.productPrice}>{e.item.price}</Text>
               </View>
             </View>
-            {/* ); */}
           </View>
         )}
-        // extraData={selectedId}
-        // keyExtractor={(item) => item.id}
       />
       <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View>
     </View>

@@ -16,6 +16,11 @@ import BottomNavigator from '../view/controller/BottomNavigator';
 import Tour from '../view/screens/Tour';
 import Favorites from '../view/screens/Favorites';
 import Library from '../view/screens/Library';
+import LibraryProduct from '../view/screens/LibraryProduct';
+import UserProfile from '../view/screens/UserProfile';
+import LibraryStack from '../view/screens/Library/navigator';
+import LibraryProductRead from '../view/screens/LibraryProductRead';
+import LibraryProductSave from '../view/screens/LibraryProductSave';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +39,11 @@ const AppNavigator = () => {
         <Stack.Screen component={BottomNavigator} name={Routes.BottomNavigator} />
         <Stack.Screen component={Favorites} name={Routes.Favorites} />
         <Stack.Screen component={Library} name={Routes.Library} />
+        <Stack.Screen component={LibraryStack} name={Routes.LibraryStack} />
+        <Stack.Screen component={LibraryProduct} name={Routes.LibraryProduct} />
+        <Stack.Screen component={LibraryProductRead} name={Routes.LibraryProductRead} />
+        <Stack.Screen component={LibraryProductSave} name={Routes.LibraryProductSave} />
+        <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
         <Stack.Screen component={Details} name={Routes.Details} />
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={Museum} name={Routes.Museum} />

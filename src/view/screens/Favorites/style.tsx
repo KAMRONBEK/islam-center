@@ -27,7 +27,7 @@ export const style = StyleSheet.create({
   toglleContainer: {
     // flex: 1,
     // top: 30,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     // height: windowHeight,
     // position: 'absolute',
     flexDirection: 'row',
@@ -40,6 +40,7 @@ export const style = StyleSheet.create({
   },
 
   toglleBtn: {
+    backgroundColor: colors.white,
     // borderWidth: 1,
     borderRadius: 10,
     shadowColor: '#000',

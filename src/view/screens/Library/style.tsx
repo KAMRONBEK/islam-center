@@ -5,7 +5,7 @@ import {colors} from '../../theme';
 export const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
   },
 
   containerStyle: {
@@ -30,9 +30,17 @@ export const style = StyleSheet.create({
     height: 110,
     marginHorizontal: 20,
     marginTop: isIOS ? 10 : 20,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: isIOS ? 10 : 5,
-    borderWidth: isIOS ? 0.2 : 0.2,
+    // borderWidth: isIOS ? 0.2 : 0.2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2.19,
+    elevation: 3,
   },
 
   btn: {
@@ -59,16 +67,25 @@ export const style = StyleSheet.create({
     marginHorizontal: 20,
     paddingHorizontal: 20,
     marginTop: 30,
-    marginBottom: 30,
-    // backgroundColor: '#000',
+    marginBottom: 20,
+    backgroundColor: colors.white,
     borderRadius: isIOS ? 5 : 3,
-    borderWidth: isIOS ? 0.2 : 0.2,
+    // borderWidth: isIOS ? 0.2 : 0.2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2.19,
+    elevation: 3,
   },
 
   search: {
     height: 52,
     width: windowWidth / 1 - 100,
-    // backgroundColor: '#fff',
+    // backgroundColor: colors.white,
+    
     // paddingHorizontal: 20,
   },
 
@@ -88,7 +105,7 @@ export const style = StyleSheet.create({
     // paddingHorizontal: 10,
     // paddingVertical: 10,
     marginVertical: 45,
-    marginBottom: 160,
+    marginBottom: 150,
     marginHorizontal: windowWidth / 80,
     borderRadius: 10,
     // backgroundColor: '#000',
@@ -113,7 +130,7 @@ export const style = StyleSheet.create({
     marginTop: -23,
     // marginRight: -30,
     marginLeft: 110,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -131,7 +148,7 @@ export const style = StyleSheet.create({
   productItem: {},
 
   productName: {
-      fontSize: 21,
+      fontSize: 18,
       fontWeight: '700',
       color: colors.black,
       marginTop: 13,
@@ -145,7 +162,7 @@ export const style = StyleSheet.create({
   },
 
   productPrice: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: '700',
     color: colors.black,
     marginTop: 10,
