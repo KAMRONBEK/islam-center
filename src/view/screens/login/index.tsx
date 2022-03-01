@@ -16,7 +16,7 @@ import {Routes} from '../../../navigation/routes/routes';
 
 const Login = () => {
   let navigation = useNavigation();
-  const [phone, setPhone] = React.useState<string>('');
+  const [phone, setPhone] = React.useState<string>('+ 998 33 333 33 33');
 
   let onSubmitPhone = () => {
     if (phone.length >= 18) {
@@ -44,7 +44,6 @@ const Login = () => {
             headingText={true}
             headingTitle="Войти"
             headingTextStyle={style.titleStyle}
-
           />
           <View style={style.inner}>
             <View style={style.bgIcon}>
@@ -57,9 +56,9 @@ const Login = () => {
                 mask={[
                   '+',
                   ' ',
-                  '9',
-                  '9',
-                  '8',
+                  /\d/,
+                  /\d/,
+                  /\d/,
                   ' ',
                   /\d/,
                   /\d/,

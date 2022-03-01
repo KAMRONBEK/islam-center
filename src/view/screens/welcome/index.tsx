@@ -1,4 +1,4 @@
-import {Text, View, ImageBackground, KeyboardAvoidingView} from 'react-native';
+import {Text, View, ImageBackground, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {style} from './style';
 import {ArrowRight, Pattern} from '../../assets/icons/icon';
@@ -16,15 +16,28 @@ import {Routes} from '../../../navigation/routes/routes';
 
 const Welcome = () => {
   let navigation = useNavigation();
-  const [code, setCode] = React.useState('');
+  const [code, setCode] = React.useState('312');
+  const [visibleWarning, setVisibleWarning] = React.useState(false);
+  const [visibleSendCode, setVisibleSendCode] = React.useState(false);
+
 
   let onSubmitCode = () => {
-    if (code.length >= 4) {
+    if (code.length == 4 && code.toString() == '3123') {
       //@ts-ignore
       navigation.navigate(Routes.BottomNavigator);
-    } else null;
+      setVisibleWarning(false)
+      setVisibleSendCode(false);
+    } else {
+      setVisibleWarning(true)
+      setVisibleSendCode(false);
+    };
     // console.warn(code);
   };
+
+  let onPressRequestCode = () => {
+      setVisibleSendCode(true);
+      setVisibleWarning(false);
+  }
 
   return (
     <KeyboardAvoidingView
@@ -60,6 +73,8 @@ const Welcome = () => {
                 placeholderTextColor="#000"
                 style={style.input}
               />
+              {visibleWarning ? <Text style={style.warning}>Код введен не верно</Text> : null}
+              {visibleSendCode ? <Text style={style.WaitSendCode}>Повторно можно запросить через: 1:30</Text> : null}
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
@@ -69,6 +84,9 @@ const Welcome = () => {
                 Icon={ArrowRight}
                 icon={colors.white}
               />
+              <TouchableOpacity onPress={onPressRequestCode}>
+                <Text style={style.takeCode}>Запросить код ещё раз</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>

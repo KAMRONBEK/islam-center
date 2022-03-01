@@ -14,7 +14,7 @@ export const style = StyleSheet.create({
   },
 
   inner: {
-    height: isIOS ? windowHeight / 2 + 10 : windowHeight / 2 + 40,
+    height: isIOS ? windowHeight / 2 + 40 : windowHeight / 2 + 40,
     width: isIOS ? windowWidth / 1 : windowWidth / 1,
     backgroundColor: '#fff',
     borderTopLeftRadius: isIOS ? 50 : 50,
@@ -69,7 +69,7 @@ export const style = StyleSheet.create({
     color: '#000',
     letterSpacing: 1,
     padding: 15,
-    height: 65,
+    height: 60,
     backgroundColor: '#fff',
     borderRadius: 10,
     shadowColor: '#000',
@@ -83,11 +83,27 @@ export const style = StyleSheet.create({
     elevation: 4,
   },
 
+  warning: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 20,
+    color: colors.red,
+  },
+
+  WaitSendCode: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 20,
+    color: colors.gray,
+  },
+
   buttonContainer: {
     backgroundColor: colors.green,
-    marginTop: 50,
-    height: 65,
+    marginTop: 20,
+    height: 60,
   },
+
+  
 
   buttonText: {
     color: colors.white,
@@ -95,5 +111,13 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     fontWeight: isIOS ? '700' : '700',
     fontFamily: 'OpenSans-Regular',
+  },
+
+  takeCode: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.gray,
+    marginTop: 22,
   },
 });

@@ -7,6 +7,7 @@ const colors = {
   primary: '#F6E69E',
   purple: '#725BFE',
   label: '#A6A7B0',
+  red: '#CE0606',
 
   lightBlue: '#6DD0E7',
   darkGray: '#7C8DA6',
