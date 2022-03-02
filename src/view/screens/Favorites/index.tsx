@@ -85,6 +85,10 @@ const Favorites = () => {
         <FlatList
           data={FavoritesLibraryDATA}
           numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 140,
+            paddingTop: 0,
+          }}
           // keyExtractor={(item) => item.id}
           renderItem={e => (
             <View style={style.cardContainer}>
@@ -125,6 +129,10 @@ const Favorites = () => {
         <FlatList
           data={FavoritesTourDATA}
           numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 140,
+            paddingTop: 0,
+          }}
           // keyExtractor={(item) => item.id}
           renderItem={e => (
             <View style={style.cardContainer}>
@@ -178,7 +186,7 @@ const Favorites = () => {
           )}
         />
       )}
-      <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View> */}
     </View>
   );
 };

@@ -16,6 +16,7 @@ import Home from '../screens/Home/index';
 import Favorites from '../screens/Favorites';
 import UserProfile from '../screens/UserProfile';
 import LibraryStack from '../screens/Library/navigator';
+import MuseumStack from '../screens/Museum/navigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -125,8 +126,8 @@ const BottomNavigator = () => {
             </View>
           ),
         }}
-        name={Routes.Details}
-        component={Details}
+        name={Routes.MuseumStack}
+        component={MuseumStack}
       />
       <Tab.Screen
         options={{

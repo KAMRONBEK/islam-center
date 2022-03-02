@@ -24,6 +24,105 @@ export const style = StyleSheet.create({
     fontWeight: '700',
   },
 
+  calendarCorusel: {
+    width: 285,
+    // height: windowHeight / 2 - 40,
+    paddingHorizontal: 20,
+    marginTop: 30,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // borderWidth: 1,
+    // borderColor: '#000',
+  },
+
+  calendarContainer: {
+    flexDirection: 'column',
+    backgroundColor: colors.white,
+    // width: '100%',
+    width: windowWidth / 1 - 40,
+    // height: windowHeight / 2 - 40,
+    paddingVertical: 25,
+    paddingHorizontal: 25,
+    borderRadius: 5,
+  },
+
+  calendarContent: {
+    flexDirection: 'row',
+    paddingHorizontal: 0,
+  },
+
+  calendarContentText: {
+    justifyContent: 'center',
+    width: '50%',
+    // borderWidth: 1,
+    paddingVertical: 15,
+    paddingHorizontal: 5,
+  },
+
+  calendarHintTextStyle: {
+    fontSize: 21,
+    fontWeight: '700',
+    color: colors.black,
+    lineHeight: 30,
+    paddingVertical: 10,
+  },
+
+  calendarTitleStyle: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: colors.lingthGray,
+  },
+
+  calendarDescription: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    // paddingVertical: 10,
+    paddingTop: 25,
+    // borderWidth: 1,
+    // borderColor: '#000',
+    width: '100%',
+  },
+
+  calendarLabel: {
+    fontSize: 18,
+    fontWeight: '400',
+    color: colors.lingthGray,
+  },
+
+  calendarPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    algnItems: 'center',
+    paddingTop: 45,
+    // paddingVertical: 20,
+  },
+
+  calendarPriceStyle: {
+    fontSize: 25,
+    fontWeight: '600',
+    color: colors.black,
+    paddingHorizontal: 5,
+  },
+
+  calendarCurrencyStyle: {
+    fontSize: 25,
+    fontWeight: '600',
+    color: colors.black,
+    // paddingHorizontal: 5,
+  },
+
+  calendarCoruselBtn: {
+    height: 40,
+    width: 285,
+    // marginVertical: 170,
+    paddingHorizontal: 8,
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
   bookShopCorusel: {
     width: '100%',
     // height: windowHeight / 2 - 40,

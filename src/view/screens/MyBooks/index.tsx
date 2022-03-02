@@ -54,6 +54,10 @@ const MyBooks = () => {
         data={MyBooksDATA}
         numColumns={2}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 140,
+          paddingTop: 40,
+        }}
         // style={{}}
         // extraData={selectedId}
         // keyExtractor={(item) => item.id}
@@ -69,11 +73,6 @@ const MyBooks = () => {
                   : {top: -50},
               ]}>
               <View style={style.myBooks}>
-                <View
-                  style={{
-                    backgroundColor: '#fff',
-                    height: isIOS ? 40 : 40,
-                  }}></View>
                 <View style={style.myBooksIconContainer}>
                   <TouchableOpacity
                     //@ts-ignore

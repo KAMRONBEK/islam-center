@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 // @ts-ignore
 import intro_bg from '../../assets/images/intro_bg.png';
 import {colors} from '../../theme';
+import {Routes} from '../../../navigation/routes/routes';
 
 const Intro = () => {
   let navigation = useNavigation();
@@ -39,7 +40,7 @@ const Intro = () => {
                 height: 65,
               }}
               //@ts-ignore
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.navigate(Routes.BottomNavigator)}
               text="Авторизоваться"
               textStyles={{
                 color: '#000',

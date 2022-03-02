@@ -16,6 +16,7 @@ export enum Routes {
   Details = 'Details',
   News = 'News',
   Museum= 'Museum',
+  MuseumStack = 'MuseumStack',
   Centre = 'Centre',
   Tour = 'Tour',
   TourPages = 'TourPages',

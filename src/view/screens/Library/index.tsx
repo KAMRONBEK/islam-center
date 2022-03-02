@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Text,
   View,
   ScrollView,
@@ -68,6 +67,10 @@ const Library = () => {
       <FlatList
         data={LibraryDATA}
         numColumns={2}
+        contentContainerStyle={{
+          paddingBottom: 140,
+          paddingTop: 40,
+        }}
         // extraData={selectedId}
         // keyExtractor={(item) => item.id}
         renderItem={({item, index}) => {
@@ -82,11 +85,6 @@ const Library = () => {
                     }
                   : {top: -50},
               ]}>
-              <View
-                style={{
-                  backgroundColor: '#fff',
-                  height: isIOS ? 40 : 40,
-                }}></View>
               <View style={style.Product}>
                 <View style={style.productIconContainer}>
                   <TouchableOpacity
@@ -108,7 +106,7 @@ const Library = () => {
           );
         }}
       />
-      <View style={{backgroundColor: '#fff', height: isIOS ? 100 : 75}}></View>
+      
     </View>
   );
 };
