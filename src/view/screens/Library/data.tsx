@@ -9,31 +9,35 @@ export const LibraryDATA = [
     id: 1,
     image: (
       <Image
-        source={require('../../assets/images/library.png')}
+        source={require('../../assets/images/islamBook.png')}
         resizeMode="cover"
         style={style.productImage}
       />
     ),
 
-    iconLike: <LikeSave size={18} fillColor={colors.white} color={colors.green}/>,
-    label: 'Lorem Ipsum',
-    title: 'Lorem Ipsum',
-    price: '50.000 сум',
+    iconLike: (
+      <LikeSave size={25} fillColor={colors.white} color={colors.green} />
+    ),
+    label: 'QURAN MAJEED',
+    title: 'AL QURAN',
+    price: 'Бесплатно',
   },
 
   {
     id: 2,
     image: (
       <Image
-        source={require('../../assets/images/library.png')}
+        source={require('../../assets/images/islamBook.png')}
         resizeMode="cover"
         style={style.productImage}
       />
     ),
 
-    iconLike: <LikeSave size={18} fillColor={colors.white} color={colors.green}/>,
-    label: 'Lorem Ipsum',
-    title: 'Lorem Ipsum',
+    iconLike: (
+      <LikeSave size={25} fillColor={colors.white} color={colors.green} />
+    ),
+    label: 'QURAN MAJEED',
+    title: 'AL QURAN',
     price: 'Бесплатно',
   },
 
@@ -41,31 +45,35 @@ export const LibraryDATA = [
     id: 3,
     image: (
       <Image
-        source={require('../../assets/images/library.png')}
+        source={require('../../assets/images/islamBook.png')}
         resizeMode="cover"
         style={style.productImage}
       />
     ),
 
-    iconLike: <LikeSave size={18} fillColor={colors.white} color={colors.green}/>,
-    label: 'Lorem Ipsum',
-    title: 'Lorem Ipsum',
-    price: '50.000 сум',
+    iconLike: (
+      <LikeSave size={25} fillColor={colors.white} color={colors.green} />
+    ),
+    label: 'QURAN MAJEED',
+    title: 'AL QURAN',
+    price: 'Бесплатно',
   },
 
   {
     id: 4,
     image: (
       <Image
-        source={require('../../assets/images/library.png')}
+        source={require('../../assets/images/islamBook.png')}
         resizeMode="cover"
         style={style.productImage}
       />
     ),
 
-    iconLike: <LikeSave size={18} fillColor={colors.white} color={colors.green}/>,
-    label: 'Lorem Ipsum',
-    title: 'Lorem Ipsum',
+    iconLike: (
+      <LikeSave size={25} fillColor={colors.white} color={colors.green} />
+    ),
+    label: 'QURAN MAJEED',
+    title: 'AL QURAN',
     price: 'Бесплатно',
   },
 ];

@@ -13,6 +13,7 @@ import {
 import {IconProps} from '../../assets/icons/icon';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {CardDATA} from './data';
+import {Chapter} from '../../screens/Home/components/chapter';
 
 export interface CardProps {
   onPress?: () => void;
@@ -32,15 +33,22 @@ const Card = ({onPress, cardStyle}: CardProps) => {
     <View style={styles.card}>
       {CardDATA.map((e, i) => {
         return (
-          <TouchableOpacity onPress={onPress} key={i.toString()}>
-            <View style={[styles.container, cardStyle]}>
-              <View style={styles.iconContainer}>{e.icon}</View>
-              <View style={styles.textContainer}>
-                <Text style={styles.labelText}>{e.label}</Text>
-                <Text style={styles.titleText}>{e.title}</Text>
-              </View>
+          <View style={styles.cardContainer}>
+            <Chapter chapter={true} chapterTitle={e.label} />
+            <View
+              style={{
+                paddingHorizontal: 20,
+              }}>
+              <TouchableOpacity onPress={onPress} key={i.toString()}>
+                <View style={[styles.container, cardStyle]}>
+                  <View style={styles.iconContainer}>{e.icon}</View>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.titleText}>{e.title}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
+          </View>
         );
       })}
     </View>
@@ -52,16 +60,20 @@ export default Card;
 const styles = StyleSheet.create({
   card: {
     width: windowWidth / 1,
-    paddingHorizontal: 20,
-    marginVertical: 30,
+    // marginVertical: 30,
   },
+
+  cardContainer: {
+    flexDirection: 'column',
+  },
+
   container: {
     width: '100%',
     // height: windowHeight / 2 - 10,
     flexDirection: 'column',
     borderRadius: 5,
     backgroundColor: '#fff',
-    marginVertical: 30,
+    // marginVertical: 30,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -87,17 +99,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: isIOS ? 20 : 20,
   },
 
-  labelText: {
-    fontSize: 25,
-    fontWeight: '700',
-    color: colors.black,
-  },
+  // labelText: {
+  //   fontSize: 25,
+  //   fontWeight: '700',
+  //   color: colors.black,
+  // },
 
   titleText: {
     fontSize: 18,
     fontWeight: '400',
     color: colors.lingthGray,
     // paddingTop: 25,
-    paddingVertical: isIOS ? 20 : 20,
+    // paddingVertical: isIOS ? 20 : 20,
   },
 });

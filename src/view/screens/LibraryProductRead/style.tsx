@@ -22,8 +22,9 @@ export const style = StyleSheet.create({
 
   titleStyle: {
     color: colors.black,
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: '800',
+    letterSpacing: 1,
   },
 
   labelStyle: {

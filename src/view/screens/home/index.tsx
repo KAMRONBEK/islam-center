@@ -16,13 +16,18 @@ import {Routes} from '../../../navigation/routes/routes';
 import Card from '../../components/Card/card';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
-import {CoruselArrowLeft, CoruselArrowRight} from '../../assets/icons/icon';
+import {
+  CalendarIcon,
+  CoruselArrowLeft,
+  CoruselArrowRight,
+} from '../../assets/icons/icon';
 import {CardDATA} from '../../components/Card/data';
 import {ShopCoruselDATA} from '../../components/Corusel/shopData';
 import {NewsCoruselDATA} from '../../components/Corusel/newsData';
+import {Chapter} from './components/chapter';
 
 const DATA = new Array(31).map((e, i) => i + 1);
-const ITEM_SIZE = 60;
+const ITEM_SIZE = 64;
 const MARGIN = 20;
 
 const Home = () => {
@@ -53,7 +58,12 @@ const Home = () => {
         detailsColor={colors.black}
         detailsIcon={true}
         //@ts-ignore
-        onPressDetailsIcon={() => navigation.navigate('Details')}
+        onPressDetailsIcon={() => navigation.navigate(Routes.Details)}
+        //@ts-ignore
+        onPressNotification={() =>
+          //@ts-ignore
+          navigation.navigate(Routes.NotificationsStack)
+        }
         headingText={true}
         headingTitle="Главная"
         headingTextStyle={style.titleStyle}
@@ -61,99 +71,127 @@ const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
-            height: 400,
+            height: 430,
             flexDirection: 'row',
-            width: windowWidth / 1,
+            paddingHorizontal: 20,
+            // width: windowWidth / 1,
           }}>
-          <Animated.FlatList
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              marginTop: 90,
-              paddingBottom: 80,
-              marginLeft: 20,
-            }}
-            data={DATA}
-            onScroll={Animated.event([
-              {nativeEvent: {contentOffset: {y: animatedValue}}},
-            ])}
-            pagingEnabled
-            ListFooterComponent={() => {
-              return (
-                <View
-                  style={{
-                    ...StyleSheet.absoluteFillObject,
-                  }}>
-                  {/* <Text>asdasdas</Text> */}
-                </View>
-              );
-            }}
-            renderItem={({item, index}) => {
-              const inputRange = [
-                -1,
-                0,
-                index * (ITEM_SIZE + MARGIN),
-                (index + 1) * (ITEM_SIZE + MARGIN),
-              ];
-
-              let color = animatedValue.interpolate({
-                inputRange: inputRange,
-                outputRange: [
-                  colors.gray,
-                  colors.gray,
-                  colors.gray,
-                  colors.black,
-                ],
-              });
-
-              let margin = animatedValue.interpolate({
-                inputRange: inputRange,
-                outputRange: [
-                  0, 0, 0, 8,
-                  //  20,
-                  // 20,
-                ],
-              });
-
-              return (
-                <Animated.View
-                  style={{
-                    borderRadius: 10,
-                    justifyContent: 'center',
-                    // alignItems: 'center',
-                    // padding: 5,
-                    shadowColor: '#000',
-                    shadowOffset: {
-                      width: 0,
-                      height: 1,
-                    },
-                    shadowOpacity: 0.22,
-                    shadowRadius: 2.22,
-
-                    backgroundColor: colors.white,
-                    width: 70,
-                    height: ITEM_SIZE,
-                    elevation: 3,
-                    marginLeft: margin,
-                    marginBottom: MARGIN,
-                  }}>
-                  <Animated.Text
+          <View
+            style={{
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}>
+            <Animated.FlatList
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{
+                marginTop: 115,
+                paddingBottom: 80,
+                marginLeft: 2,
+                width: 90,
+              }}
+              data={DATA}
+              onScroll={Animated.event([
+                {nativeEvent: {contentOffset: {y: animatedValue}}},
+              ])}
+              snapToInterval={ITEM_SIZE + MARGIN}
+              decelerationRate={'fast'}
+              ListFooterComponent={() => {
+                return (
+                  <View
                     style={{
-                      color: color,
-                      textAlign: 'center',
+                      ...StyleSheet.absoluteFillObject,
                     }}>
-                    {(item, index)}
-                  </Animated.Text>
-                  <Animated.Text
+                    {/* <Text>asdasdas</Text> */}
+                  </View>
+                );
+              }}
+              renderItem={({item, index}) => {
+                const inputRange = [
+                  -1,
+                  0,
+                  index * (ITEM_SIZE + MARGIN),
+                  index * (ITEM_SIZE + MARGIN),
+                ];
+
+                let color = animatedValue.interpolate({
+                  inputRange: inputRange,
+                  outputRange: [
+                    colors.gray,
+                    colors.gray,
+                    colors.gray,
+                    colors.black,
+                  ],
+                });
+
+                let margin = animatedValue.interpolate({
+                  inputRange: inputRange,
+                  outputRange: [
+                    0, 0, 0, 8,
+                    //  20,
+                    // 20,
+                  ],
+                });
+
+                return (
+                  <Animated.View
                     style={{
-                      color: color,
-                      textAlign: 'center',
+                      borderRadius: 10,
+                      justifyContent: 'center',
+                      // alignItems: 'center',
+                      // padding: 5,
+                      shadowColor: '#000',
+                      shadowOffset: {
+                        width: 0,
+                        height: 1,
+                      },
+                      shadowOpacity: 0.1,
+                      shadowRadius: 2.22,
+
+                      backgroundColor: colors.white,
+                      width: 76,
+                      height: ITEM_SIZE,
+                      elevation: 3,
+                      marginLeft: margin,
+                      marginBottom: MARGIN,
                     }}>
-                    January
-                  </Animated.Text>
-                </Animated.View>
-              );
-            }}
-          />
+                    <Animated.Text
+                      style={{
+                        color: color,
+                        textAlign: 'center',
+                        fontSize: 27,
+                        fontWeight: '600',
+                      }}>
+                      {index}
+                    </Animated.Text>
+                    <Animated.Text
+                      style={{
+                        color: color,
+                        fontSize: 17,
+                        fontWeight: '400',
+                        textAlign: 'center',
+                      }}>
+                      January
+                    </Animated.Text>
+                  </Animated.View>
+                );
+              }}
+            />
+            <TouchableOpacity
+              style={{
+                marginTop: 15,
+              }}>
+              <CalendarIcon size={35} />
+              <Text
+                style={{
+                  paddingTop: 10,
+                  color: colors.green,
+                  fontSize: 18,
+                  fontWeight: '400',
+                }}>
+                Выбрать
+              </Text>
+            </TouchableOpacity>
+          </View>
           <View style={style.calendarCorusel}>
             <SwiperFlatList
               ref={_flatListCalendarRef}
@@ -233,6 +271,7 @@ const Home = () => {
             </View>
           </View>
         </View>
+        <Chapter chapter={true} chapterTitle="Библиотека" allChapter="ВСЕ" />
         <View style={style.bookShopCorusel}>
           <SwiperFlatList
             ref={_flatListShopRef}
@@ -308,9 +347,7 @@ const Home = () => {
           </View>
         </View>
         <Card />
-        <View style={style.newsContainer}>
-          <Text style={style.newsText}>НОВОСТИ</Text>
-        </View>
+        <Chapter chapter={true} chapterTitle="Новости" allChapter="ВСЕ" />
         <View style={style.newsCorusel}>
           <SwiperFlatList
             ref={_flatListNewsRef}
@@ -323,8 +360,9 @@ const Home = () => {
             // showPagination
             data={news}
             style={{
+              backgroundColor: colors.white,
               borderRadius: 5,
-              borderWidth: isIOS ? 0.1 : 0.2,
+              // borderWidth: isIOS ? 0.1 : 0.2,
             }}
             // renderItem={({item}) => (
             //   <View style={[style.childSlide, {backgroundColor: item}]}>
@@ -334,8 +372,8 @@ const Home = () => {
           >
             {NewsCoruselDATA.map((e, i) => {
               return (
-                <TouchableOpacity key={i.toString()}>
-                  <View style={style.newsCoruselContainer}>
+                <View style={style.newsCoruselContainer} key={i.toString()}>
+                  <TouchableOpacity>
                     <View style={style.newsImage}>
                       <View>{e.icon}</View>
                     </View>
@@ -349,8 +387,8 @@ const Home = () => {
                         <Text style={style.newsCurrencyStyle}>{e.status}</Text>
                       </View>
                     </View>
-                  </View>
-                </TouchableOpacity>
+                  </TouchableOpacity>
+                </View>
               );
             })}
           </SwiperFlatList>

@@ -18,6 +18,7 @@ import {colors} from '../../theme';
 
 export interface AppHeaderProps {
   containerStyle?: any;
+  marginLeft?: any;
   leftArrowIcon?: any;
   colorLeftArrow?: any;
   logoIcon?: any;
@@ -54,6 +55,7 @@ export let PressableAppHeaderProps = ({onPress}: PressableAppHeaderProps) => {
 
 export function AppHeader({
   containerStyle,
+  marginLeft,
   leftArrowIcon,
   colorLeftArrow,
   logoIcon,
@@ -80,6 +82,7 @@ export function AppHeader({
 }: AppHeaderProps) {
   let props = {
     containerStyle,
+    marginLeft,
     leftArrowIcon,
     colorLeftArrow,
     logoIcon,
@@ -108,14 +111,14 @@ export function AppHeader({
     <View style={containerStyle}>
       {leftArrowIcon && (
         <TouchableOpacity onPress={onPressLeftArrow}>
-          <ArrowLeft size={20} color={colorLeftArrow} />
+          <ArrowLeft size={20} fillColor={colorLeftArrow} />
         </TouchableOpacity>
       )}
 
       {logoIcon && (
         <View>
           <Image
-            source={require('../../assets/images/Logo.png')}
+            source={require('../../assets/images/logo.png')}
             resizeMode="cover"
             style={{width: 55, height: 55}}
           />
@@ -156,10 +159,12 @@ export function AppHeader({
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            width: 75,
-            marginLeft: -20,
+            width: 58,
+            marginLeft: marginLeft,
+            // borderWidth: 1,
+            // borderColor: colors.black,
           }}>
           {/* {notificationIcon &&  */}
           <TouchableOpacity
@@ -172,19 +177,19 @@ export function AppHeader({
               // width: 30,
               // height: 30,
             }}>
-            <NotificationIcon size={20} fillColor={notificationColor} />
+            <NotificationIcon size={16} fillColor={notificationColor} />
           </TouchableOpacity>
           {/* } */}
 
           <TouchableOpacity onPress={onPressDetailsIcon}>
-            <DetailsIcon size={20} color={detailsColor} />
+            <DetailsIcon size={16} color={detailsColor} />
           </TouchableOpacity>
         </View>
       )}
 
       {saveIcon && (
         <TouchableOpacity onPress={onPressSaveIcon}>
-          <FavoriteIcon size={20} fillColor={saveColor} />
+          <FavoriteIcon size={18} fillColor={saveColor} />
         </TouchableOpacity>
       )}
     </View>

@@ -41,7 +41,7 @@ const Library = () => {
         headingTitle="Библиотека"
         headingTextStyle={style.titleStyle}
       />
-      <View style={style.myBooksBtn}>
+      {/* <View style={style.myBooksBtn}>
         <TouchableOpacity
           style={style.btn}
           //@ts-ignore
@@ -49,7 +49,7 @@ const Library = () => {
           <MyBookIcon size={65} />
           <Text style={style.myBooksText}>Мои книги</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       <View style={style.searchContainer}>
         <TextInput
           style={style.search}
@@ -106,7 +106,6 @@ const Library = () => {
           );
         }}
       />
-      
     </View>
   );
 };

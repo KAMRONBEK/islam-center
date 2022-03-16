@@ -19,7 +19,7 @@ const LibraryProductRead = () => {
         leftArrowIcon={true}
         colorLeftArrow={colors.black}
         titleText={true}
-        titleTitle="Гарри Поттер"
+        titleTitle="QURAN MAJEED"
         titleTextStyle={style.titleStyle}
         labelText={true}
         labelTitle="Джоан Роулинг"

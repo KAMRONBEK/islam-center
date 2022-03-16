@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, ScrollView, Image} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {style} from './style';
 import {AppHeader} from '../../components/Other/AppBar';
 import {isIOS} from '../../constants/size';
@@ -10,6 +10,8 @@ import Button from '../../components/Button/button';
 
 const LibraryProduct = () => {
   let navigation = useNavigation();
+
+  const [save, setSave] = useState(false);
 
   return (
     <View style={style.container}>
@@ -25,12 +27,12 @@ const LibraryProduct = () => {
       <View style={style.headerContainer}>
         <View style={style.bookContainer}>
           <View style={style.book}>
-            <Text style={style.bookTitle}>Lorem Ipsum</Text>
-            <Text style={style.bookName}>Lorem Ipsum</Text>
+            <Text style={style.bookTitle}>AL-QURAN</Text>
+            <Text style={style.bookName}>QURAN MAJEED</Text>
           </View>
           <View style={style.bookImage}>
             <Image
-              source={require('../../assets/images/library.png')}
+              source={require('../../assets/images/islamBook.png')}
               resizeMode="cover"
               style={style.image}
             />
@@ -63,7 +65,7 @@ const LibraryProduct = () => {
           <Button
             containerStyle={{
               marginHorizontal: 20,
-              marginVertical: 20,
+              marginTop: 20,
               height: 65,
               backgroundColor: colors.green,
             }}
@@ -89,10 +91,10 @@ const LibraryProduct = () => {
               borderColor: colors.green,
             }}
             //@ts-ignore
-            onPress={() => navigation.navigate(Routes.LibraryProductSave)}
-            text="В избранное"
+            onPress={() => setSave(e => !e)}
+            text={save ? 'Удалить из избранного' : 'В избранное'}
             textStyles={{
-              color: colors.gray,
+              color: colors.green,
               marginRight: 17,
               fontSize: 20,
               alignItems: 'center',

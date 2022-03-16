@@ -66,7 +66,7 @@ export const style = StyleSheet.create({
     height: 52,
     marginHorizontal: 20,
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop: 15,
     marginBottom: 20,
     backgroundColor: colors.white,
     borderRadius: isIOS ? 5 : 3,
@@ -85,7 +85,7 @@ export const style = StyleSheet.create({
     height: 52,
     width: windowWidth / 1 - 100,
     // backgroundColor: colors.white,
-    
+
     // paddingHorizontal: 20,
   },
 
@@ -125,13 +125,14 @@ export const style = StyleSheet.create({
   },
 
   btnLike: {
-    height: 48,
-    width: 48,
-    marginTop: -23,
+    height: 50,
+    width: 50,
+    marginTop: -29,
     // marginRight: -30,
-    marginLeft: 110,
+    marginLeft: 115,
     backgroundColor: colors.white,
     borderRadius: 50,
+    paddingTop: 5,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
@@ -148,10 +149,10 @@ export const style = StyleSheet.create({
   productItem: {},
 
   productName: {
-      fontSize: 18,
-      fontWeight: '700',
-      color: colors.black,
-      marginTop: 13,
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.black,
+    marginTop: 13,
   },
 
   productTitle: {

@@ -11,7 +11,7 @@ export const CardDATA = [
         style={{width: '100%', height: '100%', borderRadius: 5}}
       />
     ),
-    label: 'О ЦЕНТРЕ',
+    label: 'О Центре',
     title:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
@@ -28,7 +28,7 @@ export const CardDATA = [
         }}
       />
     ),
-    label: 'О МУЗЕЕ',
+    label: 'О музее',
     title:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
@@ -40,7 +40,7 @@ export const CardDATA = [
         style={{width: '100%', height: '100%', borderRadius: 5}}
       />
     ),
-    label: 'ВИРТУАЛЬНЫЙ ТУР',
+    label: 'Виртуальный тур',
     title:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },

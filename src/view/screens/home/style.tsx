@@ -19,13 +19,13 @@ export const style = StyleSheet.create({
   },
 
   titleStyle: {
-    color: colors.black,
     fontSize: 20,
     fontWeight: '700',
+    color: colors.black,
   },
 
   calendarCorusel: {
-    width: 285,
+    width: windowWidth / 1 - 115,
     // height: windowHeight / 2 - 40,
     paddingHorizontal: 20,
     marginTop: 30,
@@ -114,7 +114,7 @@ export const style = StyleSheet.create({
 
   calendarCoruselBtn: {
     height: 40,
-    width: 285,
+    width: windowWidth / 1 - 115,
     // marginVertical: 170,
     paddingHorizontal: 8,
     position: 'absolute',
@@ -127,7 +127,7 @@ export const style = StyleSheet.create({
     width: '100%',
     // height: windowHeight / 2 - 40,
     paddingHorizontal: 20,
-    marginTop: 30,
+    // marginTop: 30,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
@@ -231,7 +231,7 @@ export const style = StyleSheet.create({
   },
 
   shopHintTextStyle: {
-    fontSize: 21,
+    fontSize: 25,
     fontWeight: '700',
     color: colors.black,
     lineHeight: 30,
@@ -239,9 +239,10 @@ export const style = StyleSheet.create({
   },
 
   shopTitleStyle: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '400',
-    color: colors.lingthGray,
+    letterSpacing: 1,
+    color: colors.gray,
   },
 
   shopDescription: {
@@ -295,38 +296,16 @@ export const style = StyleSheet.create({
     marginVertical: 20,
   },
 
-  newsContainer: {
-    height: 50,
-    width: windowWidth / 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: -25,
-    marginBottom: 35,
-  },
-
-  newsText: {
-    fontSize: 35,
-    color: colors.black,
-    fontWeight: '700',
-  },
-
   newsCorusel: {
-    width: '100%',
+    // width: windowWidth / 1 - 50,
     // height: windowHeight / 2 + 50,
     paddingHorizontal: 20,
+    // marginHorizontal: 20,
     marginBottom: isIOS ? 160 : 140,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     // borderWidth: 1,
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 4.19,
-    // elevation: 4,
   },
 
   newsCoruselBtn: {
@@ -343,17 +322,29 @@ export const style = StyleSheet.create({
   newsCoruselContainer: {
     flexDirection: 'column',
     // width: '100%',
-    width: windowWidth / 1 - 40,
+    width: windowWidth / 1 - 50,
     // height: windowHeight / 2 + 50,
     // paddingVertical: 40,
-    // paddingHorizontal: 25,
+    margin: 5,
+    // borderWidth: 1,
     borderRadius: 5,
+    backgroundColor: colors.white,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.19,
+
+    elevation: 2,
   },
 
   newsImage: {
-    width: windowWidth / 1 - 40,
+    width: windowWidth / 1 - 50,
     // height: '50%',
     paddingHorizontal: 0,
+    borderRadius: 5,
   },
 
   newsDescription: {
@@ -385,7 +376,7 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     algnItems: 'center',
-    paddingTop: 35,
+    paddingTop: 15,
     paddingBottom: 15,
     paddingHorizontal: 5,
     // borderWidth: 1,

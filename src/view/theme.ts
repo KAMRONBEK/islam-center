@@ -22,4 +22,4 @@ const layout = {
   padding: 20,
 };
 
-export { colors, layout };
+export {colors, layout};

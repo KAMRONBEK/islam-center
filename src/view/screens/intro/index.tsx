@@ -24,8 +24,9 @@ const Intro = () => {
         <View style={style.inner}>
           <View style={style.topBox}>
             <Image
-              // style={style.tinyLogo}
-              source={require('../../assets/images/Gerb.png')}
+              source={require('../../assets/images/logo.png')}
+              resizeMode="cover"
+              style={{width: 115, height: 113}}
             />
           </View>
 
@@ -40,7 +41,7 @@ const Intro = () => {
                 height: 65,
               }}
               //@ts-ignore
-              onPress={() => navigation.navigate(Routes.BottomNavigator)}
+              onPress={() => navigation.navigate(Routes.Login)}
               text="Авторизоваться"
               textStyles={{
                 color: '#000',

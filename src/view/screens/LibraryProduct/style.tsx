@@ -70,7 +70,7 @@ export const style = StyleSheet.create({
   },
 
   bookName: {
-    fontSize: 19,
+    fontSize: 21,
     fontWeight: '700',
     color: colors.white,
     lineHeight: 35,
@@ -82,9 +82,7 @@ export const style = StyleSheet.create({
   },
 
   bookDiscription: {
-    // marginTop: -40,
     paddingHorizontal: 20,
-    // backgroundColor: colors.white,
   },
 
   textContainer: {
@@ -112,18 +110,18 @@ export const style = StyleSheet.create({
   },
 
   price: {
-    fontSize: 19,
+    fontSize: 22,
     fontWeight: '700',
     color: colors.white,
-    // lineHeight: 35,
-    // marginBottom: 15,
+    marginLeft: -20,
   },
 
   bookDescriptionName: {
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: '700',
     color: colors.black,
     marginVertical: 10,
+    marginTop: 24,
   },
 
   discription: {

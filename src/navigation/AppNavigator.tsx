@@ -22,6 +22,8 @@ import LibraryStack from '../view/screens/Library/navigator';
 import LibraryProductRead from '../view/screens/LibraryProductRead';
 import LibraryProductSave from '../view/screens/LibraryProductSave';
 import MuseumStack from '../view/screens/Museum/navigator';
+import Notifications from '../view/screens/Notifications';
+import NotificationsStack from '../view/screens/Notifications/navigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,13 +39,27 @@ const AppNavigator = () => {
         <Stack.Screen component={Login} name={Routes.Login} />
         <Stack.Screen component={Welcome} name={Routes.Welcome} />
         <Stack.Screen component={Home} name={Routes.Home} />
-        <Stack.Screen component={BottomNavigator} name={Routes.BottomNavigator} />
+        <Stack.Screen
+          component={BottomNavigator}
+          name={Routes.BottomNavigator}
+        />
+        <Stack.Screen component={Notifications} name={Routes.Notifications} />
+        <Stack.Screen
+          component={NotificationsStack}
+          name={Routes.NotificationsStack}
+        />
         <Stack.Screen component={Favorites} name={Routes.Favorites} />
         <Stack.Screen component={Library} name={Routes.Library} />
         <Stack.Screen component={LibraryStack} name={Routes.LibraryStack} />
         <Stack.Screen component={LibraryProduct} name={Routes.LibraryProduct} />
-        <Stack.Screen component={LibraryProductRead} name={Routes.LibraryProductRead} />
-        <Stack.Screen component={LibraryProductSave} name={Routes.LibraryProductSave} />
+        <Stack.Screen
+          component={LibraryProductRead}
+          name={Routes.LibraryProductRead}
+        />
+        <Stack.Screen
+          component={LibraryProductSave}
+          name={Routes.LibraryProductSave}
+        />
         <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
         <Stack.Screen component={Details} name={Routes.Details} />
         <Stack.Screen component={News} name={Routes.News} />
@@ -53,7 +69,6 @@ const AppNavigator = () => {
         <Stack.Screen component={Tour} name={Routes.Tour} />
         <Stack.Screen component={TourPages} name={Routes.TourPages} />
         {/* <Stack.Screen component={} name={} /> */}
-
       </Stack.Navigator>
     </NavigationContainer>
   );

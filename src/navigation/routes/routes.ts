@@ -3,6 +3,8 @@ export enum Routes {
   Login = 'Login',
   Welcome = 'Welcome',
   Home = 'Home',
+  Notifications = 'Notifications',
+  NotificationsStack = 'NotificationsStack',
   Favorites = 'Favorites',
   Library = 'Library',
   MyBooks = 'MyBooks',
@@ -15,13 +17,15 @@ export enum Routes {
   UserProfile = 'UserProfile',
   Details = 'Details',
   News = 'News',
-  Museum= 'Museum',
+  Museum = 'Museum',
   MuseumStack = 'MuseumStack',
+  AboutMuseum = 'AboutMuseum',
+  IntroMuseum = 'IntroMuseum',
+  TimeWork = 'TimeWork',
   Centre = 'Centre',
   Tour = 'Tour',
   TourPages = 'TourPages',
 
-
-  // Bottom Navigator 
+  // Bottom Navigator
   BottomNavigator = 'BottomNavigator',
 }
