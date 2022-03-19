@@ -24,6 +24,7 @@ import LibraryProductSave from '../view/screens/LibraryProductSave';
 import MuseumStack from '../view/screens/Museum/navigator';
 import Notifications from '../view/screens/Notifications';
 import NotificationsStack from '../view/screens/Notifications/navigator';
+import CentreStack from '../view/screens/Centre/navigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,9 +64,10 @@ const AppNavigator = () => {
         <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
         <Stack.Screen component={Details} name={Routes.Details} />
         <Stack.Screen component={News} name={Routes.News} />
+        <Stack.Screen component={Centre} name={Routes.Centre} />
+        <Stack.Screen component={CentreStack} name={Routes.CentreStack} />
         <Stack.Screen component={Museum} name={Routes.Museum} />
         <Stack.Screen component={MuseumStack} name={Routes.MuseumStack} />
-        <Stack.Screen component={Centre} name={Routes.Centre} />
         <Stack.Screen component={Tour} name={Routes.Tour} />
         <Stack.Screen component={TourPages} name={Routes.TourPages} />
         {/* <Stack.Screen component={} name={} /> */}

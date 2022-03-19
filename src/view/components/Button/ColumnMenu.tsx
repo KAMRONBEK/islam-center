@@ -8,24 +8,22 @@ import {
   Image,
 } from 'react-native';
 import {
-  MuseumIcon,
-  DoorIcon,
-  ImageIcon,
-  TourIcon,
-  DocumentIcon,
-  MuseumRightArrow,
-  TimeIcon,
-  LoginMuseumIcon,
-  LocationIcon,
-  InformationLibraryIcon,
   AcsasseblatyIcon,
   ComfortIcon,
+  DocumentIcon,
+  DoorIcon,
+  ImageIcon,
+  InformationLibraryIcon,
   LocationMenuIcon,
+  LoginMuseumIcon,
+  MuseumIcon,
+  MuseumRightArrow,
+  TimeIcon,
+  TourIcon,
 } from '../../assets/icons/icon';
-import {windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
 
-export interface MuseumMenuProps {
+export interface ColumnMenuProps {
   container?: any;
   museumIcon?: any;
   doorIocn?: any;
@@ -46,15 +44,15 @@ export interface MuseumMenuProps {
   onPressMenu?: () => void;
 }
 
-export interface PressableMuseumMenuProps extends React.ComponentProps<any> {
+export interface PressableColumnMenuProps extends React.ComponentProps<any> {
   onPress: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-export let PressableMuseumMenuProps = ({onPress}: PressableMuseumMenuProps) => {
+export let PressableColumnMenuProps = ({onPress}: PressableColumnMenuProps) => {
   return <TouchableOpacity onPress={onPress}></TouchableOpacity>;
 };
 
-export function MuseumMenu({
+export function ColumnMenu({
   container,
   museumIcon,
   doorIocn,
@@ -72,7 +70,7 @@ export function MuseumMenu({
   fillColor,
 
   onPressMenu,
-}: MuseumMenuProps) {
+}: ColumnMenuProps) {
   let props = {
     container,
     museumIcon,
@@ -150,6 +148,6 @@ export const style = StyleSheet.create({
   menuNameText: {
     fontSize: 18,
     fontWeight: '700',
-    paddingLeft: 20,
+    paddingLeft: 25,
   },
 });

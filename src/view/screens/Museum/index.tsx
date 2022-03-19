@@ -5,9 +5,9 @@ import {MuseumDATA} from './data';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
 import {AppHeader} from '../../components/Other/AppBar';
-import {MuseumMenu} from './button';
 import {Routes} from '../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
+import {ColumnMenu} from '../../components/Button/ColumnMenu';
 
 const Museum = () => {
   let navigation = useNavigation();
@@ -35,49 +35,49 @@ const Museum = () => {
             // height: windowHeight / 1,
             paddingHorizontal: 20,
           }}>
-          <MuseumMenu
+          <ColumnMenu
             onPressMenu={() => navigation.navigate(Routes.AboutMuseum)}
             museumIcon={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="О музее"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             doorIocn={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Музейные отделы"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             internationalIcon={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Международные выставки"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             exponate={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Экспонаты"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Документы"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Сотрудничество"
           />
-          <MuseumMenu
+          <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             documnet={true}
             fillColor={colors.green}

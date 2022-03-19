@@ -3,9 +3,9 @@ import React from 'react';
 import {AppHeader} from '../../../components/Other/AppBar';
 import {isIOS, windowHeight, windowWidth} from '../../../constants/size';
 import {colors} from '../../../theme';
-import {MuseumMenu} from '../button';
 import {Routes} from '../../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
+import {ColumnMenu} from '../../../components/Button/ColumnMenu';
 
 const AboutMuseum = () => {
   let navigation = useNavigation();
@@ -33,39 +33,39 @@ const AboutMuseum = () => {
             // height: windowHeight / 1,
             paddingHorizontal: 20,
           }}>
-          <MuseumMenu
+          <ColumnMenu
             onPressMenu={() => navigation.navigate(Routes.TimeWork)}
             timeWork={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Часы работы"
           />
-          <MuseumMenu
+          <ColumnMenu
             onPressMenu={() => navigation.navigate(Routes.IntroMuseum)}
             loginMuseum={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Вход в музей"
           />
-          <MuseumMenu
+          <ColumnMenu
             location={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Как добраться"
           />
-          <MuseumMenu
+          <ColumnMenu
             informationLibrary={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Информацию о билетах"
           />
-          <MuseumMenu
+          <ColumnMenu
             acsasblaty={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Доступность"
           />
-          <MuseumMenu
+          <ColumnMenu
             comfort={true}
             fillColor={colors.green}
             menuNameText={true}

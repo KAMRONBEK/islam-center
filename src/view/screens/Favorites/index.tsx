@@ -107,7 +107,7 @@ const Favorites = () => {
                       alignItems: 'flex-start',
                       width: windowWidth / 2 + 10,
                       // borderWidth: 1,
-                      paddingVertical: 6,
+                      paddingVertical: 8,
                     }}>
                     <View style={style.titleContainer}>
                       <Text style={style.label}>{e.item.label}</Text>
@@ -151,7 +151,7 @@ const Favorites = () => {
                       alignItems: 'flex-start',
                       width: windowWidth / 2 - 10,
                       // borderWidth: 1,
-                      paddingVertical: 6,
+                      paddingVertical: 8,
                     }}>
                     <View style={style.titleContainer}>
                       <Text style={style.label}>{e.item.label}</Text>
@@ -160,22 +160,31 @@ const Favorites = () => {
                           flexDirection: 'row',
                           justifyContent: 'flex-start',
                           alignItems: 'center',
+                          paddingVertical: 8,
                         }}>
-                        {e.item.locationIcon}
-                        <Text style={style.tourTitle}>{e.item.title}</Text>
-                      </View>
-                      <View
-                        style={{
-                          flexDirection: 'row',
-                          justifyContent: 'flex-start',
-                          alignItems: 'center',
-                        }}>
-                        {e.item.dateIcon}
-                        <Text style={style.tourTitle}>{e.item.date}</Text>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                          }}>
+                          {e.item.locationIcon}
+                          <Text style={style.tourTitle}>{e.item.date}</Text>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                            marginLeft: 20,
+                          }}>
+                          {e.item.dateIcon}
+                          <Text style={style.tourTitle}>{e.item.time}</Text>
+                        </View>
                       </View>
                     </View>
                     <TouchableOpacity onPress={() => setActiveLike(true)}>
-                      {e.item.iconLike}
+                      {e.item.iconFavorite}
                     </TouchableOpacity>
                   </View>
                   <View style={style.priceContainer}>

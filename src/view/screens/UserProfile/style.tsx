@@ -6,7 +6,7 @@ export const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    backgroundColor: colors.white,
+    // backgroundColor: colors.white,
   },
 
   headerContainer: {
@@ -61,12 +61,12 @@ export const style = StyleSheet.create({
     marginTop: 25,
   },
 
-  profileContainer: {
-    // paddingHorizontal: 20,
-    // marginVertical: 20,
-    // paddingVertical: 30,
-    // marginBottom: 90,
-  },
+  // profileContainer: {
+  //   // paddingHorizontal: 20,
+  //   // marginVertical: 20,
+  //   // paddingVertical: 30,
+  //   // marginBottom: 90,
+  // },
 
   userInformationContainer: {
     marginBottom: 35,
@@ -137,5 +137,57 @@ export const style = StyleSheet.create({
     width: '80%',
     color: colors.black,
     marginLeft: 22,
+  },
+
+  takeCodeText: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: colors.black,
+  },
+
+  writeCode: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 20,
+    color: colors.red,
+  },
+
+  warning: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 20,
+    color: colors.red,
+  },
+
+  reloadCodeText: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 20,
+    color: colors.gray,
+  },
+
+  takeCode: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.gray,
+    marginTop: 5,
+  },
+
+  buttonContainer: {
+    paddingHorizontal: 20,
+    marginVertical: 20,
+    height: 65,
+    // width: '100%',
+    backgroundColor: colors.green,
+  },
+
+  buttonText: {
+    color: colors.white,
+    marginRight: 17,
+    fontSize: 20,
+    alignItems: 'center',
+    fontWeight: isIOS ? '700' : '700',
+    fontFamily: 'OpenSans-Regular',
   },
 });

@@ -17,6 +17,7 @@ import Favorites from '../screens/Favorites';
 import UserProfile from '../screens/UserProfile';
 import LibraryStack from '../screens/Library/navigator';
 import MuseumStack from '../screens/Museum/navigator';
+import CentreStack from '../screens/Centre/navigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,15 @@ const BottomNavigator = () => {
                 justifyContent: 'center',
                 top: isIOS ? 4 : 0,
               }}>
-              {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8,}}></View> */}
+              {/* <View
+                style={{
+                  display: focused ? 'flex' : 'none',
+                  height: 10,
+                  width: 10,
+                  borderRadius: 25,
+                  backgroundColor: focused ? '#000' : 'none',
+                  marginBottom: 8,
+                }}></View> */}
               <FavoriteIcon
                 size={26}
                 fillColor={focused ? colors.black : colors.lingthGray}
@@ -117,6 +126,7 @@ const BottomNavigator = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 top: isIOS ? 4 : 0,
+                // backgroundColor={focused ?}
               }}>
               {/* <View style={{display: focused ? 'flex' : 'none', height: 10, width: 10, borderRadius: 25, backgroundColor: focused ? '#000' : 'none', marginBottom: 8}}></View> */}
               <MuseumIcon
@@ -126,8 +136,8 @@ const BottomNavigator = () => {
             </View>
           ),
         }}
-        name={Routes.MuseumStack}
-        component={MuseumStack}
+        name={Routes.CentreStack}
+        component={CentreStack}
       />
       <Tab.Screen
         options={{

@@ -144,13 +144,13 @@ export const style = StyleSheet.create({
     fontSize: 19,
     fontWeight: '700',
     color: colors.black,
-    paddingVertical: 4,
   },
 
   title: {
     fontSize: 14,
     fontWeight: '400',
     color: colors.lingthGray,
+    paddingVertical: 6,
   },
 
   tourTitle: {
