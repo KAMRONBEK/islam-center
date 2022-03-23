@@ -31,6 +31,8 @@ const ITEM_SIZE = 64;
 const MARGIN = 20;
 
 const Home = () => {
+  let navigation = useNavigation();
+
   const news = ['NEWS', 'thistle', 'skyblue', 'teal'];
   const [index, setIndex] = useState();
 
@@ -45,8 +47,6 @@ const Home = () => {
 
   const _flatListNewsRef = useRef(null);
 
-  let navigation = useNavigation();
-
   return (
     <View style={style.container}>
       <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
@@ -58,8 +58,10 @@ const Home = () => {
         detailsColor={colors.black}
         detailsIcon={true}
         //@ts-ignore
-        onPressDetailsIcon={() => navigation.navigate(Routes.Details)}
-        //@ts-ignore
+        onPressDetailsIcon={() =>
+          //@ts-ignore
+          navigation.openDrawer()
+        }
         onPressNotification={() =>
           //@ts-ignore
           navigation.navigate(Routes.NotificationsStack)

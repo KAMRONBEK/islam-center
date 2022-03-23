@@ -11,15 +11,12 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 //@ts-ignore
 import details_header_bg from '../../assets/images/details_header_bg.png';
-import DrawerItem from '../../components/Drawer/costumDrawerItem';
+import DrawerItem from '../../components/Drawer/CostumDrawer';
 import {SocialDATA} from '../../components/Drawer/data';
 import {isIOS} from '../../constants/size';
 import {useNavigation} from '@react-navigation/native';
 
 const Details = () => {
-
-
-
   let navigation = useNavigation();
 
   const [open, setOpen] = useState(false);

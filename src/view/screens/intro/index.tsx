@@ -41,7 +41,7 @@ const Intro = () => {
                 height: 65,
               }}
               //@ts-ignore
-              onPress={() => navigation.navigate(Routes.Login)}
+              onPress={() => navigation.navigate(Routes.AuthStack)}
               text="Авторизоваться"
               textStyles={{
                 color: '#000',

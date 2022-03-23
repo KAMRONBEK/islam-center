@@ -9,7 +9,10 @@ import {
 } from 'react-native';
 import {
   AcsasseblatyIcon,
+  BoardIcon,
+  CharterIcon,
   ComfortIcon,
+  ControlIcon,
   DocumentIcon,
   DoorIcon,
   ImageIcon,
@@ -18,6 +21,7 @@ import {
   LoginMuseumIcon,
   MuseumIcon,
   MuseumRightArrow,
+  TasksIcon,
   TimeIcon,
   TourIcon,
 } from '../../assets/icons/icon';
@@ -27,6 +31,10 @@ export interface ColumnMenuProps {
   container?: any;
   museumIcon?: any;
   doorIocn?: any;
+  tasks?: any;
+  charter?: any;
+  control?: any;
+  board?: any;
   fillColor?: any;
   internationalIcon?: any;
   exponate?: any;
@@ -56,6 +64,10 @@ export function ColumnMenu({
   container,
   museumIcon,
   doorIocn,
+  tasks,
+  charter,
+  control,
+  board,
   internationalIcon,
   exponate,
   documnet,
@@ -75,6 +87,10 @@ export function ColumnMenu({
     container,
     museumIcon,
     doorIocn,
+    tasks,
+    charter,
+    control,
+    board,
     fillColor,
     internationalIcon,
     exponate,
@@ -105,6 +121,10 @@ export function ColumnMenu({
           }}>
           {museumIcon && <MuseumIcon size={25} fillColor={fillColor} />}
           {doorIocn && <DoorIcon size={25} color={fillColor} />}
+          {tasks && <TasksIcon size={25} fillColor={fillColor} />}
+          {charter && <CharterIcon size={25} fillColor={fillColor} />}
+          {control && <ControlIcon size={25} fillColor={fillColor} />}
+          {board && <BoardIcon size={25} fillColor={fillColor} />}
           {internationalIcon && <TourIcon size={25} fillColor={fillColor} />}
           {exponate && <ImageIcon size={25} fillColor={fillColor} />}
           {documnet && <DocumentIcon size={25} fillColor={fillColor} />}

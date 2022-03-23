@@ -1,4 +1,10 @@
-import {Text, View, ImageBackground, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  ImageBackground,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import {style} from './style';
 import {ArrowRight, Pattern} from '../../assets/icons/icon';
@@ -20,24 +26,25 @@ const Welcome = () => {
   const [visibleWarning, setVisibleWarning] = React.useState(false);
   const [visibleSendCode, setVisibleSendCode] = React.useState(false);
 
-
   let onSubmitCode = () => {
     if (code.length == 4 && code.toString() == '3123') {
       //@ts-ignore
-      navigation.navigate(Routes.BottomNavigator);
-      setVisibleWarning(false)
+      // navigation.navigate(Routes.BottomNavigator);
+      //@ts-ignore
+      navigation.navigate(Routes.AuthStack);
+      setVisibleWarning(false);
       setVisibleSendCode(false);
     } else {
-      setVisibleWarning(true)
+      setVisibleWarning(true);
       setVisibleSendCode(false);
-    };
+    }
     // console.warn(code);
   };
 
   let onPressRequestCode = () => {
-      setVisibleSendCode(true);
-      setVisibleWarning(false);
-  }
+    setVisibleSendCode(true);
+    setVisibleWarning(false);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -48,7 +55,7 @@ const Welcome = () => {
           source={intro_bg}
           resizeMode="cover"
           style={style.loginBG}>
-          <AppHeader 
+          <AppHeader
             containerStyle={style.containerStyle}
             leftArrowIcon={true}
             colorLeftArrow={colors.white}
@@ -73,8 +80,14 @@ const Welcome = () => {
                 placeholderTextColor="#000"
                 style={style.input}
               />
-              {visibleWarning ? <Text style={style.warning}>Код введен не верно</Text> : null}
-              {visibleSendCode ? <Text style={style.WaitSendCode}>Повторно можно запросить через: 1:30</Text> : null}
+              {visibleWarning ? (
+                <Text style={style.warning}>Код введен не верно</Text>
+              ) : null}
+              {visibleSendCode ? (
+                <Text style={style.WaitSendCode}>
+                  Повторно можно запросить через: 1:30
+                </Text>
+              ) : null}
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore

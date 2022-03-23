@@ -48,7 +48,7 @@ const Centre = () => {
           <ColumnMenu
             //@ts-ignore
             onPressMenu={() => navigation.navigate(Routes.TasksCentre)}
-            doorIocn={true}
+            tasks={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Цели и задачи"
@@ -56,7 +56,7 @@ const Centre = () => {
           <ColumnMenu
             //@ts-ignore
             // onPressMenu={() => navigation.navigate('')}
-            internationalIcon={true}
+            charter={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Устав центра"
@@ -64,7 +64,7 @@ const Centre = () => {
           <ColumnMenu
             //@ts-ignore
             onPressMenu={() => navigation.navigate(Routes.AdviceCentre)}
-            exponate={true}
+            board={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Попечительский совет"
@@ -72,20 +72,22 @@ const Centre = () => {
           <ColumnMenu
             //@ts-ignore
             onPressMenu={() => navigation.navigate(Routes.StaffCentre)}
-            documnet={true}
+            control={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Управление"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Documents)}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Документы"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Media)}
             // documnet={true}
             // fillColor={colors.green}
             menuNameText={true}

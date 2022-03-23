@@ -3,6 +3,9 @@ export enum Routes {
   Login = 'Login',
   Welcome = 'Welcome',
   Home = 'Home',
+  AuthStack = 'AuthStack',
+  CustomDrawer = 'CustomDrawer',
+
   Notifications = 'Notifications',
   NotificationsStack = 'NotificationsStack',
   Favorites = 'Favorites',
@@ -17,6 +20,7 @@ export enum Routes {
   UserProfile = 'UserProfile',
   Details = 'Details',
   News = 'News',
+
   Centre = 'Centre',
   CentreStack = 'CentreStack',
   AboutCentre = 'AboutCentre',
@@ -24,6 +28,12 @@ export enum Routes {
   AdviceCentre = 'AdviceCentre',
   StaffCentre = 'StaffCentre',
   StaffCard = 'StaffCard',
+  Documents = 'Documents',
+  Media = 'Media',
+  Movie = 'Movie',
+  Audio = 'Audio',
+  Photo = 'Photo',
+
   Museum = 'Museum',
   MuseumStack = 'MuseumStack',
   AboutMuseum = 'AboutMuseum',

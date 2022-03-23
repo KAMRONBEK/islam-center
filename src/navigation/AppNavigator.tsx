@@ -25,6 +25,8 @@ import MuseumStack from '../view/screens/Museum/navigator';
 import Notifications from '../view/screens/Notifications';
 import NotificationsStack from '../view/screens/Notifications/navigator';
 import CentreStack from '../view/screens/Centre/navigator';
+import AuthStack from '../view/components/Drawer/DrawerNavigation';
+import CustomDrawer from '../view/components/Drawer/CostumDrawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +41,8 @@ const AppNavigator = () => {
         <Stack.Screen component={Intro} name={Routes.Intro} />
         <Stack.Screen component={Login} name={Routes.Login} />
         <Stack.Screen component={Welcome} name={Routes.Welcome} />
+        <Stack.Screen component={AuthStack} name={Routes.AuthStack} />
+        {/* <Stack.Screen component={CustomDrawer} name={Routes.CustomDrawer} /> */}
         <Stack.Screen component={Home} name={Routes.Home} />
         <Stack.Screen
           component={BottomNavigator}

@@ -177,7 +177,7 @@ export function AppHeader({
               // width: 30,
               // height: 30,
             }}>
-            <NotificationIcon size={16} fillColor={notificationColor} />
+            <NotificationIcon size={20} fillColor={notificationColor} />
           </TouchableOpacity>
           {/* } */}
 

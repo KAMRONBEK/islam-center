@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import {windowWidth} from '../../../constants/size';
 
 import {colors} from '../../../theme';
 
@@ -42,7 +43,17 @@ export function Chapter({
     <View style={style.containerStyle}>
       {chapter && (
         <View style={style.chapter}>
-          <Text style={style.title}>{chapterTitle}</Text>
+          <View
+            style={{
+              flexWrap: 'nowrap',
+              width: '80%',
+              height: 75,
+              // borderWidth: 1,
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+            }}>
+            <Text style={style.title}>{chapterTitle}</Text>
+          </View>
           <TouchableOpacity onPress={onPress}>
             <Text style={style.btnAll}>{allChapter}</Text>
           </TouchableOpacity>
@@ -56,7 +67,7 @@ export const style = StyleSheet.create({
   containerStyle: {
     paddingHorizontal: 20,
     justifyContent: 'flex-start',
-    marginVertical: 35,
+    marginVertical: 30,
   },
 
   chapter: {
