@@ -38,6 +38,15 @@ const AdviceCentre = () => {
                   marginLeft={-35}
                   //@ts-ignore
                   onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
+                  //@ts-ignore
+                  onPressDetailsIcon={() =>
+                    //@ts-ignore
+                    navigation.openDrawer()
+                  }
+                  onPressNotification={() =>
+                    //@ts-ignore
+                    navigation.navigate(Routes.NotificationsStack)
+                  }
                   headingText={true}
                   headingTitle="Попечительский совет"
                   headingTextStyle={style.titleStyle}

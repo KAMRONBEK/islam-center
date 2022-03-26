@@ -20,6 +20,13 @@ export enum Routes {
   UserProfile = 'UserProfile',
   Details = 'Details',
   News = 'News',
+  NewsStack = 'NewsStack',
+  NewsRead = 'NewsRead',
+  MyPurchases = 'MyPurchases',
+  MyPurchasesSheet = 'MyPurchasesSheet',
+  MyPurchasesStack = 'MyPurchasesStack',
+
+  Sheet = 'Sheet',
 
   Centre = 'Centre',
   CentreStack = 'CentreStack',

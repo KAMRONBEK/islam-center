@@ -31,6 +31,15 @@ const StaffCard = () => {
         marginLeft={-35}
         //@ts-ignore
         onPressLeftArrow={() => navigation.navigate(Routes.StaffCentre)}
+        //@ts-ignore
+        onPressDetailsIcon={() =>
+          //@ts-ignore
+          navigation.openDrawer()
+        }
+        onPressNotification={() =>
+          //@ts-ignore
+          navigation.navigate(Routes.NotificationsStack)
+        }
         headingText={true}
         headingTitle="Сотрудники"
         headingTextStyle={style.titleStyle}

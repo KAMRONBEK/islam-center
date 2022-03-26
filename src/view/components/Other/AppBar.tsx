@@ -13,6 +13,7 @@ import {
   NotificationIcon,
   IconProps,
   FavoriteIcon,
+  ShareIcon,
 } from '../../assets/icons/icon';
 import {colors} from '../../theme';
 
@@ -38,11 +39,14 @@ export interface AppHeaderProps {
   detailsColor?: any;
   saveIcon?: any;
   saveColor?: any;
+  shareIcon?: any;
+  shareColor?: any;
   onPress?: () => void;
   onPressLeftArrow?: () => void;
   onPressNotification?: () => void;
   onPressDetailsIcon?: () => void;
   onPressSaveIcon?: () => void;
+  onPressShareIcon?: () => void;
 }
 
 export interface PressableAppHeaderProps extends React.ComponentProps<any> {
@@ -75,10 +79,13 @@ export function AppHeader({
   detailsColor,
   saveIcon,
   saveColor,
+  shareIcon,
+  shareColor,
   onPressLeftArrow,
   onPressNotification,
   onPressDetailsIcon,
   onPressSaveIcon,
+  onPressShareIcon,
 }: AppHeaderProps) {
   let props = {
     containerStyle,
@@ -102,10 +109,13 @@ export function AppHeader({
     detailsColor,
     saveIcon,
     saveColor,
+    shareIcon,
+    shareColor,
     onPressLeftArrow,
     onPressNotification,
     onPressDetailsIcon,
     onPressSaveIcon,
+    onPressShareIcon,
   };
   return (
     <View style={containerStyle}>
@@ -190,6 +200,11 @@ export function AppHeader({
       {saveIcon && (
         <TouchableOpacity onPress={onPressSaveIcon}>
           <FavoriteIcon size={18} fillColor={saveColor} />
+        </TouchableOpacity>
+      )}
+      {shareIcon && (
+        <TouchableOpacity onPress={onPressShareIcon}>
+          <ShareIcon size={20} color={shareColor} />
         </TouchableOpacity>
       )}
     </View>

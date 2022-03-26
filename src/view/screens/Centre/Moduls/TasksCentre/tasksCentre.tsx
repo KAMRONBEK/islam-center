@@ -37,6 +37,15 @@ const TasksCentre = () => {
                   marginLeft={-35}
                   //@ts-ignore
                   onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
+                  //@ts-ignore
+                  onPressDetailsIcon={() =>
+                    //@ts-ignore
+                    navigation.openDrawer()
+                  }
+                  onPressNotification={() =>
+                    //@ts-ignore
+                    navigation.navigate(Routes.NotificationsStack)
+                  }
                   headingText={true}
                   headingTitle="Цели и задачи"
                   headingTextStyle={style.titleStyle}

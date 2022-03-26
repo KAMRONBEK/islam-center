@@ -25,6 +25,10 @@ import {
 } from '../../assets/icons/icon';
 import {colors} from '../../theme';
 import NotificationsStack from '../../screens/Notifications/navigator';
+import News from '../../screens/News';
+import NewsStack from '../../screens/News/navigator';
+import MyPurchases from '../../screens/MyPurchases';
+import MyPurchasesStack from '../../screens/MyPurchases/navigator';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -82,8 +86,8 @@ const AuthStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Мои покупки"
-        component={LibraryProductRead}
+        name={Routes.MyPurchasesStack}
+        component={MyPurchasesStack}
         options={{
           drawerIcon: ({color}) => (
             <BascetIcon size={25} fillColor={colors.black} />
@@ -112,8 +116,8 @@ const AuthStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Новости"
-        component={Museum}
+        name={Routes.NewsStack}
+        component={NewsStack}
         options={{
           drawerIcon: ({color}) => (
             <NewsIcon size={25} fillColor={colors.black} />

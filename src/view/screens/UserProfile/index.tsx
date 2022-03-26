@@ -77,7 +77,14 @@ const UserProfile = () => {
             detailsIcon={true}
             detailsColor={colors.white}
             //@ts-ignore
-            // onPressDetailsIcon={() => navigation.navigate('Details')}
+            onPressDetailsIcon={() =>
+              //@ts-ignore
+              navigation.openDrawer()
+            }
+            onPressNotification={() =>
+              //@ts-ignore
+              navigation.navigate(Routes.NotificationsStack)
+            }
             headingText={true}
             headingTitle="Профиль"
             headingTextStyle={style.titleStyle}

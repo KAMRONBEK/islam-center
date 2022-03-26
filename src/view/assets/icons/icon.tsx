@@ -2372,6 +2372,34 @@ export function FavoriteIcon({
   );
 }
 
+export function ShareIcon({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, style};
+  return (
+    <Svg viewBox="0 0 22 22" fill="none" {...props}>
+      <Path
+        d="M4.6 14.6a3.6 3.6 0 100-7.2 3.6 3.6 0 000 7.2zM17.4 21a3.6 3.6 0 100-7.2 3.6 3.6 0 000 7.2zM17.4 8.2a3.6 3.6 0 100-7.2 3.6 3.6 0 000 7.2zM7.8 9.4l6.4-3.2m-6.4 6.4l6.4 3.2-6.4-3.2z"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function SeeIcon({color, active, size, style, fillColor}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, style};
+  return (
+    <Svg viewBox="0 0 15 14" fill="none" {...props}>
+      <Path
+        d="M1.655 4.489l-.653-.369.653.369zm11.69 0l.653-.369-.653.369zm0 5.022l-.654-.368.654.368zm-11.69 0l.654-.368-.654.368zm.654-4.654c2.335-4.143 8.047-4.143 10.382 0l1.307-.737c-2.909-5.16-10.087-5.16-12.996 0l1.307.737zm10.382 0a4.39 4.39 0 010 4.286l1.307.737a5.89 5.89 0 000-5.76l-1.307.737zm0 4.286c-2.335 4.143-8.047 4.143-10.382 0l-1.307.737c2.909 5.16 10.087 5.16 12.996 0l-1.307-.737zm-10.382 0a4.39 4.39 0 010-4.286L1.002 4.12a5.89 5.89 0 000 5.76l1.307-.737zm7.01-2.097c0 1.12-.852 1.959-1.82 1.959v1.5c1.87 0 3.32-1.587 3.32-3.46h-1.5zm-1.82 1.959c-.967 0-1.818-.839-1.818-1.96h-1.5c0 1.873 1.448 3.46 3.319 3.46v-1.5zm-1.818-1.96c0-1.121.852-1.96 1.819-1.96v-1.5c-1.87 0-3.319 1.587-3.319 3.46h1.5zM7.5 5.086c.967 0 1.819.84 1.819 1.96h1.5c0-1.873-1.45-3.46-3.32-3.46v1.5z"
+        fill={fillColor}
+        strokeWidth={0.1}
+      />
+    </Svg>
+  );
+}
+
 export function BookIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size};
   return (

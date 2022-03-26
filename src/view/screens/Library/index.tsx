@@ -36,7 +36,14 @@ const Library = () => {
         detailsColor={colors.black}
         detailsIcon={true}
         //@ts-ignore
-        onPressDetailsIcon={() => navigation.navigate('Details')}
+        onPressDetailsIcon={() =>
+          //@ts-ignore
+          navigation.openDrawer()
+        }
+        onPressNotification={() =>
+          //@ts-ignore
+          navigation.navigate(Routes.NotificationsStack)
+        }
         headingText={true}
         headingTitle="Библиотека"
         headingTextStyle={style.titleStyle}

@@ -7,7 +7,6 @@ import Intro from '../view/screens/Intro';
 import Login from '../view/screens/Login';
 import Welcome from '../view/screens/Welcome';
 import Home from '../view/screens/Home';
-import Details from '../view/screens/Details';
 import News from '../view/screens/News';
 import Museum from '../view/screens/Museum';
 import Centre from '../view/screens/Centre';
@@ -26,7 +25,11 @@ import Notifications from '../view/screens/Notifications';
 import NotificationsStack from '../view/screens/Notifications/navigator';
 import CentreStack from '../view/screens/Centre/navigator';
 import AuthStack from '../view/components/Drawer/DrawerNavigation';
-import CustomDrawer from '../view/components/Drawer/CostumDrawer';
+import NewsRead from '../view/screens/News/Moduls/newsRead';
+import NewsStack from '../view/screens/News/navigator';
+import MyPurchases from '../view/screens/MyPurchases';
+import Sheet from '../view/components/Other/BottomSheet';
+import MyPurchasesStack from '../view/screens/MyPurchases/navigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,8 +69,15 @@ const AppNavigator = () => {
           name={Routes.LibraryProductSave}
         />
         <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
-        <Stack.Screen component={Details} name={Routes.Details} />
+        <Stack.Screen component={Sheet} name={Routes.Sheet} />
         <Stack.Screen component={News} name={Routes.News} />
+        <Stack.Screen component={NewsRead} name={Routes.NewsRead} />
+        <Stack.Screen component={NewsStack} name={Routes.NewsStack} />
+        <Stack.Screen component={MyPurchases} name={Routes.MyPurchases} />
+        <Stack.Screen
+          component={MyPurchasesStack}
+          name={Routes.MyPurchasesStack}
+        />
         <Stack.Screen component={Centre} name={Routes.Centre} />
         <Stack.Screen component={CentreStack} name={Routes.CentreStack} />
         <Stack.Screen component={Museum} name={Routes.Museum} />

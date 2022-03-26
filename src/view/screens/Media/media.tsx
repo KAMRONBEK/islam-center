@@ -30,9 +30,15 @@ const Media = () => {
         notificationColor={colors.black}
         detailsColor={colors.black}
         detailsIcon={true}
-        // marginLeft={-25}
         //@ts-ignore
-        onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
+        onPressDetailsIcon={() =>
+          //@ts-ignore
+          navigation.openDrawer()
+        }
+        onPressNotification={() =>
+          //@ts-ignore
+          navigation.navigate(Routes.NotificationsStack)
+        }
         headingText={true}
         headingTitle="Медиа"
         headingTextStyle={style.titleStyle}
