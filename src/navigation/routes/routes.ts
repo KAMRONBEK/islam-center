@@ -25,6 +25,8 @@ export enum Routes {
   MyPurchases = 'MyPurchases',
   MyPurchasesSheet = 'MyPurchasesSheet',
   MyPurchasesStack = 'MyPurchasesStack',
+  MyPurchasesBook = 'MyPurchasesBook',
+  MyPurchasesBookRead = 'MyPurchasesBookRead',
 
   Sheet = 'Sheet',
 

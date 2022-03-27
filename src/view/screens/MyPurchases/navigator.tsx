@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MyBooks from '../MyBooks';
 import MyPurchases from '.';
 import MyPurchasesSheet from './Moduls/MyPurchasesTourSheet';
+import MyPurchasesBook from './Moduls/MyPurchasesBook/book';
+import MyPurchasesBookRead from './Moduls/MyPurchasesBookRead/bookRead';
 
 const MyPurchasesStack = () => {
   let Stack = createNativeStackNavigator();
@@ -16,6 +18,11 @@ const MyPurchasesStack = () => {
       <Stack.Screen
         component={MyPurchasesSheet}
         name={Routes.MyPurchasesSheet}
+      />
+      <Stack.Screen component={MyPurchasesBook} name={Routes.MyPurchasesBook} />
+      <Stack.Screen
+        component={MyPurchasesBookRead}
+        name={Routes.MyPurchasesBookRead}
       />
     </Stack.Navigator>
     // </NavigationContainer>

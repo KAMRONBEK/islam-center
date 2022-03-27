@@ -42,22 +42,23 @@ const MyPurchasesSheet = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['35', '50%', '65', '87'], []);
+  const snapPoints = useMemo(() => ['55%', '65', '87'], []);
 
   // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    if (index == 2) {
+
+  const handleSheetChanges = useCallback(index => {
+    if (index == 0) {
+      setScrollButton(false);
+      setNotScrollButton(true);
+      // setIndex(1);
+    } else if (index == 1) {
+      setScrollButton(true);
+      setNotScrollButton(false);
+      setIndex(1);
+    } else if (index == 2) {
       setScrollButton(true);
       setNotScrollButton(false);
       setIndex(2);
-    } else if (index >= 3) {
-      setScrollButton(true);
-      setNotScrollButton(false);
-      setIndex(3);
-    } else if (index < 3) {
-      setScrollButton(false);
-      setNotScrollButton(true);
-      setIndex(1);
     }
 
     // console.log('handleSheetChanges', index);
@@ -84,7 +85,7 @@ const MyPurchasesSheet = () => {
       </ImageBackground>
       <BottomSheet
         ref={bottomSheetRef}
-        index={2}
+        index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}>
         {/* <View style={style.contentContainer}> */}
@@ -110,19 +111,19 @@ const MyPurchasesSheet = () => {
               </View>
               <View style={style.imageContainer}>
                 <TouchableOpacity onPress={openImagePreview}>
-                  <ImageView
+                  {/* <ImageView
                     images={e.image}
                     imageIndex={0}
                     visible={visible}
                     onRequestClose={() => setIsVisible(false)}
-                  />
+                  /> */}
                   <View>{e.image.image}</View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  {/* <View>{e.imageTwo}</View> */}
+                  <View>{e.image.image}</View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  {/* <View>{e.imageTree}</View> */}
+                  <View>{e.image.image}</View>
                 </TouchableOpacity>
               </View>
               <View
@@ -151,10 +152,10 @@ const MyPurchasesSheet = () => {
                           style.buttonContainer,
                           {
                             marginBottom:
-                              takeIndex == 2
+                              takeIndex == 1
                                 ? 250
-                                : 0 || takeIndex == 3
-                                ? 100
+                                : 0 || takeIndex == 2
+                                ? 80
                                 : 0,
                           },
                         ]}
@@ -173,7 +174,7 @@ const MyPurchasesSheet = () => {
         {/* </View> */}
       </BottomSheet>
       {NotScrollButton && (
-        <View style={{paddingHorizontal: 20}}>
+        <View style={{paddingHorizontal: 20, position: 'absolute', bottom: 0}}>
           <Button
             containerStyle={style.buttonContainer}
             //@ts-ignore

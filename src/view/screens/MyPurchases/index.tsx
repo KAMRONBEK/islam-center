@@ -103,36 +103,39 @@ const MyPurchases = () => {
           // keyExtractor={(item) => item.id}
           renderItem={e => (
             <View style={style.cardContainer}>
-              <View
-                style={style.card}
-                // key={i.toString()}
-              >
-                {e.item.image}
+              <TouchableOpacity
+                onPress={() => navigation.navigate(Routes.MyPurchasesBook)}>
+                <View
+                  style={style.card}
+                  // key={i.toString()}
+                >
+                  {e.item.image}
 
-                <View style={style.cardContent}>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                      width: windowWidth / 2 + 10,
-                      // borderWidth: 1,
-                      paddingVertical: 8,
-                    }}>
-                    <View style={style.titleContainer}>
-                      <Text style={style.label}>{e.item.label}</Text>
-                      <Text style={style.title}>{e.item.title}</Text>
+                  <View style={style.cardContent}>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        width: windowWidth / 2 + 10,
+                        // borderWidth: 1,
+                        paddingVertical: 8,
+                      }}>
+                      <View style={style.titleContainer}>
+                        <Text style={style.label}>{e.item.label}</Text>
+                        <Text style={style.title}>{e.item.title}</Text>
+                      </View>
+                      <TouchableOpacity onPress={() => setActiveLike(true)}>
+                        {e.item.iconLike}
+                      </TouchableOpacity>
                     </View>
-                    <TouchableOpacity onPress={() => setActiveLike(true)}>
-                      {e.item.iconLike}
-                    </TouchableOpacity>
-                  </View>
-                  <View style={style.priceContainer}>
-                    <Text style={style.price}>{e.item.price}</Text>
-                    <Text style={style.currency}>{e.item.currency}</Text>
+                    <View style={style.priceContainer}>
+                      <Text style={style.price}>{e.item.price}</Text>
+                      <Text style={style.currency}>{e.item.currency}</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
           )}
         />
