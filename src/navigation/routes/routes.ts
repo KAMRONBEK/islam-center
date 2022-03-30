@@ -6,6 +6,7 @@ export enum Routes {
   AuthStack = 'AuthStack',
   CustomDrawer = 'CustomDrawer',
 
+  // Notification
   Notifications = 'Notifications',
   NotificationsStack = 'NotificationsStack',
   Favorites = 'Favorites',
@@ -22,14 +23,16 @@ export enum Routes {
   News = 'News',
   NewsStack = 'NewsStack',
   NewsRead = 'NewsRead',
+
+  // MyPurchases
   MyPurchases = 'MyPurchases',
   MyPurchasesSheet = 'MyPurchasesSheet',
   MyPurchasesStack = 'MyPurchasesStack',
   MyPurchasesBook = 'MyPurchasesBook',
   MyPurchasesBookRead = 'MyPurchasesBookRead',
-
   Sheet = 'Sheet',
 
+  // Centre
   Centre = 'Centre',
   CentreStack = 'CentreStack',
   AboutCentre = 'AboutCentre',
@@ -38,16 +41,23 @@ export enum Routes {
   StaffCentre = 'StaffCentre',
   StaffCard = 'StaffCard',
   Documents = 'Documents',
+  Resume = 'Resume',
+
+  //Media
   Media = 'Media',
   Movie = 'Movie',
   Audio = 'Audio',
   Photo = 'Photo',
 
+  // Museum
   Museum = 'Museum',
   MuseumStack = 'MuseumStack',
   AboutMuseum = 'AboutMuseum',
   IntroMuseum = 'IntroMuseum',
   TimeWork = 'TimeWork',
+  LocationMuseum = 'LocationMuseum',
+
+  //Tour
   Tour = 'Tour',
   TourPages = 'TourPages',
 

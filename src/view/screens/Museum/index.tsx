@@ -6,8 +6,8 @@ import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
 import {AppHeader} from '../../components/Other/AppBar';
 import {Routes} from '../../../navigation/routes/routes';
-import {useNavigation} from '@react-navigation/native';
 import {ColumnMenu} from '../../components/Button/ColumnMenu';
+import {useNavigation} from '@react-navigation/native';
 
 const Museum = () => {
   let navigation = useNavigation();
@@ -41,27 +41,15 @@ const Museum = () => {
             width: windowWidth / 1,
             // height: windowHeight / 1,
             paddingHorizontal: 20,
+            paddingBottom: 100,
           }}>
           <ColumnMenu
-            onPressMenu={() => navigation.navigate(Routes.AboutMuseum)}
+            //@ts-ignore
+            // onPressMenu={() => navigation.navigate(Routes.AboutMuseum)}
             museumIcon={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="О музее"
-          />
-          <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
-            doorIocn={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Музейные отделы"
-          />
-          <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
-            internationalIcon={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Международные выставки"
           />
           <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
@@ -70,6 +58,14 @@ const Museum = () => {
             menuNameText={true}
             menuName="Экспонаты"
           />
+          <ColumnMenu
+            // onPressMenu={() => navigation.navigate('Details')}
+            doorIocn={true}
+            fillColor={colors.green}
+            menuNameText={true}
+            menuName="Музейные отделы"
+          />
+
           <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             documnet={true}
@@ -84,12 +80,43 @@ const Museum = () => {
             menuNameText={true}
             menuName="Сотрудничество"
           />
+          {/* <ColumnMenu
+            // onPressMenu={() => navigation.navigate('Details')}
+            internationalIcon={true}
+            fillColor={colors.green}
+            menuNameText={true}
+            menuName="Международные выставки"
+          /> */}
           <ColumnMenu
             // onPressMenu={() => navigation.navigate('Details')}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Сотрудники музея"
+          />
+          <ColumnMenu
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.TimeWork)}
+            timeWork={true}
+            fillColor={colors.green}
+            menuNameText={true}
+            menuName="Часы работы"
+          />
+          <ColumnMenu
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.IntroMuseum)}
+            loginMuseum={true}
+            fillColor={colors.green}
+            menuNameText={true}
+            menuName="Вход в музей"
+          />
+          <ColumnMenu
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.LocationMuseum)}
+            location={true}
+            fillColor={colors.green}
+            menuNameText={true}
+            menuName="Как добраться"
           />
         </View>
       </ScrollView>

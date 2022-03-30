@@ -10,6 +10,7 @@ import StaffCentre from './Moduls/Staff/staffCentre';
 import StaffCard from './Moduls/Staff/StaffCard/StaffCard';
 import Documents from './Moduls/Documents/documents';
 import Media from '../Media/media';
+import Resume from './Moduls/Resume/resume';
 
 const CentreStack = () => {
   let Stack = createNativeStackNavigator();
@@ -23,7 +24,7 @@ const CentreStack = () => {
       <Stack.Screen component={StaffCentre} name={Routes.StaffCentre} />
       <Stack.Screen component={StaffCard} name={Routes.StaffCard} />
       <Stack.Screen component={Documents} name={Routes.Documents} />
-      <Stack.Screen component={Media} name={Routes.Media} />
+      <Stack.Screen component={Resume} name={Routes.Resume} />
     </Stack.Navigator>
   );
 };

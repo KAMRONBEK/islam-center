@@ -169,5 +169,6 @@ export const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     paddingLeft: 25,
+    color: colors.black,
   },
 });

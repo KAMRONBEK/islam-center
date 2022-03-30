@@ -30,6 +30,8 @@ import NewsStack from '../view/screens/News/navigator';
 import MyPurchases from '../view/screens/MyPurchases';
 import Sheet from '../view/components/Other/BottomSheet';
 import MyPurchasesStack from '../view/screens/MyPurchases/navigator';
+import Resume from '../view/screens/Centre/Moduls/Resume/resume';
+import Media from '../view/screens/Media/media';
 
 const Stack = createNativeStackNavigator();
 
@@ -73,6 +75,7 @@ const AppNavigator = () => {
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={NewsRead} name={Routes.NewsRead} />
         <Stack.Screen component={NewsStack} name={Routes.NewsStack} />
+        <Stack.Screen component={Media} name={Routes.Media} />
         <Stack.Screen component={MyPurchases} name={Routes.MyPurchases} />
         <Stack.Screen
           component={MyPurchasesStack}

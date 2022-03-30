@@ -2387,6 +2387,28 @@ export function ShareIcon({color, active, size, style, fillColor}: IconProps) {
   );
 }
 
+export function DropDownIcon({
+  color,
+  active,
+  size,
+  style,
+  fillColor,
+}: IconProps) {
+  let props = {stroke: fillColor, height: size, width: size, style};
+  return (
+    <Svg viewBox="0 0 16 14" fill="none" {...props}>
+      <Path
+        d="M15 1.5l-7 7-7-7"
+        fill="none"
+        stroke="#000"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 export function SeeIcon({color, active, size, style, fillColor}: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, style};
   return (

@@ -34,14 +34,14 @@ const AboutMuseum = () => {
             paddingHorizontal: 20,
           }}>
           <ColumnMenu
-            onPressMenu={() => navigation.navigate(Routes.TimeWork)}
+            // onPressMenu={() => navigation.navigate(Routes.TimeWork)}
             timeWork={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Часы работы"
           />
           <ColumnMenu
-            onPressMenu={() => navigation.navigate(Routes.IntroMuseum)}
+            // onPressMenu={() => navigation.navigate(Routes.IntroMuseum)}
             loginMuseum={true}
             fillColor={colors.green}
             menuNameText={true}

@@ -94,14 +94,15 @@ const Centre = () => {
           />
           <ColumnMenu
             //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.Media)}
+            // onPressMenu={() => navigation.navigate(Routes.)}
             // documnet={true}
             // fillColor={colors.green}
             menuNameText={true}
             menuName="Проект"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Resume)}
             // documnet={true}
             // fillColor={colors.green}
             menuNameText={true}

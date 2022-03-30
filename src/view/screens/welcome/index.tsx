@@ -22,7 +22,7 @@ import {Routes} from '../../../navigation/routes/routes';
 
 const Welcome = () => {
   let navigation = useNavigation();
-  const [code, setCode] = React.useState('312');
+  const [code, setCode] = React.useState('3123');
   const [visibleWarning, setVisibleWarning] = React.useState(false);
   const [visibleSendCode, setVisibleSendCode] = React.useState(false);
 

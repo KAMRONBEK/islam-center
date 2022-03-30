@@ -152,12 +152,7 @@ const CustomDrawer = (props, index) => {
               paddingVertical: 10,
               paddingHorizontal: 5,
             }}>
-            {/* <View
-            style={{
-              backgroundColor: '#fff',
-            }}> */}
             <DrawerItemList {...props} />
-            {/* </View> */}
           </ScrollView>
         </View>
       </DrawerContentScrollView>

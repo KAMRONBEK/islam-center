@@ -29,6 +29,9 @@ import News from '../../screens/News';
 import NewsStack from '../../screens/News/navigator';
 import MyPurchases from '../../screens/MyPurchases';
 import MyPurchasesStack from '../../screens/MyPurchases/navigator';
+import Media from '../../screens/Media/media';
+import Tour from '../../screens/Tour';
+import MuseumStack from '../../screens/Museum/navigator';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -77,7 +80,7 @@ const AuthStack = () => {
       />
       <Drawer.Screen
         name="Выставки"
-        component={LibraryProduct}
+        component={Museum}
         options={{
           drawerIcon: ({color}) => (
             <TourIcon size={25} fillColor={colors.black} />
@@ -96,8 +99,8 @@ const AuthStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Музей"
-        component={Museum}
+        name={Routes.MuseumStack}
+        component={MuseumStack}
         options={{
           drawerIcon: ({color}) => (
             <MuseumIcon size={25} fillColor={colors.black} />
@@ -126,8 +129,8 @@ const AuthStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Медиа"
-        component={Museum}
+        name={Routes.Media}
+        component={Media}
         options={{
           drawerIcon: ({color}) => (
             <CameraIcon size={25} fillColor={colors.black} />

@@ -1,17 +1,17 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {AppHeader} from '../../../../components/Other/AppBar';
-import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
 import {colors} from '../../../../theme';
-import {Routes} from '../../../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
+import {Routes} from '../../../../../navigation/routes/routes';
+import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
 
-const TimeWork = () => {
+const IntroMuseum = () => {
   let navigation = useNavigation();
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 0}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
         leftArrowIcon={true}
@@ -20,18 +20,18 @@ const TimeWork = () => {
         notificationColor={colors.black}
         detailsColor={colors.black}
         detailsIcon={true}
-        marginLeft={-35}
+        marginLeft={-37}
         //@ts-ignore
-        onPressLeftArrow={() => navigation.navigate(Routes.AboutMuseum)}
+        onPressLeftArrow={() => navigation.goBack()}
         headingText={true}
-        headingTitle="Часы работы"
+        headingTitle="Вход в музей"
         headingTextStyle={style.titleStyle}
       />
     </View>
   );
 };
 
-export default TimeWork;
+export default IntroMuseum;
 
 const style = StyleSheet.create({
   container: {

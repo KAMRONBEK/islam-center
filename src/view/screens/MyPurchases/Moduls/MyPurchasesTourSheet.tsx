@@ -77,7 +77,7 @@ const MyPurchasesSheet = () => {
           leftArrowIcon={true}
           colorLeftArrow={colors.white}
           //@ts-ignore
-          onPressLeftArrow={() => navigation.navigate(Routes.MyPurchases)}
+          onPressLeftArrow={() => navigation.goBack()}
           headingText={true}
           headingTitle="Мои покупки"
           headingTextStyle={style.titleStyle}
