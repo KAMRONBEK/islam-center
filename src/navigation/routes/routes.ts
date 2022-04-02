@@ -9,7 +9,14 @@ export enum Routes {
   // Notification
   Notifications = 'Notifications',
   NotificationsStack = 'NotificationsStack',
+
+  // Favorite
   Favorites = 'Favorites',
+  FavoriteTourSheet = 'FavoriteTourSheet',
+  FavoriteBookRead = 'FavoriteBookRead',
+  FavoriteBook = 'FavoriteBook',
+
+  // Library
   Library = 'Library',
   MyBooks = 'MyBooks',
   MyBook = 'MyBook',
@@ -18,11 +25,20 @@ export enum Routes {
   LibraryProduct = 'LibraryProduct',
   LibraryProductRead = 'LibraryProductRead',
   LibraryProductSave = 'LibraryProductSave',
+
+  // UserProfile
   UserProfile = 'UserProfile',
+
   Details = 'Details',
+
+  // News
   News = 'News',
   NewsStack = 'NewsStack',
   NewsRead = 'NewsRead',
+
+  // Exhibitions
+
+  Exhibitions = 'Exhibitions',
 
   // MyPurchases
   MyPurchases = 'MyPurchases',
@@ -56,6 +72,12 @@ export enum Routes {
   IntroMuseum = 'IntroMuseum',
   TimeWork = 'TimeWork',
   LocationMuseum = 'LocationMuseum',
+  Personal = 'Personal',
+  PersonalCard = 'PersonalCard',
+  DocumentsMuseum = 'DocumentsMuseum',
+  Exhibits = 'Exhibits',
+  ExhibitsCard = 'ExhibitsCard',
+  Cooperation = 'Cooperation',
 
   //Tour
   Tour = 'Tour',

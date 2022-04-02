@@ -1,26 +1,20 @@
-import {
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {colors} from '../../../theme';
-import {isIOS, windowHeight, windowWidth} from '../../../constants/size';
-import {AppHeader} from '../../../components/Other/AppBar';
-import {NewsContentDATA, SeeTimeDATA} from './data';
+import {colors} from '../../../../../theme';
+import {isIOS, windowHeight, windowWidth} from '../../../../../constants/size';
+import {AppHeader} from '../../../../../components/Other/AppBar';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../../../navigation/routes/routes';
+import {ExhibitsCardDATA} from './data';
+import {ScrollView} from 'react-native-gesture-handler';
 
-const NewsRead = () => {
+const ExhibitsCard = () => {
   let navigation = useNavigation();
 
   return (
     <View style={style.container}>
       <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
       <ImageBackground
-        source={require('../../../assets/images/details_header_bg.png')}
+        source={require('../../../../../assets/images/details_header_bg.png')}
         resizeMode="cover"
         style={{
           width: windowWidth / 1,
@@ -30,8 +24,7 @@ const NewsRead = () => {
           containerStyle={style.containerStyle}
           leftArrowIcon={true}
           colorLeftArrow={colors.white}
-          //@ts-ignore
-          onPressLeftArrow={() => navigation.navigate(Routes.News)}
+          onPressLeftArrow={() => navigation.goBack()}
           headingText={true}
           headingTitle="      "
           headingTextStyle={style.titleStyle}
@@ -40,7 +33,7 @@ const NewsRead = () => {
           //@ts-ignore
           // onPressShareIcon={}
         />
-        {SeeTimeDATA.map((e, i) => {
+        {/* {SeeTimeDATA.map((e, i) => {
           return (
             <View style={style.seeTimeDetails} key={i}>
               <Text style={style.timeText}>{e.time}</Text>
@@ -50,11 +43,11 @@ const NewsRead = () => {
               </View>
             </View>
           );
-        })}
+        })} */}
       </ImageBackground>
       <View style={{height: windowHeight / 2 + 110}}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {NewsContentDATA.map((e, i) => {
+          {ExhibitsCardDATA.map((e, i) => {
             return (
               <View key={i}>
                 <View style={style.headingContainer}>
@@ -73,7 +66,7 @@ const NewsRead = () => {
   );
 };
 
-export default NewsRead;
+export default ExhibitsCard;
 
 const style = StyleSheet.create({
   container: {

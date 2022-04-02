@@ -6,6 +6,7 @@ import {
   Animated,
   FlatList,
   StyleSheet,
+  ImageBackground,
 } from 'react-native';
 import React, {useState, useRef} from 'react';
 import {style} from './style';
@@ -25,6 +26,10 @@ import {CardDATA} from '../../components/Card/data';
 import {ShopCoruselDATA} from '../../components/Corusel/shopData';
 import {NewsCoruselDATA} from '../../components/Corusel/newsData';
 import {Chapter} from './components/chapter';
+import {HomeTourCoruselDATA} from './data';
+
+//@ts-ignore
+import carusel_bg from '../../assets/images/homeTourCorusel.png';
 
 const DATA = new Array(31).map((e, i) => i + 1);
 const ITEM_SIZE = 64;
@@ -182,7 +187,7 @@ const Home = () => {
               style={{
                 marginTop: 15,
               }}>
-              <CalendarIcon size={35} />
+              <CalendarIcon size={35} color={colors.green} />
               <Text
                 style={{
                   paddingTop: 10,
@@ -210,32 +215,54 @@ const Home = () => {
                 // backgroundColor: colors.black,
                 borderWidth: isIOS ? 0.1 : 0.2,
               }}>
-              {ShopCoruselDATA.map((e, i) => {
+              {HomeTourCoruselDATA.map((e, i) => {
                 return (
-                  <TouchableOpacity key={i.toString()}>
+                  <TouchableOpacity
+                    key={i.toString()}
+                    //@ts-ignore
+                    onPress={() => navigation.navigate(Routes.Exhibitions)}>
                     <View style={style.calendarContainer}>
-                      <View style={style.calendarContent}>
-                        <View>{e.icon}</View>
-                        <View style={style.calendarContentText}>
-                          <Text style={style.calendarHintTextStyle}>
-                            {e.hintText}
-                          </Text>
-                          <Text style={style.calendarTitleStyle}>
-                            {e.title}
-                          </Text>
+                      <ImageBackground
+                        source={carusel_bg}
+                        // resizeMode="stretch"
+                        style={{
+                          width: windowWidth / 1 - 155,
+                          height: windowHeight / 2,
+                          justifyContent: 'flex-end',
+                          marginTop: -10,
+                          paddingTop: 10,
+                        }}>
+                        <View style={style.titleContainer}>
+                          <Text style={style.label}>{e.hintText}</Text>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              justifyContent: 'flex-start',
+                              alignItems: 'center',
+                              paddingVertical: 8,
+                            }}>
+                            <View
+                              style={{
+                                flexDirection: 'row',
+                                justifyContent: 'flex-start',
+                                alignItems: 'center',
+                              }}>
+                              {e.locationIcon}
+                              <Text style={style.tourTitle}>{e.date}</Text>
+                            </View>
+                            <View
+                              style={{
+                                flexDirection: 'row',
+                                justifyContent: 'flex-start',
+                                alignItems: 'center',
+                                marginLeft: 20,
+                              }}>
+                              {e.dateIcon}
+                              <Text style={style.tourTitle}>{e.time}</Text>
+                            </View>
+                          </View>
                         </View>
-                      </View>
-                      <View style={style.calendarDescription}>
-                        <Text style={style.calendarLabel}>{e.label}</Text>
-                        <View style={style.calendarPriceContainer}>
-                          <Text style={style.calendarPriceStyle}>
-                            {e.price}
-                          </Text>
-                          <Text style={style.calendarCurrencyStyle}>
-                            {e.currency}
-                          </Text>
-                        </View>
-                      </View>
+                      </ImageBackground>
                     </View>
                   </TouchableOpacity>
                 );

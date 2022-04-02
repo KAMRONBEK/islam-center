@@ -56,7 +56,7 @@ const CustomDrawer = (props, index) => {
                 justifyContent: 'flex-end',
                 paddingHorizontal: 20,
               }}>
-              <TouchableOpacity onPress={() => navigation.closeDrawer()}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Text
                   style={{
                     fontSize: 23,

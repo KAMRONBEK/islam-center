@@ -24,6 +24,34 @@ export const style = StyleSheet.create({
     color: colors.black,
   },
 
+  titleContainer: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    height: 90,
+    paddingHorizontal: 20,
+    // borderWidth: 1,
+    // borderColor: colors.white,
+  },
+
+  label: {
+    fontSize: 21,
+    fontWeight: '500',
+    color: colors.white,
+    paddingBottom: 6,
+  },
+
+  tourTitle: {
+    fontSize: 17,
+    fontWeight: '400',
+    color: colors.lingthGray,
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+  },
+
+  calendarContainer: {
+    // paddingHorizontal: 20,
+  },
+
   calendarCorusel: {
     width: windowWidth / 1 - 115,
     // height: windowHeight / 2 - 40,
@@ -34,82 +62,6 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     // borderWidth: 1,
     // borderColor: '#000',
-  },
-
-  calendarContainer: {
-    flexDirection: 'column',
-    backgroundColor: colors.white,
-    // width: '100%',
-    width: windowWidth / 1 - 40,
-    // height: windowHeight / 2 - 40,
-    paddingVertical: 25,
-    paddingHorizontal: 25,
-    borderRadius: 5,
-  },
-
-  calendarContent: {
-    flexDirection: 'row',
-    paddingHorizontal: 0,
-  },
-
-  calendarContentText: {
-    justifyContent: 'center',
-    width: '50%',
-    // borderWidth: 1,
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-  },
-
-  calendarHintTextStyle: {
-    fontSize: 21,
-    fontWeight: '700',
-    color: colors.black,
-    lineHeight: 30,
-    paddingVertical: 10,
-  },
-
-  calendarTitleStyle: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: colors.lingthGray,
-  },
-
-  calendarDescription: {
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    // paddingVertical: 10,
-    paddingTop: 25,
-    // borderWidth: 1,
-    // borderColor: '#000',
-    width: '100%',
-  },
-
-  calendarLabel: {
-    fontSize: 18,
-    fontWeight: '400',
-    color: colors.lingthGray,
-  },
-
-  calendarPriceContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    algnItems: 'center',
-    paddingTop: 45,
-    // paddingVertical: 20,
-  },
-
-  calendarPriceStyle: {
-    fontSize: 25,
-    fontWeight: '600',
-    color: colors.black,
-    paddingHorizontal: 5,
-  },
-
-  calendarCurrencyStyle: {
-    fontSize: 25,
-    fontWeight: '600',
-    color: colors.black,
-    // paddingHorizontal: 5,
   },
 
   calendarCoruselBtn: {

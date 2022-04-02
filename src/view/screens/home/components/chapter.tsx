@@ -15,6 +15,7 @@ export interface ChapterProps {
   chapter?: any;
   chapterTitle?: any;
   allChapter?: any;
+  titleStyle?: any;
 
   onPress?: () => void;
 }
@@ -31,12 +32,14 @@ export function Chapter({
   chapter,
   chapterTitle,
   allChapter,
+  titleStyle,
   onPress,
 }: ChapterProps) {
   let props = {
     chapter,
     chapterTitle,
     allChapter,
+    titleStyle,
     onPress,
   };
   return (
@@ -52,7 +55,7 @@ export function Chapter({
               justifyContent: 'center',
               alignItems: 'flex-start',
             }}>
-            <Text style={style.title}>{chapterTitle}</Text>
+            <Text style={[style.title, titleStyle]}>{chapterTitle}</Text>
           </View>
           <TouchableOpacity onPress={onPress}>
             <Text style={style.btnAll}>{allChapter}</Text>

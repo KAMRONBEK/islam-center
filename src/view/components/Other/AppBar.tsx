@@ -36,6 +36,7 @@ export interface AppHeaderProps {
   notificationIcon?: any;
   notificationColor?: any;
   detailsIcon?: any;
+  detailsSingleIcon?: any;
   detailsColor?: any;
   saveIcon?: any;
   saveColor?: any;
@@ -76,6 +77,7 @@ export function AppHeader({
   notificationIcon,
   notificationColor,
   detailsIcon,
+  detailsSingleIcon,
   detailsColor,
   saveIcon,
   saveColor,
@@ -106,6 +108,7 @@ export function AppHeader({
     notificationIcon,
     notificationColor,
     detailsIcon,
+    detailsSingleIcon,
     detailsColor,
     saveIcon,
     saveColor,
@@ -195,6 +198,12 @@ export function AppHeader({
             <DetailsIcon size={16} color={detailsColor} />
           </TouchableOpacity>
         </View>
+      )}
+
+      {detailsSingleIcon && (
+        <TouchableOpacity onPress={onPressDetailsIcon}>
+          <DetailsIcon size={16} color={detailsColor} />
+        </TouchableOpacity>
       )}
 
       {saveIcon && (

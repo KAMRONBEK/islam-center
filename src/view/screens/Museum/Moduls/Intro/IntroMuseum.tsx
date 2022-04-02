@@ -1,10 +1,11 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {AppHeader} from '../../../../components/Other/AppBar';
 import {colors} from '../../../../theme';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../../../navigation/routes/routes';
 import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
+import {IntroTextDATA} from './data';
 
 const IntroMuseum = () => {
   let navigation = useNavigation();
@@ -27,13 +28,35 @@ const IntroMuseum = () => {
         headingTitle="Вход в музей"
         headingTextStyle={style.titleStyle}
       />
+      <View style={style.bodyContainer}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 200}}>
+          <View>
+            <Image
+              source={require('../../../../assets/images/enterMuseum.png')}
+              resizeMode="cover"
+              style={{height: windowHeight / 4, width: '100%'}}
+            />
+            {IntroTextDATA.map((e, i) => {
+              return (
+                <View style={style.textContainer} key={i}>
+                  {/* <View>{e.round}</View> */}
+                  <View style={style.round}></View>
+                  <Text style={style.text}>{e.title}</Text>
+                </View>
+              );
+            })}
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
 export default IntroMuseum;
 
-const style = StyleSheet.create({
+export const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -53,5 +76,36 @@ const style = StyleSheet.create({
     color: colors.black,
     fontSize: 20,
     fontWeight: '700',
+  },
+
+  bodyContainer: {
+    borderRadius: 10,
+    paddingHorizontal: 20,
+  },
+
+  textContainer: {
+    // flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    marginTop: 35,
+    // borderWidth: 1,
+    // height: windowHeight / 9,
+  },
+
+  round: {
+    height: 8,
+    width: 8,
+    borderRadius: 15,
+    marginRight: 10,
+    marginTop: 5,
+    backgroundColor: colors.gray,
+  },
+
+  text: {
+    fontSize: 19,
+    fontWeight: '400',
+    color: colors.gray,
+    paddingRight: 10,
   },
 });

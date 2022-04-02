@@ -52,7 +52,8 @@ const Museum = () => {
             menuName="О музее"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Exhibits)}
             exponate={true}
             fillColor={colors.green}
             menuNameText={true}
@@ -67,14 +68,16 @@ const Museum = () => {
           />
 
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.DocumentsMuseum)}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Документы"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Cooperation)}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}
@@ -88,7 +91,8 @@ const Museum = () => {
             menuName="Международные выставки"
           /> */}
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Personal)}
             documnet={true}
             fillColor={colors.green}
             menuNameText={true}

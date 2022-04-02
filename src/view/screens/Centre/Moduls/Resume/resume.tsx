@@ -27,7 +27,7 @@ const Resume = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 0}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
         leftArrowIcon={true}
@@ -37,6 +37,9 @@ const Resume = () => {
         headingTextStyle={style.titleStyle}
         headingText={true}
         headingTitle="Вакансии"
+        detailsSingleIcon={true}
+        onPressDetailsIcon={() => navigation.openDrawer()}
+        detailsColor={colors.black}
       />
 
       <Text style={style.headingText}>Резюме</Text>
@@ -44,7 +47,7 @@ const Resume = () => {
       <View style={style.scrolContainer}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{paddingBottom: 120}}>
+          contentContainerStyle={{paddingBottom: 100}}>
           <View>
             <Text style={style.inputHeadingText}>
               Лавозимга талабномаларни кабул килиш
@@ -429,7 +432,7 @@ const Resume = () => {
             <Button
               containerStyle={{
                 // marginHorizontal: 20,
-                marginTop: 55,
+                marginTop: 35,
                 height: 65,
                 backgroundColor: colors.green,
               }}
@@ -489,7 +492,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.white,
-    width: windowWidth / 2 + 65,
+    // width: windowWidth / 2 + 65,
     height: 80,
     paddingHorizontal: 20,
   },
