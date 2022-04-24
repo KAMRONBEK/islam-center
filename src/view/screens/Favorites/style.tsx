@@ -102,6 +102,9 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 10,
+  },
+
+  shadow: {
     marginVertical: 15,
     borderRadius: 10,
     backgroundColor: '#fff',

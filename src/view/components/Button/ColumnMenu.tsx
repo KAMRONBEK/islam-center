@@ -108,7 +108,7 @@ export function ColumnMenu({
     onPressMenu,
   };
   return (
-    <TouchableOpacity onPress={onPressMenu}>
+    <TouchableOpacity style={style.shadow} onPress={onPressMenu}>
       <View style={style.container}>
         <View
           style={{
@@ -152,6 +152,9 @@ export const style = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+  },
+
+  shadow: {
     marginVertical: 11,
     backgroundColor: colors.white,
     borderRadius: 5,

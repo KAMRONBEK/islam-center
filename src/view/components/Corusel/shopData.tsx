@@ -14,7 +14,7 @@ export const ShopCoruselDATA = [
     title: 'AL QURAN',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    price: '50.000',
+    price: '20.000',
     currency: 'cум',
   },
 
@@ -26,8 +26,8 @@ export const ShopCoruselDATA = [
         style={{width: 160, height: 160, borderRadius: 5}}
       />
     ),
-    hintText: 'Тур в Lorem ipsum dolor',
-    title: 'Lorem ipsum',
+    hintText: 'QURAN MAJEED',
+    title: 'AL QURAN',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     price: '50.000',
@@ -42,8 +42,8 @@ export const ShopCoruselDATA = [
         style={{width: 160, height: 160, borderRadius: 5}}
       />
     ),
-    hintText: 'Тур в Lorem ipsum dolor',
-    title: 'Lorem ipsum',
+    hintText: 'QURAN MAJEED',
+    title: 'AL QURAN',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     price: '50.000',
@@ -58,11 +58,11 @@ export const ShopCoruselDATA = [
         style={{width: 160, height: 160, borderRadius: 5}}
       />
     ),
-    hintText: 'Тур в Lorem ipsum dolor',
-    title: 'Lorem ipsum',
+    hintText: 'QURAN MAJEED',
+    title: 'AL QURAN',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    price: '50.000',
+    price: '30.000',
     currency: 'cум',
   },
 ];

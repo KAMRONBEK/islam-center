@@ -104,6 +104,7 @@ const Favorites = () => {
           renderItem={e => (
             <View style={style.cardContainer}>
               <TouchableOpacity
+                style={style.shadow}
                 onPress={() => navigation.navigate(Routes.FavoriteBook)}>
                 <View
                   style={style.card}
@@ -152,6 +153,7 @@ const Favorites = () => {
           renderItem={e => (
             <View style={style.cardContainer}>
               <TouchableOpacity
+                style={style.shadow}
                 onPress={() => navigation.navigate(Routes.FavoriteTourSheet)}>
                 <View
                   style={style.card}

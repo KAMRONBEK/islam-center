@@ -102,9 +102,11 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 10,
+    backgroundColor: '#fff',
+    // borderWidth: 1,
     marginVertical: 15,
     borderRadius: 10,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -114,6 +116,8 @@ export const style = StyleSheet.create({
     shadowRadius: 4.19,
     elevation: 2,
   },
+
+  shadow: {},
 
   libraryItemImage: {
     height: '100%',

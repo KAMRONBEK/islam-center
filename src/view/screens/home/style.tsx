@@ -27,7 +27,7 @@ export const style = StyleSheet.create({
   titleContainer: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    height: 90,
+    height: isIOS ? 90 : 100,
     paddingHorizontal: 20,
     // borderWidth: 1,
     // borderColor: colors.white,
@@ -76,15 +76,12 @@ export const style = StyleSheet.create({
   },
 
   bookShopCorusel: {
-    width: '100%',
-    // height: windowHeight / 2 - 40,
     paddingHorizontal: 20,
-    // marginTop: 30,
+    // marginHorizontal: 20,
+    // marginBottom: isIOS ? 160 : 140,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    // borderWidth: 1,
-    // borderColor: '#000',
   },
 
   childSlide: {
@@ -153,20 +150,22 @@ export const style = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: colors.white,
     // width: '100%',
-    width: windowWidth / 1 - 40,
+    width: windowWidth / 1 - 50,
     // height: windowHeight / 2 - 40,
     paddingVertical: 25,
-    paddingHorizontal: 25,
+    paddingHorizontal: isIOS ? 25 : 25,
     borderRadius: 5,
-    // borderColor: '#000',
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 4.19,
-    // elevation: 3,
+    margin: 5,
+    // borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.19,
+
+    elevation: 2,
   },
 
   shopContent: {

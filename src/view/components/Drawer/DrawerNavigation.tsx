@@ -32,6 +32,8 @@ import MyPurchasesStack from '../../screens/MyPurchases/navigator';
 import Media from '../../screens/Media/media';
 import Tour from '../../screens/Tour';
 import MuseumStack from '../../screens/Museum/navigator';
+import Login from '../../screens/Login';
+import Intro from '../../screens/Intro';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -78,7 +80,7 @@ const AuthStack = () => {
           drawerLabel: 'Уведомления',
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Выставки"
         component={Museum}
         options={{
@@ -87,7 +89,7 @@ const AuthStack = () => {
           ),
           drawerLabel: 'Выставки',
         }}
-      />
+      /> */}
       <Drawer.Screen
         name={Routes.MyPurchasesStack}
         component={MyPurchasesStack}
@@ -108,7 +110,7 @@ const AuthStack = () => {
           drawerLabel: 'Музей',
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Форум"
         component={Museum}
         options={{
@@ -117,7 +119,7 @@ const AuthStack = () => {
           ),
           drawerLabel: 'Форум',
         }}
-      />
+      /> */}
       <Drawer.Screen
         name={Routes.NewsStack}
         component={NewsStack}
@@ -138,7 +140,7 @@ const AuthStack = () => {
           drawerLabel: 'Медиа',
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Виртуальный тур"
         component={Museum}
         options={{
@@ -147,8 +149,8 @@ const AuthStack = () => {
           ),
           drawerLabel: 'Виртуальный тур',
         }}
-      />
-      <Drawer.Screen
+      /> */}
+      {/* <Drawer.Screen
         name="Тех.поддержка"
         component={Museum}
         options={{
@@ -157,10 +159,10 @@ const AuthStack = () => {
           ),
           drawerLabel: 'Тех.поддержка',
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="Выход"
-        component={Museum}
+        component={Intro}
         options={{
           drawerIcon: ({color}) => (
             <SignOutIcon size={25} fillColor={colors.black} />

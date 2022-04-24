@@ -53,6 +53,8 @@ const Home = () => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const [isCalendar, setIsCalendar] = useState(false);
 
+  // Corusel
+
   const _flatListCalendarRef = useRef(null);
 
   const _flatListShopRef = useRef(null);
@@ -102,7 +104,7 @@ const Home = () => {
           style={{
             height: 430,
             flexDirection: 'row',
-            paddingHorizontal: 20,
+            paddingHorizontal: isIOS ? 18 : 15,
             // width: windowWidth / 1,
           }}>
           <View
@@ -116,7 +118,8 @@ const Home = () => {
                 marginTop: 100,
                 paddingBottom: 80,
                 marginLeft: 2,
-                width: 90,
+                width: isIOS ? windowWidth / 4 - 5 : windowWidth / 4,
+                paddingLeft: 2,
               }}
               data={DATA}
               onScroll={Animated.event(
@@ -178,7 +181,7 @@ const Home = () => {
                   <TouchableOpacity onPress={() => onSelectDate(index)}>
                     <Animated.View
                       style={{
-                        borderRadius: 10,
+                        borderRadius: 6,
                         justifyContent: 'center',
                         // alignItems: 'center',
                         // padding: 5,
@@ -189,9 +192,8 @@ const Home = () => {
                         },
                         shadowOpacity: 0.1,
                         shadowRadius: 2.22,
-
                         backgroundColor: colors.white,
-                        width: 76,
+                        width: 70,
                         height: ITEM_SIZE,
                         elevation: 3,
                         marginLeft: margin,
@@ -265,8 +267,11 @@ const Home = () => {
                         // resizeMode="stretch"
                         style={{
                           width: windowWidth / 1 - 155,
-                          height: windowHeight / 2,
+                          height: isIOS
+                            ? windowHeight / 2
+                            : windowHeight / 2 + 30,
                           justifyContent: 'flex-end',
+                          borderRadius: 6,
                           marginTop: -10,
                           paddingTop: 10,
                         }}>
@@ -351,9 +356,11 @@ const Home = () => {
             // showPagination
             // data={shop}
             style={{
+              backgroundColor: colors.white,
               borderRadius: 5,
               // backgroundColor: colors.black,
-              borderWidth: isIOS ? 0.1 : 0.2,
+              // borderWidth: isIOS ? 0.1 : 0.4,
+              // padding: 5,
             }}>
             {ShopCoruselDATA.map((e, i) => {
               return (
@@ -440,7 +447,7 @@ const Home = () => {
             {NewsCoruselDATA.map((e, i) => {
               return (
                 <View style={style.newsCoruselContainer} key={i.toString()}>
-                  <TouchableOpacity>
+                  <TouchableWithoutFeedback>
                     <View style={style.newsImage}>
                       <View>{e.icon}</View>
                     </View>
@@ -454,7 +461,7 @@ const Home = () => {
                         <Text style={style.newsCurrencyStyle}>{e.status}</Text>
                       </View>
                     </View>
-                  </TouchableOpacity>
+                  </TouchableWithoutFeedback>
                 </View>
               );
             })}
@@ -491,6 +498,7 @@ const Home = () => {
           </View>
         </View>
       </ScrollView>
+      {/* Calendar */}
       {isCalendar && (
         <View
           style={{
@@ -576,8 +584,7 @@ const Home = () => {
                 borderColor: colors.green,
               }}
               //@ts-ignore
-              // onPress={() => setSave(e => !e)}
-              // text={save ? 'Удалить из избранного' : 'В избранное'}
+              onPress={() => setIsCalendar(false)}
               text={'Выбрать'}
               textStyles={{
                 color: colors.white,

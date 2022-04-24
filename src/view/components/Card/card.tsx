@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageProps} from 'react-native';
+import {ImageProps, TouchableWithoutFeedback} from 'react-native';
 import {colors} from '../../theme';
 import {
   Image,
@@ -39,14 +39,14 @@ const Card = ({onPress, cardStyle}: CardProps) => {
               style={{
                 paddingHorizontal: 20,
               }}>
-              <TouchableOpacity onPress={onPress} key={i.toString()}>
+              <TouchableWithoutFeedback onPress={onPress} key={i.toString()}>
                 <View style={[styles.container, cardStyle]}>
                   <View style={styles.iconContainer}>{e.icon}</View>
                   <View style={styles.textContainer}>
                     <Text style={styles.titleText}>{e.title}</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
+              </TouchableWithoutFeedback>
             </View>
           </View>
         );
