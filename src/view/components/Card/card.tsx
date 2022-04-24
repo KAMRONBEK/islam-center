@@ -33,7 +33,7 @@ const Card = ({onPress, cardStyle}: CardProps) => {
     <View style={styles.card}>
       {CardDATA.map((e, i) => {
         return (
-          <View style={styles.cardContainer}>
+          <View style={styles.cardContainer} key={i.toString()}>
             <Chapter chapter={true} chapterTitle={e.label} />
             <View
               style={{

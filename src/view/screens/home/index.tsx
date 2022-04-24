@@ -7,8 +7,10 @@ import {
   FlatList,
   StyleSheet,
   ImageBackground,
+  NativeSyntheticEvent,
+  TouchableNativeFeedback,
 } from 'react-native';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {style} from './style';
 import {AppHeader} from '../../components/Other/AppBar';
 import {colors} from '../../theme';
@@ -18,6 +20,7 @@ import Card from '../../components/Card/card';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import {
+  ArrowLeft,
   CalendarIcon,
   CoruselArrowLeft,
   CoruselArrowRight,
@@ -27,9 +30,12 @@ import {ShopCoruselDATA} from '../../components/Corusel/shopData';
 import {NewsCoruselDATA} from '../../components/Corusel/newsData';
 import {Chapter} from './components/chapter';
 import {HomeTourCoruselDATA} from './data';
+import {Calendar} from 'react-native-calendars';
 
 //@ts-ignore
 import carusel_bg from '../../assets/images/homeTourCorusel.png';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import Button from '../../components/Button/button';
 
 const DATA = new Array(31).map((e, i) => i + 1);
 const ITEM_SIZE = 64;
@@ -42,15 +48,31 @@ const Home = () => {
   const [index, setIndex] = useState();
 
   // Calendar flatlist
-  const _animatedFlatlist = useRef(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const _animatedFlatlist = useRef<FlatList>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const animatedValue = useRef(new Animated.Value(0)).current;
+  const [isCalendar, setIsCalendar] = useState(false);
 
   const _flatListCalendarRef = useRef(null);
 
   const _flatListShopRef = useRef(null);
 
   const _flatListNewsRef = useRef(null);
+
+  const onSelectDate = (node: number) => {
+    setSelectedIndex(node);
+  };
+
+  useEffect(() => {
+    console.log(selectedIndex);
+
+    if (_animatedFlatlist.current) {
+      _animatedFlatlist.current.scrollToIndex({
+        animated: true,
+        index: selectedIndex,
+      });
+    }
+  }, [selectedIndex]);
 
   return (
     <View style={style.container}>
@@ -91,15 +113,28 @@ const Home = () => {
             <Animated.FlatList
               showsVerticalScrollIndicator={false}
               contentContainerStyle={{
-                marginTop: 115,
+                marginTop: 100,
                 paddingBottom: 80,
                 marginLeft: 2,
                 width: 90,
               }}
               data={DATA}
-              onScroll={Animated.event([
-                {nativeEvent: {contentOffset: {y: animatedValue}}},
-              ])}
+              onScroll={Animated.event(
+                [
+                  {
+                    nativeEvent: {
+                      contentOffset: {y: animatedValue},
+                    },
+                  },
+                ],
+                {
+                  useNativeDriver: false,
+                  listener: (event: NativeSyntheticEvent<ScrollView>) =>
+                    setSelectedIndex(
+                      event.nativeEvent.contentOffset.y / (ITEM_SIZE + MARGIN),
+                    ),
+                },
+              )}
               snapToInterval={ITEM_SIZE + MARGIN}
               decelerationRate={'fast'}
               ListFooterComponent={() => {
@@ -140,53 +175,56 @@ const Home = () => {
                 });
 
                 return (
-                  <Animated.View
-                    style={{
-                      borderRadius: 10,
-                      justifyContent: 'center',
-                      // alignItems: 'center',
-                      // padding: 5,
-                      shadowColor: '#000',
-                      shadowOffset: {
-                        width: 0,
-                        height: 1,
-                      },
-                      shadowOpacity: 0.1,
-                      shadowRadius: 2.22,
+                  <TouchableOpacity onPress={() => onSelectDate(index)}>
+                    <Animated.View
+                      style={{
+                        borderRadius: 10,
+                        justifyContent: 'center',
+                        // alignItems: 'center',
+                        // padding: 5,
+                        shadowColor: '#000',
+                        shadowOffset: {
+                          width: 0,
+                          height: 1,
+                        },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 2.22,
 
-                      backgroundColor: colors.white,
-                      width: 76,
-                      height: ITEM_SIZE,
-                      elevation: 3,
-                      marginLeft: margin,
-                      marginBottom: MARGIN,
-                    }}>
-                    <Animated.Text
-                      style={{
-                        color: color,
-                        textAlign: 'center',
-                        fontSize: 27,
-                        fontWeight: '600',
+                        backgroundColor: colors.white,
+                        width: 76,
+                        height: ITEM_SIZE,
+                        elevation: 3,
+                        marginLeft: margin,
+                        marginBottom: MARGIN,
                       }}>
-                      {index}
-                    </Animated.Text>
-                    <Animated.Text
-                      style={{
-                        color: color,
-                        fontSize: 17,
-                        fontWeight: '400',
-                        textAlign: 'center',
-                      }}>
-                      January
-                    </Animated.Text>
-                  </Animated.View>
+                      <Animated.Text
+                        style={{
+                          color: color,
+                          textAlign: 'center',
+                          fontSize: 27,
+                          fontWeight: '600',
+                        }}>
+                        {index}
+                      </Animated.Text>
+                      <Animated.Text
+                        style={{
+                          color: color,
+                          fontSize: 17,
+                          fontWeight: '400',
+                          textAlign: 'center',
+                        }}>
+                        January
+                      </Animated.Text>
+                    </Animated.View>
+                  </TouchableOpacity>
                 );
               }}
             />
             <TouchableOpacity
               style={{
                 marginTop: 15,
-              }}>
+              }}
+              onPress={() => setIsCalendar(true)}>
               <CalendarIcon size={35} color={colors.green} />
               <Text
                 style={{
@@ -217,7 +255,7 @@ const Home = () => {
               }}>
               {HomeTourCoruselDATA.map((e, i) => {
                 return (
-                  <TouchableOpacity
+                  <TouchableWithoutFeedback
                     key={i.toString()}
                     //@ts-ignore
                     onPress={() => navigation.navigate(Routes.Exhibitions)}>
@@ -264,7 +302,7 @@ const Home = () => {
                         </View>
                       </ImageBackground>
                     </View>
-                  </TouchableOpacity>
+                  </TouchableWithoutFeedback>
                 );
               })}
             </SwiperFlatList>
@@ -319,7 +357,7 @@ const Home = () => {
             }}>
             {ShopCoruselDATA.map((e, i) => {
               return (
-                <TouchableOpacity key={i.toString()}>
+                <TouchableWithoutFeedback key={i.toString()}>
                   <View style={style.shopCoruselContainer}>
                     <View style={style.shopContent}>
                       <View>{e.icon}</View>
@@ -340,7 +378,7 @@ const Home = () => {
                       </View>
                     </View>
                   </View>
-                </TouchableOpacity>
+                </TouchableWithoutFeedback>
               );
             })}
           </SwiperFlatList>
@@ -453,6 +491,106 @@ const Home = () => {
           </View>
         </View>
       </ScrollView>
+      {isCalendar && (
+        <View
+          style={{
+            ...StyleSheet.absoluteFillObject,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              backgroundColor: colors.white,
+              width: windowWidth / 1 - 50,
+              paddingHorizontal: 20,
+              // paddingVertical: 13,
+              borderRadius: 5,
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: 213,
+                // borderWidth: 1,
+                paddingVertical: 16,
+              }}>
+              <TouchableOpacity onPress={() => setIsCalendar(false)}>
+                <ArrowLeft size={20} fillColor={colors.black} />
+              </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: '700',
+                  color: colors.black,
+                }}>
+                Календарь
+              </Text>
+            </View>
+            <View
+              style={{
+                backgroundColor: colors.liteGray,
+                padding: 2,
+                borderRadius: 5,
+              }}>
+              <Calendar
+                // onDayPress={}
+                enableSwipeMonths={true}
+                firstDay={1}
+                theme={{
+                  // backgroundColor: ,
+                  calendarBackground: colors.liteGray,
+                  textSectionTitleColor: colors.black,
+                  selectedDayBackgroundColor: colors.black,
+                  selectedDayTextColor: colors.white,
+                  todayTextColor: colors.black,
+                  dayTextColor: colors.gray,
+                  textDisabledColor: colors.liteGray,
+                  // dotColor: '#00adf5',
+                  // selectedDotColor: '#ffffff',
+                  arrowColor: colors.black,
+                  disabledArrowColor: '#d9e1e8',
+                  monthTextColor: colors.black,
+                  // indicatorColor: 'blue',
+                  // textDayFontFamily: 'monospace',
+                  // textMonthFontFamily: 'monospace',
+                  // textDayHeaderFontFamily: 'monospace',
+                  textMonthFontSize: 18,
+                  textDayHeaderFontSize: 15,
+                  textDayFontSize: 15,
+                  textMonthFontWeight: '600',
+                  textDayHeaderFontWeight: '600',
+                  textDayFontWeight: '600',
+                }}
+              />
+            </View>
+            <Button
+              containerStyle={{
+                // marginHorizontal: 20,
+                marginVertical: 20,
+                height: 50,
+                backgroundColor: colors.green,
+                // borderWidth: 2,
+                borderRadius: 5,
+                borderColor: colors.green,
+              }}
+              //@ts-ignore
+              // onPress={() => setSave(e => !e)}
+              // text={save ? 'Удалить из избранного' : 'В избранное'}
+              text={'Выбрать'}
+              textStyles={{
+                color: colors.white,
+                // marginRight: 17,
+                fontSize: 20,
+                alignItems: 'center',
+                fontWeight: isIOS ? '600' : '600',
+                // fontFamily: 'OpenSans-Regular',
+              }}
+            />
+          </View>
+        </View>
+      )}
     </View>
   );
 };

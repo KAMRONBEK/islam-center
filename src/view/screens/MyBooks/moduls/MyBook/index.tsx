@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View, ScrollView, Image} from 'react-native';
 import React from 'react';
 import {style} from './style';
-import {AppHeader} from '../../components/Other/AppBar';
-import {isIOS} from '../../constants/size';
-import {colors} from '../../theme';
+import {AppHeader} from '../../../../components/Other/AppBar';
+import {isIOS} from '../../../../constants/size';
+import {colors} from '../../../../theme';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../../navigation/routes/routes';
-import Button from '../../components/Button/button';
+import {Routes} from '../../../../../navigation/routes/routes';
+import Button from '../../../../components/Button/button';
 
 const MyBook = () => {
   let navigation = useNavigation();
@@ -30,7 +30,7 @@ const MyBook = () => {
           </View>
           <View style={style.bookImage}>
             <Image
-              source={require('../../assets/images/library.png')}
+              source={require('../../../../assets/images/library.png')}
               resizeMode="cover"
               style={style.image}
             />
@@ -107,4 +107,3 @@ const MyBook = () => {
 };
 
 export default MyBook;
-

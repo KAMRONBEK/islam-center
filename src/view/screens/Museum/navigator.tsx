@@ -20,7 +20,7 @@ const MuseumStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen component={Museum} name={Routes.Museum} />
-      <Stack.Screen component={AboutMuseum} name={Routes.AboutMuseum} />
+      {/* <Stack.Screen component={AboutMuseum} name={Routes.AboutMuseum} /> */}
       <Stack.Screen component={Exhibits} name={Routes.Exhibits} />
       <Stack.Screen component={ExhibitsCard} name={Routes.ExhibitsCard} />
       <Stack.Screen component={Cooperation} name={Routes.Cooperation} />

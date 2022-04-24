@@ -1,12 +1,12 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {colors} from '../../theme';
-import {AppHeader} from '../../components/Other/AppBar';
+import {colors} from '../../../../theme';
+import {AppHeader} from '../../../../components/Other/AppBar';
 import {style} from './style';
-import {Routes} from '../../../navigation/routes/routes';
-import {isIOS} from '../../constants/size';
+import {Routes} from '../../../../../navigation/routes/routes';
+import {isIOS} from '../../../../constants/size';
 import {useNavigation} from '@react-navigation/native';
-import {LibraryProductReadDATA, MyBookReadDATA} from './data';
+import {MyBookReadDATA} from './data';
 
 const MyBookRead = () => {
   let navigation = useNavigation();

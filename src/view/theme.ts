@@ -1,8 +1,8 @@
 const colors = {
-  black: '#000',
-  white: 'rgba(255, 255, 255, 1)',
+  black: '#000000',
+  white: '#FFFFFF',
   green: '#27B17F',
-  gray: 'rgba(143, 143, 143, 1)',
+  gray: '#8F8F8F',
   layout: '#F7F8F2',
   primary: '#F6E69E',
   purple: '#725BFE',

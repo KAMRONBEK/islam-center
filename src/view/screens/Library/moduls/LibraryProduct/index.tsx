@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View, ScrollView, Image} from 'react-native';
 import React, {useState} from 'react';
 import {style} from './style';
-import {AppHeader} from '../../components/Other/AppBar';
-import {isIOS} from '../../constants/size';
-import {colors} from '../../theme';
+import {AppHeader} from '../../../../components/Other/AppBar';
+import {isIOS} from '../../../../constants/size';
+import {colors} from '../../../../theme';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../../navigation/routes/routes';
-import Button from '../../components/Button/button';
+import {Routes} from '../../../../../navigation/routes/routes';
+import Button from '../../../../components/Button/button';
 
 const LibraryProduct = () => {
   let navigation = useNavigation();
@@ -32,7 +32,7 @@ const LibraryProduct = () => {
           </View>
           <View style={style.bookImage}>
             <Image
-              source={require('../../assets/images/islamBook.png')}
+              source={require('../../../../assets/images/islamBook.png')}
               resizeMode="cover"
               style={style.image}
             />

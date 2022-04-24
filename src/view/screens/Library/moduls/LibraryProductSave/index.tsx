@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {style} from './style';
-import {AppHeader} from '../../components/Other/AppBar';
-import {isIOS} from '../../constants/size';
-import {colors} from '../../theme';
-import {LikeSave} from '../../assets/icons/icon';
-import Button from '../../components/Button/button';
+import {AppHeader} from '../../../../components/Other/AppBar';
+import {isIOS} from '../../../../constants/size';
+import {colors} from '../../../../theme';
+import {LikeSave} from '../../../../assets/icons/icon';
+import Button from '../../../../components/Button/button';
 
 const LibraryProductSave = () => {
   return (

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {windowWidth, windowHeight, isIOS} from '../../constants/size';
-import {colors} from '../../theme';
+import {windowWidth, windowHeight, isIOS} from '../../../../constants/size';
+import {colors} from '../../../../theme';
 
 export const style = StyleSheet.create({
   container: {
@@ -27,10 +27,10 @@ export const style = StyleSheet.create({
   },
 
   bodyContainer: {
-   flex: 1,
-   justifyContent: 'space-evenly',
-   backgroundColor: colors.white,
-   paddingVertical: 20,
+    flex: 1,
+    justifyContent: 'space-evenly',
+    backgroundColor: colors.white,
+    paddingVertical: 20,
   },
 
   savedContent: {
@@ -44,5 +44,4 @@ export const style = StyleSheet.create({
     fontWeight: '700',
     color: colors.black,
   },
-
 });
