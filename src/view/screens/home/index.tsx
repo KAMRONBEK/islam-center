@@ -315,7 +315,7 @@ const Home = () => {
                 // autoplayDelay={2}
                 // autoplayLoop={false}
                 // index={index}
-                showPagination
+                // showPagination
                 // data={shop}
                 style={{
                   borderRadius: 5,
