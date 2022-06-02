@@ -1,10 +1,5 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Home from '../../screens/Home';
-import Library from '../../screens/Library';
-import LibraryProduct from '../../screens/Library/moduls/LibraryProduct';
-import LibraryProductRead from '../../screens/Library/moduls/LibraryProductRead';
-import Museum from '../../screens/Museum';
 import CustomDrawer from './CostumDrawer';
 import {windowWidth} from '../../constants/size';
 import BottomNavigator from '../../controller/BottomNavigator';
@@ -15,25 +10,23 @@ import {
   CameraIcon,
   ForumIcon,
   HomeIcon,
-  ImageIcon,
   MuseumIcon,
   NewsIcon,
   NotificationIcon,
   SignOutIcon,
   TourIcon,
-  VirtualTurIcon,
 } from '../../assets/icons/icon';
 import {colors} from '../../theme';
 import NotificationsStack from '../../screens/Notifications/navigator';
-import News from '../../screens/News';
 import NewsStack from '../../screens/News/navigator';
-import MyPurchases from '../../screens/MyPurchases';
 import MyPurchasesStack from '../../screens/MyPurchases/navigator';
 import Media from '../../screens/Media/media';
-import Tour from '../../screens/Tour';
 import MuseumStack from '../../screens/Museum/navigator';
-import Login from '../../screens/Login';
 import Intro from '../../screens/Intro';
+import TechnicalSupport from '../../screens/TechnicalSupport';
+import ForumStack from '../../screens/Forum/navigator';
+import Exhibitions from '../../screens/Exhibitions';
+import ExhibitionsStack from '../../screens/Exhibitions/navigator';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -53,7 +46,7 @@ const AuthStack = () => {
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: '#fff',
         drawerLabelStyle: {
-          fontSize: 26,
+          fontSize: 23,
           fontWeight: '600',
           letterSpacing: 1,
           marginLeft: -10,
@@ -65,7 +58,7 @@ const AuthStack = () => {
         component={BottomNavigator}
         options={{
           drawerIcon: ({color}) => (
-            <HomeIcon size={25} fillColor={colors.black} />
+            <HomeIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Главная',
         }}
@@ -75,27 +68,27 @@ const AuthStack = () => {
         component={NotificationsStack}
         options={{
           drawerIcon: ({color}) => (
-            <NotificationIcon size={25} fillColor={colors.black} />
+            <NotificationIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Уведомления',
         }}
       />
-      {/* <Drawer.Screen
-        name="Выставки"
-        component={Museum}
+      <Drawer.Screen
+        name={Routes.ExhibitionStack}
+        component={ExhibitionsStack}
         options={{
           drawerIcon: ({color}) => (
-            <TourIcon size={25} fillColor={colors.black} />
+            <TourIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Выставки',
         }}
-      /> */}
+      />
       <Drawer.Screen
         name={Routes.MyPurchasesStack}
         component={MyPurchasesStack}
         options={{
           drawerIcon: ({color}) => (
-            <BascetIcon size={25} fillColor={colors.black} />
+            <BascetIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Мои покупки',
         }}
@@ -105,28 +98,26 @@ const AuthStack = () => {
         component={MuseumStack}
         options={{
           drawerIcon: ({color}) => (
-            <MuseumIcon size={25} fillColor={colors.black} />
+            <MuseumIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Музей',
         }}
       />
-      {/* <Drawer.Screen
-        name="Форум"
-        component={Museum}
+      <Drawer.Screen
+        name={Routes.ForumStack}
+        component={ForumStack}
         options={{
           drawerIcon: ({color}) => (
             <ForumIcon size={25} fillColor={colors.black} />
           ),
           drawerLabel: 'Форум',
         }}
-      /> */}
+      />
       <Drawer.Screen
         name={Routes.NewsStack}
         component={NewsStack}
         options={{
-          drawerIcon: ({color}) => (
-            <NewsIcon size={25} fillColor={colors.black} />
-          ),
+          drawerIcon: ({color}) => <NewsIcon size={24} />,
           drawerLabel: 'Новости',
         }}
       />
@@ -135,7 +126,7 @@ const AuthStack = () => {
         component={Media}
         options={{
           drawerIcon: ({color}) => (
-            <CameraIcon size={25} fillColor={colors.black} />
+            <CameraIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Медиа',
         }}
@@ -150,22 +141,22 @@ const AuthStack = () => {
           drawerLabel: 'Виртуальный тур',
         }}
       /> */}
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="Тех.поддержка"
-        component={Museum}
+        component={TechnicalSupport}
         options={{
           drawerIcon: ({color}) => (
-            <AirpodsIcon size={25} fillColor={colors.black} />
+            <AirpodsIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Тех.поддержка',
         }}
-      /> */}
+      />
       <Drawer.Screen
         name="Выход"
         component={Intro}
         options={{
           drawerIcon: ({color}) => (
-            <SignOutIcon size={25} fillColor={colors.black} />
+            <SignOutIcon size={24} fillColor={colors.black} />
           ),
           drawerLabel: 'Выход',
         }}

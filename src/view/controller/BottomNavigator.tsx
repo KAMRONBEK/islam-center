@@ -18,6 +18,7 @@ import UserProfile from '../screens/UserProfile';
 import LibraryStack from '../screens/Library/navigator';
 import MuseumStack from '../screens/Museum/navigator';
 import CentreStack from '../screens/Centre/navigator';
+import FavoritesStack from '../screens/Favorites/navigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +28,7 @@ const BottomNavigator = () => {
       initialRouteName={Routes.Home}
       screenOptions={{
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           position: 'absolute',
           bottom: 0,
@@ -72,7 +74,7 @@ const BottomNavigator = () => {
           ),
         }}
         name={Routes.Favorites}
-        component={Favorites}
+        component={FavoritesStack}
       />
       <Tab.Screen
         options={{

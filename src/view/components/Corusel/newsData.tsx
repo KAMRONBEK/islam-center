@@ -15,7 +15,7 @@ export const NewsCoruselDATA = [
     hintText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    statusIcon: <ClockIcon size={22} fillColor={colors.lingthGray} />,
+    statusIcon: <ClockIcon size={20} fillColor={colors.lingthGray} />,
     status: 'час назад',
   },
 

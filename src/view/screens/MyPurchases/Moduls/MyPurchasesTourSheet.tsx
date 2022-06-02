@@ -1,32 +1,47 @@
 import React, {useCallback, useState, useMemo, useRef} from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
-import BottomSheet from '@gorhom/bottom-sheet';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 
 //@ts-ignore
-import intro_bg from '../../../assets/images/intro_bg.png';
+import intro_bg from '../../../assets/images/intro_bg-2.png';
 import {colors} from '../../../theme';
 import {AppHeader} from '../../../components/Other/AppBar';
 import {isIOS, windowHeight, windowWidth} from '../../../constants/size';
-import {Routes} from '../../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
 import {MyPurchasesTourInnerDATA} from './data';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../../../components/Button/button';
 import ImageView from 'react-native-image-viewing';
+import {TransactionSheet} from '../../../components/Other/BottomSheet';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {Routes} from '../../../../navigation/routes/routes';
+
+const images = [
+  {
+    uri: 'file:///Users/macbook_k/Desktop/Project/MyProject/islam_centre/src/view/assets/images/tourItemImage.png',
+  },
+  {
+    uri: 'file:///Users/macbook_k/Desktop/Project/MyProject/islam_centre/src/view/assets/images/tourItemImage.png',
+  },
+  {
+    uri: 'file:///Users/macbook_k/Desktop/Project/MyProject/islam_centre/src/view/assets/images/tourItemImage.png',
+  },
+];
 
 const MyPurchasesSheet = () => {
   let navigation = useNavigation();
 
   //image preview
-  const [visible, setIsVisible] = useState(false);
-
-  let openImagePreview = () => {
-    if (setIsVisible == false) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  const [visible, setVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [snap, setSnap] = useState(0);
 
   // buttons visible
   const [scrollButton, setScrollButton] = useState(false);
@@ -39,10 +54,10 @@ const MyPurchasesSheet = () => {
   const [save, setSave] = useState(false);
 
   // ref
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  // const bottomSheetRef = useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['55%', '65', '87'], []);
+  // const snapPoints = useMemo(() => ['55%', '65', '87'], []);
 
   // callbacks
 
@@ -67,132 +82,143 @@ const MyPurchasesSheet = () => {
   // renders
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <ImageBackground
-        source={intro_bg}
-        resizeMode="cover"
-        style={style.loginBG}>
-        <AppHeader
-          containerStyle={style.containerStyle}
-          leftArrowIcon={true}
-          colorLeftArrow={colors.white}
-          //@ts-ignore
-          onPressLeftArrow={() => navigation.goBack()}
-          headingText={true}
-          headingTitle="Мои покупки"
-          headingTextStyle={style.titleStyle}
-        />
-      </ImageBackground>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={0}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}>
-        {/* <View style={style.contentContainer}> */}
-        {MyPurchasesTourInnerDATA.map((e, i) => {
-          return (
-            <View style={style.contentContainer} key={i}>
-              <View style={style.sheetHeading}>
-                <Text style={style.tiketName}>{e.label}</Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Text style={style.price}>{e.price}</Text>
-                  <Text style={style.currensy}>{e.currensy}</Text>
-                </View>
-              </View>
-              <View style={style.dataTimeContainer}>
-                <View style={style.date}>
-                  <View>{e.calendarIcon}</View>
-                  <Text style={style.dataText}>{e.date}</Text>
-                </View>
-                <View style={style.time}>
-                  <View>{e.timeIcon}</View>
-                  <Text style={style.timeText}>{e.time}</Text>
-                </View>
-              </View>
-              <View style={style.imageContainer}>
-                <TouchableOpacity onPress={openImagePreview}>
-                  {/* <ImageView
-                    images={e.image}
-                    imageIndex={0}
-                    visible={visible}
-                    onRequestClose={() => setIsVisible(false)}
-                  /> */}
-                  <View>{e.image.image}</View>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <View>{e.image.image}</View>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <View>{e.image.image}</View>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  height: NotScrollButton
-                    ? windowHeight / 4 + 50
-                    : windowHeight / 1 - 360,
-                }}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                  <View style={style.textContainer}>
-                    <Text style={style.text}>{e.text}</Text>
-                  </View>
-                  {scrollButton && (
-                    <View>
-                      <Button
-                        containerStyle={style.buttonContainer}
-                        //@ts-ignore
-                        // onPress={}
-                        // onPress={() => navigation.navigate('Welcome')}
-                        text="Скачать билет"
-                        textStyles={style.buttonText}
-                      />
-                      <Button
-                        onPress={() => setSave(e => !e)}
-                        containerStyle={[
-                          style.buttonContainer,
-                          {
-                            marginBottom:
-                              takeIndex == 1
-                                ? 250
-                                : 0 || takeIndex == 2
-                                ? 80
-                                : 0,
-                          },
-                        ]}
-                        //@ts-ignore
-                        // onPress={() => navigation.navigate('Welcome')}
-                        text={save ? 'Удалить из избранного' : 'В избранное'}
-                        textStyles={style.buttonText}
-                      />
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView style={{flex: 1}}>
+        <ImageBackground
+          source={intro_bg}
+          // resizeMode="cover"
+          style={style.loginBG}>
+          <AppHeader
+            containerStyle={style.containerStyle}
+            leftArrowIcon={true}
+            colorLeftArrow={colors.white}
+            //@ts-ignore
+            onPressLeftArrow={() => navigation.goBack()}
+            headingText={true}
+            headingTitle="Мои покупки"
+            headingTextStyle={style.titleStyle}
+          />
+          <TransactionSheet
+            hideModal={() => {}}
+            isVisible={isVisible}
+            onSnap={handleSheetChanges}>
+            <View style={{flex: 1}}>
+              {MyPurchasesTourInnerDATA.map((e, i) => {
+                return (
+                  <View style={style.contentContainer} key={i}>
+                    <View style={style.sheetHeading}>
+                      <Text style={style.tiketName}>{e.label}</Text>
+                      <View
+                        style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={style.price}>{e.price}</Text>
+                        <Text style={style.currensy}>{e.currensy}</Text>
+                      </View>
                     </View>
-                  )}
-                </ScrollView>
-              </View>
+                    <View style={style.dataTimeContainer}>
+                      <View style={style.date}>
+                        <View>{e.calendarIcon}</View>
+                        <Text style={style.dataText}>{e.date}</Text>
+                      </View>
+                      <View style={style.time}>
+                        <View>{e.timeIcon}</View>
+                        <Text style={style.timeText}>{e.time}</Text>
+                      </View>
+                    </View>
+                    <View style={style.imageContainer}>
+                      {e.image.map((e, i) => {
+                        return (
+                          <>
+                            <TouchableOpacity
+                              key={i}
+                              onPress={() => setVisible(true)}>
+                              <Image style={style.image} source={e.image} />
+                            </TouchableOpacity>
+                          </>
+                        );
+                      })}
+                    </View>
+                    <View
+                      style={{
+                        height: NotScrollButton
+                          ? windowHeight / 4 + 50
+                          : windowHeight / 1 - 360,
+                      }}>
+                      <BottomSheetScrollView
+                        showsVerticalScrollIndicator={false}>
+                        <View style={style.textContainer}>
+                          <Text style={style.text}>{e.text}</Text>
+                        </View>
+                        {scrollButton && (
+                          <View style={{marginBottom: 50}}>
+                            <Button
+                              containerStyle={style.buttonContainer}
+                              onPress={() =>
+                                //@ts-ignore
+                                navigation.navigate(Routes.Purchase)
+                              }
+                              text="Купить"
+                              textStyles={style.buttonText}
+                            />
+                            <Button
+                              onPress={() => setSave(e => !e)}
+                              containerStyle={[
+                                style.buttonContainer,
+                                {
+                                  marginBottom:
+                                    takeIndex == 1
+                                      ? 250
+                                      : 0 || takeIndex == 2
+                                      ? 80
+                                      : 0,
+                                },
+                              ]}
+                              //@ts-ignore
+                              // onPress={() => navigation.navigate('Welcome')}
+                              text={
+                                save ? 'Удалить из избранного' : 'В избранное'
+                              }
+                              textStyles={style.buttonText}
+                            />
+                          </View>
+                        )}
+                      </BottomSheetScrollView>
+                    </View>
+                  </View>
+                );
+              })}
             </View>
-          );
-        })}
-        {/* </View> */}
-      </BottomSheet>
-      {NotScrollButton && (
-        <View style={{paddingHorizontal: 20, position: 'absolute', bottom: 0}}>
-          <Button
-            containerStyle={style.buttonContainer}
-            //@ts-ignore
-            // onPress={onSubmitPhone}
-            // onPress={() => navigation.navigate('Welcome')}
-            text="Скачать билет"
-            textStyles={style.buttonText}
-          />
-          <Button
-            onPress={() => setSave(e => !e)}
-            containerStyle={[style.buttonContainer, {marginBottom: 40}]}
-            //@ts-ignore
-            // onPress={() => navigation.navigate('Welcome')}
-            text={save ? 'Удалить из избранного' : 'В избранное'}
-            textStyles={style.buttonText}
-          />
-        </View>
-      )}
+          </TransactionSheet>
+
+          {NotScrollButton && (
+            <View
+              style={{paddingHorizontal: 20, backgroundColor: colors.white}}>
+              <Button
+                containerStyle={style.buttonContainer}
+                //@ts-ignore
+                onPress={() => navigation.navigate(Routes.Purchase)}
+                text="Купить"
+                textStyles={style.buttonText}
+              />
+              <Button
+                onPress={() => setSave(e => !e)}
+                containerStyle={[style.buttonContainer, {}]}
+                //@ts-ignore
+                // onPress={() => navigation.navigate('Welcome')}
+                text={save ? 'Удалить из избранного' : 'В избранное'}
+                textStyles={style.buttonText}
+              />
+            </View>
+          )}
+        </ImageBackground>
+
+        <ImageView
+          images={images}
+          imageIndex={0}
+          visible={visible}
+          presentationStyle="fullScreen"
+          onRequestClose={() => setVisible(false)}
+        />
+      </SafeAreaView>
     </View>
   );
 };

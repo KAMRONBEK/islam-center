@@ -12,7 +12,7 @@ const ExhibitsCard = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 0}}></View>
       <ImageBackground
         source={require('../../../../../assets/images/details_header_bg.png')}
         resizeMode="cover"

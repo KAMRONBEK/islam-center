@@ -5,7 +5,7 @@ export const NotificationDATA = [
     id: 1,
 
     label: 'Lorem ipsum dolor sitamet, consectetur ',
-    time: '2 out of',
+    time: '2 часа назад',
   },
 
   {

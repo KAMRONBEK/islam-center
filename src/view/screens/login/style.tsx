@@ -50,7 +50,7 @@ export const style = StyleSheet.create({
   },
 
   welcomeText: {
-    fontSize: 35,
+    fontSize: 34,
     fontWeight: '700',
     color: '#000',
     lineHeight: 50,
@@ -66,7 +66,7 @@ export const style = StyleSheet.create({
   },
 
   input: {
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: '600',
     color: '#000',
     letterSpacing: 1,
@@ -93,6 +93,7 @@ export const style = StyleSheet.create({
 
   buttonText: {
     color: colors.white,
+    fontSize: 18,
     marginRight: 16,
     alignItems: 'center',
     fontWeight: isIOS ? '700' : '700',

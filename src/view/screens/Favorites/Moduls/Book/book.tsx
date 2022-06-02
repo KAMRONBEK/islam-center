@@ -12,7 +12,7 @@ const FavoriteBook = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
+      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 0}}></View>
       <AppHeader
         containerStyle={style.containerStyle}
         leftArrowIcon={true}

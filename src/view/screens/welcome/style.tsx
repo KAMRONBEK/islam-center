@@ -48,7 +48,7 @@ export const style = StyleSheet.create({
   },
 
   welcomeText: {
-    fontSize: 35,
+    fontSize: 34,
     fontWeight: '700',
     color: '#000',
     lineHeight: 50,
@@ -64,7 +64,7 @@ export const style = StyleSheet.create({
   },
 
   input: {
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: '600',
     color: '#000',
     letterSpacing: 1,
@@ -84,14 +84,14 @@ export const style = StyleSheet.create({
   },
 
   warning: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     marginTop: 20,
     color: colors.red,
   },
 
-  WaitSendCode: {
-    fontSize: 16,
+  waitSendCode: {
+    fontSize: 15,
     fontWeight: '600',
     marginTop: 20,
     color: colors.gray,
@@ -103,9 +103,8 @@ export const style = StyleSheet.create({
     height: 60,
   },
 
-  
-
   buttonText: {
+    fontSize: 18,
     color: colors.white,
     marginRight: 16,
     alignItems: 'center',
@@ -114,8 +113,8 @@ export const style = StyleSheet.create({
   },
 
   takeCode: {
-    textAlign: 'center',
     fontSize: 16,
+    textAlign: 'center',
     fontWeight: '600',
     color: colors.gray,
     marginTop: 22,

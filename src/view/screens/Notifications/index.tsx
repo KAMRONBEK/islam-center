@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, SafeAreaView} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../navigation/routes/routes';
@@ -12,45 +12,47 @@ const Notifications = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        logoIcon={true}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          logoIcon={true}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        headingText={true}
-        headingTitle="Уведомления"
-        headingTextStyle={style.titleStyle}
-      />
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={NotificationDATA}
-        numColumns={1}
-        contentContainerStyle={{
-          paddingBottom: 100,
-          paddingTop: 0,
-        }}
-        // extraData={selectedId}
-        // keyExtractor={(item) => item.id}
-        renderItem={({item, index}) => {
-          // console.log({index});
-          return (
-            <View style={style.notificationContainer}>
-              <Text style={style.notificationText}>{item.label}</Text>
-              <View style={style.timeContainer}>
-                <Text style={style.timeText}>{item.time}</Text>
+          onPressDetailsIcon={() =>
+            //@ts-ignore
+            navigation.openDrawer()
+          }
+          headingText={true}
+          headingTitle="Уведомления"
+          headingTextStyle={style.titleStyle}
+        />
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={NotificationDATA}
+          numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 100,
+            paddingTop: 0,
+          }}
+          // extraData={selectedId}
+          // keyExtractor={(item) => item.id}
+          renderItem={({item, index}) => {
+            // console.log({index});
+            return (
+              <View style={style.notificationContainer}>
+                <Text style={style.notificationText}>{item.label}</Text>
+                <View style={style.timeContainer}>
+                  <Text style={style.timeText}>{item.time}</Text>
+                </View>
               </View>
-            </View>
-          );
-        }}
-      />
+            );
+          }}
+        />
+      </SafeAreaView>
     </View>
   );
 };
@@ -105,7 +107,7 @@ const style = StyleSheet.create({
   },
 
   notificationText: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600',
     color: colors.black,
     lineHeight: 24,

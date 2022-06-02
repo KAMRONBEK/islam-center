@@ -39,6 +39,10 @@ export enum Routes {
   // Exhibitions
 
   Exhibitions = 'Exhibitions',
+  ExhibitionStack = 'ExhibitionStack',
+  Exhibition = 'Exhibition',
+  Purchase = 'Purchase',
+  Checkout = 'Checkout',
 
   // MyPurchases
   MyPurchases = 'MyPurchases',
@@ -78,6 +82,13 @@ export enum Routes {
   Exhibits = 'Exhibits',
   ExhibitsCard = 'ExhibitsCard',
   Cooperation = 'Cooperation',
+
+  //Forum
+  Forum = 'Forum',
+  ForumStack = 'ForumStack',
+  MyThemes = 'MyThemes',
+  CreateTopic = 'CreateTopic',
+  UserTheme = 'UserTheme',
 
   //Tour
   Tour = 'Tour',

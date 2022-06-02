@@ -14,7 +14,7 @@ import {IconProps} from '../../assets/icons/icon';
 import {windowWidth} from '../../constants/size';
 
 export interface ButtonProps {
-  onPress?: () => void;
+  onPress?: () => any;
   text?: string;
   loading?: boolean;
   style?: () => void;

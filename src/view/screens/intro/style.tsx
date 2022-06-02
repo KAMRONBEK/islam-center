@@ -4,10 +4,14 @@ import {windowWidth, windowHeight, isIOS} from '../../constants/size';
 export const style = StyleSheet.create({
   container: {
     flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 
   introBG: {
     flex: 1,
+    // width: windowWidth / 1,
+    // borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

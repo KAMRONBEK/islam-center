@@ -11,7 +11,7 @@ import MaskInput from 'react-native-mask-input';
 
 // image
 // @ts-ignore
-import intro_bg from '../../assets/images/intro_bg.png';
+import intro_bg from '../../assets/images/intro_bg-2.png';
 import {Routes} from '../../../navigation/routes/routes';
 
 const Login = () => {

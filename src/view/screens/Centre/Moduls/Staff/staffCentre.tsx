@@ -6,6 +6,7 @@ import {
   ImageBackground,
   FlatList,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import {AppHeader} from '../../../../components/Other/AppBar';
@@ -20,86 +21,74 @@ const StaffCentre = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        leftArrowIcon={true}
-        colorLeftArrow={colors.black}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        marginLeft={-35}
-        //@ts-ignore
-        onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          leftArrowIcon={true}
+          colorLeftArrow={colors.black}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
+          marginLeft={-35}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        onPressNotification={() =>
+          onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
           //@ts-ignore
-          navigation.navigate(Routes.NotificationsStack)
-        }
-        headingText={true}
-        headingTitle="Сотрудники"
-        headingTextStyle={style.titleStyle}
-      />
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={StaffCentreDATA}
-        numColumns={1}
-        contentContainerStyle={{
-          paddingBottom: 100,
-          // paddingTop: 40,
-        }}
-        // extraData={selectedId}
-        // keyExtractor={(item) => item.id}
-        renderItem={({item, index}) => {
-          // console.log({index});
-          return (
-            <View
-              style={[
-                // (index + 1) % 2 == 0
-                //   ? {
-                //       marginTop: 0,
-                //     }
-                //   : {top: -50},
-                {
-                  paddingHorizontal: 20,
-                  width: windowWidth / 1,
-                  paddingVertical: 10,
-                },
-              ]}
-              key={index}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate(Routes.StaffCard)}>
-                <View style={style.cardContainer}>
-                  {item.image}
-                  <View style={style.titleContainer}>
-                    <Text style={style.name}>{item.label}</Text>
-                    <Text style={style.titleText}>{item.title}</Text>
+          onPressDetailsIcon={() =>
+            //@ts-ignore
+            navigation.openDrawer()
+          }
+          onPressNotification={() =>
+            //@ts-ignore
+            navigation.navigate(Routes.NotificationsStack)
+          }
+          headingText={true}
+          headingTitle="Сотрудники"
+          headingTextStyle={style.titleStyle}
+        />
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={StaffCentreDATA}
+          numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 100,
+            // paddingTop: 40,
+          }}
+          // extraData={selectedId}
+          // keyExtractor={(item) => item.id}
+          renderItem={({item, index}) => {
+            // console.log({index});
+            return (
+              <View
+                style={[
+                  // (index + 1) % 2 == 0
+                  //   ? {
+                  //       marginTop: 0,
+                  //     }
+                  //   : {top: -50},
+                  {
+                    paddingHorizontal: 20,
+                    width: windowWidth / 1,
+                    paddingVertical: 10,
+                  },
+                ]}
+                key={index}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate(Routes.StaffCard)}>
+                  <View style={style.cardContainer}>
+                    {item.image}
+                    <View style={style.titleContainer}>
+                      <Text style={style.name}>{item.label}</Text>
+                      <Text style={style.titleText}>{item.title}</Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          );
-        }}
-      />
-      {/* <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 100}}>
-        {StaffCentreDATA.map((e, i) => {
-          return (
-            <View key={i}>
-              <View>{e.image}</View>
-              <View style={style.titleContainer}>
-                <Text style={style.titleText}>{e.title}</Text>
+                </TouchableOpacity>
               </View>
-            </View>
-          );
-        })}
-      </ScrollView> */}
+            );
+          }}
+        />
+      </SafeAreaView>
     </View>
   );
 };
@@ -154,14 +143,14 @@ export const style = StyleSheet.create({
   },
 
   name: {
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: '700',
     color: colors.black,
     textAlign: 'center',
   },
 
   titleText: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '400',
     color: colors.gray,
     paddingVertical: 10,

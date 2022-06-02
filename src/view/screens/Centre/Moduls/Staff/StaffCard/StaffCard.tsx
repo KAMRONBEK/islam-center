@@ -1,5 +1,6 @@
 import {
   FlatList,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -19,63 +20,65 @@ const StaffCard = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        leftArrowIcon={true}
-        colorLeftArrow={colors.black}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        marginLeft={-35}
-        //@ts-ignore
-        onPressLeftArrow={() => navigation.navigate(Routes.StaffCentre)}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          leftArrowIcon={true}
+          colorLeftArrow={colors.black}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
+          marginLeft={-35}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        onPressNotification={() =>
+          onPressLeftArrow={() => navigation.navigate(Routes.StaffCentre)}
           //@ts-ignore
-          navigation.navigate(Routes.NotificationsStack)
-        }
-        headingText={true}
-        headingTitle="Сотрудники"
-        headingTextStyle={style.titleStyle}
-      />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 100}}>
-        {StaffCardDATA.map((item, i) => {
-          return (
-            <View
-              style={{
-                paddingHorizontal: 20,
-                width: windowWidth / 1,
-                paddingVertical: 10,
-              }}
-              key={i}>
-              <View style={style.cardContainer}>
-                {item.image}
-                <View style={style.titleContainer}>
-                  <Text style={style.name}>{item.label}</Text>
-                  <Text style={style.titleText}>{item.title}</Text>
-                  <Text style={style.text}>{item.text}</Text>
-                  <View style={style.phoneConatiner}>
-                    <Text style={style.iconPhone}>{item.phoneIcon}</Text>
-                    <Text style={style.phone}>{item.phone}</Text>
-                  </View>
-                  <View style={style.phoneConatiner}>
-                    <Text style={style.iconPhone}>{item.emailIcon}</Text>
-                    <Text style={style.phone}>{item.email}</Text>
+          onPressDetailsIcon={() =>
+            //@ts-ignore
+            navigation.openDrawer()
+          }
+          onPressNotification={() =>
+            //@ts-ignore
+            navigation.navigate(Routes.NotificationsStack)
+          }
+          headingText={true}
+          headingTitle="Сотрудники"
+          headingTextStyle={style.titleStyle}
+        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 150}}>
+          {StaffCardDATA.map((item, i) => {
+            return (
+              <View
+                style={{
+                  paddingHorizontal: 20,
+                  width: windowWidth / 1,
+                  paddingVertical: 10,
+                }}
+                key={i}>
+                <View style={style.cardContainer}>
+                  {item.image}
+                  <View style={style.titleContainer}>
+                    <Text style={style.name}>{item.label}</Text>
+                    <Text style={style.titleText}>{item.title}</Text>
+                    <Text style={style.text}>{item.text}</Text>
+                    <View style={style.phoneConatiner}>
+                      <Text style={style.iconPhone}>{item.phoneIcon}</Text>
+                      <Text style={style.phone}>{item.phone}</Text>
+                    </View>
+                    <View style={style.phoneConatiner}>
+                      <Text style={style.iconPhone}>{item.emailIcon}</Text>
+                      <Text style={style.phone}>{item.email}</Text>
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
-          );
-        })}
-      </ScrollView>
+            );
+          })}
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };
@@ -129,14 +132,14 @@ export const style = StyleSheet.create({
   },
 
   name: {
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: '700',
     color: colors.black,
     textAlign: 'left',
   },
 
   titleText: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '400',
     color: colors.gray,
     paddingVertical: 10,
@@ -145,7 +148,7 @@ export const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.gray,
     paddingVertical: 10,
@@ -156,16 +159,18 @@ export const style = StyleSheet.create({
   phoneConatiner: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     paddingVertical: 15,
+    width: windowWidth / 2 + 10,
+    // borderWidth: 1,
   },
 
   iconPhone: {
-    paddingLeft: 25,
+    // paddingLeft: 25,
   },
 
   phone: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '700',
     color: colors.black,
     textAlign: 'left',

@@ -182,7 +182,7 @@ export const style = StyleSheet.create({
   },
 
   shopHintTextStyle: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: '700',
     color: colors.black,
     lineHeight: 30,
@@ -190,7 +190,7 @@ export const style = StyleSheet.create({
   },
 
   shopTitleStyle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '400',
     letterSpacing: 1,
     color: colors.gray,
@@ -215,13 +215,13 @@ export const style = StyleSheet.create({
   },
 
   shopLabel: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.lingthGray,
   },
 
   shopPriceStyle: {
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: '600',
     color: colors.black,
     paddingHorizontal: 5,
@@ -309,7 +309,7 @@ export const style = StyleSheet.create({
   },
 
   newsHintTextStyle: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: '700',
     color: colors.black,
     lineHeight: 28,
@@ -317,7 +317,7 @@ export const style = StyleSheet.create({
   },
 
   newsLabel: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.lingthGray,
     paddingVertical: 10,

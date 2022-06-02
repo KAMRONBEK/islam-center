@@ -1,4 +1,11 @@
-import {Text, View, TouchableOpacity, FlatList, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import {style} from './style';
 import {CentreDATA} from './data';
@@ -14,102 +21,104 @@ const Centre = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        logoIcon={true}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          logoIcon={true}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        onPressNotification={() =>
-          //@ts-ignore
-          navigation.navigate(Routes.NotificationsStack)
-        }
-        headingText={true}
-        headingTitle="Центр"
-        headingTextStyle={style.titleStyle}
-      />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 110}}>
-        <View
-          style={{
-            width: windowWidth / 1,
-            // height: windowHeight / 1,
-            paddingHorizontal: 20,
-          }}>
-          <ColumnMenu
+          onPressDetailsIcon={() =>
             //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.AboutCentre)}
-            museumIcon={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="О Центре"
-          />
-          <ColumnMenu
+            navigation.openDrawer()
+          }
+          onPressNotification={() =>
             //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.TasksCentre)}
-            tasks={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Цели и задачи"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            // onPressMenu={() => navigation.navigate('')}
-            charter={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Устав центра"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.AdviceCentre)}
-            board={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Попечительский совет"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.StaffCentre)}
-            control={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Управление"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.Documents)}
-            documnet={true}
-            fillColor={colors.green}
-            menuNameText={true}
-            menuName="Документы"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            // onPressMenu={() => navigation.navigate(Routes.)}
-            // documnet={true}
-            // fillColor={colors.green}
-            menuNameText={true}
-            menuName="Проект"
-          />
-          <ColumnMenu
-            //@ts-ignore
-            onPressMenu={() => navigation.navigate(Routes.Resume)}
-            // documnet={true}
-            // fillColor={colors.green}
-            menuNameText={true}
-            menuName="Вакансии"
-          />
-        </View>
-      </ScrollView>
+            navigation.navigate(Routes.NotificationsStack)
+          }
+          headingText={true}
+          headingTitle="Центр"
+          headingTextStyle={style.titleStyle}
+        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 110}}>
+          <View
+            style={{
+              width: windowWidth / 1,
+              height: windowHeight / 1,
+              paddingHorizontal: 20,
+            }}>
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.AboutCentre)}
+              museumIcon={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="О Центре"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.TasksCentre)}
+              tasks={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="Цели и задачи"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              // onPressMenu={() => navigation.navigate('')}
+              charter={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="Устав центра"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.AdviceCentre)}
+              board={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="Попечительский совет"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.StaffCentre)}
+              control={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="Управление"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.Documents)}
+              documnet={true}
+              fillColor={colors.green}
+              menuNameText={true}
+              menuName="Документы"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              // onPressMenu={() => navigation.navigate(Routes.)}
+              // documnet={true}
+              // fillColor={colors.green}
+              menuNameText={true}
+              menuName="Проект"
+            />
+            <ColumnMenu
+              //@ts-ignore
+              onPressMenu={() => navigation.navigate(Routes.Resume)}
+              // documnet={true}
+              // fillColor={colors.green}
+              menuNameText={true}
+              menuName="Вакансии"
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };

@@ -195,7 +195,7 @@ export function AppHeader({
           {/* } */}
 
           <TouchableOpacity onPress={onPressDetailsIcon}>
-            <DetailsIcon size={16} color={detailsColor} />
+            <DetailsIcon size={18} color={detailsColor} />
           </TouchableOpacity>
         </View>
       )}

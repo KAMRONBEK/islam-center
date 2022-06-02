@@ -28,14 +28,16 @@ import AuthStack from '../view/components/Drawer/DrawerNavigation';
 import NewsRead from '../view/screens/News/Moduls/newsRead';
 import NewsStack from '../view/screens/News/navigator';
 import MyPurchases from '../view/screens/MyPurchases';
-import Sheet from '../view/components/Other/BottomSheet';
 import MyPurchasesStack from '../view/screens/MyPurchases/navigator';
-import Resume from '../view/screens/Centre/Moduls/Resume/resume';
 import Media from '../view/screens/Media/media';
-import FavoriteTourSheet from '../view/screens/Favorites/Moduls/Tour/TourSheet';
 import FavoriteBookRead from '../view/screens/Favorites/Moduls/BookRead/bookRead';
 import FavoriteBook from '../view/screens/Favorites/Moduls/Book/book';
 import Exhibitions from '../view/screens/Exhibitions';
+import {TransactionSheet} from '../view/components/Other/BottomSheet';
+import Exhibition from '../view/screens/Exhibitions/Moduls/Exhibitions';
+import FavoriteTourSheet from '../view/screens/Favorites/Moduls/Tour/TourSheet';
+import Purchase from '../view/screens/Exhibitions/Moduls/Purchase';
+import Checkout from '../view/screens/Exhibitions/Moduls/Checkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,16 +65,19 @@ const AppNavigator = () => {
           name={Routes.NotificationsStack}
         />
         <Stack.Screen component={Favorites} name={Routes.Favorites} />
-        <Stack.Screen
-          component={FavoriteTourSheet}
-          name={Routes.FavoriteTourSheet}
-        />
         <Stack.Screen component={FavoriteBook} name={Routes.FavoriteBook} />
         <Stack.Screen
           component={FavoriteBookRead}
           name={Routes.FavoriteBookRead}
         />
+        <Stack.Screen
+          component={FavoriteTourSheet}
+          name={Routes.FavoriteTourSheet}
+        />
         <Stack.Screen component={Exhibitions} name={Routes.Exhibitions} />
+        <Stack.Screen component={Exhibition} name={Routes.Exhibition} />
+        <Stack.Screen component={Purchase} name={Routes.Purchase} />
+        <Stack.Screen component={Checkout} name={Routes.Checkout} />
         <Stack.Screen component={Library} name={Routes.Library} />
         <Stack.Screen component={LibraryStack} name={Routes.LibraryStack} />
         <Stack.Screen component={LibraryProduct} name={Routes.LibraryProduct} />
@@ -85,7 +90,7 @@ const AppNavigator = () => {
           name={Routes.LibraryProductSave}
         />
         <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
-        <Stack.Screen component={Sheet} name={Routes.Sheet} />
+        <Stack.Screen component={TransactionSheet} name={Routes.Sheet} />
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={NewsRead} name={Routes.NewsRead} />
         <Stack.Screen component={NewsStack} name={Routes.NewsStack} />

@@ -64,7 +64,7 @@ export const style = StyleSheet.create({
   },
 
   libraryText: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: '400',
     letterSpacing: 1.5,
     paddingTop: 10,

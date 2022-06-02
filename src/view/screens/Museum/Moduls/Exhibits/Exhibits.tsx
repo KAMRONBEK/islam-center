@@ -6,6 +6,7 @@ import {
   ImageBackground,
   FlatList,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import {AppHeader} from '../../../../components/Other/AppBar';
@@ -20,70 +21,72 @@ const Exhibits = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        leftArrowIcon={true}
-        colorLeftArrow={colors.black}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        marginLeft={-35}
-        //@ts-ignore
-        onPressLeftArrow={() => navigation.goBack()}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          leftArrowIcon={true}
+          colorLeftArrow={colors.black}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
+          marginLeft={-35}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        onPressNotification={() =>
+          onPressLeftArrow={() => navigation.goBack()}
           //@ts-ignore
-          navigation.navigate(Routes.NotificationsStack)
-        }
-        headingText={true}
-        headingTitle="Экспонаты"
-        headingTextStyle={style.titleStyle}
-      />
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={ExhibitsDATA}
-        numColumns={1}
-        contentContainerStyle={{
-          paddingBottom: 100,
-          // paddingTop: 40,
-        }}
-        // extraData={selectedId}
-        // keyExtractor={(item) => item.id}
-        renderItem={({item, index}) => {
-          // console.log({index});
-          return (
-            <View
-              style={[
-                {
-                  paddingHorizontal: 20,
-                  width: windowWidth / 1,
-                  paddingVertical: 10,
-                },
-              ]}
-              key={index}>
-              <TouchableOpacity
-                //@ts-ignore
-                onPress={() => navigation.navigate(Routes.ExhibitsCard)}>
-                <View style={style.cardContainer}>
-                  {item.image}
-                  <View style={style.titleContainer}>
-                    <Text style={style.name}>{item.label}</Text>
-                    <Text style={style.titleText} numberOfLines={3}>
-                      {item.title}
-                    </Text>
+          onPressDetailsIcon={() =>
+            //@ts-ignore
+            navigation.openDrawer()
+          }
+          onPressNotification={() =>
+            //@ts-ignore
+            navigation.navigate(Routes.NotificationsStack)
+          }
+          headingText={true}
+          headingTitle="Экспонаты"
+          headingTextStyle={style.titleStyle}
+        />
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={ExhibitsDATA}
+          numColumns={1}
+          contentContainerStyle={{
+            paddingBottom: 100,
+            // paddingTop: 40,
+          }}
+          // extraData={selectedId}
+          // keyExtractor={(item) => item.id}
+          renderItem={({item, index}) => {
+            // console.log({index});
+            return (
+              <View
+                style={[
+                  {
+                    paddingHorizontal: 20,
+                    width: windowWidth / 1,
+                    paddingVertical: 10,
+                  },
+                ]}
+                key={index}>
+                <TouchableOpacity
+                  //@ts-ignore
+                  onPress={() => navigation.navigate(Routes.ExhibitsCard)}>
+                  <View style={style.cardContainer}>
+                    {item.image}
+                    <View style={style.titleContainer}>
+                      <Text style={style.name}>{item.label}</Text>
+                      <Text style={style.titleText} numberOfLines={3}>
+                        {item.title}
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          );
-        }}
-      />
+                </TouchableOpacity>
+              </View>
+            );
+          }}
+        />
+      </SafeAreaView>
     </View>
   );
 };

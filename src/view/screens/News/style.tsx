@@ -31,7 +31,7 @@ export const style = StyleSheet.create({
     // marginHorizontal: 20,
     marginLeft: 40,
     marginRight: 20,
-    marginVertical: 25,
+    marginVertical: 18,
     paddingHorizontal: 20,
     paddingVertical: 20,
     height: 150,

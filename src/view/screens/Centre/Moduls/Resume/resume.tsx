@@ -404,6 +404,7 @@ const Resume = () => {
                 //   onChangeText={onChangeName}
                 //   value={Name}
                 //   editable={editName}
+                textAlignVertical="top"
                 placeholder="Ушбу банд жуда мухим!"
                 placeholderTextColor={colors.gray}
                 keyboardType="default"
@@ -422,6 +423,7 @@ const Resume = () => {
                 //   value={Name}
                 //   editable={editName}
                 placeholder="Текст"
+                textAlignVertical="top"
                 placeholderTextColor={colors.gray}
                 keyboardType="default"
                 // maxLength={40}

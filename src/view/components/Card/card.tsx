@@ -106,10 +106,10 @@ const styles = StyleSheet.create({
   // },
 
   titleText: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.lingthGray,
-    // paddingTop: 25,
+    paddingBottom: 10,
     // paddingVertical: isIOS ? 20 : 20,
   },
 });

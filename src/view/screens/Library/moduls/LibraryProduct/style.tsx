@@ -77,6 +77,7 @@ export const style = StyleSheet.create({
   },
 
   scrollContainer: {
+    // paddingBottom: 150,
     // height: 400,
     // backgroundColor: '#000',
   },
@@ -110,14 +111,14 @@ export const style = StyleSheet.create({
   },
 
   price: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '700',
     color: colors.white,
     marginLeft: -20,
   },
 
   bookDescriptionName: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '700',
     color: colors.black,
     marginVertical: 10,
@@ -125,7 +126,7 @@ export const style = StyleSheet.create({
   },
 
   discription: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.lingthGray,
     marginVertical: 20,

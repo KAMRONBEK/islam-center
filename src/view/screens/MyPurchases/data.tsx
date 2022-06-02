@@ -10,9 +10,12 @@ import {
 import {colors} from '../../theme';
 import {style} from './style';
 
+export const DATE = [{}, {}];
+
 export const MyPurchasesLibraryDATA = [
   {
     id: 1,
+    dateFilter: '27 марта 2022',
     image: (
       <Image
         source={require('../../assets/images/islamBook.png')}
@@ -25,6 +28,7 @@ export const MyPurchasesLibraryDATA = [
     label: 'Lorem Ipsum 1',
     title: 'Lorem Ipsum',
     price: 'Куплено',
+
     // currency: 'сум',
   },
 
@@ -47,6 +51,7 @@ export const MyPurchasesLibraryDATA = [
 
   {
     id: 3,
+    dateFilter: '20 марта 2022',
     image: (
       <Image
         source={require('../../assets/images/islamBook.png')}
@@ -117,6 +122,7 @@ export const MyPurchasesLibraryDATA = [
 export const MyPurchasesTourDATA = [
   {
     id: 1,
+    dateFilter: '27 марта 2022',
     image: (
       <Image
         source={require('../../assets/images/tourItemImage.png')}
@@ -186,6 +192,7 @@ export const MyPurchasesTourDATA = [
 
   {
     id: 4,
+    dateFilter: '22 марта 2022',
     image: (
       <Image
         source={require('../../assets/images/tourItemImage.png')}

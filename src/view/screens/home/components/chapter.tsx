@@ -70,7 +70,7 @@ export const style = StyleSheet.create({
   containerStyle: {
     paddingHorizontal: 20,
     justifyContent: 'flex-start',
-    marginVertical: 30,
+    marginVertical: 25,
   },
 
   chapter: {
@@ -81,13 +81,13 @@ export const style = StyleSheet.create({
   },
 
   title: {
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: '700',
     color: colors.black,
   },
 
   btnAll: {
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: '700',
     color: colors.green,
   },

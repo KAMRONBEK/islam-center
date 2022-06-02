@@ -6,6 +6,7 @@ import {
   ImageBackground,
   FlatList,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import {AppHeader} from '../../../../components/Other/AppBar';
@@ -21,139 +22,144 @@ const Documents = () => {
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <AppHeader
-        containerStyle={style.containerStyle}
-        leftArrowIcon={true}
-        colorLeftArrow={colors.black}
-        notificatAndDetailsIcons={true}
-        notificationColor={colors.black}
-        detailsColor={colors.black}
-        detailsIcon={true}
-        marginLeft={-35}
-        //@ts-ignore
-        onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
-        //@ts-ignore
-        onPressDetailsIcon={() =>
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <AppHeader
+          containerStyle={style.containerStyle}
+          leftArrowIcon={true}
+          colorLeftArrow={colors.black}
+          notificatAndDetailsIcons={true}
+          notificationColor={colors.black}
+          detailsColor={colors.black}
+          detailsIcon={true}
+          marginLeft={-35}
           //@ts-ignore
-          navigation.openDrawer()
-        }
-        onPressNotification={() =>
+          onPressLeftArrow={() => navigation.navigate(Routes.Centre)}
           //@ts-ignore
-          navigation.navigate(Routes.NotificationsStack)
-        }
-        headingText={true}
-        headingTitle="Документы"
-        headingTextStyle={style.titleStyle}
-      />
+          onPressDetailsIcon={() =>
+            //@ts-ignore
+            navigation.openDrawer()
+          }
+          onPressNotification={() =>
+            //@ts-ignore
+            navigation.navigate(Routes.NotificationsStack)
+          }
+          headingText={true}
+          headingTitle="Документы"
+          headingTextStyle={style.titleStyle}
+        />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Chapter chapter={true} chapterTitle="Qonunlar" />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={LawDocumentDATA}
-          numColumns={1}
-          contentContainerStyle={{
-            paddingBottom: 0,
-            // paddingTop: 40,
-          }}
-          // extraData={selectedId}
-          // keyExtractor={(item) => item.id}
-          renderItem={({item, index}) => {
-            // console.log({index});
-            return (
-              <View
-                style={[
-                  {
-                    paddingHorizontal: 20,
-                    width: windowWidth / 1,
-                    paddingVertical: 10,
-                  },
-                ]}
-                key={index}>
-                <View style={style.cardContainer}>
-                  {/* {item.image} */}
-                  <View style={style.titleContainer}>
-                    <Text style={style.label}>{item.label}</Text>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Chapter chapter={true} chapterTitle="Qonunlar" />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={LawDocumentDATA}
+            numColumns={1}
+            contentContainerStyle={{
+              paddingBottom: 0,
+              // paddingTop: 40,
+            }}
+            // extraData={selectedId}
+            // keyExtractor={(item) => item.id}
+            renderItem={({item, index}) => {
+              // console.log({index});
+              return (
+                <View
+                  style={[
+                    {
+                      paddingHorizontal: 20,
+                      width: windowWidth / 1,
+                      paddingVertical: 10,
+                    },
+                  ]}
+                  key={index}>
+                  <View style={style.cardContainer}>
+                    {/* {item.image} */}
+                    <View style={style.titleContainer}>
+                      <Text style={style.label}>{item.label}</Text>
+                    </View>
+                    <Text style={style.titleText}>{item.title}</Text>
                   </View>
-                  <Text style={style.titleText}>{item.title}</Text>
                 </View>
-              </View>
-            );
-          }}
-        />
-        <Chapter
-          chapter={true}
-          chapterTitle="Vazirlar Mahkamasining qarorlari"
-          allChapter="  "
-        />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={MinistersLawDATA}
-          numColumns={1}
-          contentContainerStyle={{
-            paddingBottom: 0,
-            // paddingTop: 40,
-          }}
-          // extraData={selectedId}
-          // keyExtractor={(item) => item.id}
-          renderItem={({item, index}) => {
-            // console.log({index});
-            return (
-              <View
-                style={[
-                  {
-                    paddingHorizontal: 20,
-                    width: windowWidth / 1,
-                    paddingVertical: 10,
-                  },
-                ]}
-                key={index}>
-                <View style={style.cardContainer}>
-                  {/* {item.image} */}
-                  <View style={style.titleContainer}>
-                    <Text style={style.label}>{item.label}</Text>
+              );
+            }}
+          />
+          <Chapter
+            chapter={true}
+            chapterTitle="Vazirlar Mahkamasining qarorlari"
+            allChapter="  "
+          />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={MinistersLawDATA}
+            numColumns={1}
+            contentContainerStyle={{
+              paddingBottom: 0,
+              // paddingTop: 40,
+            }}
+            // extraData={selectedId}
+            // keyExtractor={(item) => item.id}
+            renderItem={({item, index}) => {
+              // console.log({index});
+              return (
+                <View
+                  style={[
+                    {
+                      paddingHorizontal: 20,
+                      width: windowWidth / 1,
+                      paddingVertical: 10,
+                    },
+                  ]}
+                  key={index}>
+                  <View style={style.cardContainer}>
+                    {/* {item.image} */}
+                    <View style={style.titleContainer}>
+                      <Text style={style.label}>{item.label}</Text>
+                    </View>
+                    <Text style={style.titleText}>{item.title}</Text>
                   </View>
-                  <Text style={style.titleText}>{item.title}</Text>
                 </View>
-              </View>
-            );
-          }}
-        />
-        <Chapter chapter={true} chapterTitle="Prezident farmon va qarorlari" />
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={MinistersLawDATA}
-          numColumns={1}
-          contentContainerStyle={{
-            paddingBottom: 100,
-            // paddingTop: 40,
-          }}
-          // extraData={selectedId}
-          // keyExtractor={(item) => item.id}
-          renderItem={({item, index}) => {
-            // console.log({index});
-            return (
-              <View
-                style={[
-                  {
-                    paddingHorizontal: 20,
-                    width: windowWidth / 1,
-                    paddingVertical: 10,
-                  },
-                ]}
-                key={index}>
-                <View style={style.cardContainer}>
-                  <View style={style.titleContainer}>
-                    <Text style={style.label}>{item.label}</Text>
+              );
+            }}
+          />
+          <Chapter
+            chapter={true}
+            chapterTitle="Prezident farmon va qarorlari"
+          />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={MinistersLawDATA}
+            numColumns={1}
+            contentContainerStyle={{
+              paddingBottom: 200,
+              // paddingTop: 40,
+            }}
+            // extraData={selectedId}
+            // keyExtractor={(item) => item.id}
+            renderItem={({item, index}) => {
+              // console.log({index});
+              return (
+                <View
+                  style={[
+                    {
+                      paddingHorizontal: 20,
+                      width: windowWidth / 1,
+                      paddingVertical: 10,
+                    },
+                  ]}
+                  key={index}>
+                  <View style={style.cardContainer}>
+                    <View style={style.titleContainer}>
+                      <Text style={style.label}>{item.label}</Text>
+                    </View>
+                    <Text style={style.titleText}>{item.title}</Text>
                   </View>
-                  <Text style={style.titleText}>{item.title}</Text>
                 </View>
-              </View>
-            );
-          }}
-        />
-      </ScrollView>
+              );
+            }}
+          />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };
@@ -200,13 +206,13 @@ export const style = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4.19,
     elevation: 2,
-    marginBottom: 20,
+    marginBottom: 10,
     paddingHorizontal: 30,
     paddingVertical: 25,
   },
 
   label: {
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '600',
     color: colors.black,
     textAlign: 'left',

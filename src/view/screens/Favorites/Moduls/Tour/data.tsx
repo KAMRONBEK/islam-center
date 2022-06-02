@@ -6,34 +6,17 @@ import {style} from './TourSheet';
 
 export const FavoriteTourInnerDATA = [
   {
-    image:
-      ({
-        image: (
-          <Image
-            source={require('../../../../assets/images/tourItemImage.png')}
-            resizeMode="cover"
-            style={style.image}
-          />
-        ),
+    image: [
+      {
+        image: require('../../../../assets/images/tourItemImage.png'),
       },
       {
-        image: (
-          <Image
-            source={require('../../../../assets/images/tourItemImage.png')}
-            resizeMode="cover"
-            style={style.image}
-          />
-        ),
+        image: require('../../../../assets/images/tourItemImage.png'),
       },
       {
-        image: (
-          <Image
-            source={require('../../../../assets/images/tourItemImage.png')}
-            resizeMode="cover"
-            style={style.image}
-          />
-        ),
-      }),
+        image: require('../../../../assets/images/tourItemImage.png'),
+      },
+    ],
     id: 1,
 
     // imageOne: (

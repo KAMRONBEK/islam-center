@@ -12,63 +12,66 @@ import {AppHeader} from '../../../components/Other/AppBar';
 import {NewsContentDATA, SeeTimeDATA} from './data';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../../navigation/routes/routes';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const NewsRead = () => {
   let navigation = useNavigation();
 
   return (
     <View style={style.container}>
-      <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View>
-      <ImageBackground
-        source={require('../../../assets/images/details_header_bg.png')}
-        resizeMode="cover"
-        style={{
-          width: windowWidth / 1,
-          height: 270,
-        }}>
-        <AppHeader
-          containerStyle={style.containerStyle}
-          leftArrowIcon={true}
-          colorLeftArrow={colors.white}
-          //@ts-ignore
-          onPressLeftArrow={() => navigation.navigate(Routes.News)}
-          headingText={true}
-          headingTitle="      "
-          headingTextStyle={style.titleStyle}
-          shareIcon={true}
-          shareColor={colors.white}
-          //@ts-ignore
-          // onPressShareIcon={}
-        />
-        {SeeTimeDATA.map((e, i) => {
-          return (
-            <View style={style.seeTimeDetails} key={i}>
-              <Text style={style.timeText}>{e.time}</Text>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <View>{e.iconSee}</View>
-                <Text style={style.numberSee}>{e.see}</Text>
-              </View>
-            </View>
-          );
-        })}
-      </ImageBackground>
-      <View style={{height: windowHeight / 2 + 110}}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {NewsContentDATA.map((e, i) => {
+      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
+      <SafeAreaView>
+        <ImageBackground
+          source={require('../../../assets/images/details_header_bg.png')}
+          resizeMode="cover"
+          style={{
+            width: windowWidth / 1,
+            height: 270,
+          }}>
+          <AppHeader
+            containerStyle={style.containerStyle}
+            leftArrowIcon={true}
+            colorLeftArrow={colors.white}
+            //@ts-ignore
+            onPressLeftArrow={() => navigation.navigate(Routes.News)}
+            headingText={true}
+            headingTitle="      "
+            headingTextStyle={style.titleStyle}
+            shareIcon={true}
+            shareColor={colors.white}
+            //@ts-ignore
+            // onPressShareIcon={}
+          />
+          {SeeTimeDATA.map((e, i) => {
             return (
-              <View key={i}>
-                <View style={style.headingContainer}>
-                  <View style={style.headingLine}></View>
-                  <Text style={style.headingText}>{e.headingText}</Text>
-                </View>
-                <View style={style.bodyTextContainer}>
-                  <Text style={style.bodyText}>{e.bodyText}</Text>
+              <View style={style.seeTimeDetails} key={i}>
+                <Text style={style.timeText}>{e.time}</Text>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                  <View>{e.iconSee}</View>
+                  <Text style={style.numberSee}>{e.see}</Text>
                 </View>
               </View>
             );
           })}
-        </ScrollView>
-      </View>
+        </ImageBackground>
+        <View style={{height: windowHeight / 2 + 110}}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {NewsContentDATA.map((e, i) => {
+              return (
+                <View key={i}>
+                  <View style={style.headingContainer}>
+                    <View style={style.headingLine}></View>
+                    <Text style={style.headingText}>{e.headingText}</Text>
+                  </View>
+                  <View style={style.bodyTextContainer}>
+                    <Text style={style.bodyText}>{e.bodyText}</Text>
+                  </View>
+                </View>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </SafeAreaView>
     </View>
   );
 };

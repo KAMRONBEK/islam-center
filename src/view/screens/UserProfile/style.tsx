@@ -55,7 +55,7 @@ export const style = StyleSheet.create({
   },
 
   userFullName: {
-    fontSize: 22,
+    fontSize: 21,
     fontWeight: '700',
     color: colors.black,
     marginTop: 25,
@@ -75,7 +75,7 @@ export const style = StyleSheet.create({
   },
 
   text: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '400',
     color: colors.lingthGray,
     marginBottom: 18,
@@ -111,11 +111,16 @@ export const style = StyleSheet.create({
   },
 
   pencelToggle: {
-    // borderWidth: 1,
+    width: 50,
+    height: 50,
+    right: 15,
+    borderRadius: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   userName: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '600',
     width: '80%',
     color: colors.black,
@@ -140,7 +145,7 @@ export const style = StyleSheet.create({
   },
 
   takeCodeText: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '500',
     color: colors.black,
   },
@@ -185,7 +190,7 @@ export const style = StyleSheet.create({
   buttonText: {
     color: colors.white,
     marginRight: 17,
-    fontSize: 20,
+    fontSize: 18,
     alignItems: 'center',
     fontWeight: isIOS ? '700' : '700',
     fontFamily: 'OpenSans-Regular',

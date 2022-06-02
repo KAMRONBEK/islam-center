@@ -38,7 +38,7 @@ export const style = StyleSheet.create({
   },
 
   titleContainer: {
-    paddingVertical: 30,
+    // paddingTop: 10,
   },
 
   titleTextStyle: {
@@ -46,5 +46,38 @@ export const style = StyleSheet.create({
     fontWeight: '400',
     color: colors.gray,
     paddingVertical: 15,
+  },
+
+  view: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 15,
+  },
+  select: {
+    height: 3,
+    borderRadius: 40,
+    backgroundColor: colors.black,
+  },
+  marker: {
+    width: 20,
+    height: 20,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.black,
+  },
+  markerContainer: {
+    borderRadius: 40,
+    width: 25,
+    height: 25,
+    marginTop: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.white,
+  },
+  track: {
+    height: 3,
+    borderRadius: 40,
+    backgroundColor: colors.green,
   },
 });

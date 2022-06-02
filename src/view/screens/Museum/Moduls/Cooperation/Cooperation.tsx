@@ -111,6 +111,7 @@ const Cooperation = () => {
                 //   value={Name}
                 //   editable={editName}
                 placeholder="Текст"
+                textAlignVertical="top"
                 placeholderTextColor={colors.gray}
                 keyboardType="default"
                 // maxLength={40}

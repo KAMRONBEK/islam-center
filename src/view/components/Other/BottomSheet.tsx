@@ -1,45 +1,60 @@
-import React, {useCallback, useMemo, useRef} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
+import React, {useCallback} from 'react';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../theme';
 
-const Sheet = () => {
-  // ref
-  const bottomSheetRef = useRef<BottomSheet>(null);
+interface TransactionSheetProps {
+  onSnap: (index: number) => void;
+  isVisible: boolean;
+  hideModal: () => void;
+  children: React.ReactElement;
+}
 
-  // variables
-  const snapPoints = useMemo(() => ['50%', '65', '95'], []);
-
-  // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
-
-  // renders
-  return (
-    <View style={styles.container}>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}>
-        <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
-        </View>
-      </BottomSheet>
-    </View>
+export function TransactionSheet({
+  onSnap,
+  children,
+  isVisible,
+  hideModal,
+}: TransactionSheetProps) {
+  const handleSheetChanges = useCallback(
+    (index: number) => {
+      if (onSnap) {
+        onSnap(index);
+      }
+    },
+    [onSnap],
   );
-};
 
-export default Sheet;
+  return (
+    <BottomSheet
+      handleStyle={styles.handleStyle}
+      handleIndicatorStyle={styles.handleIndicatorStyle}
+      snapPoints={['58.5%', '90%']}
+      onChange={handleSheetChanges}
+      backgroundStyle={styles.backgroundStyle}
+      style={styles.borderRadius}>
+      {children}
+    </BottomSheet>
+  );
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    backgroundColor: 'grey',
+  borderRadius: {
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
   },
-  contentContainer: {
+  backgroundStyle: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
   },
+  handleStyle: {
+    height: 25,
+    marginTop: 20,
+    backgroundColor: colors.white,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+  },
+  handleIndicatorStyle: {backgroundColor: '#D7D8DD', width: 50},
 });

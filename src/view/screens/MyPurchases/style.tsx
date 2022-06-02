@@ -35,7 +35,7 @@ export const style = StyleSheet.create({
     // alignItems: 'flex-start',
     // justifyContent: 'flex-start',
     paddingHorizontal: 20,
-    paddingVertical: 30,
+    paddingVertical: 20,
     zIndex: -1,
   },
 
@@ -81,7 +81,7 @@ export const style = StyleSheet.create({
   },
 
   toursText: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: '400',
     letterSpacing: 1.5,
     paddingTop: 10,
@@ -104,7 +104,7 @@ export const style = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: '#fff',
     // borderWidth: 1,
-    marginVertical: 15,
+    marginVertical: 10,
     borderRadius: 10,
     // backgroundColor: '#fff',
     shadowColor: '#000',
