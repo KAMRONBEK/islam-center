@@ -37,6 +37,7 @@ import {Calendar, LocaleConfig} from 'react-native-calendars';
 import carusel_bg from '../../assets/images/homeTourCorusel.png';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Button from '../../components/Button/button';
+import {formatWithMask} from 'react-native-mask-input';
 
 const DATA = new Array(31).map((e, i) => i + 1);
 const ITEM_SIZE = 64;
@@ -89,7 +90,7 @@ LocaleConfig.defaultLocale = 'tr';
 const Home = () => {
   let navigation = useNavigation();
 
-  // Date
+  // Calendar Functions //
 
   function leadingZero(value) {
     if (value < 10) {
@@ -106,9 +107,37 @@ const Home = () => {
 
   dateCurrent = yyyy + '-' + leadingZero(mm) + '-' + leadingZero(dd);
 
-  // console.log(dateCurrent);
+  // Calendar END //
 
-  // ------ //
+  // Scrolled Calendar Dates Functions //
+
+  let months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ];
+
+  let monthName = months[today.getMonth()];
+
+  // let dates;
+
+  // let days = today.getDate();
+
+  var dt = new Date();
+  var month = dt.getMonth();
+  var year = dt.getFullYear();
+  let days = new Date(0).getDate();
+
+  // Scrolled Calendar END //
 
   const news = ['NEWS', 'thistle', 'skyblue', 'teal'];
   const [index, setIndex] = useState(0);
@@ -275,7 +304,7 @@ const Home = () => {
                             fontSize: 27,
                             fontWeight: '600',
                           }}>
-                          {index}
+                          {days}
                         </Animated.Text>
                         <Animated.Text
                           style={{
@@ -284,7 +313,7 @@ const Home = () => {
                             fontWeight: '400',
                             textAlign: 'center',
                           }}>
-                          January
+                          {monthName}
                         </Animated.Text>
                       </Animated.View>
                     </TouchableOpacity>
