@@ -15,6 +15,7 @@ import {
   NotificationIcon,
   SignOutIcon,
   TourIcon,
+  VirtualTurIcon,
 } from '../../assets/icons/icon';
 import {colors} from '../../theme';
 import NotificationsStack from '../../screens/Notifications/navigator';
@@ -25,8 +26,8 @@ import MuseumStack from '../../screens/Museum/navigator';
 import Intro from '../../screens/Intro';
 import TechnicalSupport from '../../screens/TechnicalSupport';
 import ForumStack from '../../screens/Forum/navigator';
-import Exhibitions from '../../screens/Exhibitions';
 import ExhibitionsStack from '../../screens/Exhibitions/navigator';
+import VirtualTur from '../../screens/VirtualTur/VirtualTur';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -131,16 +132,16 @@ const AuthStack = () => {
           drawerLabel: 'Медиа',
         }}
       />
-      {/* <Drawer.Screen
-        name="Виртуальный тур"
-        component={Museum}
+      <Drawer.Screen
+        name={Routes.VirtualTur}
+        component={VirtualTur}
         options={{
           drawerIcon: ({color}) => (
             <VirtualTurIcon size={25} fillColor={colors.black} />
           ),
           drawerLabel: 'Виртуальный тур',
         }}
-      /> */}
+      />
       <Drawer.Screen
         name="Тех.поддержка"
         component={TechnicalSupport}

@@ -60,7 +60,7 @@ const Centre = () => {
               menuNameText={true}
               menuName="О Центре"
             />
-            <ColumnMenu
+            {/* <ColumnMenu
               //@ts-ignore
               onPressMenu={() => navigation.navigate(Routes.TasksCentre)}
               tasks={true}
@@ -75,7 +75,7 @@ const Centre = () => {
               fillColor={colors.green}
               menuNameText={true}
               menuName="Устав центра"
-            />
+            /> */}
             <ColumnMenu
               //@ts-ignore
               onPressMenu={() => navigation.navigate(Routes.AdviceCentre)}
@@ -87,10 +87,10 @@ const Centre = () => {
             <ColumnMenu
               //@ts-ignore
               onPressMenu={() => navigation.navigate(Routes.StaffCentre)}
-              control={true}
+              personal={true}
               fillColor={colors.green}
               menuNameText={true}
-              menuName="Управление"
+              menuName="Сотрудники"
             />
             <ColumnMenu
               //@ts-ignore
@@ -100,19 +100,19 @@ const Centre = () => {
               menuNameText={true}
               menuName="Документы"
             />
-            <ColumnMenu
+            {/* <ColumnMenu
               //@ts-ignore
               // onPressMenu={() => navigation.navigate(Routes.)}
               // documnet={true}
               // fillColor={colors.green}
               menuNameText={true}
               menuName="Проект"
-            />
+            /> */}
             <ColumnMenu
               //@ts-ignore
               onPressMenu={() => navigation.navigate(Routes.Resume)}
-              // documnet={true}
-              // fillColor={colors.green}
+              cooperation={true}
+              fillColor={colors.green}
               menuNameText={true}
               menuName="Вакансии"
             />

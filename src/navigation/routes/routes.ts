@@ -81,6 +81,8 @@ export enum Routes {
   DocumentsMuseum = 'DocumentsMuseum',
   Exhibits = 'Exhibits',
   ExhibitsCard = 'ExhibitsCard',
+  Departments = 'Departments',
+  DepartmentsCard = 'DepartmentsCard',
   Cooperation = 'Cooperation',
 
   //Forum
@@ -93,6 +95,10 @@ export enum Routes {
   //Tour
   Tour = 'Tour',
   TourPages = 'TourPages',
+
+  // VirtualTur
+
+  VirtualTur = 'VirtualTur',
 
   // Bottom Navigator
   BottomNavigator = 'BottomNavigator',

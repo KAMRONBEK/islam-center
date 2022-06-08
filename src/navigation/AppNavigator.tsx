@@ -38,6 +38,7 @@ import Exhibition from '../view/screens/Exhibitions/Moduls/Exhibitions';
 import FavoriteTourSheet from '../view/screens/Favorites/Moduls/Tour/TourSheet';
 import Purchase from '../view/screens/Exhibitions/Moduls/Purchase';
 import Checkout from '../view/screens/Exhibitions/Moduls/Checkout';
+import VirtualTur from '../view/screens/VirtualTur/VirtualTur';
 
 const Stack = createNativeStackNavigator();
 
@@ -90,6 +91,8 @@ const AppNavigator = () => {
           name={Routes.LibraryProductSave}
         />
         <Stack.Screen component={UserProfile} name={Routes.UserProfile} />
+        <Stack.Screen component={VirtualTur} name={Routes.VirtualTur} />
+
         <Stack.Screen component={TransactionSheet} name={Routes.Sheet} />
         <Stack.Screen component={News} name={Routes.News} />
         <Stack.Screen component={NewsRead} name={Routes.NewsRead} />

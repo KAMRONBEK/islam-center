@@ -45,7 +45,7 @@ const Museum = () => {
           }}>
           <ColumnMenu
             //@ts-ignore
-            // onPressMenu={() => navigation.navigate(Routes.AboutMuseum)}
+            onPressMenu={() => navigation.navigate(Routes.AboutMuseum)}
             museumIcon={true}
             fillColor={colors.green}
             menuNameText={true}
@@ -60,7 +60,8 @@ const Museum = () => {
             menuName="Экспонаты"
           />
           <ColumnMenu
-            // onPressMenu={() => navigation.navigate('Details')}
+            //@ts-ignore
+            onPressMenu={() => navigation.navigate(Routes.Departments)}
             doorIocn={true}
             fillColor={colors.green}
             menuNameText={true}
@@ -78,7 +79,7 @@ const Museum = () => {
           <ColumnMenu
             //@ts-ignore
             onPressMenu={() => navigation.navigate(Routes.Cooperation)}
-            documnet={true}
+            cooperation={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Сотрудничество"
@@ -93,7 +94,7 @@ const Museum = () => {
           <ColumnMenu
             //@ts-ignore
             onPressMenu={() => navigation.navigate(Routes.Personal)}
-            documnet={true}
+            personal={true}
             fillColor={colors.green}
             menuNameText={true}
             menuName="Сотрудники музея"

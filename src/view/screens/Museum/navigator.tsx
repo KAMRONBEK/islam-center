@@ -5,7 +5,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Museum from '.';
 import TimeWork from './Moduls/TimeWork/TimeWork';
 import IntroMuseum from './Moduls/Intro/IntroMuseum';
-import AboutMuseum from './Moduls2/AboutMuseum';
 import LocationMuseum from './Moduls/Location/LocationMuseum';
 import Personal from './Moduls/Personal/Personal';
 import PersonalCard from './Moduls/Personal/PersonalCard/PersonalCard';
@@ -13,6 +12,9 @@ import DocumentsMuseum from './Moduls/Documents/documents';
 import Exhibits from './Moduls/Exhibits/Exhibits';
 import ExhibitsCard from './Moduls/Exhibits/ExhibitsCard/ExhibitsCard';
 import Cooperation from './Moduls/Cooperation/Cooperation';
+import Departments from './Moduls/Departments/Departments';
+import DepartmentsCard from './Moduls/Departments/DepartmentsCard/DepartmentsCard';
+import AboutMuseum from './Moduls/About/AboutMuseum';
 
 const MuseumStack = () => {
   let Stack = createNativeStackNavigator();
@@ -20,9 +22,11 @@ const MuseumStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen component={Museum} name={Routes.Museum} />
-      {/* <Stack.Screen component={AboutMuseum} name={Routes.AboutMuseum} /> */}
+      <Stack.Screen component={AboutMuseum} name={Routes.AboutMuseum} />
       <Stack.Screen component={Exhibits} name={Routes.Exhibits} />
       <Stack.Screen component={ExhibitsCard} name={Routes.ExhibitsCard} />
+      <Stack.Screen component={Departments} name={Routes.Departments} />
+      <Stack.Screen component={DepartmentsCard} name={Routes.DepartmentsCard} />
       <Stack.Screen component={Cooperation} name={Routes.Cooperation} />
       <Stack.Screen component={TimeWork} name={Routes.TimeWork} />
       <Stack.Screen component={IntroMuseum} name={Routes.IntroMuseum} />

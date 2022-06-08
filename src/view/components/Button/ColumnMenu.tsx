@@ -13,6 +13,7 @@ import {
   CharterIcon,
   ComfortIcon,
   ControlIcon,
+  CooperationIcon,
   DocumentIcon,
   DoorIcon,
   ImageIcon,
@@ -21,6 +22,7 @@ import {
   LoginMuseumIcon,
   MuseumIcon,
   MuseumRightArrow,
+  PersonalIcon,
   TasksIcon,
   TimeIcon,
   TourIcon,
@@ -39,6 +41,8 @@ export interface ColumnMenuProps {
   internationalIcon?: any;
   exponate?: any;
   documnet?: any;
+  cooperation?: any;
+  personal?: any;
   menuNameText?: any;
   menuName?: any;
   timeWork?: any;
@@ -71,6 +75,8 @@ export function ColumnMenu({
   internationalIcon,
   exponate,
   documnet,
+  cooperation,
+  personal,
   timeWork,
   loginMuseum,
   location,
@@ -95,7 +101,8 @@ export function ColumnMenu({
     internationalIcon,
     exponate,
     documnet,
-
+    cooperation,
+    personal,
     timeWork,
     loginMuseum,
     location,
@@ -128,7 +135,8 @@ export function ColumnMenu({
           {internationalIcon && <TourIcon size={25} fillColor={fillColor} />}
           {exponate && <ImageIcon size={25} fillColor={fillColor} />}
           {documnet && <DocumentIcon size={25} fillColor={fillColor} />}
-
+          {cooperation && <CooperationIcon size={25} fillColor={fillColor} />}
+          {personal && <PersonalIcon size={25} fillColor={fillColor} />}
           {timeWork && <TimeIcon size={25} fillColor={fillColor} />}
           {loginMuseum && <LoginMuseumIcon size={25} fillColor={fillColor} />}
           {location && <LocationMenuIcon size={25} fillColor={fillColor} />}
