@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,7 +44,6 @@
 		B5D297278CF24DC8A0BD3516 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BC8E700C90248EC8F14E3DC /* OpenSans-LightItalic.ttf */; };
 		BC95BDABDB12419995AAEBB4 /* OpenSans_SemiCondensed-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C720792F583F46C998D7FC3C /* OpenSans_SemiCondensed-ExtraBoldItalic.ttf */; };
 		BED09742FF264895AA35845B /* OpenSans_Condensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 720B274E5D7A4962AEC505D9 /* OpenSans_Condensed-Light.ttf */; };
-		C555EFD6D69F05AF2B2E5D12 /* libPods-islam_centre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBECB5FE3A744C75E7FAC48 /* libPods-islam_centre.a */; };
 		CF2277CB938445EDB2284F5E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4D3DA7DD22D45E2906B7583 /* OpenSans-Regular.ttf */; };
 		D2659CFAD8314B0DA7D4D0D5 /* OpenSans-Italic-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46C35BA2E8BB46F7871556C7 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */; };
 		E3D616E49055486A9DE5667F /* OpenSans_SemiCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F965B8B7E3144AA282E4EC8C /* OpenSans_SemiCondensed-SemiBoldItalic.ttf */; };
@@ -135,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C555EFD6D69F05AF2B2E5D12 /* libPods-islam_centre.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +332,7 @@
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "islam_centre" */;
-			compatibilityVersion = "Xcode 12.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
