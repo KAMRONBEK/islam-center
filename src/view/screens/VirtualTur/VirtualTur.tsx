@@ -11,29 +11,30 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {VirtualTurDATA, VirtualTurImageDATA} from './data';
+import {VirtualTurImageDATA, VirtualTurTextDATA} from './data';
 import {AppHeader} from '../../components/Other/AppBar';
 import {colors} from '../../theme';
 import {Routes} from '../../../navigation/routes/routes';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import ImageView from 'react-native-image-viewing';
+import {Chapter} from '../Home/components/chapter';
 
 const VirtualTur = () => {
   let navigation = useNavigation();
 
   const [visible, setVisible] = useState(false);
 
-  const images = [
-    {
-      uri: 'https://images.unsplash.com/photo-1571501679680-de32f1e7aad4',
-    },
-    {
-      uri: 'https://images.unsplash.com/photo-1573273787173-0eb81a833b34',
-    },
-    {
-      uri: 'https://images.unsplash.com/photo-1569569970363-df7b6160d111',
-    },
-  ];
+  // const images = [
+  //   {
+  //     uri: 'https://images.unsplash.com/photo-1571501679680-de32f1e7aad4',
+  //   },
+  //   {
+  //     uri: 'https://images.unsplash.com/photo-1573273787173-0eb81a833b34',
+  //   },
+  //   {
+  //     uri: 'https://images.unsplash.com/photo-1569569970363-df7b6160d111',
+  //   },
+  // ];
 
   return (
     <View style={style.container}>
@@ -63,31 +64,51 @@ const VirtualTur = () => {
           headingTitle="Виртуальный тур"
           headingTextStyle={style.titleStyle}
         />
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Image
-            source={require('../../assets/images/virtualTur.png')}
-            resizeMode="cover"
-            style={{height: windowHeight / 4, width: '90%', borderRadius: 5}}
-          />
+        <View style={{height: windowHeight / 1 - 150}}>
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 80}}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <Image
+                source={require('../../assets/images/virtualTur.png')}
+                resizeMode="cover"
+                style={{
+                  height: windowHeight / 4,
+                  width: '90%',
+                  borderRadius: 5,
+                }}
+              />
+            </View>
+
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={style.imageView}>
+                {VirtualTurImageDATA.map(e => {
+                  return (
+                    <>
+                      <TouchableOpacity
+                        onPress={() => setVisible(true)}
+                        style={{paddingHorizontal: 10}}>
+                        <Image
+                          source={e}
+                          // resizeMode="cover"
+                          style={style.image}
+                        />
+                      </TouchableOpacity>
+                    </>
+                  );
+                })}
+              </View>
+            </ScrollView>
+            <Chapter chapter={true} chapterTitle="Виртуальный тур" />
+
+            <View style={{paddingHorizontal: 20}}>
+              {VirtualTurTextDATA.map(e => {
+                return <Text style={{fontSize: 17, fontWeight: '400', color: colors.gray, lineHeight: 23}}>{e.text}</Text>;
+              })}
+            </View>
+          </ScrollView>
         </View>
-
-        {VirtualTurImageDATA.map(e => {
-          return (
-            <>
-              <TouchableOpacity onPress={() => setVisible(true)}>
-                <Image
-                  source={e}
-                  // resizeMode="cover"
-                  style={style.image}
-                />
-              </TouchableOpacity>
-            </>
-          );
-        })}
-
         <ImageView
           images={VirtualTurImageDATA}
-          imageIndex={0}
+          imageIndex={2}
           visible={visible}
           presentationStyle="fullScreen"
           onRequestClose={() => setVisible(false)}
@@ -146,10 +167,17 @@ export const style = StyleSheet.create({
     // backgroundColor: '#262626',
   },
 
+  imageView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+
   image: {
-    borderRadius: 5,
-    width: 110,
-    height: 100,
+    borderRadius: 20,
+    width: 170,
+    height: 120,
   },
 
   name: {
