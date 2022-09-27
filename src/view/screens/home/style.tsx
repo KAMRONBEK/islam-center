@@ -56,7 +56,7 @@ export const style = StyleSheet.create({
     width: windowWidth / 1 - 115,
     // height: windowHeight / 2 - 40,
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop: 10,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',

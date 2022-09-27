@@ -37,11 +37,11 @@ import {Calendar, LocaleConfig} from 'react-native-calendars';
 import carusel_bg from '../../assets/images/homeTourCorusel.png';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Button from '../../components/Button/button';
-import {formatWithMask} from 'react-native-mask-input';
+import dayjs from 'dayjs';
 
 const DATA = new Array(31).map((e, i) => i + 1);
 const ITEM_SIZE = 64;
-const MARGIN = 20;
+const MARGIN = 25;
 
 LocaleConfig.locales['tr'] = {
   monthNames: [
@@ -105,7 +105,24 @@ const Home = () => {
   let mm = today.getMonth() + 1;
   let yyyy = today.getFullYear();
 
-  dateCurrent = yyyy + '-' + leadingZero(mm) + '-' + leadingZero(dd);
+  const [dateCurrent, setDateCurrent] = useState(
+    yyyy + '-' + leadingZero(mm) + '-' + leadingZero(dd),
+  );
+
+  const onSellectDate = (day?: any) => {
+    setDateCurrent(day.dateString);
+  };
+
+  const getDaysInMonth = (month?: any, year?: any) => {
+    return new Array(31)
+      .fill('')
+      .map((v, i) => new Date(year, month - 1, i + 1))
+      .filter(v => v.getMonth() === month - 1);
+  };
+
+  const [selectedDate, setSelectedDate] = useState(getDaysInMonth(mm, yyyy));
+
+  // selectedDate.map(e => console.log(e.toLocaleDateString().substring(0, 2)));
 
   // Calendar END //
 
@@ -174,7 +191,6 @@ const Home = () => {
 
   return (
     <View style={style.container}>
-      {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
       <SafeAreaView>
         <AppHeader
           containerStyle={style.containerStyle}
@@ -208,9 +224,11 @@ const Home = () => {
               style={{
                 flexDirection: 'column',
                 alignItems: 'center',
+                // borderWidth: 1,
               }}>
               <Animated.FlatList
                 showsVerticalScrollIndicator={false}
+                keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{
                   marginTop: 100,
                   paddingBottom: 80,
@@ -218,7 +236,7 @@ const Home = () => {
                   width: isIOS ? windowWidth / 4 - 5 : windowWidth / 4,
                   paddingLeft: 2,
                 }}
-                data={DATA}
+                data={selectedDate}
                 onScroll={Animated.event(
                   [
                     {
@@ -304,8 +322,9 @@ const Home = () => {
                             fontSize: 27,
                             fontWeight: '600',
                           }}>
-                          {days}
+                          {item.toLocaleDateString().substring(0, 2)}
                         </Animated.Text>
+
                         <Animated.Text
                           style={{
                             color: color,
@@ -361,7 +380,7 @@ const Home = () => {
                           style={{
                             width: windowWidth / 1 - 155,
                             height: isIOS
-                              ? windowHeight / 2
+                              ? windowHeight / 2 + 20
                               : windowHeight / 2 + 30,
                             justifyContent: 'flex-end',
                             borderRadius: 6,
@@ -530,13 +549,7 @@ const Home = () => {
                 backgroundColor: colors.white,
                 borderRadius: 5,
                 // borderWidth: isIOS ? 0.1 : 0.2,
-              }}
-              // renderItem={({item}) => (
-              //   <View style={[style.childSlide, {backgroundColor: item}]}>
-              //     <Text style={style.textSlide}>{item}</Text>
-              //   </View>
-              // )}
-            >
+              }}>
               {NewsCoruselDATA.map((e, i) => {
                 return (
                   <View style={style.newsCoruselContainer} key={i.toString()}>
@@ -642,7 +655,10 @@ const Home = () => {
                 <Calendar
                   // markingType={'multi-dot'}
                   markingType="custom"
-                  // onDayPress={}
+                  onDayPress={day => {
+                    onSellectDate(day);
+                    // console.log(dateCurrent);
+                  }}
                   //YYYY-MM-DD
                   markedDates={{
                     [dateCurrent]: {
