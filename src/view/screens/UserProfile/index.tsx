@@ -32,8 +32,8 @@ const UserProfile = () => {
 
   const [takeCode, setTakeCode] = useState(false);
 
-  const [Name, onChangeName] = React.useState('Рафаэль');
-  const [LastName, onChangeLastName] = React.useState('Ройтман');
+  const [Name, onChangeName] = React.useState('Diyorbek');
+  const [LastName, onChangeLastName] = React.useState('Developer');
   const [UserPhone, onChangePhone] = React.useState('+ 998 33 333 33 33');
   const [code, onChangeCode] = React.useState('111');
 
@@ -99,7 +99,7 @@ const UserProfile = () => {
               style={style.userImage}
             />
           </TouchableOpacity>
-          <Text style={style.userFullName}>Ройтман Рафаэль</Text>
+          <Text style={style.userFullName}>{Name+' '+LastName} </Text>
         </View>
         <View style={style.profileContainer}>
           <View style={style.userInformationContainer}>

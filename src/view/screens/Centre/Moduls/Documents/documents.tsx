@@ -15,7 +15,7 @@ import {colors} from '../../../../theme';
 import {Routes} from '../../../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
 import {LawDocumentDATA, MinistersLawDATA} from './data';
-import {Chapter} from '../../../Home/components/chapter';
+import {Chapter} from '../../../home/components/chapter';
 
 const Documents = () => {
   let navigation = useNavigation();

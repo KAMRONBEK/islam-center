@@ -13,7 +13,7 @@ import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
 import {colors} from '../../../../theme';
 import {Routes} from '../../../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
-import {Chapter} from '../../../Home/components/chapter';
+import {Chapter} from '../../../home/components/chapter';
 import {LawDocumentMuseumDATA, MinistersLawMuseumDATA} from './data';
 
 const DocumentsMuseum = () => {

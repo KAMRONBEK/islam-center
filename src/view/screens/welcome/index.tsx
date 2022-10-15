@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {style} from './style';
 import {ArrowRight, Pattern} from '../../assets/icons/icon';
 import Button from '../../components/Button/button';
@@ -19,32 +19,21 @@ import MaskInput from 'react-native-mask-input';
 // @ts-ignore
 import intro_bg from '../../assets/images/intro_bg-2.png';
 import {Routes} from '../../../navigation/routes/routes';
+import {TypeAuthState} from '../../../context/auth/TypeAuth';
+import {useAuthContext} from '../../../context/auth/AuthContext';
 
 const Welcome = () => {
   let navigation = useNavigation();
-  const [code, setCode] = React.useState('3123');
-  const [visibleWarning, setVisibleWarning] = React.useState(false);
-  const [visibleSendCode, setVisibleSendCode] = React.useState(false);
-
-  let onSubmitCode = () => {
-    if (code.length == 4 && code.toString() == '3123') {
-      //@ts-ignore
-      // navigation.navigate(Routes.BottomNavigator);
-      //@ts-ignore
-      navigation.navigate(Routes.AuthStack);
-      setVisibleWarning(false);
-      setVisibleSendCode(false);
-    } else {
-      setVisibleWarning(true);
-      setVisibleSendCode(false);
-    }
-    // console.warn(code);
-  };
-
-  let onPressRequestCode = () => {
-    setVisibleSendCode(true);
-    setVisibleWarning(false);
-  };
+  const {
+    code,
+    setCode,
+    CodeSubmit,
+    minutes,
+    seconds,
+    visibleWarningCode,
+    visibleSendCode,
+    onPressRequestCode,
+  } = useAuthContext() as TypeAuthState;
 
   return (
     <KeyboardAvoidingView
@@ -73,25 +62,25 @@ const Welcome = () => {
               <Text style={style.welcomeText}>ПРИВЕТСТВУЕМ ВАС!</Text>
               <Text style={style.phoneText}>Введите код из SMS</Text>
               <MaskInput
-                mask={[/\d/, /\d/, /\d/, /\d/]}
+                // mask={[/\d/, /\d/, /\d/, /\d/]}
                 value={code}
                 onChangeText={setCode}
                 keyboardType="phone-pad"
                 placeholderTextColor="#000"
                 style={style.input}
               />
-              {visibleWarning ? (
+              {visibleWarningCode ? (
                 <Text style={style.warning}>Код введен не верно</Text>
               ) : null}
               {visibleSendCode ? (
                 <Text style={style.waitSendCode}>
-                  Повторно можно запросить через: 1:30
+                  Повторно можно запросить через: {minutes}:{seconds}
                 </Text>
               ) : null}
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
-                onPress={onSubmitCode}
+                onPress={CodeSubmit}
                 text="Подтвердить"
                 textStyles={style.buttonText}
                 Icon={ArrowRight}

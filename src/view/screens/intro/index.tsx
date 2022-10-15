@@ -24,7 +24,7 @@ const Intro = () => {
       <View style={style.inner}>
         <View style={style.topBox}>
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require('../../assets/images/Logo.png')}
             resizeMode="cover"
             style={{width: 115, height: 113}}
           />

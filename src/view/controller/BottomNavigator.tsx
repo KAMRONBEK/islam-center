@@ -12,7 +12,7 @@ import {
   MuseumIcon,
   ProfileIcon,
 } from '../assets/icons/icon';
-import Home from '../screens/Home/index';
+import Home from '../screens/home/index';
 import Favorites from '../screens/Favorites';
 import UserProfile from '../screens/UserProfile';
 import LibraryStack from '../screens/Library/navigator';

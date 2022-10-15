@@ -13,7 +13,7 @@ import {
 import {IconProps} from '../../assets/icons/icon';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {CardDATA} from './data';
-import {Chapter} from '../../screens/Home/components/chapter';
+import {Chapter} from '../../screens/home/components/chapter';
 
 export interface CardProps {
   onPress?: () => void;

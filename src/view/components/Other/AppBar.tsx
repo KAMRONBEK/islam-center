@@ -131,7 +131,7 @@ export function AppHeader({
       {logoIcon && (
         <View>
           <Image
-            source={require('../../assets/images/logo.png')}
+            source={require('../../assets/images/Logo.png')}
             resizeMode="cover"
             style={{width: 55, height: 55}}
           />

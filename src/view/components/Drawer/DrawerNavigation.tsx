@@ -23,7 +23,7 @@ import NewsStack from '../../screens/News/navigator';
 import MyPurchasesStack from '../../screens/MyPurchases/navigator';
 import Media from '../../screens/Media/media';
 import MuseumStack from '../../screens/Museum/navigator';
-import Intro from '../../screens/Intro';
+import Intro from '../../screens/intro';
 import TechnicalSupport from '../../screens/TechnicalSupport';
 import ForumStack from '../../screens/Forum/navigator';
 import ExhibitionsStack from '../../screens/Exhibitions/navigator';

@@ -17,7 +17,7 @@ import {colors} from '../../theme';
 import {Routes} from '../../../navigation/routes/routes';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import ImageView from 'react-native-image-viewing';
-import {Chapter} from '../Home/components/chapter';
+import {Chapter} from '../home/components/chapter';
 
 const VirtualTur = () => {
   let navigation = useNavigation();

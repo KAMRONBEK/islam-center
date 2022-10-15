@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {TourIcon} from '../../../../assets/icons/icon';
 import {windowWidth} from '../../../../constants/size';
 import {ScrollView} from 'react-native-gesture-handler';
-import ImagePicker from 'react-native-image-crop-picker';
+// import ImagePicker from 'react-native-image-crop-picker';
 
 const CreateTopic = () => {
   const navigation = useNavigation();
@@ -28,14 +28,14 @@ const CreateTopic = () => {
   const [image, setImage] = useState('');
 
   const takePhotoFromGallery = () => {
-    ImagePicker.openPicker({
-      width: windowWidth / 1 - 80,
-      height: 320,
-      cropping: true,
-    }).then(image => {
-      // console.log(image);
-      setImage(image.path);
-    });
+    // ImagePicker.openPicker({
+    //   width: windowWidth / 1 - 80,
+    //   height: 320,
+    //   cropping: true,
+    // }).then(image => {
+    //   // console.log(image);
+    //   setImage(image.path);
+    // });
   };
 
   const deletePhotoFromGallery = () => {

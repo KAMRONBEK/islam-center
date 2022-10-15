@@ -99,4 +99,11 @@ export const style = StyleSheet.create({
     fontWeight: isIOS ? '700' : '700',
     fontFamily: 'OpenSans-Regular',
   },
+  warning: {
+    fontSize: 15,
+    fontWeight: '600',
+    marginTop: 25,
+    marginBottom: -25,
+    color: colors.red,
+  },
 });

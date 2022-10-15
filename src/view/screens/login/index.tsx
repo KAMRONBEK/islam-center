@@ -1,30 +1,21 @@
 import {Text, View, ImageBackground, KeyboardAvoidingView} from 'react-native';
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {style} from './style';
 import {ArrowRight, Pattern} from '../../assets/icons/icon';
 import Button from '../../components/Button/button';
 import {isIOS, windowHeight, windowWidth} from '../../constants/size';
 import {colors} from '../../theme';
 import {AppHeader} from '../../components/Other/AppBar';
-import {useNavigation} from '@react-navigation/native';
 import MaskInput from 'react-native-mask-input';
 
 // image
+import {useAuthContext} from '../../../context/auth/AuthContext';
+import {TypeAuthState} from '../../../context/auth/TypeAuth';
 // @ts-ignore
 import intro_bg from '../../assets/images/intro_bg-2.png';
-import {Routes} from '../../../navigation/routes/routes';
-
 const Login = () => {
-  let navigation = useNavigation();
-  const [phone, setPhone] = React.useState<string>('+ 998 33 333 33 33');
-
-  let onSubmitPhone = () => {
-    if (phone.length >= 18) {
-      //@ts-ignore
-      navigation.navigate(Routes.Welcome);
-    } else null;
-    // console.warn(phone);
-  };
+  const {phone, setPhone, PhoneNumberSubmit, visibleWarningNumber} =
+    useAuthContext() as TypeAuthState;
 
   return (
     <KeyboardAvoidingView
@@ -39,7 +30,7 @@ const Login = () => {
             containerStyle={style.containerStyle}
             leftArrowIcon={true}
             colorLeftArrow={colors.white}
-            //@ts-ignore
+            // @ts-ignore
             onPressLeftArrow={() => navigation.navigate('Intro')}
             headingText={true}
             headingTitle="Войти"
@@ -79,10 +70,13 @@ const Login = () => {
                 placeholderTextColor="#000"
                 style={style.input}
               />
+              {visibleWarningNumber ? (
+                <Text style={style.warning}>Заполнить поле</Text>
+              ) : null}
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
-                onPress={onSubmitPhone}
+                onPress={PhoneNumberSubmit}
                 // onPress={() => navigation.navigate('Welcome')}
                 text="Подтвердить"
                 textStyles={style.buttonText}
