@@ -24,6 +24,7 @@ export interface ButtonProps {
   textStyles?: TextStyle;
   Icon?: (props: IconProps) => any;
   image?: ImageProps;
+  disabled: boolean;
 }
 
 const Button = ({
@@ -36,9 +37,10 @@ const Button = ({
   textStyles,
   Icon,
   image,
+  disabled,
 }: ButtonProps) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity disabled={disabled} onPress={onPress}>
       <View style={[styles.container, containerStyle]}>
         <Image source={image} />
         <Text style={[textStyles]}>{text}</Text>

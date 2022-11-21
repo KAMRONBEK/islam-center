@@ -10,19 +10,29 @@ import {colors} from '../../../theme';
 import {isIOS, windowHeight, windowWidth} from '../../../constants/size';
 import {AppHeader} from '../../../components/Other/AppBar';
 import {NewsContentDATA, SeeTimeDATA} from './data';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {Routes} from '../../../../navigation/routes/routes';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {SeeIcon} from '../../../assets/icons/icon';
+import {useLangContext} from '../../../../context/lang/LangContext';
+import {TypeLangState} from '../../../../context/lang/TypeLang';
+import moment from 'moment';
+// @ts-ignore
+const NewsRead = props => {
+  const {language} = useLangContext() as TypeLangState;
 
-const NewsRead = () => {
   let navigation = useNavigation();
+  const rout = useRoute().params;
+  // @ts-ignore
+  const item = rout.item;
 
   return (
     <View style={style.container}>
       {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
       <SafeAreaView>
         <ImageBackground
-          source={require('../../../assets/images/details_header_bg.png')}
+          // @ts-ignore
+          source={{uri:`https://mamajanovs.uz/${item.image}`}}
           resizeMode="cover"
           style={{
             width: windowWidth / 1,
@@ -45,10 +55,16 @@ const NewsRead = () => {
           {SeeTimeDATA.map((e, i) => {
             return (
               <View style={style.seeTimeDetails} key={i}>
-                <Text style={style.timeText}>{e.time}</Text>
+                <Text style={style.timeText}>
+                  {moment(item.created_at).format('hh:mm')}
+                  {' - '}
+                  {moment(item.created_at).format('DD.MM.YYYY')}
+                </Text>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <View>{e.iconSee}</View>
-                  <Text style={style.numberSee}>{e.see}</Text>
+                  <View>
+                    <SeeIcon size={20} fillColor={colors.white} />
+                  </View>
+                  <Text style={style.numberSee}>{item.views}</Text>
                 </View>
               </View>
             );
@@ -61,10 +77,14 @@ const NewsRead = () => {
                 <View key={i}>
                   <View style={style.headingContainer}>
                     <View style={style.headingLine}></View>
-                    <Text style={style.headingText}>{e.headingText}</Text>
+                    <Text style={style.headingText}>
+                      {JSON.parse(item.title)[language]}
+                    </Text>
                   </View>
                   <View style={style.bodyTextContainer}>
-                    <Text style={style.bodyText}>{e.bodyText}</Text>
+                    <Text style={style.bodyText}>
+                      {JSON.parse(item.description)[language]}
+                    </Text>
                   </View>
                 </View>
               );

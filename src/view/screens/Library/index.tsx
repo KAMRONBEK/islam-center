@@ -14,12 +14,18 @@ import {AppHeader} from '../../components/Other/AppBar';
 import {style} from './style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '../../theme';
-import {MyBookIcon, SearchIcon} from '../../assets/icons/icon';
+import {LikeSave, MyBookIcon, SearchIcon} from '../../assets/icons/icon';
 import {LibraryDATA} from './data';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../../navigation/routes/routes';
+import {useAllApiContext} from '../../../context/allapi/AllApiContext';
+import {useLangContext} from '../../../context/lang/LangContext';
+import {TypeAllApiState} from '../../../context/allapi/TypeAllApi';
+import {TypeLangState} from '../../../context/lang/TypeLang';
 
 const Library = () => {
+  const {catalogs} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
   let navigation = useNavigation();
   const Tab = createBottomTabNavigator();
 
@@ -66,7 +72,7 @@ const Library = () => {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={LibraryDATA}
+          data={catalogs}
           numColumns={2}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
@@ -92,18 +98,35 @@ const Library = () => {
                     <TouchableOpacity
                       //@ts-ignore
                       onPress={() =>
-                        navigation.navigate(Routes.LibraryProduct)
+                        navigation.navigate(Routes.LibraryProduct, {
+                          item: item,
+                        })
                       }>
-                      {item.image}
+                      <Image
+                        source={{
+                          uri: `https://mamajanovs.uz/images/${item.image}`,
+                        }}
+                        resizeMode="cover"
+                        style={style.productImage}
+                      />
                     </TouchableOpacity>
                     <TouchableOpacity style={style.btnLike}>
-                      {item.iconLike}
+                      <LikeSave
+                        size={25}
+                        fillColor={colors.white}
+                        color={colors.green}
+                      />
                     </TouchableOpacity>
                   </View>
                   <View style={style.productItem}>
-                    <Text style={style.productName}>{item.label}</Text>
-                    <Text style={style.productTitle}>{item.title}</Text>
-                    <Text style={style.productPrice}>{item.price}</Text>
+                    <Text style={style.productName}>
+                      {JSON.parse(item.title)[language]}
+                    </Text>
+                    {/* <Text style={style.productTitle}>{JSON.parse(item.author)[language]}</Text> */}
+                    <Text style={style.productTitle}>{JSON.parse(item.author)[language]}</Text>
+                    <Text style={style.productPrice}>
+                      {item.price == 0 ? 'Бесплатно' : item.price}
+                    </Text>
                   </View>
                 </View>
               </View>

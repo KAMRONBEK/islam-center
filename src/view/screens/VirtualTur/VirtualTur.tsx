@@ -65,7 +65,9 @@ const VirtualTur = () => {
           headingTextStyle={style.titleStyle}
         />
         <View style={{height: windowHeight / 1 - 150}}>
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 80}}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{paddingBottom: 80}}>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <Image
                 source={require('../../assets/images/virtualTur.png')}
@@ -101,7 +103,17 @@ const VirtualTur = () => {
 
             <View style={{paddingHorizontal: 20}}>
               {VirtualTurTextDATA.map(e => {
-                return <Text style={{fontSize: 17, fontWeight: '400', color: colors.gray, lineHeight: 23}}>{e.text}</Text>;
+                return (
+                  <Text
+                    style={{
+                      fontSize: 17,
+                      fontWeight: '400',
+                      color: colors.gray,
+                      lineHeight: 23,
+                    }}>
+                    {e.text}
+                  </Text>
+                );
               })}
             </View>
           </ScrollView>

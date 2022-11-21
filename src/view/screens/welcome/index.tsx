@@ -30,9 +30,13 @@ const Welcome = () => {
     CodeSubmit,
     minutes,
     seconds,
+    timeOff,
+    reloadDisable,
     visibleWarningCode,
     visibleSendCode,
+    codeDisabled,
     onPressRequestCode,
+    ClearAllAuth,
   } = useAuthContext() as TypeAuthState;
 
   return (
@@ -49,7 +53,7 @@ const Welcome = () => {
             leftArrowIcon={true}
             colorLeftArrow={colors.white}
             //@ts-ignore
-            onPressLeftArrow={() => navigation.navigate('Login')}
+            onPressLeftArrow={ClearAllAuth}
             headingText={true}
             headingTitle="Подтверждение"
             headingTextStyle={style.titleStyle}
@@ -62,7 +66,7 @@ const Welcome = () => {
               <Text style={style.welcomeText}>ПРИВЕТСТВУЕМ ВАС!</Text>
               <Text style={style.phoneText}>Введите код из SMS</Text>
               <MaskInput
-                // mask={[/\d/, /\d/, /\d/, /\d/]}
+                mask={[/\d/, /\d/, /\d/, /\d/]}
                 value={code}
                 onChangeText={setCode}
                 keyboardType="phone-pad"
@@ -73,21 +77,24 @@ const Welcome = () => {
                 <Text style={style.warning}>Код введен не верно</Text>
               ) : null}
               {visibleSendCode ? (
-                <Text style={style.waitSendCode}>
+                <Text
+                  style={[style.waitSendCode, {opacity: timeOff ? 0.2 : 1}]}>
                   Повторно можно запросить через: {minutes}:{seconds}
                 </Text>
               ) : null}
               <Button
+                disabled={codeDisabled}
                 containerStyle={style.buttonContainer}
-                //@ts-ignore
                 onPress={CodeSubmit}
-                text="Подтвердить"
+                text={codeDisabled ? 'Загрузка' : 'Подтвердить'}
                 textStyles={style.buttonText}
                 Icon={ArrowRight}
                 icon={colors.white}
               />
               <TouchableOpacity onPress={onPressRequestCode}>
-                <Text style={style.takeCode}>Запросить код ещё раз</Text>
+                {reloadDisable ? (
+                  <Text style={style.takeCode}>Запросить код ещё раз</Text>
+                ) : null}
               </TouchableOpacity>
             </View>
           </View>

@@ -105,5 +105,5 @@ export const style = StyleSheet.create({
     marginTop: 25,
     marginBottom: -25,
     color: colors.red,
-  },
+  }, 
 });

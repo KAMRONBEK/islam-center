@@ -10,6 +10,7 @@ import {
   NativeSyntheticEvent,
   TouchableNativeFeedback,
   SafeAreaView,
+  Image,
 } from 'react-native';
 import React, {useState, useRef, useEffect} from 'react';
 import {style} from './style';
@@ -23,6 +24,7 @@ import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import {
   ArrowLeft,
   CalendarIcon,
+  ClockIcon,
   CoruselArrowLeft,
   CoruselArrowRight,
 } from '../../assets/icons/icon';
@@ -38,7 +40,11 @@ import carusel_bg from '../../assets/images/homeTourCorusel.png';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Button from '../../components/Button/button';
 import dayjs from 'dayjs';
-
+import {useLangContext} from '../../../context/lang/LangContext';
+import {useAllApiContext} from '../../../context/allapi/AllApiContext';
+import {TypeAllApiState} from '../../../context/allapi/TypeAllApi';
+import {TypeLangState} from '../../../context/lang/TypeLang';
+import moment from 'moment';
 const DATA = new Array(31).map((e, i) => i + 1);
 const ITEM_SIZE = 64;
 const MARGIN = 25;
@@ -86,10 +92,11 @@ LocaleConfig.locales['tr'] = {
   dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
 };
 LocaleConfig.defaultLocale = 'tr';
-
-const Home = () => {
+// @ts-ignore
+const Home = props => {
   let navigation = useNavigation();
-
+  const {newPosts} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
   // Calendar Functions //
 
   function leadingZero(value) {
@@ -455,7 +462,13 @@ const Home = () => {
               </View>
             </View>
           </View>
-          <Chapter chapter={true} chapterTitle="Библиотека" allChapter="ВСЕ" />
+          <Chapter
+            chapter={true}
+            chapterTitle="Библиотека"
+            // @ts-ignore
+            onPress={() => navigation.navigate(Routes.Library)}
+            allChapter="ВСЕ"
+          />
           <View style={style.bookShopCorusel}>
             <SwiperFlatList
               ref={_flatListShopRef}
@@ -533,7 +546,13 @@ const Home = () => {
             </View>
           </View>
           <Card />
-          <Chapter chapter={true} chapterTitle="Новости" allChapter="ВСЕ" />
+          <Chapter
+            chapter={true}
+            chapterTitle="Новости"
+            allChapter="ВСЕ"
+            // @ts-ignore
+            onPress={() => props.navigation.navigate(Routes.News)}
+          />
           <View style={style.newsCorusel}>
             <SwiperFlatList
               ref={_flatListNewsRef}
@@ -544,30 +563,54 @@ const Home = () => {
               // value={index}
               // onChangeIndex={setIndex}
               // showPagination
-              data={news}
+              data={newPosts}
               style={{
                 backgroundColor: colors.white,
                 borderRadius: 5,
                 // borderWidth: isIOS ? 0.1 : 0.2,
               }}>
-              {NewsCoruselDATA.map((e, i) => {
+              {newPosts.map((e: any, i: any) => {
                 return (
                   <View style={style.newsCoruselContainer} key={i.toString()}>
                     <TouchableWithoutFeedback>
                       <View style={style.newsImage}>
-                        <View>{e.icon}</View>
+                        <View>
+                          <Image
+                            source={{
+                              uri: `https://mamajanovs.uz/${e.image}`,
+                            }}
+                            // resizeMode="cover"
+                            style={{
+                              width: '100%',
+                              height: 220,
+                              borderRadius: 5,
+                            }}
+                          />
+                        </View>
                       </View>
                       <View style={style.newsDescription}>
                         <Text style={style.newsHintTextStyle}>
-                          {e.hintText}
+                          {`${JSON.parse(e.title)[language]?.substring(0, 60)}`}
+                          {'...'}
                         </Text>
-                        <Text style={style.newsLabel}>{e.label}</Text>
+                        <Text style={style.newsLabel}>
+                          {JSON.parse(e.description)[language]?.substring(
+                            0,
+                            120,
+                          )}{' '}
+                          {'...'}
+                        </Text>
                         <View style={style.newsPriceContainer}>
                           <Text style={style.newsStatusIconStyle}>
-                            {e.statusIcon}
+                            <ClockIcon
+                              size={20}
+                              fillColor={colors.lingthGray}
+                            />
                           </Text>
                           <Text style={style.newsCurrencyStyle}>
-                            {e.status}
+                            {moment(e.created_at).format('hh:mm')}
+                            {' - '}
+                            {moment(e.created_at).format('DD.MM.YYYY')}
                           </Text>
                         </View>
                       </View>

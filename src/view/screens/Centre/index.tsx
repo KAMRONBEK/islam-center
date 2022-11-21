@@ -16,7 +16,8 @@ import {Routes} from '../../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
 import {ColumnMenu} from '../../components/Button/ColumnMenu';
 
-const Centre = () => {
+// @ts-ignore
+const Centre = props => {
   let navigation = useNavigation();
 
   return (
@@ -33,7 +34,7 @@ const Centre = () => {
           //@ts-ignore
           onPressDetailsIcon={() =>
             //@ts-ignore
-            navigation.openDrawer()
+            props.navigation.openDrawer()
           }
           onPressNotification={() =>
             //@ts-ignore

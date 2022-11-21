@@ -16,8 +16,8 @@ import {useNavigation} from '@react-navigation/native';
 import {LibraryProductReadDATA} from './data';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import {SafeAreaView} from 'react-native-safe-area-context';
-
-const LibraryProductRead = () => {
+// @ts-ignore
+const LibraryProductRead = (props) => {
   let navigation = useNavigation();
 
   const [progress, setProgress] = useState();

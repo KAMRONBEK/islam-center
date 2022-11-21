@@ -14,7 +14,7 @@ const deviceHeight = Dimensions.get('window');
 const NoInfo = () => {
   // @ts-ignore
   const [show, setShow] = useState<any>(false);
-  const isConnected = useIsConnected();
+  const isConnected = useIsConnected() ?? true;
 
   function close() {
     // @ts-ignore
@@ -59,7 +59,7 @@ const NoInfo = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Image
+            <Image 
               style={{
                 resizeMode: 'cover',
                 height: 100,

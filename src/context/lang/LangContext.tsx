@@ -16,6 +16,7 @@ export const LangContext: React.FC<React.ReactNode> = ({children}) => {
   );
 
   const SwitchLanguage = (key: any) => {
+    // @ts-ignore
     AsyncStorage.setItem('lang', key);
     console.log('-----');
     console.log(key);
@@ -32,7 +33,7 @@ export const LangContext: React.FC<React.ReactNode> = ({children}) => {
   return (
     <LangCreateContext.Provider
       value={{
-        language,
+        language: language ?? 'uz',
         SwitchLanguage,
       }}>
       {children}

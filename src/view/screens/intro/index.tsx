@@ -1,11 +1,10 @@
 import {Text, View, ImageBackground, Image} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {style} from './style';
 import {windowWidth, windowHeight, isIOS} from '../../constants/size';
 import Button from '../../components/Button/button';
 import {ArrowRight, GerbUZB} from '../../assets/icons/icon';
 import {useNavigation} from '@react-navigation/native';
-
 // image
 // @ts-ignore
 import intro_bg from '../../assets/images/intro_bg-2.png';

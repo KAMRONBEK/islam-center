@@ -13,9 +13,16 @@ import {useAuthContext} from '../../../context/auth/AuthContext';
 import {TypeAuthState} from '../../../context/auth/TypeAuth';
 // @ts-ignore
 import intro_bg from '../../assets/images/intro_bg-2.png';
+import {useNavigation} from '@react-navigation/native';
 const Login = () => {
-  const {phone, setPhone, PhoneNumberSubmit, visibleWarningNumber} =
-    useAuthContext() as TypeAuthState;
+  let navigation = useNavigation();
+  const {
+    phone,
+    setPhone,
+    PhoneNumberSubmit,
+    numberDisabled,
+    visibleWarningNumber,
+  } = useAuthContext() as TypeAuthState;
 
   return (
     <KeyboardAvoidingView
@@ -27,11 +34,11 @@ const Login = () => {
           resizeMode="cover"
           style={style.loginBG}>
           <AppHeader
+            // @ts-ignore
+            onPressLeftArrow={() => navigation.navigate('Intro')}
             containerStyle={style.containerStyle}
             leftArrowIcon={true}
             colorLeftArrow={colors.white}
-            // @ts-ignore
-            onPressLeftArrow={() => navigation.navigate('Intro')}
             headingText={true}
             headingTitle="Войти"
             headingTextStyle={style.titleStyle}
@@ -74,11 +81,12 @@ const Login = () => {
                 <Text style={style.warning}>Заполнить поле</Text>
               ) : null}
               <Button
+                disabled={numberDisabled}
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
                 onPress={PhoneNumberSubmit}
                 // onPress={() => navigation.navigate('Welcome')}
-                text="Подтвердить"
+                text={numberDisabled ? 'Загрузка' : 'Подтвердить'}
                 textStyles={style.buttonText}
                 Icon={ArrowRight}
                 icon={colors.white}

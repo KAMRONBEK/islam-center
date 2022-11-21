@@ -21,10 +21,14 @@ import {PencelIcon, PhoneIcon, ProfileIcon} from '../../assets/icons/icon';
 import MaskInput from 'react-native-mask-input';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Button from '../../components/Button/button';
-
-const UserProfile = () => {
+import {TypeProfilState} from '../../../context/profil/TypeProfil';
+import {useProfilContext} from '../../../context/profil/ProfilContext';
+// @ts-ignore
+const UserProfile = (props, index) => {
+  // let {navigation} = props;
   let navigation = useNavigation();
-
+  const {user, name, surName, userPhone, setName, setSurName, setUserPhone} =
+    useProfilContext() as TypeProfilState;
   const [editName, setEditName] = useState(false);
   const [editLastName, setEditLastName] = useState(false);
   const [editPhone, setEditPhone] = useState(false);
@@ -32,13 +36,10 @@ const UserProfile = () => {
 
   const [takeCode, setTakeCode] = useState(false);
 
-  const [Name, onChangeName] = React.useState('Diyorbek');
-  const [LastName, onChangeLastName] = React.useState('Developer');
-  const [UserPhone, onChangePhone] = React.useState('+ 998 33 333 33 33');
-  const [code, onChangeCode] = React.useState('111');
+  const [code, onChangeCode] = useState('1117');
 
-  const [visibleWarning, setVisibleWarning] = React.useState(false);
-  const [visibleSendCode, setVisibleSendCode] = React.useState(false);
+  const [visibleWarning, setVisibleWarning] = useState(false);
+  const [visibleSendCode, setVisibleSendCode] = useState(false);
 
   let onSubmitCode = () => {
     if (code.length == 4 && code.toString() == '1117') {
@@ -77,10 +78,7 @@ const UserProfile = () => {
             detailsIcon={true}
             detailsColor={colors.white}
             //@ts-ignore
-            onPressDetailsIcon={() =>
-              //@ts-ignore
-              navigation.openDrawer()
-            }
+            onPressDetailsIcon={() => props.navigation.toggleDrawer()}
             onPressNotification={() =>
               //@ts-ignore
               navigation.navigate(Routes.NotificationsStack)
@@ -99,7 +97,7 @@ const UserProfile = () => {
               style={style.userImage}
             />
           </TouchableOpacity>
-          <Text style={style.userFullName}>{Name+' '+LastName} </Text>
+          <Text style={style.userFullName}>{name + ' ' + surName}</Text>
         </View>
         <View style={style.profileContainer}>
           <View style={style.userInformationContainer}>
@@ -111,10 +109,11 @@ const UserProfile = () => {
               <ProfileIcon size={20} fillColor={colors.lingthGray} />
               <TextInput
                 style={style.userName}
-                onChangeText={onChangeName}
-                value={Name}
+                maxLength={15}
+                value={name}
+                onChangeText={setName}
                 editable={editName}
-                // placeholder="Рафаэль"
+                placeholder="Имя..."
                 placeholderTextColor={colors.black}
                 keyboardType="default"
               />
@@ -136,11 +135,12 @@ const UserProfile = () => {
               <ProfileIcon size={20} fillColor={colors.lingthGray} />
               <TextInput
                 style={style.userLastName}
-                onChangeText={onChangeLastName}
-                value={LastName}
+                value={surName}
+                maxLength={15}
+                onChangeText={setSurName}
                 // inlineImageRight={SearchIcon}
                 editable={editLastName}
-                // placeholder="Ройтман"
+                placeholder="Фамилия..."
                 placeholderTextColor={colors.black}
                 keyboardType="default"
               />
@@ -180,8 +180,8 @@ const UserProfile = () => {
                   /\d/,
                 ]}
                 editable={editPhone}
-                value={UserPhone}
-                onChangeText={onChangePhone}
+                value={userPhone}
+                onChangeText={setUserPhone}
                 keyboardType="phone-pad"
                 placeholderTextColor="#000"
                 style={style.userPhone}

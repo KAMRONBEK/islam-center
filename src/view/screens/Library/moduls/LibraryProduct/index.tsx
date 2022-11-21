@@ -11,15 +11,23 @@ import {style} from './style';
 import {AppHeader} from '../../../../components/Other/AppBar';
 import {isIOS, windowHeight} from '../../../../constants/size';
 import {colors} from '../../../../theme';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {Routes} from '../../../../../navigation/routes/routes';
 import Button from '../../../../components/Button/button';
+import {TypeAllApiState} from '../../../../../context/allapi/TypeAllApi';
+import {TypeLangState} from '../../../../../context/lang/TypeLang';
+import {useAllApiContext} from '../../../../../context/allapi/AllApiContext';
+import {useLangContext} from '../../../../../context/lang/LangContext';
 
 const LibraryProduct = () => {
+  const {catalogs} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
   let navigation = useNavigation();
 
   const [save, setSave] = useState(false);
-
+  const rout = useRoute().params;
+  // @ts-ignore
+  const item = rout.item;
   return (
     <View style={style.container}>
       {/* <View style={{backgroundColor: '#fff', height: isIOS ? 40 : 10}}></View> */}
@@ -40,7 +48,9 @@ const LibraryProduct = () => {
             </View>
             <View style={style.bookImage}>
               <Image
-                source={require('../../../../assets/images/islamBook.png')}
+                source={{
+                  uri: `https://mamajanovs.uz/images/${item.image}`,
+                }}
                 resizeMode="cover"
                 style={style.image}
               />
@@ -48,11 +58,16 @@ const LibraryProduct = () => {
           </View>
         </View>
         <View style={style.textContainer}>
-          <Text style={style.priceText}>Цена:</Text>
-          <View style={style.priceContainer}>
-            <Text style={style.price}>Бесплатно</Text>
-          </View>
-          <Text style={style.bookDescriptionName}>Lorem Ipsum</Text>
+          {item.price == 0 ? (
+            <View style={style.priceContainer}>
+              <Text style={style.price}>Бесплатно</Text>
+            </View>
+          ) : (
+            <Text style={style.priceText}>Цена: {item.price}</Text>
+          )}
+          <Text style={style.bookDescriptionName}>
+            {JSON.parse(item.title)[language]}
+          </Text>
         </View>
         <View style={{height: windowHeight / 2}}>
           <ScrollView
@@ -61,13 +76,7 @@ const LibraryProduct = () => {
             style={style.scrollContainer}>
             <View style={style.bookDiscription}>
               <Text style={style.discription}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {item.detail == '' ? '...' : item.detail}
               </Text>
             </View>
 

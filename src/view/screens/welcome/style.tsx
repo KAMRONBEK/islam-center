@@ -119,4 +119,5 @@ export const style = StyleSheet.create({
     color: colors.gray,
     marginTop: 22,
   },
+
 });

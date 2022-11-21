@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CostumDrawer';
 import {windowWidth} from '../../constants/size';
@@ -28,12 +28,24 @@ import TechnicalSupport from '../../screens/TechnicalSupport';
 import ForumStack from '../../screens/Forum/navigator';
 import ExhibitionsStack from '../../screens/Exhibitions/navigator';
 import VirtualTur from '../../screens/VirtualTur/VirtualTur';
+import {useAuthContext} from '../../../context/auth/AuthContext';
+import {TypeAuthState} from '../../../context/auth/TypeAuth';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Alert,
+} from 'react-native';
+import {Button} from 'react-native-paper';
 
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
 const AuthStack = () => {
+  const {Logout} = useAuthContext() as TypeAuthState;
+
   return (
     <Drawer.Navigator
       //   initialRouteName={Routes.BottomNavigator}
@@ -159,7 +171,13 @@ const AuthStack = () => {
           drawerIcon: ({color}) => (
             <SignOutIcon size={24} fillColor={colors.black} />
           ),
-          drawerLabel: 'Выход',
+          drawerLabel: () => (
+            <TouchableOpacity
+              style={styles.ButtonOpacity}
+              onPress={() => Logout()}>
+              <Text style={styles.TextSize}> Выход</Text>
+            </TouchableOpacity>
+          ),
         }}
       />
     </Drawer.Navigator>
@@ -167,3 +185,14 @@ const AuthStack = () => {
 };
 
 export default AuthStack;
+
+const styles = StyleSheet.create({
+  ButtonOpacity: {},
+  TextSize: {
+    fontSize: 23,
+    fontWeight: '600',
+    letterSpacing: 1,
+    marginLeft: -10,
+    color: colors.gray,
+  },
+});

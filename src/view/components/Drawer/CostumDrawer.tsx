@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {
+  createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
@@ -25,24 +26,43 @@ import {colors} from '../../theme';
 import {useNavigation} from '@react-navigation/native';
 import SelectDropdown from 'react-native-select-dropdown';
 import {color} from 'react-native-reanimated';
-
+import {useLangContext} from '../../../context/lang/LangContext';
+import {TypeLangState} from '../../../context/lang/TypeLang';
+import {useProfilContext} from '../../../context/profil/ProfilContext';
+import {TypeProfilState} from '../../../context/profil/TypeProfil';
+import {Routes} from '../../../navigation/routes/routes';
+import UserProfile from '../../screens/UserProfile';
+const Drawer = createDrawerNavigator();
 //@ts-ignore
 const CustomDrawer = (props, index) => {
-  let navigation = useNavigation();
-
+  let {navigation} = props;
+  // let navigation = useNavigation();
+  const {SwitchLanguage, language} = useLangContext() as TypeLangState;
+  const {name, surName} = useProfilContext() as TypeProfilState;
   const countries = [
     {
-      title: 'RU',
-      image: <GlobIcon size={22} fillColor="black" />,
-      // image: require('../../assets/images/logo.png'),
+      name: 'UZ',
+      key: 'uz',
     },
     {
-      title: 'UZ',
-      image: <GlobIcon size={22} fillColor="black" />,
-      // image: require('../../assets/images/logo.png'),
+      name: 'RU',
+      key: 'ru',
+    },
+    {
+      name: 'EN',
+      key: 'en',
+    },
+    {
+      name: 'OZ',
+      key: 'oz',
+    },
+    {
+      name: 'AR',
+      key: 'ar',
     },
   ];
-
+  // @ts-ignore
+  const langu: any = language ?? {name: 'UZ', key: 'uz'};
   return (
     <View style={{flex: 1, width: windowWidth / 1 - 25}}>
       <DrawerContentScrollView
@@ -75,7 +95,7 @@ const CustomDrawer = (props, index) => {
                 justifyContent: 'flex-end',
                 paddingHorizontal: 20,
               }}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
+              <TouchableOpacity onPress={() => navigation.closeDrawer()}>
                 <Text
                   style={{
                     fontSize: 20,
@@ -123,9 +143,11 @@ const CustomDrawer = (props, index) => {
                     // width: 220,
                     paddingHorizontal: 24,
                   }}>
-                  Ройтман Рафаэль
+                  {name + ' ' + surName}
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                // onPress={() => navigation.navigate(Routes.UserProfile)}
+                >
                   <Text
                     style={{
                       fontSize: 16,
@@ -175,10 +197,11 @@ const CustomDrawer = (props, index) => {
               <SelectDropdown
                 data={countries}
                 onSelect={(selectedItem, index) => {
-                  // console.log(selectedItem, index);
+                  // @ts-ignore
+                  SwitchLanguage(selectedItem.key);
                 }}
                 buttonTextAfterSelection={(selectedItem, index) => {
-                  return selectedItem.title;
+                  return selectedItem.name;
                 }}
                 rowTextForSelection={(item, index) => {
                   return item;
@@ -208,7 +231,7 @@ const CustomDrawer = (props, index) => {
                           fontSize: 16,
                           marginHorizontal: 6,
                         }}>
-                        {selectedItem ? selectedItem.title : 'RU'}
+                        {selectedItem ? selectedItem.name : langu.toUpperCase()}
                       </Text>
                     </View>
                   );
@@ -258,8 +281,7 @@ const CustomDrawer = (props, index) => {
                         source={item.image}
                         // style={styles.dropdownRowImage}
                       /> */}
-                      {item.image}
-
+                      <GlobIcon size={22} fillColor="black" />
                       {/* <GlobIcon size={16} fillColor="black" /> */}
                       <Text
                         style={{
@@ -268,7 +290,7 @@ const CustomDrawer = (props, index) => {
                           fontSize: 16,
                           marginHorizontal: 12,
                         }}>
-                        {item.title}
+                        {item.name}
                       </Text>
                     </View>
                   );

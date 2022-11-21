@@ -71,15 +71,15 @@ export const style = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: colors.black,
-    width: '60%',
-    lineHeight: 24,
+    width: 185,
+    lineHeight: 23,
   },
 
   detailsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '55%',
+    width: 180,
     marginTop: 40,
   },
 

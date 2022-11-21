@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Animated, GestureResponderEvent, TouchableOpacity} from 'react-native';
+import {Animated, GestureResponderEvent, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 import Svg, {
   Circle,
   ClipPath,
@@ -2525,10 +2525,14 @@ export function SignOutIcon({
   size,
   style,
   fillColor,
+  onPress
 }: IconProps) {
   let props = {stroke: fillColor, height: size, width: size, fill: fillColor};
   return (
-    <Svg viewBox="0 0 21 26" fill="none" {...props}>
+   <TouchableWithoutFeedback
+    onPress={() => onPress && onPress()}
+   >
+     <Svg viewBox="0 0 21 26" fill="none" {...props}>
       <Path
         d="M0 12.87a1.278 1.278 0 001.278 1.277h9.7l-2.94 2.927a1.278 1.278 0 000 1.814 1.276 1.276 0 001.815 0l5.112-5.112c.116-.121.207-.264.268-.421.128-.311.128-.66 0-.972-.06-.156-.152-.3-.268-.421L9.853 6.85a1.283 1.283 0 10-1.815 1.815l2.94 2.926h-9.7A1.278 1.278 0 000 12.87zM16.613.09H3.833A3.834 3.834 0 000 3.923v3.834a1.278 1.278 0 102.556 0V3.923a1.278 1.278 0 011.278-1.277h12.78a1.278 1.278 0 011.277 1.277v17.892a1.278 1.278 0 01-1.278 1.278H3.833a1.278 1.278 0 01-1.277-1.278V17.98a1.278 1.278 0 10-2.556 0v3.834a3.834 3.834 0 003.834 3.834h12.78a3.834 3.834 0 003.833-3.834V3.923A3.834 3.834 0 0016.613.09z"
         stroke={colors.white}
@@ -2538,6 +2542,7 @@ export function SignOutIcon({
         strokeLinejoin="round"
       />
     </Svg>
+   </TouchableWithoutFeedback>
   );
 }
 
