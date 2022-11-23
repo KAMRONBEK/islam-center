@@ -13,12 +13,12 @@ export const useAllApiContext = () => {
 export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
   // ------------------GET-------------------
   // NEW POST -------------
-  const [newPosts, setNewPost] = useState<any>([]) ;
+  const [newPosts, setNewPost] = useState<any>([]);
   function getNewPosts() {
     axios
       .get(`${API_URL}news_press_services`)
       .then(res => {
-        setNewPost(res.data); 
+        setNewPost(res.data);
       })
       .catch(res => {
         console.log(`Error New Post - ${res}`);
