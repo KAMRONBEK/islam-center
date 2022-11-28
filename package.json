@@ -38,6 +38,7 @@
     "react-native-pager-view": "^5.4.15",
     "react-native-paper": "^4.11.2",
     "react-native-reanimated": "^2.5.0",
+    "react-native-restart": "^0.0.24",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.11.0",
     "react-native-select-dropdown": "^1.8.0",

@@ -1,3 +1,4 @@
+import RNRestart from 'react-native-restart';
 import {Alert, StyleSheet, Text, View} from 'react-native';
 import React, {
   createContext,
@@ -6,6 +7,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+
 import {TypeAuth, TypeAuthState} from './TypeAuth';
 // import axios from 'axios';
 import {
@@ -20,6 +22,8 @@ import {Routes} from '../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useProfilContext} from '../profil/ProfilContext';
+import {TypeProfilState} from '../profil/TypeProfil';
 
 export const AuthCreateContext = createContext<TypeAuth | null>(null);
 
@@ -29,7 +33,7 @@ export const useAuthContext = () => {
 
 export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
   const navigation = useNavigation();
-
+  const {user, ClearUser, setUser} = useProfilContext() as TypeProfilState;
   const [phon, setPhone] = useState<TypeAuthState | any>('998');
   const phone: any = phon.replace(/\D/gi, '');
   const [checkCode, setCheckCode] = useState<TypeAuthState | any>(Number);
@@ -93,6 +97,7 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
       setNumberDisabled(false);
       setVisibleWarningNumber(true);
     }
+    setNumberDisabled(false);
   }
   async function CodeSubmit() {
     // const StandartPhone: any = phone.replace(/\D/gi, '');
@@ -102,17 +107,21 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
       await axios
         .get(UrlCode)
         .then(res => {
+          AsyncStorage.setItem('token', JSON.stringify(phone));
           console.log('---++++++-----++++++-----');
           console.log('---++++++-----++++++-----');
-          console.log(res.data);
+          const data = res.data[0];
+          console.log(data);
+          //@ts-ignore
+          setUser(data);
           console.log('---++++++-----++++++-----');
           console.log('---++++++-----++++++-----');
           refreshToken(true);
-          AsyncStorage.setItem('token', JSON.stringify(phone));
+          //@ts-ignore
+          navigation.navigate(Routes.AuthStack);
         })
         .catch(err => console.log('------Error___Code-----' + err));
-      //@ts-ignore
-      navigation.navigate(Routes.AuthStack);
+
       setCodeDisabled(false);
       setTimeLeft(time);
       setIsCounting(false);
@@ -129,6 +138,7 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
       setVisibleWarningCode(true);
       setVisibleSendCode(false);
     }
+    setCodeDisabled(false);
   }
   let onPressRequestCode = async () => {
     const UrlPhoneNumber = `${API_URL}${phone_url}${phone}${phone_url_2}${Token}`;
@@ -177,6 +187,7 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
   }, [timeLeft, timeOff]);
 
   // Token-------------------------------------
+
   useEffect(() => {
     (async () => {
       const myToken = await AsyncStorage.getItem('token');
@@ -190,9 +201,13 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
     console.log('language delete..........................................');
     await AsyncStorage.setItem('token', '');
     await AsyncStorage.setItem('lang', '');
+    setPhone('+ 998');
     refreshToken(false);
     // @ts-ignore
     navigation.navigate(Routes.Intro);
+    // RNRestart.Restart();
+    // @ts-ignore
+    ClearUser();
   }
   //------- Profil -------------------------------
 

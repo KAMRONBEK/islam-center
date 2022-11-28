@@ -10,7 +10,7 @@ import {LangContext} from './src/context/lang/LangContext';
 import {AllApiContext} from './src/context/allapi/AllApiContext';
 import {NetworkProvider} from 'react-native-offline';
 import NoInfo from './src/view/screens/NoInfo';
-import { ProfilContext } from './src/context/profil/ProfilContext';
+import {ProfilContext} from './src/context/profil/ProfilContext';
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
@@ -18,10 +18,10 @@ const App = () => {
   return (
     <NetworkProvider>
       <NavigationContainer>
-        {/* Auth */}
-        <AuthContext>
-          {/* ProfilUser */}
-          <ProfilContext>
+        {/* ProfilUser */}
+        <ProfilContext>
+          {/* Auth */}
+          <AuthContext>
             {/*Switch Language */}
             <LangContext>
               {/* All Api */}
@@ -30,8 +30,8 @@ const App = () => {
                 <AppNavigator />
               </AllApiContext>
             </LangContext>
-          </ProfilContext>
-        </AuthContext>
+          </AuthContext>
+        </ProfilContext>
       </NavigationContainer>
     </NetworkProvider>
   );

@@ -27,22 +27,16 @@ import {useProfilContext} from '../../../context/profil/ProfilContext';
 const UserProfile = (props, index) => {
   // let {navigation} = props;
   let navigation = useNavigation();
-  const {
-    user,
-    userTeam,
-    setUserTeam,
-    UpdateUsers,
-    userBoolean,
-    setUserBoolean,
-    submitDisable,
-    //
-    PhoneNumberEdit,
-    CodeEditSubmit,
-    codeChekEdit,
-    setCodeChekEdit,
-  } = useProfilContext() as TypeProfilState;
+  const {user, userTeam, setUserTeam, UpdateUsers} =
+    useProfilContext() as TypeProfilState;
+  const [editName, setEditName] = useState(false);
+  const [editLastName, setEditLastName] = useState(false);
+  const [editPhone, setEditPhone] = useState(false);
+  const [submitEditPhone, setSubmitEditPhone] = useState(false);
 
-  // const [code, onChangeCode] = useState('1117');
+  const [takeCode, setTakeCode] = useState(false);
+
+  const [code, onChangeCode] = useState('1117');
 
   const [visibleWarning, setVisibleWarning] = useState(false);
   const [visibleSendCode, setVisibleSendCode] = useState(false);
@@ -64,9 +58,7 @@ const UserProfile = (props, index) => {
     setVisibleSendCode(true);
     setVisibleWarning(false);
   };
-  const ChangeEditPhoneNumberZapros = () => {
-    PhoneNumberEdit();
-  };
+
   return (
     <KeyboardAvoidingView
       // showsVerticalScrollIndicator={false}
@@ -106,9 +98,7 @@ const UserProfile = (props, index) => {
             />
           </TouchableOpacity>
           <Text style={style.userFullName}>
-            {`${
-              user?.name == '' ? '... ...' : user?.name + ' ' + user?.surname
-            }`}
+            {user.name + ' ' + user.surname}
           </Text>
         </View>
         <View style={style.profileContainer}>
@@ -116,36 +106,28 @@ const UserProfile = (props, index) => {
             <Text style={style.text}>Имя</Text>
             <View
               style={
-                userBoolean.editName
-                  ? style.inputContainerEditable
-                  : style.inputContainer
+                editName ? style.inputContainerEditable : style.inputContainer
               }>
               <ProfileIcon size={20} fillColor={colors.lingthGray} />
               <TextInput
                 style={style.userName}
                 maxLength={15}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, name: text},
-                    console.log(`name - ${text}`),
-                  )
-                }
-                defaultValue={user?.name}
-                editable={userBoolean.editName}
+                // @ts-ignore
+                // onChangeText={text => setUserTeam({...userTeam, name: text},console.log(`txt - ${text}`)
+                // )}
+                onChange={(e: React.FormEvent<HTMLInputElement>): void => {
+                // @ts-ignore
+                  setUserTeam({...userTeam, name: e.target.value});
+                }}
+                value={userTeam.name}
+                editable={editName}
                 placeholder="Имя..."
                 placeholderTextColor={colors.black}
                 keyboardType="default"
               />
               <TouchableOpacity
                 style={style.pencelToggle}
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editName: !userBoolean.editName,
-                  })
-                }>
+                onPress={() => setEditName(e => !e)}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
@@ -154,37 +136,26 @@ const UserProfile = (props, index) => {
             <Text style={style.text}>Фамилия</Text>
             <View
               style={
-                userBoolean.editLastName
+                editLastName
                   ? style.inputContainerEditable
                   : style.inputContainer
               }>
               <ProfileIcon size={20} fillColor={colors.lingthGray} />
               <TextInput
                 style={style.userLastName}
+                value={user.surname}
                 maxLength={15}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, surname: text},
-                    console.log(`surname - ${text}`),
-                  )
-                }
-                defaultValue={user?.surname}
+                // @ts-ignore
+                onChangeText={text => setUserTeam({...userTeam, surname: text})}
                 // inlineImageRight={SearchIcon}
-                editable={userBoolean.editLastName}
+                editable={editLastName}
                 placeholder="Фамилия..."
                 placeholderTextColor={colors.black}
                 keyboardType="default"
               />
               <TouchableOpacity
                 style={style.pencelToggle}
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editLastName: !userBoolean.editLastName,
-                  })
-                }>
+                onPress={() => setEditLastName(e => !e)}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
@@ -193,12 +164,9 @@ const UserProfile = (props, index) => {
             <Text style={style.text}>Телефон</Text>
             <View
               style={
-                userBoolean.editPhone
-                  ? style.inputContainerEditable
-                  : style.inputContainer
+                editPhone ? style.inputContainerEditable : style.inputContainer
               }>
               <PhoneIcon size={20} fillColor={colors.lingthGray} />
-
               <MaskInput
                 mask={[
                   '+',
@@ -220,15 +188,10 @@ const UserProfile = (props, index) => {
                   /\d/,
                   /\d/,
                 ]}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, phone: text},
-                    console.log(`phone - ${text}`),
-                  )
-                }
-                editable={userBoolean.editPhone}
-                value={user?.phone}
+                editable={editPhone}
+                value={user.phone}
+                // @ts-ignore
+                onChangeText={text => setUserTeam({...userTeam, phone: text})}
                 keyboardType="phone-pad"
                 placeholderTextColor="#000"
                 style={style.userPhone}
@@ -236,19 +199,15 @@ const UserProfile = (props, index) => {
               <TouchableOpacity
                 style={style.pencelToggle}
                 //@ts-ignore
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editPhone: !userBoolean.editPhone,
-                    submitEditPhone: !userBoolean.submitEditPhone,
-                  })
-                }>
+                onPress={() => (
+                  setEditPhone(e => !e), setSubmitEditPhone(e => !e)
+                  // setTakeCode(e => !e)
+                )}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
           </View>
-          {userBoolean.editName || userBoolean.editLastName ? (
+          {editName || editLastName ? (
             <Button
               containerStyle={{
                 marginHorizontal: 20,
@@ -259,8 +218,7 @@ const UserProfile = (props, index) => {
               //@ts-ignore
               // onPress={() => navigation.navigate('BottomNavigator')}
               onPress={() => UpdateUsers()}
-              disabled={submitDisable}
-              text={submitDisable ? 'Загрузка' : 'Подтвердить'}
+              text="Сохранить"
               textStyles={{
                 color: colors.white,
                 marginRight: 17,
@@ -271,7 +229,7 @@ const UserProfile = (props, index) => {
               }}
             />
           ) : null}
-          {userBoolean.submitEditPhone ? (
+          {submitEditPhone ? (
             <View style={style.userInformationContainer}>
               <Text style={style.takeCodeText}>
                 Чтобы сменить номер телефона вам нужно будет вести код
@@ -279,29 +237,24 @@ const UserProfile = (props, index) => {
               </Text>
               <Button
                 containerStyle={style.buttonContainer}
-                // @ts-ignore
-                onPress={() => ChangeEditPhoneNumberZapros()}
+                //@ts-ignore
+                onPress={() => (
+                  setTakeCode(e => !e), setSubmitEditPhone(e => !e)
+                )}
                 text="Запросить код"
                 textStyles={style.buttonText}
               />
             </View>
           ) : null}
-          {userBoolean.takeCode ? (
+          {takeCode ? (
             <View style={style.userInformationContainer}>
               <Text style={style.writeCode}>Введите код</Text>
               <View style={style.inputContainerEditable}>
                 <MaskInput
                   mask={[/\d/, /\d/, /\d/, /\d/]}
-                  // @ts-ignore
-                  onChangeText={text =>
-                    setCodeChekEdit(
-                      // @ts-ignore
-                      {...codeChekEdit, code: text},
-                      console.log(`code - ${text}`),
-                    )
-                  }
-                  value={codeChekEdit.code}
-                  // editable={userBoolean.editLastName}
+                  value={code}
+                  onChangeText={onChangeCode}
+                  editable={editLastName}
                   style={style.userLastName}
                   placeholderTextColor={colors.black}
                   keyboardType="number-pad"
@@ -318,7 +271,7 @@ const UserProfile = (props, index) => {
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
-                onPress={() => CodeEditSubmit()}
+                onPress={onSubmitCode}
                 text="Подтвердить"
                 textStyles={style.buttonText}
               />

@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
   headerContainer: {
     // backgroundColor: colors.green,
     height: isIOS ? windowHeight / 4 + 10 : windowHeight / 4 - 10,
-  },
+  }, 
 
   containerStyle: {
     flexDirection: 'row',

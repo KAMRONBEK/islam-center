@@ -38,7 +38,7 @@ const CustomDrawer = (props, index) => {
   let {navigation} = props;
   // let navigation = useNavigation();
   const {SwitchLanguage, language} = useLangContext() as TypeLangState;
-  const {name, surName} = useProfilContext() as TypeProfilState;
+  const {user} = useProfilContext() as TypeProfilState;
   const countries = [
     {
       name: 'UZ',
@@ -62,7 +62,7 @@ const CustomDrawer = (props, index) => {
     },
   ];
   // @ts-ignore
-  const langu: any = language ?? {name: 'UZ', key: 'uz'};
+  const langu: any = language;
   return (
     <View style={{flex: 1, width: windowWidth / 1 - 25}}>
       <DrawerContentScrollView
@@ -140,10 +140,11 @@ const CustomDrawer = (props, index) => {
                     lineHeight: 35,
                     letterSpacing: 1,
                     color: colors.white,
-                    // width: 220,
+                    width: 220,
                     paddingHorizontal: 24,
                   }}>
-                  {name + ' ' + surName}
+                  {`${user?.name == '' ? '...' : user?.name}`}{' '}
+                  {`${user?.surname == '' ? '...' : user?.surname}`}
                 </Text>
                 <TouchableOpacity
                 // onPress={() => navigation.navigate(Routes.UserProfile)}
@@ -215,9 +216,6 @@ const CustomDrawer = (props, index) => {
                         justifyContent: 'flex-start',
                         alignItems: 'center',
                         paddingHorizontal: 6,
-
-                        // borderWidth: 1,
-                        // borderColor: colors.white,
                       }}>
                       {selectedItem ? (
                         <GlobIcon size={22} fillColor="white" />
@@ -231,12 +229,14 @@ const CustomDrawer = (props, index) => {
                           fontSize: 16,
                           marginHorizontal: 6,
                         }}>
-                        {selectedItem ? selectedItem.name : langu.toUpperCase()}
+                        {selectedItem
+                          ? selectedItem?.name
+                          : langu?.toUpperCase()}
                       </Text>
                     </View>
                   );
                 }}
-                renderDropdownIcon={isOpened => {
+                renderDropdownIcon={() => {
                   return (
                     <DropDownIcon
                       fillColor="#E6E6E6"
