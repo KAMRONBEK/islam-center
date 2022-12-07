@@ -11,6 +11,8 @@ import {AllApiContext} from './src/context/allapi/AllApiContext';
 import {NetworkProvider} from 'react-native-offline';
 import NoInfo from './src/view/screens/NoInfo';
 import {ProfilContext} from './src/context/profil/ProfilContext';
+import Toast from 'react-native-toast-message';
+
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
@@ -28,6 +30,7 @@ const App = () => {
               <AllApiContext>
                 <NoInfo />
                 <AppNavigator />
+                <Toast />
               </AllApiContext>
             </LangContext>
           </AuthContext>

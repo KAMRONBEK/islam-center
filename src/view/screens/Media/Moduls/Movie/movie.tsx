@@ -1,18 +1,34 @@
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {MovieDATA} from './data';
 import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
 import {colors} from '../../../../theme';
-
+import {useAllApiContext} from '../../../../../context/allapi/AllApiContext';
+import {useLangContext} from '../../../../../context/lang/LangContext';
+import {TypeAllApiState} from '../../../../../context/allapi/TypeAllApi';
+import {TypeLangState} from '../../../../../context/lang/TypeLang';
+import {PlayIcon} from '../../../../assets/icons/icon';
+import YoutubePlayer from 'react-native-youtube-iframe';
+import { useState } from 'react';
 const Movie = () => {
   let navigation = useNavigation();
+  const {mediaVideos} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
 
+  const [onPause,setOnPause] = useState<boolean>(false)
   return (
     <View style={style.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={MovieDATA}
+        data={mediaVideos}
         numColumns={1}
         contentContainerStyle={{
           paddingBottom: 100,
@@ -38,12 +54,26 @@ const Movie = () => {
                 // onPress={() => navigation.navigate(Routes.StaffCard)}
                 >
                   <View style={style.image}>
-                    {item.image}
-                    <View style={{position: 'absolute'}}>{item.playIcon}</View>
+                    {/* <Image
+                      source={{uri: `https://mamajanovs.uz/${item.link}`}}
+                      resizeMode="cover"
+                      style={{height: windowHeight / 4, width: '100%'}}
+                    /> */}
+                    <YoutubePlayer
+                      // @ts-ignore
+                      width={`100%`}
+                      height={windowHeight / 4}
+                      videoId={`${item.link.slice(item.link.length - 11, item.link.length)}`}
+                    />
+                    {/* <View style={{position: 'absolute'}}>
+                      <PlayIcon size={80} />
+                    </View> */}
                   </View>
                 </TouchableOpacity>
                 <View style={style.titleContainer}>
-                  <Text style={style.name}>{item.label}</Text>
+                  <Text style={style.name}>
+                    {JSON.parse(item.title)[language]}
+                  </Text>
                 </View>
               </View>
             </View>

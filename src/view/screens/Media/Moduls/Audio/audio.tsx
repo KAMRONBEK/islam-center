@@ -10,8 +10,14 @@ import {
 import React from 'react';
 import {windowWidth} from '../../../../constants/size';
 import {colors} from '../../../../theme';
+import { useAllApiContext } from '../../../../../context/allapi/AllApiContext';
+import { useLangContext } from '../../../../../context/lang/LangContext';
+import { TypeAllApiState } from '../../../../../context/allapi/TypeAllApi';
+import { TypeLangState } from '../../../../../context/lang/TypeLang';
 
 const Audio = () => {
+  const {mediaAudios} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>

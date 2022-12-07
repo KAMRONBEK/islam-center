@@ -1,18 +1,30 @@
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {PhotoDATA} from './data';
 import {isIOS, windowHeight, windowWidth} from '../../../../constants/size';
 import {colors} from '../../../../theme';
+import {useAllApiContext} from '../../../../../context/allapi/AllApiContext';
+import {TypeAllApiState} from '../../../../../context/allapi/TypeAllApi';
+import {TypeLangState} from '../../../../../context/lang/TypeLang';
+import {useLangContext} from '../../../../../context/lang/LangContext';
 
 const Photo = () => {
   let navigation = useNavigation();
-
+  const {mediaPhotos} = useAllApiContext() as TypeAllApiState;
+  const {language} = useLangContext() as TypeLangState;
   return (
     <View style={style.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={PhotoDATA}
+        data={mediaPhotos}
         numColumns={1}
         contentContainerStyle={{
           paddingBottom: 100,
@@ -37,9 +49,17 @@ const Photo = () => {
               // onPress={() => navigation.navigate(Routes.StaffCard)}
               >
                 <View style={style.cardContainer}>
-                  <View style={style.image}>{item.image}</View>
+                  <View style={style.image}> 
+                    <Image
+                      source={{uri: `https://mamajanovs.uz/${item.image}`}}
+                      resizeMode="cover"
+                      style={{height: windowHeight / 4, width: '100%'}}
+                    />
+                  </View>
                   <View style={style.titleContainer}>
-                    <Text style={style.name}>{item.label}</Text>
+                    <Text style={style.name}>
+                      {JSON.parse(item.title)[language]}
+                    </Text>
                   </View>
                 </View>
               </TouchableOpacity>

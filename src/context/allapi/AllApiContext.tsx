@@ -37,16 +37,69 @@ export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
         console.log(`Error Catalogs - ${res}`);
       });
   }
+  // Media - Photo - Video - Audio ---------------
+  const [mediaPhotos, setMediaPhotos] = useState<any>([]);
+  // Photos
+  function getMedia_Photos() {
+    axios
+      .get(`${API_URL}media_photos `)
+      .then(res => {
+        setMediaPhotos(res.data);
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+        // console.log(res.data);
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+      })
+      .catch(res => {
+        console.log(`Error Media Photos - ${res}`);
+      });
+  }
+  const [mediaVideos, setMediaVideos] = useState<any>([]);
+  // Video
+  function getMedia_Videos() {
+    axios
+      .get(`${API_URL}media_videos `)
+      .then(res => {
+        setMediaVideos(res.data);
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+        // console.log(res.data);
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+      })
+      .catch(res => {
+        console.log(`Error Media Videos - ${res}`);
+      });
+  }
+
+  const [mediaAudios, setMediaAudios] = useState<any>([]);
+  // Audio
+  function getMedia_Audios() {
+    axios
+      .get(`${API_URL}media_audio`)
+      .then(res => {
+        setMediaAudios(res.data);
+        console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+        console.log(res.data);
+        console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+      })
+      .catch(res => {
+        console.log(`Error Media Audios - ${res}`);
+      });
+  }
   // UseEffect--------
   useEffect(() => {
     getNewPosts();
     getCatalogs();
+    getMedia_Photos();
+    getMedia_Videos();
+    getMedia_Audios();
   }, []);
   return (
     <AllApiCreateContext.Provider
       value={{
         newPosts,
         catalogs,
+        mediaPhotos,
+        mediaVideos,
+        mediaAudios,
       }}>
       {children}
     </AllApiCreateContext.Provider>

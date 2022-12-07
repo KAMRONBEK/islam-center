@@ -16,12 +16,13 @@ import {
   phone_url,
   phone_url_2,
   Token,
+  type,
 } from './Url';
 import {useAuthContext} from '../auth/AuthContext';
 import {TypeAuthState} from '../auth/TypeAuth';
-
+import Toast from 'react-native-toast-message';
 export const ProfilCreateContext = createContext<TypeProfil | null>(null);
-
+import RNRestart from 'react-native-restart'; 
 export const useProfilContext = () => {
   return useContext(ProfilCreateContext);
 };
@@ -30,11 +31,12 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
   const [myPhone, setMyPhone] = useState<TypeProfilState | any>([]);
   const [user, setUser] = useState<TypeProfilState | any>([]);
   //
-  const [userTeam, setUserTeam] = useState<TypeProfilState | any>({
-    name: '',
-    surname: '',
-    phone: '',
-  });
+  const [name, setName] = useState<TypeProfilState | any>('');
+  const [surName, setSurName] = useState<TypeProfilState | any>('');
+  const [phoneEditNumber, setPhoneEditNumber] = useState<TypeProfilState | any>(
+    '',
+  );
+  const phone: any = phoneEditNumber.replace(/\D/gi, '');
   const [userBoolean, setUserBoolean] = useState<TypeProfilState | any>({
     editName: false,
     editLastName: false,
@@ -42,16 +44,39 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
     submitEditPhone: false,
     takeCode: false,
   });
-  const [submitDisable, setSubmitDisable] = useState<TypeProfilState | any>(
-    false,
+  const [submitDisable, setSubmitDisable] = useState<TypeProfilState | any>({
+    updateUsersBtn: false,
+    zaprositCodeBtn: false,
+    updatePhoneBtn: false,
+  });
+  const [visibleSendCode, setVisibleSendCode] = useState(false);
+  const [visibleWarning, setVisibleWarning] = useState(false);
+  const [reloadDisable, setReloadDisable] = useState<TypeProfilState | any>(
+    true,
   );
   // Number Update
-
-  const [codeChekEdit, setCodeChekEdit] = useState<TypeProfilState | any>({
-    code: '',
-    checkCode: '',
-  });
-
+  const [checkCode, setCheckCode] = useState<TypeProfilState | any>(Number);
+  const [code, setCode] = useState<TypeProfilState | any>(Number);
+  // Timer
+  const time = 90;
+  const getPadTime = (time: any) => time.toString().padStart(2, '0');
+  const [timeLeft, setTimeLeft] = useState<TypeProfilState | any>(time);
+  const [isCounting, setIsCounting] = useState<TypeProfilState | any>(false);
+  const [timeOff, setTimeOff] = useState<TypeProfilState | any>(false);
+  const minutes = getPadTime(Math.floor(timeLeft / 60));
+  const seconds = getPadTime(timeLeft - minutes * 60);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      isCounting && setTimeLeft(timeLeft >= 1 ? timeLeft - 1 : 0);
+    }, 1000);
+    if (timeLeft === 0) {
+      setIsCounting(false);
+      setCheckCode('');
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timeLeft, isCounting]);
   // Token-------------------------------------
   const getUsers = async () => {
     try {
@@ -61,6 +86,9 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
           const data = res.data[0];
           console.log('response: ', data);
           setUser(data);
+          setName(data?.name);
+          setSurName(data?.surname);
+          setPhoneEditNumber(data?.phone);
         })
         .catch(err => {
           console.log(`Ishlamayabdi APi ---- ${err}`);
@@ -81,123 +109,152 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
     })();
   }, [myPhone]);
   const UpdateUsers = async () => {
-    setSubmitDisable(true);
+    setSubmitDisable({...submitDisable, updateUsersBtn: true});
     try {
-      await axios
-        .post(API_URL, {
-          table: 'users',
-          type: 'insertby',
-          data: {
-            name: userTeam.name,
-            surname: userTeam.surname,
-          },
-          where: {
-            phone: JSON.parse(myPhone),
-          },
-        })
-        .then(res => {
-          console.log(
+      if (name !== '' && surName !== '') {
+        await axios
+          .post(API_URL, {
+            table: 'users',
+            type: 'insertby',
+            data: {
+              name: name,
+              surname: surName,
+            },
+            where: {
+              phone: JSON.parse(myPhone),
+            },
+          })
+          .then(res => {
+            Toast.show({
+              type: 'success',
+              text1: 'Profil Update',
+              text2: "Muvaffaqqiyatli o'zgartirildi ! )",
+              visibilityTime: 4000,
+              autoHide: true,
+              topOffset: 10,
+            });
+            console.log(
+              // @ts-ignore
+              `Qoshildi Success..... ${JSON.stringify(res.data)}`,
+            );
+            console.log('++++++++++++++++');
+            console.log(`${name} - ${surName}`);
+            setUser({
+              ...user,
+              name: name,
+              surname: surName,
+            });
+            console.log('++++++++++++++++');
+            setSubmitDisable({...submitDisable, updateUsersBtn: false});
             // @ts-ignore
-            `Qoshildi Success..... ${JSON.stringify(res.data)}`,
-          );
-          console.log('++++++++++++++++');
-          console.log(`${userTeam.name} - ${userTeam.surname}`);
-          setUser({
-            ...user,
-            name: userTeam.name,
-            surname: userTeam.surname,
+          })
+          .catch(err => {
+            console.log(`${err}/NoUpdate.. Internet ishlamayabdi...`);
           });
-          console.log('++++++++++++++++');
-          setSubmitDisable(false);
-
-          // @ts-ignore
-        })
-        .catch(err => {
-          console.log(`${err}/NoUpdate.. Internet ishlamayabdi...`);
+        setUserBoolean({
+          ...userBoolean,
+          editName: false,
+          editLastName: false,
+          editPhone: false,
+          submitEditPhone: false,
+          takeCode: false,
         });
-      setUserBoolean({
-        ...userBoolean,
-        editName: false,
-        editLastName: false,
-        editPhone: false,
-        submitEditPhone: false,
-        takeCode: false,
-      });
-      setSubmitDisable(false);
+        setSubmitDisable({...submitDisable, updateUsersBtn: false});
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Error',
+          text2: "Maydonni to'ldiring",
+          visibilityTime: 4000,
+          autoHide: true,
+          topOffset: 10,
+        });
+        setSubmitDisable({...submitDisable, updateUsersBtn: false});
+      }
     } catch (error) {
       console.log('error/NoUpdate.. Internet ishlamayabdi...');
     }
   };
-  const phone: any = userTeam.phone.replace(/\D/gi, '');
   async function PhoneNumberEdit() {
+    setSubmitDisable({...submitDisable, zaprositCodeBtn: true});
     console.log(`Sening raqaming ${phone}`);
-
     const UrlPhoneNumber = `${API_URL}${phone_url}${phone}${phone_url_2}${Token}`;
-    if (userTeam.phone.length >= 12) {
-      await axios
-        .get(UrlPhoneNumber)
-        .then(res => {
-          // setCheckCode(res.data);
-          console.log(
-            ' _________-____-________' + res.data + ' _________-____-________',
-          );
-          setCodeChekEdit({...codeChekEdit, checkCode: res.data});
-          // setNumberDisabled(false);
-          setUserBoolean({
-            ...userBoolean,
-            submitEditPhone: !userBoolean.submitEditPhone,
-            takeCode: !userBoolean.takeCode,
+    if (JSON.parse(myPhone) !== phone) {
+      if (phoneEditNumber.length >= 12) {
+        await axios
+          .get(UrlPhoneNumber)
+          .then(res => {
+            console.log(
+              ' _________-____-________' +
+                res.data +
+                ' _________-____-________',
+            );
+            setCheckCode(res.data);
+            console.log(`checkCode - ${checkCode}`);
+
+            setUserBoolean({
+              ...userBoolean,
+              submitEditPhone: !userBoolean.submitEditPhone,
+              takeCode: !userBoolean.takeCode,
+            });
+            setSubmitDisable({...submitDisable, zaprositCodeBtn: false});
+          })
+          .catch(err => {
+            console.log('------Error___Phone-----' + err);
           });
-        })
-        .catch(err => {
-          console.log('------Error___Phone-----' + err);
-        });
-      // @ts-ignore
-      // setVisibleWarningNumber(false);
-      // setVisibleSendCode(true);
-      // setIsCounting(true);
-      // setReloadDisable(true);
+        setVisibleSendCode(true);
+        setIsCounting(true);
+        setReloadDisable(true);
+      } else {
+      }
     } else {
-      // setNumberDisabled(false);
-      // setVisibleWarningNumber(true);
+      Toast.show({
+        type: 'info',
+        text1: 'Info',
+        text2: "Raqam o'zgartirilmadi",
+        visibilityTime: 4000,
+        autoHide: true,
+        topOffset: 10,
+      });
     }
-    // setNumberDisabled(false);
+
+    setSubmitDisable({...submitDisable, zaprositCodeBtn: false});
   }
   async function CodeEditSubmit() {
-    console.log('codeeeeeeeeeeeeeeeee', codeChekEdit.code);
-
-    const UrlCode = `${API_URL}${code_url}${phone}${code_url_2}${codeChekEdit.code}`;
-    if (
-      codeChekEdit.checkCode == codeChekEdit.code &&
-      codeChekEdit.code.length === 4
-    ) {
+    setSubmitDisable({...submitDisable, updatePhoneBtn: true});
+    console.log('codeeeeeeeeeeeeeeeee', code + 'checkCode', checkCode);
+    const UrlCode = `${API_URL}${code_url}${phone}${code_url_2}${code}${type}`;
+    if (checkCode == code && code.length === 4) {
       await axios
         .get(UrlCode)
         .then(res => {
-          // AsyncStorage.setItem('token', JSON.stringify(phone));
-          console.log('---++++++-----++++++-----');
-          console.log('---++++++-----++++++-----');
           const data = res.data[0];
+          console.log('---++++++-----++++++-----');
+          console.log('---++++++-----++++++-----');
           console.log(data);
-          //@ts-ignore
-          // setUser(data);
           console.log('---++++++-----++++++-----');
           console.log('---++++++-----++++++-----');
-          // refreshToken(true);
-          //@ts-ignore
 
-            axios
+          axios
             .post(API_URL, {
               table: 'users',
               type: 'insertby',
               data: {
-                phone: '998990260746',
+                phone: phone,
               },
               where: {
                 phone: JSON.parse(myPhone),
               },
             })
             .then(res => {
+              Toast.show({
+                type: 'success',
+                text1: 'Phone Update',
+                text2: "Muvaffaqqiyatli o'zgartirildi ! )",
+                visibilityTime: 4000,
+                autoHide: true,
+                topOffset: 10,
+              });
               console.log(
                 // @ts-ignore
                 `Qoshildi Success..... ${JSON.stringify(res.data)}`,
@@ -208,10 +265,22 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
                 ...user,
                 phone: phone,
               });
+              // setUser({...data, data: data});
+              // setName({...name, name: data?.name});
+              // setSurName({...surName, surName: data?.surname});
               console.log('++++++++++++++++');
-               AsyncStorage.setItem('token','998990260746');
-
+              AsyncStorage.setItem('token', phone);
+              setSubmitDisable({...submitDisable, updatePhoneBtn: false});
+              setUserBoolean({
+                ...userBoolean,
+                editName: false,
+                editLastName: false,
+                editPhone: false,
+                submitEditPhone: false,
+                takeCode: false,
+              });
               // @ts-ignore
+              RNRestart.Restart();
             })
             .catch(err => {
               console.log(`${err}/NoUpdate.. Internet ishlamayabdi...`);
@@ -220,46 +289,134 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
         .catch(err => console.log('------Error___Code-----' + err));
 
       // setCodeDisabled(false);
-      // setTimeLeft(time);
-      // setIsCounting(false);
-      // setVisibleWarningCode(false);
-      // setVisibleSendCode(false);
-      // setReloadDisable(true);
-      // setCode('');
-      // checkCode('');
-      // setPhone('+ 998');
+      setTimeLeft(time);
+      setIsCounting(false);
+      setVisibleWarning(false);
+      setVisibleSendCode(false);
+      setReloadDisable(true);
+      setCheckCode('');
+      setCode('');
+      setUserBoolean({
+        ...userBoolean,
+        takeCode: false,
+      });
     } else {
       // setCodeDisabled(false);
-      // setTimeLeft(time);
-      // setReloadDisable(true);
-      // setVisibleWarningCode(true);
-      // setVisibleSendCode(false);
+      setTimeLeft(time);
+      setReloadDisable(true);
+      setVisibleWarning(true);
+      setVisibleSendCode(false);
+      setCheckCode('');
     }
     // setCodeDisabled(false);
+    setSubmitDisable({...submitDisable, updatePhoneBtn: false});
   }
+  let onPressRequestCode = async () => {
+    const UrlPhoneNumber = `${API_URL}${phone_url}${phone}${phone_url_2}${Token}`;
+    await axios
+      .get(UrlPhoneNumber)
+      .then(res => {
+        setCheckCode(res.data);
+        console.log(
+          '_________-____-________ ' + res.data + ' _________-____-________',
+        );
+      })
+      .catch(err => console.log('------Error___Code-----' + err));
+    setReloadDisable(false);
+    if (timeLeft === 0) {
+      setTimeLeft(time);
+    } else {
+      setTimeLeft(time);
+    }
+    setIsCounting(true);
+    setVisibleSendCode(true);
+    setVisibleWarning(false);
+    setCode('');
+    console.log(code, checkCode);
+  };
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setCheckCode('');
+      console.log('ChechCode tozalandi ' + checkCode);
 
+      const interval = setInterval(() => {
+        setTimeOff(!timeOff);
+      }, 700);
+      return () => {
+        clearInterval(interval);
+      };
+    } else {
+      setTimeOff(false);
+    }
+  }, [timeLeft, timeOff]);
   function ClearUser() {
     // @ts-ignore
     setUser([]);
   }
+  function IphoneNumberTogglePen() {
+    if (userBoolean.editPhone == false) {
+      // @ts-ignore
+      setUserBoolean({
+        ...userBoolean,
+        editPhone: !userBoolean.editPhone,
+        submitEditPhone: !userBoolean.submitEditPhone,
+      });
+      console.log('ochildi');
+      console.log('ochildi');
+      console.log('ochildi');
+    } else {
+      console.log('tozalandi');
+      console.log('tozalandi');
+      console.log('tozalandi');
 
+      setUserBoolean({
+        ...userBoolean,
+        editName: false,
+        editLastName: false,
+        editPhone: false,
+        submitEditPhone: false,
+        takeCode: false,
+      });
+      setCode('');
+      setCheckCode('');
+      setVisibleWarning(false);
+      setIsCounting(false);
+      setTimeLeft(time);
+      setPhoneEditNumber(myPhone);
+    }
+  }
   return (
     <ProfilCreateContext.Provider
       value={{
         setUser,
         user,
-        userTeam,
         userBoolean,
         submitDisable,
         setUserBoolean,
-        setUserTeam,
         UpdateUsers,
         ClearUser,
+        name,
+        surName,
+        setName,
+        setSurName,
+        visibleWarning,
+        setVisibleWarning,
+        visibleSendCode,
+        setVisibleSendCode,
+        reloadDisable,
+        IphoneNumberTogglePen,
+        //
+        timeOff,
+        minutes,
+        seconds,
         //
         PhoneNumberEdit,
         CodeEditSubmit,
-        codeChekEdit,
-        setCodeChekEdit,
+        code,
+        setCode,
+        phoneEditNumber,
+        setPhoneEditNumber,
+        onPressRequestCode,
       }}>
       {children}
     </ProfilCreateContext.Provider>

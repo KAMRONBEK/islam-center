@@ -153,6 +153,7 @@ export const style = StyleSheet.create({
   writeCode: {
     fontSize: 16,
     fontWeight: '600',
+    marginTop: 20,
     marginBottom: 20,
     color: colors.red,
   },

@@ -17,6 +17,7 @@ import {
   phone_url,
   phone_url_2,
   Token,
+  type,
 } from './Url';
 import {Routes} from '../../navigation/routes/routes';
 import {useNavigation} from '@react-navigation/native';
@@ -24,6 +25,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useProfilContext} from '../profil/ProfilContext';
 import {TypeProfilState} from '../profil/TypeProfil';
+import Toast from 'react-native-toast-message';
 
 export const AuthCreateContext = createContext<TypeAuth | null>(null);
 
@@ -102,11 +104,19 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
   async function CodeSubmit() {
     // const StandartPhone: any = phone.replace(/\D/gi, '');
     setCodeDisabled(true);
-    const UrlCode = `${API_URL}${code_url}${phone}${code_url_2}${code}`;
+    const UrlCode = `${API_URL}${code_url}${phone}${code_url_2}${code}${type}`;
     if (checkCode == code && code.length === 4) {
       await axios
         .get(UrlCode)
         .then(res => {
+          Toast.show({
+            type: 'success',
+            text1: 'Log In',
+            text2: 'Muvaffaqqiyatli kirildi !',
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 10,
+          });
           AsyncStorage.setItem('token', JSON.stringify(phone));
           console.log('---++++++-----++++++-----');
           console.log('---++++++-----++++++-----');
@@ -121,7 +131,6 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
           navigation.navigate(Routes.AuthStack);
         })
         .catch(err => console.log('------Error___Code-----' + err));
-
       setCodeDisabled(false);
       setTimeLeft(time);
       setIsCounting(false);
@@ -137,6 +146,7 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
       setReloadDisable(true);
       setVisibleWarningCode(true);
       setVisibleSendCode(false);
+      setCheckCode('');
     }
     setCodeDisabled(false);
   }
@@ -208,6 +218,14 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
     // RNRestart.Restart();
     // @ts-ignore
     ClearUser();
+    Toast.show({
+      type: 'success',
+      text1: 'LogOut',
+      text2: 'Accountdan chiqib ketildi',
+      visibilityTime: 4000,
+      autoHide: true,
+      topOffset: 10,
+    });
   }
   //------- Profil -------------------------------
 

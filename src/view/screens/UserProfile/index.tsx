@@ -29,23 +29,35 @@ const UserProfile = (props, index) => {
   let navigation = useNavigation();
   const {
     user,
-    userTeam,
-    setUserTeam,
+    name,
+    setName,
+    surName,
+    setSurName,
     UpdateUsers,
     userBoolean,
     setUserBoolean,
     submitDisable,
+    visibleWarning,
+    setVisibleWarning,
+    visibleSendCode,
+    setVisibleSendCode,
+    reloadDisable,
+    //
+    timeOff,
+    minutes,
+    seconds,
     //
     PhoneNumberEdit,
     CodeEditSubmit,
-    codeChekEdit,
-    setCodeChekEdit,
+    code,
+    setCode,
+    phoneEditNumber,
+    setPhoneEditNumber,
+    onPressRequestCode,
+    IphoneNumberTogglePen,
   } = useProfilContext() as TypeProfilState;
 
   // const [code, onChangeCode] = useState('1117');
-
-  const [visibleWarning, setVisibleWarning] = useState(false);
-  const [visibleSendCode, setVisibleSendCode] = useState(false);
 
   let onSubmitCode = () => {
     if (code.length == 4 && code.toString() == '1117') {
@@ -60,13 +72,11 @@ const UserProfile = (props, index) => {
     // console.warn(code);
   };
 
-  let onPressRequestCode = () => {
-    setVisibleSendCode(true);
-    setVisibleWarning(false);
-  };
-  const ChangeEditPhoneNumberZapros = () => {
-    PhoneNumberEdit();
-  };
+  // let onPressRequestCode = () => {
+  //   setVisibleSendCode(true);
+  //   setVisibleWarning(false);
+  // };
+
   return (
     <KeyboardAvoidingView
       // showsVerticalScrollIndicator={false}
@@ -124,21 +134,17 @@ const UserProfile = (props, index) => {
               <TextInput
                 style={style.userName}
                 maxLength={15}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, name: text},
-                    console.log(`name - ${text}`),
-                  )
-                }
-                defaultValue={user?.name}
+                onChangeText={setName}
+                defaultValue={name}
                 editable={userBoolean.editName}
                 placeholder="Имя..."
                 placeholderTextColor={colors.black}
                 keyboardType="default"
               />
               <TouchableOpacity
-                style={style.pencelToggle}
+                style={
+                  userBoolean.editPhone ? {display: 'none'} : style.pencelToggle
+                }
                 onPress={() =>
                   // @ts-ignore
                   setUserBoolean({
@@ -162,14 +168,8 @@ const UserProfile = (props, index) => {
               <TextInput
                 style={style.userLastName}
                 maxLength={15}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, surname: text},
-                    console.log(`surname - ${text}`),
-                  )
-                }
-                defaultValue={user?.surname}
+                onChangeText={setSurName}
+                defaultValue={surName}
                 // inlineImageRight={SearchIcon}
                 editable={userBoolean.editLastName}
                 placeholder="Фамилия..."
@@ -177,7 +177,9 @@ const UserProfile = (props, index) => {
                 keyboardType="default"
               />
               <TouchableOpacity
-                style={style.pencelToggle}
+                style={
+                  userBoolean.editPhone ? {display: 'none'} : style.pencelToggle
+                }
                 onPress={() =>
                   // @ts-ignore
                   setUserBoolean({
@@ -220,30 +222,21 @@ const UserProfile = (props, index) => {
                   /\d/,
                   /\d/,
                 ]}
-                onChangeText={text =>
-                  setUserTeam(
-                    // @ts-ignore
-                    {...userTeam, phone: text},
-                    console.log(`phone - ${text}`),
-                  )
-                }
+                onChangeText={setPhoneEditNumber}
                 editable={userBoolean.editPhone}
-                value={user?.phone}
+                value={phoneEditNumber}
                 keyboardType="phone-pad"
                 placeholderTextColor="#000"
                 style={style.userPhone}
               />
               <TouchableOpacity
-                style={style.pencelToggle}
+                style={
+                  userBoolean.editName || userBoolean.editLastName
+                    ? {display: 'none'}
+                    : style.pencelToggle
+                }
                 //@ts-ignore
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editPhone: !userBoolean.editPhone,
-                    submitEditPhone: !userBoolean.submitEditPhone,
-                  })
-                }>
+                onPress={() => IphoneNumberTogglePen()}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
@@ -259,8 +252,8 @@ const UserProfile = (props, index) => {
               //@ts-ignore
               // onPress={() => navigation.navigate('BottomNavigator')}
               onPress={() => UpdateUsers()}
-              disabled={submitDisable}
-              text={submitDisable ? 'Загрузка' : 'Подтвердить'}
+              disabled={submitDisable.updateUsersBtn}
+              text={submitDisable.updateUsersBtn ? 'Загрузка' : 'Подтвердить'}
               textStyles={{
                 color: colors.white,
                 marginRight: 17,
@@ -280,27 +273,28 @@ const UserProfile = (props, index) => {
               <Button
                 containerStyle={style.buttonContainer}
                 // @ts-ignore
-                onPress={() => ChangeEditPhoneNumberZapros()}
-                text="Запросить код"
+                onPress={() => PhoneNumberEdit()}
+                disabled={submitDisable.zaprositCodeBtn}
+                text={
+                  submitDisable.zaprositCodeBtn ? 'Загрузка' : 'Запросить код'
+                }
                 textStyles={style.buttonText}
               />
             </View>
           ) : null}
           {userBoolean.takeCode ? (
             <View style={style.userInformationContainer}>
+              <Text style={style.takeCodeText}>
+                Чтобы сменить номер телефона вам нужно будет вести код
+                отправленный на ваш номер
+              </Text>
               <Text style={style.writeCode}>Введите код</Text>
               <View style={style.inputContainerEditable}>
                 <MaskInput
                   mask={[/\d/, /\d/, /\d/, /\d/]}
                   // @ts-ignore
-                  onChangeText={text =>
-                    setCodeChekEdit(
-                      // @ts-ignore
-                      {...codeChekEdit, code: text},
-                      console.log(`code - ${text}`),
-                    )
-                  }
-                  value={codeChekEdit.code}
+                  onChangeText={setCode}
+                  value={code}
                   // editable={userBoolean.editLastName}
                   style={style.userLastName}
                   placeholderTextColor={colors.black}
@@ -311,19 +305,23 @@ const UserProfile = (props, index) => {
                 <Text style={style.warning}>Код введен не верно</Text>
               ) : null}
               {visibleSendCode ? (
-                <Text style={style.reloadCodeText}>
-                  Повторно можно запросить через: 1:30
+                <Text
+                  style={[style.reloadCodeText, {opacity: timeOff ? 0.2 : 1}]}>
+                  Повторно можно запросить через: {minutes}:{seconds}
                 </Text>
               ) : null}
               <Button
                 containerStyle={style.buttonContainer}
                 //@ts-ignore
                 onPress={() => CodeEditSubmit()}
-                text="Подтвердить"
+                disabled={submitDisable.updatePhoneBtn}
+                text={submitDisable.updatePhoneBtn ? 'Загрузка' : 'Подтвердить'}
                 textStyles={style.buttonText}
               />
               <TouchableOpacity onPress={onPressRequestCode}>
-                <Text style={style.takeCode}>Запросить код ещё раз</Text>
+                {reloadDisable ? (
+                  <Text style={style.takeCode}>Запросить код ещё раз</Text>
+                ) : null}
               </TouchableOpacity>
             </View>
           ) : null}
