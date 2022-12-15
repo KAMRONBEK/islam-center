@@ -38,6 +38,8 @@ export interface TypeProfilState {
   setCodeChekEdit: () => any;
   onPressRequestCode: () => any;
   IphoneNumberTogglePen: () => any;
+  NameTogglePen: () => any;
+  UserNameTogglePen: () => any;
 }
 
 export type TypeProfil = {};

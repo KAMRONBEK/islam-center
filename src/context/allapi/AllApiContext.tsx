@@ -26,15 +26,33 @@ export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
   }
   // CATALOGS ---------------
   const [catalogs, setCatalogs] = useState<any>([]);
+  const [catalogsDATA, setCatalogsDATA] = useState<any>([]);
+
   function getCatalogs() {
     axios
       .get(`${API_URL}catalogs`)
       .then(res => {
         setCatalogs(res.data);
+        setCatalogsDATA(res.data);
         // console.log(res.data);
       })
       .catch(res => {
         console.log(`Error Catalogs - ${res}`);
+      });
+  }
+  // CATEGORY_BOOKS ---------------
+  const [categoryBooks, setCategoryBooks] = useState<any>([]);
+  function getCategoryBooks() {
+    axios
+      .get(`${API_URL}category_books`)
+      .then(res => {
+        setCategoryBooks(res.data);
+        // console.log(`------------------------`);
+        // console.log(res.data);
+        // console.log(`------------------------`);
+      })
+      .catch(res => {
+        console.log(`Error categoryBooks - ${res}`);
       });
   }
   // Media - Photo - Video - Audio ---------------
@@ -76,9 +94,9 @@ export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
       .get(`${API_URL}media_audio`)
       .then(res => {
         setMediaAudios(res.data);
-        console.log('- - - - - - - - - - - - - - - - - - - - - - ');
-        console.log(res.data);
-        console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
+        // console.log(res.data);
+        // console.log('- - - - - - - - - - - - - - - - - - - - - - ');
       })
       .catch(res => {
         console.log(`Error Media Audios - ${res}`);
@@ -88,6 +106,7 @@ export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
   useEffect(() => {
     getNewPosts();
     getCatalogs();
+    getCategoryBooks();
     getMedia_Photos();
     getMedia_Videos();
     getMedia_Audios();
@@ -97,6 +116,9 @@ export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
       value={{
         newPosts,
         catalogs,
+        setCatalogs,
+        catalogsDATA,
+        categoryBooks,
         mediaPhotos,
         mediaVideos,
         mediaAudios,

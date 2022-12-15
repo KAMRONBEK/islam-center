@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useState, useEffect} from 'react';
 import {TypeLang, TypeLangState} from './TypeLang';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import RNRestart from 'react-native-restart';
 
 export const LangCreateContext = createContext<TypeLang | null>(null);
 
@@ -21,6 +22,7 @@ export const LangContext: React.FC<React.ReactNode> = ({children}) => {
     console.log('-----');
     console.log(key);
     console.log('-----');
+    RNRestart.Restart();
   };
   useEffect(() => {
     (async () => {

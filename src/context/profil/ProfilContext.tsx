@@ -10,6 +10,7 @@ import {TypeProfil, TypeProfilState} from './TypeProfil';
 import axios from 'axios';
 import {
   API_URL,
+  API_URL_CHECK_USER,
   API_URL_USER,
   code_url,
   code_url_2,
@@ -22,7 +23,7 @@ import {useAuthContext} from '../auth/AuthContext';
 import {TypeAuthState} from '../auth/TypeAuth';
 import Toast from 'react-native-toast-message';
 export const ProfilCreateContext = createContext<TypeProfil | null>(null);
-import RNRestart from 'react-native-restart'; 
+import RNRestart from 'react-native-restart';
 export const useProfilContext = () => {
   return useContext(ProfilCreateContext);
 };
@@ -34,7 +35,7 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
   const [name, setName] = useState<TypeProfilState | any>('');
   const [surName, setSurName] = useState<TypeProfilState | any>('');
   const [phoneEditNumber, setPhoneEditNumber] = useState<TypeProfilState | any>(
-    '',
+    '998',
   );
   const phone: any = phoneEditNumber.replace(/\D/gi, '');
   const [userBoolean, setUserBoolean] = useState<TypeProfilState | any>({
@@ -72,6 +73,7 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
     if (timeLeft === 0) {
       setIsCounting(false);
       setCheckCode('');
+      setReloadDisable(true);
     }
     return () => {
       clearInterval(interval);
@@ -179,44 +181,56 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
     setSubmitDisable({...submitDisable, zaprositCodeBtn: true});
     console.log(`Sening raqaming ${phone}`);
     const UrlPhoneNumber = `${API_URL}${phone_url}${phone}${phone_url_2}${Token}`;
-    if (JSON.parse(myPhone) !== phone) {
-      if (phoneEditNumber.length >= 12) {
-        await axios
-          .get(UrlPhoneNumber)
-          .then(res => {
-            console.log(
-              ' _________-____-________' +
-                res.data +
-                ' _________-____-________',
-            );
-            setCheckCode(res.data);
-            console.log(`checkCode - ${checkCode}`);
+    await axios.get(`${API_URL_CHECK_USER}${phone}`).then(responsive => {
+      const userPhoneCheck = responsive.data;
+      console.log(` Bu telefon raqam   ${userPhoneCheck}`);
+      if (userPhoneCheck !== 'Success') {
+        if (phoneEditNumber.length >= 18 && JSON.parse(myPhone) !== phone) {
+          axios
+            .get(UrlPhoneNumber)
+            .then(res => {
+              console.log(
+                ' _________-____-________' +
+                  res.data +
+                  ' _________-____-________',
+              );
+              setCheckCode(res.data);
+              console.log(`checkCode - ${checkCode}`);
 
-            setUserBoolean({
-              ...userBoolean,
-              submitEditPhone: !userBoolean.submitEditPhone,
-              takeCode: !userBoolean.takeCode,
+              setUserBoolean({
+                ...userBoolean,
+                submitEditPhone: !userBoolean.submitEditPhone,
+                takeCode: !userBoolean.takeCode,
+              });
+              setSubmitDisable({...submitDisable, zaprositCodeBtn: false});
+            })
+            .catch(err => {
+              console.log('------Error___Phone-----' + err);
             });
-            setSubmitDisable({...submitDisable, zaprositCodeBtn: false});
-          })
-          .catch(err => {
-            console.log('------Error___Phone-----' + err);
+          setVisibleSendCode(true);
+          setIsCounting(true);
+          setReloadDisable(true);
+        } else {
+          Toast.show({
+            type: 'info',
+            text1: 'Info',
+            text2: 'Xatolik yuz berdi raqamni tekshiring !',
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 10,
           });
-        setVisibleSendCode(true);
-        setIsCounting(true);
-        setReloadDisable(true);
+        }
       } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Error',
+          text2: "Bu raqam ro'yxatdan o'tilgan !",
+          visibilityTime: 5000,
+          autoHide: true,
+          topOffset: 10,
+        });
       }
-    } else {
-      Toast.show({
-        type: 'info',
-        text1: 'Info',
-        text2: "Raqam o'zgartirilmadi",
-        visibilityTime: 4000,
-        autoHide: true,
-        topOffset: 10,
-      });
-    }
+    });
 
     setSubmitDisable({...submitDisable, zaprositCodeBtn: false});
   }
@@ -353,6 +367,7 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
     // @ts-ignore
     setUser([]);
   }
+  // Update Buttons Functions ---------
   function IphoneNumberTogglePen() {
     if (userBoolean.editPhone == false) {
       // @ts-ignore
@@ -383,6 +398,42 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
       setIsCounting(false);
       setTimeLeft(time);
       setPhoneEditNumber(myPhone);
+    }
+  }
+  function NameTogglePen() {
+    if (userBoolean.editName == false) {
+      setUserBoolean({
+        ...userBoolean,
+        editName: !userBoolean.editName,
+      });
+      console.log(`EditName Ochildi...`);
+    } else {
+      // @ts-ignore
+      setUserBoolean({
+        ...userBoolean,
+        editName: !userBoolean.editName,
+      });
+      console.log(`Yopildi...`);
+      setName(user?.name);
+    }
+  }
+  function UserNameTogglePen() {
+    if (userBoolean.editLastName == false) {
+      // @ts-ignore
+      setUserBoolean({
+        ...userBoolean,
+        editLastName: !userBoolean.editLastName,
+      });
+      console.log(`UserNameEdit Ochildi...`);
+    } else {
+      // @ts-ignore
+      // @ts-ignore
+      setUserBoolean({
+        ...userBoolean,
+        editLastName: !userBoolean.editLastName,
+      });
+      console.log(`Yopildi...`);
+      setSurName(user?.surname);
     }
   }
   return (
@@ -417,6 +468,8 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
         phoneEditNumber,
         setPhoneEditNumber,
         onPressRequestCode,
+        NameTogglePen,
+        UserNameTogglePen,
       }}>
       {children}
     </ProfilCreateContext.Provider>

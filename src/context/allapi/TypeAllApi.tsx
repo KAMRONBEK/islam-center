@@ -1,6 +1,8 @@
 export interface TypeAllApiState {
   newPosts: any;
   catalogs: any;
+  catalogsDATA: any;
+  categoryBooks: any;
   mediaPhotos: any;
   mediaVideos: any;
   mediaAudios: any;
@@ -9,6 +11,9 @@ export interface TypeAllApiState {
   setMediaVideos: () => any;
   setMediaPhotos: () => any;
   setCatalogs: () => any;
+  setCatalogsDATA: () => any;
+
+  setCategoryBooks: () => any;
   setNewPost: () => any;
 }
 

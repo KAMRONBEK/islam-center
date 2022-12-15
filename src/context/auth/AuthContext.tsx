@@ -68,6 +68,7 @@ export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
     if (timeLeft === 0) {
       setIsCounting(false);
       setCheckCode('');
+      setReloadDisable(true)
     }
     return () => {
       clearInterval(interval);

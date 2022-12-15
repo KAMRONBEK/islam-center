@@ -85,10 +85,19 @@ export const style = StyleSheet.create({
     height: 52,
     width: windowWidth / 1 - 100,
     // backgroundColor: colors.white,
-
     // paddingHorizontal: 20,
   },
-
+  catalogsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    // backgroundColor: '#000',
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    // paddingVertical: 10,
+    // marginVertical: 30,
+    // marginBottom: 130,
+  },
   productContainer: {
     // backgroundColor: '#000',
     paddingHorizontal: 20,

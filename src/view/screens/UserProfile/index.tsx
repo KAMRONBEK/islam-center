@@ -55,6 +55,8 @@ const UserProfile = (props, index) => {
     setPhoneEditNumber,
     onPressRequestCode,
     IphoneNumberTogglePen,
+    NameTogglePen,
+    UserNameTogglePen,
   } = useProfilContext() as TypeProfilState;
 
   // const [code, onChangeCode] = useState('1117');
@@ -145,13 +147,7 @@ const UserProfile = (props, index) => {
                 style={
                   userBoolean.editPhone ? {display: 'none'} : style.pencelToggle
                 }
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editName: !userBoolean.editName,
-                  })
-                }>
+                onPress={() => NameTogglePen()}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
@@ -180,13 +176,7 @@ const UserProfile = (props, index) => {
                 style={
                   userBoolean.editPhone ? {display: 'none'} : style.pencelToggle
                 }
-                onPress={() =>
-                  // @ts-ignore
-                  setUserBoolean({
-                    ...userBoolean,
-                    editLastName: !userBoolean.editLastName,
-                  })
-                }>
+                onPress={() => UserNameTogglePen()}>
                 <PencelIcon size={20} fillColor={colors.lingthGray} />
               </TouchableOpacity>
             </View>
@@ -222,9 +212,9 @@ const UserProfile = (props, index) => {
                   /\d/,
                   /\d/,
                 ]}
+                value={phoneEditNumber}
                 onChangeText={setPhoneEditNumber}
                 editable={userBoolean.editPhone}
-                value={phoneEditNumber}
                 keyboardType="phone-pad"
                 placeholderTextColor="#000"
                 style={style.userPhone}
