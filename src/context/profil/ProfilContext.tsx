@@ -438,7 +438,7 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
   }
   return (
     <ProfilCreateContext.Provider
-      value={{
+      value={{ 
         setUser,
         user,
         userBoolean,

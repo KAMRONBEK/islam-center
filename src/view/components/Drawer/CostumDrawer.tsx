@@ -33,34 +33,18 @@ import {TypeProfilState} from '../../../context/profil/TypeProfil';
 import {Routes} from '../../../navigation/routes/routes';
 import UserProfile from '../../screens/UserProfile';
 const Drawer = createDrawerNavigator();
+import {useTranslation} from 'react-i18next';
+
 //@ts-ignore
 const CustomDrawer = (props, index) => {
+  const {t, i18n} = useTranslation();
+
   let {navigation} = props;
   // let navigation = useNavigation();
-  const {SwitchLanguage, language} = useLangContext() as TypeLangState;
+  const {SwitchLanguage, language, countries} =
+    useLangContext() as TypeLangState;
   const {user} = useProfilContext() as TypeProfilState;
-  const countries = [
-    {
-      name: 'UZ',
-      key: 'uz',
-    },
-    {
-      name: 'RU',
-      key: 'ru',
-    },
-    {
-      name: 'EN',
-      key: 'en',
-    },
-    {
-      name: 'OZ',
-      key: 'oz',
-    },
-    {
-      name: 'AR',
-      key: 'ar',
-    },
-  ];
+
   // @ts-ignore
   const langu: any = language;
   return (

@@ -3,6 +3,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TypeApiLang} from './TypeAllApi';
 import axios from 'axios';
 import {API_URL} from './Url';
+import {TypeLangState} from '../lang/TypeLang';
+import {useLangContext} from '../lang/LangContext';
 
 export const AllApiCreateContext = createContext<TypeApiLang | null>(null);
 
@@ -11,6 +13,7 @@ export const useAllApiContext = () => {
 };
 
 export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
+  const {language} = useLangContext() as TypeLangState;
   // ------------------GET-------------------
   // NEW POST -------------
   const [newPosts, setNewPost] = useState<any>([]);

@@ -23,8 +23,11 @@ import {useLangContext} from '../../../context/lang/LangContext';
 import {TypeAllApiState} from '../../../context/allapi/TypeAllApi';
 import {TypeLangState} from '../../../context/lang/TypeLang';
 import Button from '../../components/Button/button';
+import {useTranslation} from 'react-i18next';
 
 const Library = () => {
+  const {t} = useTranslation();
+
   const {catalogs, categoryBooks, catalogsDATA, setCatalogs} =
     useAllApiContext() as TypeAllApiState;
 
@@ -121,7 +124,7 @@ const Library = () => {
             }}
             //@ts-ignore
             onPress={() => AllCatalogs(0)}
-            text={'Hammasi'}
+            text={t('hammasi')}
             textStyles={{
               color: buttonIndex === 0 ? colors.white : colors.green,
               // marginRight: 17,
@@ -134,6 +137,7 @@ const Library = () => {
           {categoryBooks.map((books_category: any, index: any) => (
             <>
               <Button
+                key={index}
                 containerStyle={{
                   // marginHorizontal: 10,
                   marginVertical: 8,
@@ -164,7 +168,7 @@ const Library = () => {
 
         {catalogs.length === 0 ? (
           <View style={style.catalogsContainer}>
-            <Text>Topilmadi...</Text>
+            <Text>{t('topilmadi')}...</Text>
           </View>
         ) : (
           <FlatList
@@ -181,6 +185,7 @@ const Library = () => {
               return (
                 <>
                   <View
+                    key={index}
                     style={[
                       style.productContainer,
                       (index + 1) % 2 == 0
