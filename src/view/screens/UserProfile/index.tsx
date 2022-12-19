@@ -108,13 +108,25 @@ const UserProfile = (props, index) => {
             headingTextStyle={style.titleStyle}
           />
         </ImageBackground>
-
         <View style={style.userContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: 130,
+              height: 130,
+              // backgroundColor: '#991',
+              borderRadius: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
             <Image
               source={require('../../assets/images/userImage.png')}
               resizeMode="cover"
               style={style.userImage}
+              // style={{
+              //   width: '100%',
+              //   height: '100%',
+              //   borderRadius: 50,
+              // }}
             />
           </TouchableOpacity>
           <Text style={style.userFullName}>

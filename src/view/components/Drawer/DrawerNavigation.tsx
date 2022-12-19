@@ -167,17 +167,16 @@ const AuthStack = () => {
       <Drawer.Screen
         name="Выход"
         component={Intro}
+        listeners={{
+          drawerItemPress: () => {
+            Logout(), console.log('LogOut');
+          },
+        }}
         options={{
           drawerIcon: ({color}) => (
             <SignOutIcon size={24} fillColor={colors.black} />
           ),
-          drawerLabel: () => (
-            <TouchableOpacity
-              style={styles.ButtonOpacity}
-              onPress={() => Logout()}>
-              <Text style={styles.TextSize}> Выход</Text>
-            </TouchableOpacity>
-          ),
+          drawerLabel: 'Выход',
         }}
       />
     </Drawer.Navigator>
@@ -187,7 +186,9 @@ const AuthStack = () => {
 export default AuthStack;
 
 const styles = StyleSheet.create({
-  ButtonOpacity: {},
+  ButtonOpacity: {
+    backgroundColor: 'red',
+  },
   TextSize: {
     fontSize: 23,
     fontWeight: '600',

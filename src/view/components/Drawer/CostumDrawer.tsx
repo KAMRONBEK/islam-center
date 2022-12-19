@@ -109,7 +109,18 @@ const CustomDrawer = (props, index) => {
                     height: 86,
                     backgroundColor: '#991',
                     borderRadius: 50,
-                  }}></View>
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <Image
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: 50,
+                    }}
+                    source={require('../../assets/images/userImage.png')}
+                  />
+                </View>
               </TouchableOpacity>
               <View
                 style={{
@@ -131,8 +142,7 @@ const CustomDrawer = (props, index) => {
                   {`${user?.surname == '' ? '...' : user?.surname}`}
                 </Text>
                 <TouchableOpacity
-                // onPress={() => navigation.navigate(Routes.UserProfile)}
-                >
+                  onPress={() => navigation.navigate(Routes.UserProfile)}>
                   <Text
                     style={{
                       fontSize: 16,
