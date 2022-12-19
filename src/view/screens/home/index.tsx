@@ -99,7 +99,7 @@ const Home = props => {
   const {language} = useLangContext() as TypeLangState;
   // Calendar Functions //
 
-  function leadingZero(value) {
+  function leadingZero(value: any) {
     if (value < 10) {
       return '0' + value.toString();
     }
