@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
+  ReactNode,
 } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TypeProfil, TypeProfilState} from './TypeProfil';
@@ -28,7 +29,7 @@ export const useProfilContext = () => {
   return useContext(ProfilCreateContext);
 };
 
-export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
+export const ProfilContext = ({children}: {children: ReactNode}) => {
   const [myPhone, setMyPhone] = useState<TypeProfilState | any>([]);
   const [user, setUser] = useState<TypeProfilState | any>([]);
   //
@@ -438,7 +439,7 @@ export const ProfilContext: React.FC<React.ReactNode> = ({children}) => {
   }
   return (
     <ProfilCreateContext.Provider
-      value={{ 
+      value={{
         setUser,
         user,
         userBoolean,

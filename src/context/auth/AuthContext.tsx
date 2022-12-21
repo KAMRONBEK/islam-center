@@ -2,6 +2,7 @@ import RNRestart from 'react-native-restart';
 import {Alert, StyleSheet, Text, View} from 'react-native';
 import React, {
   createContext,
+  ReactNode,
   useCallback,
   useContext,
   useEffect,
@@ -33,7 +34,7 @@ export const useAuthContext = () => {
   return useContext(AuthCreateContext);
 };
 
-export const AuthContext: React.FC<React.ReactNode> = ({children}) => {
+export const AuthContext = ({children}:{children: ReactNode}) => {
   const navigation = useNavigation();
   const {user, ClearUser, setUser} = useProfilContext() as TypeProfilState;
   const [phon, setPhone] = useState<TypeAuthState | any>('998');

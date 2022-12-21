@@ -1,4 +1,10 @@
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import {TypeLang, TypeLangState} from './TypeLang';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNRestart from 'react-native-restart';
@@ -10,7 +16,7 @@ export const useLangContext = () => {
   return useContext(LangCreateContext);
 };
 
-export const LangContext: React.FC<React.ReactNode> = ({children}) => {
+export const LangContext = ({children}: {children: ReactNode}) => {
   const {t, i18n} = useTranslation();
   const countries = [
     {

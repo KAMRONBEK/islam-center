@@ -1,4 +1,10 @@
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TypeApiLang} from './TypeAllApi';
 import axios from 'axios';
@@ -12,7 +18,7 @@ export const useAllApiContext = () => {
   return useContext(AllApiCreateContext);
 };
 
-export const AllApiContext: React.FC<React.ReactNode> = ({children}) => {
+export const AllApiContext = ({children}: {children: ReactNode}) => {
   const {language} = useLangContext() as TypeLangState;
   // ------------------GET-------------------
   // NEW POST -------------

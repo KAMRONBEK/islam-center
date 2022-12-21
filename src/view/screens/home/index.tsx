@@ -95,7 +95,7 @@ LocaleConfig.defaultLocale = 'tr';
 // @ts-ignore
 const Home = props => {
   let navigation = useNavigation();
-  const {newPosts} = useAllApiContext() as TypeAllApiState;
+  const {newPosts, catalogs} = useAllApiContext() as TypeAllApiState;
   const {language} = useLangContext() as TypeLangState;
   // Calendar Functions //
 
@@ -174,11 +174,11 @@ const Home = props => {
 
   // Corusel
 
-  const _flatListCalendarRef = useRef(null);
+  const _flatListCalendarRef: any = useRef(null);
 
-  const _flatListShopRef = useRef(null);
+  const _flatListShopRef: any = useRef(null);
 
-  const _flatListNewsRef = useRef(null);
+  const _flatListNewsRef: any = useRef(null);
 
   const onSelectDate = (node: number) => {
     setSelectedIndex(node);
@@ -466,7 +466,7 @@ const Home = props => {
             chapter={true}
             chapterTitle="Библиотека"
             // @ts-ignore
-            onPress={() => navigation.navigate(Routes.Library)}
+            onPress={() => navigation.navigate(Routes.LibraryStack)}
             allChapter="ВСЕ"
           />
           <View style={style.bookShopCorusel}>
@@ -487,26 +487,40 @@ const Home = props => {
                 // borderWidth: isIOS ? 0.1 : 0.4,
                 // padding: 5,
               }}>
-              {ShopCoruselDATA.map((e, i) => {
+              {catalogs.map((e: any, i: number) => {
                 return (
                   <TouchableWithoutFeedback key={i.toString()}>
                     <View style={style.shopCoruselContainer}>
                       <View style={style.shopContent}>
-                        <View>{e.icon}</View>
+                        <View>
+                          <Image
+                            source={{
+                              uri: `https://mamajanovs.uz/images/${e.image}`,
+                            }}
+                            resizeMode="cover"
+                            style={{width: 150, height: 200, borderRadius: 5}}
+                          />
+                        </View>
                         <View style={style.shopContentText}>
                           <Text style={style.shopHintTextStyle}>
-                            {e.hintText}
+                            QURAN MAJEED
                           </Text>
-                          <Text style={style.shopTitleStyle}>{e.title}</Text>
+                          <Text style={style.shopTitleStyle}>
+                            {JSON.parse(e.title)[language]}
+                          </Text>
                         </View>
                       </View>
                       <View style={style.shopDescription}>
-                        <Text style={style.shopLabel}>{e.label}</Text>
+                        <Text style={style.shopLabel}>
+                          {JSON.parse(e.author)[language]}
+                        </Text>
                         <View style={style.shopPriceContainer}>
-                          <Text style={style.shopPriceStyle}>{e.price}</Text>
-                          <Text style={style.shopCurrencyStyle}>
-                            {e.currency}
+                          <Text style={style.shopPriceStyle}>
+                            {e.price == 0 ? 'Бесплатно' : e.price}
                           </Text>
+                          {e.price == 0 ? null : (
+                            <Text style={style.shopCurrencyStyle}>{'cум'}</Text>
+                          )}
                         </View>
                       </View>
                     </View>
